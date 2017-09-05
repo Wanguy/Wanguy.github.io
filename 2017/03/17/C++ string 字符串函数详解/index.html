@@ -1,11 +1,17 @@
 <!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>  · Gavin's Blog</title><meta name="description" content=" - Richard Gavin"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Gavin's Blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/sunchongsheng" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/wanguy" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title"></h1><div class="post-info">Mar 17, 2017</div><div class="post-content"><h1 id="C-string-字符串函数详解"><a href="#C-string-字符串函数详解" class="headerlink" title="C++ string 字符串函数详解"></a>C++ string 字符串函数详解</h1><blockquote>
 <h2 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h2></blockquote>
 <ol>
-<li>+ 和 +=：连接字符串</li>
-<li>=：字符串赋值</li>
-<li>>、&gt;=、&lt; 和 &lt;=：字符串比较（例如a &lt; b, aa &lt; ab）</li>
-<li>==、!=：比较字符串</li>
-<li>&lt;&lt;、&gt;&gt;：输出、输入字符串</li>
+<li><p>+ 和 +=：连接字符串</p>
+</li>
+<li><p>=：字符串赋值</p>
+</li>
+<li><p>>、&gt;=、&lt; 和 &lt;=：字符串比较（例如a &lt; b, aa &lt; ab）</p>
+</li>
+<li><p>==、!=：比较字符串</p>
+</li>
+<li><p>&lt;&lt;、&gt;&gt;：输出、输入字符串</p>
+<a id="more"></a>
+</li>
 </ol>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="built_in">string</span> str = <span class="string">"cat"</span>;</div><div class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"apple"</span> + <span class="string">"boy"</span> + str; <span class="comment">// illegal!</span></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
