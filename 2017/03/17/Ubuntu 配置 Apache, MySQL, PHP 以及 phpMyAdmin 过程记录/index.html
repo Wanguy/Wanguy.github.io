@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>  · Gavin's Blog</title><meta name="description" content=" - Richard Gavin"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="Gavin's Blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/sunchongsheng" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/wanguy" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title"></h1><div class="post-info">Mar 17, 2017</div><div class="post-content"><h1 id="Ubuntu-配置-Apache-MySQL-PHP-以及-phpMyAdmin-过程记录"><a href="#Ubuntu-配置-Apache-MySQL-PHP-以及-phpMyAdmin-过程记录" class="headerlink" title="Ubuntu 配置 Apache, MySQL, PHP 以及 phpMyAdmin 过程记录"></a>Ubuntu 配置 Apache, MySQL, PHP 以及 phpMyAdmin 过程记录</h1><h2 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo apt-get install apache2</div></pre></td></tr></table></figure>
+<p>装好后，配置文件应该位于<code>/etc/apache2</code>中，默认情况下无需修改即可使用。默认的网站目录为<code>/var/www/</code>。</p>
+<a id="more"></a>
+<p>启动 Apache 的方法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo /etc/init.d/apache2 start</div></pre></td></tr></table></figure>
+<p>重启 Apache：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo /etc/init.d/apache2 restart</div></pre></td></tr></table></figure>
+<p>停止 Apache：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo /etc/init.d/apache2 stop</div></pre></td></tr></table></figure>
+<p>上述命令也可以写成这种形式（以启动为例）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo service apache2 start</div></pre></td></tr></table></figure>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>装好并启动 Apache 服务后，本地服务器应该就可以用了。可以利用<code>curl</code>访问 localhost 来测试：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> curl localhost</div></pre></td></tr></table></figure>
+<p>Apache 的错误日志文件默认为<code>/var/log/apache2/error.log</code>。</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>启动的时候可能会出现如下警告：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apache2: Could not determine the server's fully qualified domain name, using 127.0.0.1 for ServerName</div></pre></td></tr></table></figure>
+<p>说明你没有指定<code>ServerName</code>。如果想去掉这个错误，可以修改<code>/etc/apache2/apache2.conf</code>文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo vi /etc/apache2/apache2.conf</div></pre></td></tr></table></figure>
+<p>添加如下行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ServerName localhost</div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2></blockquote>
+<h3 id="安装-PHP"><a href="#安装-PHP" class="headerlink" title="安装 PHP"></a>安装 PHP</h3><p>同样使用<code>apt-get</code>命令安装 PHP：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo apt-get install php5</div></pre></td></tr></table></figure>
+<p>执行之后，PHP 应该就已经部署完毕了。可以使用<code>phpinfo()</code>函数来测试 PHP 是否已经就绪：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo vi /var/www/phpinfo.php</div></pre></td></tr></table></figure>
+<p>在文件里输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;?php phpinfo(); ?&gt;</div></pre></td></tr></table></figure>
+<p>然后<code>curl localhost/phpinfo.php</code>来查看。</p>
+<h3 id="安装其他-PHP-模块"><a href="#安装其他-PHP-模块" class="headerlink" title="安装其他 PHP 模块"></a>安装其他 PHP 模块</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo apt-get install php5-mysql php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-mcrypt php5-memcache php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl</div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2></blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo apt-get install mysql-server</div></pre></td></tr></table></figure>
+<p>安装过程中需要设定 root 账户的密码。至此，LAMP 环境已经配好。</p>
+<blockquote>
+<h2 id="phpMyAdmin"><a href="#phpMyAdmin" class="headerlink" title="phpMyAdmin"></a>phpMyAdmin</h2></blockquote>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><p>首先执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo apt-get install phpmyadmin</div></pre></td></tr></table></figure>
+<p>安装过程比较长，会有几个选项，依次如下：</p>
+<p>（1）选择服务器软件。这里选择刚刚安装的 Apache2。</p>
+<p>（2）选择手动设定。</p>
+<p>（3）输入之前安装 MySQL 时设的 MySQL root 账户的密码。</p>
+<p>（4）设定 phpMyAdmin 的登录密码。</p>
+<p>注意，phpMyAdmin 的配置文件为：<code>/etc/phpmyadmin/config.inc.php</code>。</p>
+<h3 id="包含-pma-的配置文件到-Apache"><a href="#包含-pma-的配置文件到-Apache" class="headerlink" title="包含 pma 的配置文件到 Apache"></a>包含 pma 的配置文件到 Apache</h3><p>安装后，还不能立即使用 phpMyAdmin，因为它不在网站目录下。为了正常使用，只需把 phpMyAdmin 的配置文件包含到 Apache 的配置中。编辑<code>apache2.conf</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo vi /etc/apache2/apache2.conf</div></pre></td></tr></table></figure>
+<p>在文件中添加如下行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Include /etc/phpmyadmin/apache.conf</div></pre></td></tr></table></figure>
+<p>重启服务器：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo service apache2 restart</div></pre></td></tr></table></figure>
+<p>至此，你就可以通过<code>yourdomain/phpmyadmin</code>来访问 phpMyAdmin 了。</p>
+<h3 id="mcrypt-模块丢失的错误"><a href="#mcrypt-模块丢失的错误" class="headerlink" title="mcrypt 模块丢失的错误"></a>mcrypt 模块丢失的错误</h3><p>一个 bug 可能导致访问 phpMyAdmin 时出现 mcrypt 模块丢失的错误。如果遇到，则可以采用下面的办法修复：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo ln -s /etc/php5/conf.d/mcrypt.ini /etc/php5/mods-available/</div><div class="line"><span class="meta">$</span> sudo php5enmod mcrypt</div><div class="line"><span class="meta">$</span> sudo service apache2 restart</div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="全局禁用-Index"><a href="#全局禁用-Index" class="headerlink" title="全局禁用 Index"></a>全局禁用 Index</h2></blockquote>
+<p>Index 就是访问一个不存在 index.html、index.php 等文件的目录时服务器列出的文件列表，这样会对用户展示文件结构，如果想禁用，可以修改 Apache 的配置文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo vi /etc/apache2/apache2.conf</div></pre></td></tr></table></figure>
+<p>找到并修改为</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;Directory /var/www/&gt;</div><div class="line">        Options -Indexes</div><div class="line">        Options FollowSymLinks</div><div class="line">        AllowOverride None</div><div class="line">        Require all granted</div><div class="line">&lt;/Directory&gt;</div></pre></td></tr></table></figure></div></article></div></main><footer><div class="paginator"><a href="/2017/03/19/Git 快速开始简明教程/" class="prev">PREV</a><a href="/2017/03/17/C++ string 字符串函数详解/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
+var disqus_identifier = '2017/03/17/Ubuntu 配置 Apache, MySQL, PHP 以及 phpMyAdmin 过程记录/';
+var disqus_title = '';
+var disqus_url = 'http://yoursite.com/2017/03/17/Ubuntu 配置 Apache, MySQL, PHP 以及 phpMyAdmin 过程记录/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//seansun.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2017 <a href="http://yoursite.com">Richard Gavin</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
