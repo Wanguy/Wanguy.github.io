@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-08T12:23:47.000Z</updated>
+  <updated>2017-09-18T13:11:47.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,73 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VPS搭载ss实现科学上网</title>
+    <link href="http://yoursite.com/2017/09/18/VPS%E6%90%AD%E8%BD%BDss%E5%AE%9E%E7%8E%B0%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
+    <id>http://yoursite.com/2017/09/18/VPS搭载ss实现科学上网/</id>
+    <published>2017-09-18T13:01:35.000Z</published>
+    <updated>2017-09-18T13:11:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>简而言之，想使用shadowsocks翻墙，需要一个客户端和一个服务端。</p>
+<p>这篇文章主要是如何在VPS上配置shadowsocks，并使用代理实现科学上网。</p>
+<a id="more"></a>
+<h2 id="登录VPS服务器"><a href="#登录VPS服务器" class="headerlink" title="登录VPS服务器"></a>登录VPS服务器</h2><p>在终端中输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -i [PATH_TO_PRIVATE_KEY] [USERNAME]@[EXTERNAL_IP_ADDRESS]</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li><code>[PATH_TO_PRIVATE_KEY]</code>是私钥路径。</li>
+<li><code>[USERNAME]</code>是连接到VPS的用户的名称。</li>
+<li><code>[EXTERNAL_IP_ADDRESS]</code> 是VPS的外部IP地址。</li>
+</ul>
+</blockquote>
+<h2 id="下载shadowsocks客户端"><a href="#下载shadowsocks客户端" class="headerlink" title="下载shadowsocks客户端"></a>下载shadowsocks客户端</h2><h3 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install python-setuptools &amp;&amp; easy_install pip</div><div class="line">pip install shadowsocks</div></pre></td></tr></table></figure>
+<h3 id="Debian-Ubuntu"><a href="#Debian-Ubuntu" class="headerlink" title="Debian/Ubuntu:"></a>Debian/Ubuntu:</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get install python-pip</div><div class="line">pip install shadowsocks</div></pre></td></tr></table></figure>
+<p>有时Ubuntu会遇到第一个命令安装python-pip时找不到包的情况。pip官方给出了一个安装脚本，可以自动安装pip。先下载脚本，然后执行即可：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget https://bootstrap.pypa.io/get-pip.py</div><div class="line">python get-pip.py</div></pre></td></tr></table></figure>
+<p>或者使用easy_install安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo easy_install shadowsocks</div></pre></td></tr></table></figure>
+<h2 id="编写配置文件"><a href="#编写配置文件" class="headerlink" title="编写配置文件"></a>编写配置文件</h2><p>shadowsocks启动时的参数，如服务器端口，代理端口，登录密码等，可以通过启动时的命令行参数来设定，也可以通过json格式的配置文件设定。推荐使用配置文件，方便查看和修改。</p>
+<p>用vi新建一个配置文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/shadowsocks.json</div></pre></td></tr></table></figure>
+<p>然后输入如下内容：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&#123; </div><div class="line">   <span class="attr">"server"</span>: <span class="string">"0.0.0.0"</span>,</div><div class="line">    <span class="attr">"server_ipv6"</span>: <span class="string">"::"</span>,</div><div class="line">    <span class="attr">"server_port"</span>: <span class="number">443</span>,</div><div class="line">    <span class="attr">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</div><div class="line">    <span class="attr">"local_port"</span>: <span class="number">1081</span>,</div><div class="line">    <span class="attr">"port_password"</span>:&#123;</div><div class="line">        <span class="attr">"port_1"</span>:<span class="string">"password_1"</span>,</div><div class="line">        <span class="attr">"port_2"</span>:<span class="string">"pawwword_2"</span></div><div class="line">        &#125;,</div><div class="line">    <span class="attr">"timeout"</span>: <span class="number">120</span>,</div><div class="line">    <span class="attr">"udp_timeout"</span>: <span class="number">60</span>,</div><div class="line">    <span class="attr">"method"</span>: <span class="string">"chacha20"</span>,</div><div class="line">    <span class="attr">"protocol"</span>: <span class="string">"auth_sha1_v4_compatible"</span>,</div><div class="line">    <span class="attr">"protocol_param"</span>: <span class="string">""</span>,</div><div class="line">    <span class="attr">"obfs"</span>: <span class="string">"tls1.2_ticket_auth_compatible"</span>,</div><div class="line">    <span class="attr">"obfs_param"</span>: <span class="string">""</span>,</div><div class="line">    <span class="attr">"dns_ipv6"</span>: <span class="literal">false</span>,</div><div class="line">    <span class="attr">"connect_verbose_info"</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">"redirect"</span>: <span class="string">""</span>,</div><div class="line">    <span class="attr">"fast_open"</span>: <span class="literal">false</span>,</div><div class="line">    <span class="attr">"workers"</span>: <span class="number">1</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>简单说明一下各个配置项：</p>
+<h3 id="server"><a href="#server" class="headerlink" title="server"></a>server</h3><p>你的VPS服务器的IP地址</p>
+<h3 id="server-port"><a href="#server-port" class="headerlink" title="server_port"></a>server_port</h3><p>你的shadowsocks服务端口。一般可以填一个1025到49151之间的数字。不过需要注意的是，这里的是外部端口，使用时应避免和其它端口重复</p>
+<h3 id="local-address"><a href="#local-address" class="headerlink" title="local_address"></a>local_address</h3><p>本地IP地址，作为服务器使用的时候可以不用关注，填127.0.0.1即可。</p>
+<h3 id="local-port"><a href="#local-port" class="headerlink" title="local_port"></a>local_port</h3><p>本地端口，也不用关注。</p>
+<h3 id="port-password"><a href="#port-password" class="headerlink" title="port_password"></a>port_password</h3><p>你的shadowsocks端口和服务密码，客户端连接时需要填写的。如果需要多人共享，则每个之间用 <code>,</code> 隔开。端口使用时应注意是否被防火墙隔离。</p>
+<h3 id="timeout"><a href="#timeout" class="headerlink" title="timeout"></a>timeout</h3><p>超时时间，如果当心网络不好可以设置大一点。</p>
+<h3 id="method"><a href="#method" class="headerlink" title="method"></a>method</h3><p>加密方式。</p>
+<h3 id="fast-open"><a href="#fast-open" class="headerlink" title="fast_open"></a>fast_open</h3><p>在Ubuntu上建议填True。</p>
+<p>填好以后保存退出。</p>
+<h3 id="启动shadowsocks"><a href="#启动shadowsocks" class="headerlink" title="启动shadowsocks"></a>启动shadowsocks</h3><p>如果已经写好了配置文件，启动shadowsocks服务器的命令如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssserver -c /etc/shadowsocks.json</div></pre></td></tr></table></figure>
+<p>后台启动和停止shadowsocks服务器：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssserver -c /etc/shadowsocks.json -d start</div><div class="line">ssserver -c /etc/shadowsocks.json -d stop</div></pre></td></tr></table></figure>
+<p>shadowsocks的日志保存在</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/var/log/shadowsocks.log</div></pre></td></tr></table></figure>
+<h2 id="安装锐速"><a href="#安装锐速" class="headerlink" title="安装锐速"></a>安装锐速</h2><h3 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/91yun/serverspeeder/master/serverspeeder-all.sh &amp;&amp; bash serverspeeder-all.sh</div></pre></td></tr></table></figure>
+<h3 id="卸载："><a href="#卸载：" class="headerlink" title="卸载："></a>卸载：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chattr -i /serverspeeder/etc/apx* &amp;&amp; /serverspeeder/bin/serverSpeeder.sh uninstall -f</div></pre></td></tr></table></figure>
+<h3 id="开启："><a href="#开启：" class="headerlink" title="开启："></a>开启：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service serverSpeeder start</div></pre></td></tr></table></figure>
+<h3 id="查看状态："><a href="#查看状态：" class="headerlink" title="查看状态："></a>查看状态：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service serverSpeeder status</div></pre></td></tr></table></figure>
+<blockquote>
+<p>需要在<code>root</code>模式下进行</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;简而言之，想使用shadowsocks翻墙，需要一个客户端和一个服务端。&lt;/p&gt;
+&lt;p&gt;这篇文章主要是如何在VPS上配置shadowsocks，并使用代理实现科学上网。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ShadowSocks" scheme="http://yoursite.com/tags/ShadowSocks/"/>
+    
+  </entry>
   
   <entry>
     <title>MySQL修改root用户密码</title>
@@ -205,9 +272,9 @@
       <category term="Tutorial" scheme="http://yoursite.com/categories/Tutorial/"/>
     
     
-      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
-    
       <category term="Ubuntu" scheme="http://yoursite.com/tags/Ubuntu/"/>
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
     
   </entry>
   
