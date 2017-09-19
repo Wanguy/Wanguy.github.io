@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="Gavin&#39;s Blog">
 <meta property="og:description" content="新安装了MySQL，安装之后粗心把密码给搞丢了，进入MySQL时报错：ERROR 1045 (28000): Access denied for user ‘root’@’localhost’ (using password: NO). 通过以下步骤修改密码。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-08T12:23:47.000Z">
+<meta property="og:updated_time" content="2017-09-19T05:56:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL修改root用户密码">
 <meta name="twitter:description" content="新安装了MySQL，安装之后粗心把密码给搞丢了，进入MySQL时报错：ERROR 1045 (28000): Access denied for user ‘root’@’localhost’ (using password: NO). 通过以下步骤修改密码。">
@@ -408,7 +408,7 @@
 <h3 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h3><p>关闭MySQL服务</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /usr/local/mysql/support-files/mysql.server stop</div></pre></td></tr></table></figure>
 <blockquote>
-<p>① 通过DMG安装的MySQL通过’’System Prefrences’ &gt; MySQL &gt; ‘Stop MySQL Server’来结束MySQL服务。</p>
+<p>① 通过DMG安装的MySQL通过’<code>&#39;System Prefrences&#39; &gt; MySQL &gt; &#39;Stop MySQL Server&#39;</code>来结束MySQL服务。</p>
 <p>如果报错：ERROR! MySQL server PID file could not be found! 则直接用 ① 的方法关闭即可。</p>
 <p>同理打开服务为：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> sudo /usr/local/mysql/support-files/mysql.server start</div><div class="line"><span class="meta">&gt;</span></div></pre></td></tr></table></figure>
@@ -420,9 +420,9 @@
 <p>在打开的MySQL命令行窗口依次输入：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">UPDATE mysql.user SET authentication_string=PASSWORD(&apos;YOUR_NEW_PASSWORD&apos;) WHERE User=&apos;root&apos;;</div><div class="line">FLUSH PRIVILEGES;</div><div class="line">\q</div></pre></td></tr></table></figure>
 <blockquote>
-<p>这里注意结尾的 “;” 少。</p>
-<p>‘YOUR_NEW_PASSWORD’ 是你的新密码</p>
-<p>5.7之前的版本，mysql.user表里面的authentication_string字段改成了：password</p>
+<p>这里注意结尾的 <code>;</code>不能少。</p>
+<p><code>YOUR_NEW_PASSWORD</code> 是你的新密码</p>
+<p>5.7之前的版本，mysql.user表里面的<code>authentication_string</code>字段改成了：<code>password</code></p>
 </blockquote>
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>重启MySQL后运行以下命令测试密码是否修改成功</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -u root -p</div></pre></td></tr></table></figure>
@@ -553,7 +553,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -575,7 +575,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
