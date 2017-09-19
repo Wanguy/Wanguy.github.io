@@ -333,7 +333,7 @@
     <link href="http://yoursite.com/2017/03/19/Git%20%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/"/>
     <id>http://yoursite.com/2017/03/19/Git 快速开始简明教程/</id>
     <published>2017-03-19T12:18:00.000Z</published>
-    <updated>2017-09-18T13:28:29.000Z</updated>
+    <updated>2017-09-19T06:06:09.000Z</updated>
     
     <content type="html"><![CDATA[<p>Git 是一个分布式版本管理系统，即每个终端都有一套完整的项目代码（包括历史文件）。为了使用 Git，先要安装 Git。可以在 Command Line 或者 Terminal 中输入<code>git</code>命令检查是否已经安装。</p>
 <a id="more"></a>
@@ -389,9 +389,9 @@
       <category term="Tutorial" scheme="http://yoursite.com/categories/Tutorial/"/>
     
     
-      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
-    
       <category term="Terminal" scheme="http://yoursite.com/tags/Terminal/"/>
+    
+      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
     
   </entry>
   
@@ -472,9 +472,9 @@
       <category term="Tutorial" scheme="http://yoursite.com/categories/Tutorial/"/>
     
     
-      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
-    
       <category term="Ubuntu" scheme="http://yoursite.com/tags/Ubuntu/"/>
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
     
   </entry>
   
