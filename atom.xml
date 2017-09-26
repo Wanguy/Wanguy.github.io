@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-25T09:21:02.000Z</updated>
+  <updated>2017-09-26T01:26:41.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/09/19/%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%9F%A5%E8%AF%A2/"/>
     <id>http://yoursite.com/2017/09/19/数据表查询/</id>
     <published>2017-09-19T05:53:24.000Z</published>
-    <updated>2017-09-25T09:21:02.000Z</updated>
+    <updated>2017-09-26T01:26:41.000Z</updated>
     
     <content type="html"><![CDATA[<p>数据查询是数据库操作的核心操作。SQL提供了<code>SELECT</code>语句进行数据查询，其一般格式为：</p>
 <p><code>SELECT [ALL | DISTINCT] &lt;目标列表达式&gt; FROM &lt;表名或视图名&gt; (&lt;SELECT 语句&gt;) [AS] &lt;别名&gt; [WHERE&lt;条件表达式&gt;]</code></p>
@@ -202,39 +202,34 @@
 <table>
 <thead>
 <tr>
-<th>函数名</th>
-<th>功能</th>
+<th style="text-align:center">函数名</th>
+<th style="text-align:center">功能</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>COUNT(*)</td>
-<td>统计元组个数</td>
+<td style="text-align:center">COUNT(*)</td>
+<td style="text-align:center">统计元组个数</td>
 </tr>
 <tr>
-<td>COUNT([DISTINCT\</td>
-<td>ALL] &lt;列名&gt;)</td>
-<td>统计一列中值得个数</td>
+<td style="text-align:center">COUNT([DISTINCT\ALL] &lt;列名&gt;)</td>
+<td style="text-align:center">统计一列中值得个数</td>
 </tr>
 <tr>
-<td>SUM([DISTINCT\</td>
-<td>ALL] &lt;列名&gt;)</td>
-<td>计算一列值得总和（此列必须是数值类型）</td>
+<td style="text-align:center">SUM([DISTINCT\ALL] &lt;列名&gt;)</td>
+<td style="text-align:center">计算一列值得总和（此列必须是数值类型）</td>
 </tr>
 <tr>
-<td>AVG([DISTINCT\</td>
-<td>ALL] &lt;列名&gt;)</td>
-<td>计算一列值得平均值（此列必须是数值类型）</td>
+<td style="text-align:center">AVG([DISTINCT\ALL] &lt;列名&gt;)</td>
+<td style="text-align:center">计算一列值得平均值（此列必须是数值类型）</td>
 </tr>
 <tr>
-<td>MAX([DISTINCT\</td>
-<td>ALL] &lt;列名&gt;)</td>
-<td>求一列值中的最大值</td>
+<td style="text-align:center">MAX([DISTINCT\ALL] &lt;列名&gt;)</td>
+<td style="text-align:center">求一列值中的最大值</td>
 </tr>
 <tr>
-<td>MIN([DISTINCT\</td>
-<td>ALL] &lt;列名&gt;)</td>
-<td>求一列值中的最小值</td>
+<td style="text-align:center">MIN([DISTINCT\ALL] &lt;列名&gt;)</td>
+<td style="text-align:center">求一列值中的最小值</td>
 </tr>
 </tbody>
 </table>
