@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-19T15:28:52.000Z</updated>
+  <updated>2017-09-25T09:21:02.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/09/19/%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%9F%A5%E8%AF%A2/"/>
     <id>http://yoursite.com/2017/09/19/数据表查询/</id>
     <published>2017-09-19T05:53:24.000Z</published>
-    <updated>2017-09-19T15:28:52.000Z</updated>
+    <updated>2017-09-25T09:21:02.000Z</updated>
     
     <content type="html"><![CDATA[<p>数据查询是数据库操作的核心操作。SQL提供了<code>SELECT</code>语句进行数据查询，其一般格式为：</p>
 <p><code>SELECT [ALL | DISTINCT] &lt;目标列表达式&gt; FROM &lt;表名或视图名&gt; (&lt;SELECT 语句&gt;) [AS] &lt;别名&gt; [WHERE&lt;条件表达式&gt;]</code></p>
@@ -195,7 +195,69 @@
 <h6 id="查询所有姓’Liu’的学生姓名，学号和性别-1"><a href="#查询所有姓’Liu’的学生姓名，学号和性别-1" class="headerlink" title="查询所有姓’Liu’的学生姓名，学号和性别"></a>查询所有姓’Liu’的学生姓名，学号和性别</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNAME, SNO, SSEX </div><div class="line"><span class="keyword">from</span> Student</div><div class="line"><span class="keyword">where</span> SNAME <span class="keyword">not</span> <span class="keyword">like</span> <span class="string">'Liu%'</span>;</div></pre></td></tr></table></figure>
 <h6 id="查询DB-Design课程的课程号和学分"><a href="#查询DB-Design课程的课程号和学分" class="headerlink" title="查询DB_Design课程的课程号和学分"></a>查询DB_Design课程的课程号和学分</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> CNO, CCREDIT </div><div class="line"><span class="keyword">from</span> Course </div><div class="line"><span class="keyword">where</span> CNAME <span class="keyword">like</span> <span class="string">'DB\_Design'</span> escape <span class="string">'\';</span></div></pre></td></tr></table></figure>
 <h5 id="涉及空值的查询"><a href="#涉及空值的查询" class="headerlink" title="涉及空值的查询"></a>涉及空值的查询</h5><h6 id="查询所有有成绩的学生的学号和成绩"><a href="#查询所有有成绩的学生的学号和成绩" class="headerlink" title="查询所有有成绩的学生的学号和成绩"></a>查询所有有成绩的学生的学号和成绩</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNO, GRADE </div><div class="line"><span class="keyword">from</span> SC </div><div class="line"><span class="keyword">where</span> GRADE <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>;</div></pre></td></tr></table></figure>
-<h5 id="多重条件查询"><a href="#多重条件查询" class="headerlink" title="多重条件查询"></a>多重条件查询</h5><h6 id="查新CS系年龄在20岁以下的学生姓名"><a href="#查新CS系年龄在20岁以下的学生姓名" class="headerlink" title="查新CS系年龄在20岁以下的学生姓名"></a>查新CS系年龄在20岁以下的学生姓名</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNAME </div><div class="line"><span class="keyword">from</span> SC</div><div class="line"><span class="keyword">where</span> SAGE&lt;<span class="number">20</span> <span class="keyword">and</span> SDEPT=<span class="string">'CS'</span>;</div></pre></td></tr></table></figure>]]></content>
+<h5 id="多重条件查询"><a href="#多重条件查询" class="headerlink" title="多重条件查询"></a>多重条件查询</h5><h6 id="查新CS系年龄在20岁以下的学生姓名"><a href="#查新CS系年龄在20岁以下的学生姓名" class="headerlink" title="查新CS系年龄在20岁以下的学生姓名"></a>查新CS系年龄在20岁以下的学生姓名</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNAME </div><div class="line"><span class="keyword">from</span> SC</div><div class="line"><span class="keyword">where</span> SAGE&lt;<span class="number">20</span> <span class="keyword">and</span> SDEPT=<span class="string">'CS'</span>;</div></pre></td></tr></table></figure>
+<h3 id="ORDER-BY-子句"><a href="#ORDER-BY-子句" class="headerlink" title="ORDER BY 子句"></a>ORDER BY 子句</h3><p>可以用<code>ORDER BY</code>子句对查询结果进行升序（<code>ASC</code>）或降序（<code>DESC</code>）排列。默认为升序。</p>
+<h6 id="查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。"><a href="#查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。" class="headerlink" title="查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。"></a>查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNO, Grade </div><div class="line"><span class="keyword">from</span> SC</div><div class="line"><span class="keyword">where</span> Cno=<span class="string">'3'</span></div><div class="line"><span class="keyword">order</span> <span class="keyword">by</span> GRADE <span class="keyword">desc</span>;</div></pre></td></tr></table></figure>
+<h3 id="聚集函数"><a href="#聚集函数" class="headerlink" title="聚集函数"></a>聚集函数</h3><p>为进一步方便用户，增强检索功能，SQL提供了如下聚集函数：</p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>COUNT(*)</td>
+<td>统计元组个数</td>
+</tr>
+<tr>
+<td>COUNT([DISTINCT\</td>
+<td>ALL] &lt;列名&gt;)</td>
+<td>统计一列中值得个数</td>
+</tr>
+<tr>
+<td>SUM([DISTINCT\</td>
+<td>ALL] &lt;列名&gt;)</td>
+<td>计算一列值得总和（此列必须是数值类型）</td>
+</tr>
+<tr>
+<td>AVG([DISTINCT\</td>
+<td>ALL] &lt;列名&gt;)</td>
+<td>计算一列值得平均值（此列必须是数值类型）</td>
+</tr>
+<tr>
+<td>MAX([DISTINCT\</td>
+<td>ALL] &lt;列名&gt;)</td>
+<td>求一列值中的最大值</td>
+</tr>
+<tr>
+<td>MIN([DISTINCT\</td>
+<td>ALL] &lt;列名&gt;)</td>
+<td>求一列值中的最小值</td>
+</tr>
+</tbody>
+</table>
+<h6 id="查询学生总人数"><a href="#查询学生总人数" class="headerlink" title="查询学生总人数"></a>查询学生总人数</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*)</div><div class="line"><span class="keyword">from</span> Student;</div></pre></td></tr></table></figure>
+<h6 id="查询选修了课程的学生人数"><a href="#查询选修了课程的学生人数" class="headerlink" title="查询选修了课程的学生人数"></a>查询选修了课程的学生人数</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">count</span>(<span class="keyword">distinct</span> SNO)</div><div class="line"><span class="keyword">from</span> SC;</div></pre></td></tr></table></figure>
+<h6 id="计算选修1号课程的学生平均成绩"><a href="#计算选修1号课程的学生平均成绩" class="headerlink" title="计算选修1号课程的学生平均成绩"></a>计算选修1号课程的学生平均成绩</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(Grade)</div><div class="line"><span class="keyword">from</span> SC</div><div class="line"><span class="keyword">where</span> SNO=<span class="string">'1'</span>;</div></pre></td></tr></table></figure>
+<h6 id="查新选修1号课程的学生最高分数"><a href="#查新选修1号课程的学生最高分数" class="headerlink" title="查新选修1号课程的学生最高分数"></a>查新选修1号课程的学生最高分数</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">max</span>(Grade)</div><div class="line"><span class="keyword">from</span> SC</div><div class="line"><span class="keyword">where</span> CNO=<span class="string">'1'</span>;</div></pre></td></tr></table></figure>
+<h3 id="GROUP-BY子句"><a href="#GROUP-BY子句" class="headerlink" title="GROUP BY子句"></a>GROUP BY子句</h3><p><code>GROUP BY</code>子句将查询结果按某一列或多列的值分组，值相等为一组。</p>
+<p><strong>分组后聚集函数将作用与每一个组，即每一组都有一个函数值。</strong></p>
+<h6 id="求各个课程号及相应的选课人数"><a href="#求各个课程号及相应的选课人数" class="headerlink" title="求各个课程号及相应的选课人数"></a>求各个课程号及相应的选课人数</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> CNO, <span class="keyword">count</span>(SNO)</div><div class="line"><span class="keyword">from</span> SC</div><div class="line"><span class="keyword">group</span> <span class="keyword">by</span> CNO;</div></pre></td></tr></table></figure>
+<h6 id="查询平均成绩大于等于90分的学生学号和平均成绩"><a href="#查询平均成绩大于等于90分的学生学号和平均成绩" class="headerlink" title="查询平均成绩大于等于90分的学生学号和平均成绩"></a>查询平均成绩大于等于90分的学生学号和平均成绩</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNO, <span class="keyword">avg</span>(Grade)</div><div class="line"><span class="keyword">from</span> SC</div><div class="line"><span class="keyword">group</span> <span class="keyword">by</span> SNO</div><div class="line"><span class="keyword">having</span> <span class="keyword">avg</span>(Grade)&gt;=<span class="number">90</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><code>WHERE</code>子句中是不能用聚集函数作为条件表达式，应用<code>HAVING</code></p>
+</blockquote>
+<h2 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h2><h3 id="等值于非等值连接查询"><a href="#等值于非等值连接查询" class="headerlink" title="等值于非等值连接查询"></a>等值于非等值连接查询</h3><p>连接查询的WHERE子句中用来连接两个表的条件称为连接条件或连接谓词，格式为：</p>
+<p><code>[&lt;表名1&gt;.] &lt;列名1&gt;&lt;比较运算符&gt; [&lt;表名2&gt;.] &lt;列名2&gt;</code></p>
+<p><code>[&lt;表名1&gt;.] &lt;列名1&gt;BETWEEN [&lt;表名2&gt;.] &lt;列名2&gt;AND [&lt;表名3&gt;.] &lt;列名3&gt;</code></p>
+<h6 id="查询每个学生及其选修课程情况"><a href="#查询每个学生及其选修课程情况" class="headerlink" title="查询每个学生及其选修课程情况"></a>查询每个学生及其选修课程情况</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> Student.*, SC.*</div><div class="line"><span class="keyword">from</span> Student, SC</div><div class="line"><span class="keyword">where</span> Student.SNO=SC.SNO;</div></pre></td></tr></table></figure>
+<h6 id="查询选修2号课程且成绩在90分以上的所有学生的学号和姓名"><a href="#查询选修2号课程且成绩在90分以上的所有学生的学号和姓名" class="headerlink" title="查询选修2号课程且成绩在90分以上的所有学生的学号和姓名"></a>查询选修2号课程且成绩在90分以上的所有学生的学号和姓名</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> Student.SNO, Sname</div><div class="line"><span class="keyword">from</span> Student, SC</div><div class="line"><span class="keyword">where</span> Student.SNO=SC.SNO <span class="keyword">and</span> SC.CNO=<span class="string">'2'</span> <span class="keyword">and</span> SC.Grade&gt;<span class="number">90</span>;</div></pre></td></tr></table></figure>
+<h3 id="自身连接"><a href="#自身连接" class="headerlink" title="自身连接"></a>自身连接</h3><h6 id="查询每一门课的间接先修课"><a href="#查询每一门课的间接先修课" class="headerlink" title="查询每一门课的间接先修课"></a>查询每一门课的间接先修课</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> FIRST.CNO, SECOND.CPNO</div><div class="line"><span class="keyword">from</span> Course <span class="keyword">FIRST</span>, Course <span class="keyword">SECOND</span></div><div class="line"><span class="keyword">where</span> FIRST.SPNO=SECOND.CNO;</div></pre></td></tr></table></figure>
+<h3 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h3><h6 id="查询每个学生及其选修课程情况-1"><a href="#查询每个学生及其选修课程情况-1" class="headerlink" title="查询每个学生及其选修课程情况"></a>查询每个学生及其选修课程情况</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> Student.SNO, SNAME, SSEX, SAGE, SDEPT, CNO, GRADE</div><div class="line"><span class="keyword">from</span> Student <span class="keyword">left</span> <span class="keyword">outer</span> <span class="keyword">join</span> SC <span class="keyword">on</span> (Student.SNO=SC.SNO);</div></pre></td></tr></table></figure>
+<h3 id="多表连接"><a href="#多表连接" class="headerlink" title="多表连接"></a>多表连接</h3><h6 id="查询每个学生的学号，姓名，选修的课程名称及成绩"><a href="#查询每个学生的学号，姓名，选修的课程名称及成绩" class="headerlink" title="查询每个学生的学号，姓名，选修的课程名称及成绩"></a>查询每个学生的学号，姓名，选修的课程名称及成绩</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> Student.SNO, SNAME, CNAME, GRADE</div><div class="line"><span class="keyword">from</span> Student, SC, Course</div><div class="line"><span class="keyword">where</span> Student.SNO=SC.SNO <span class="keyword">and</span> SC.CNO=Course.CNO;</div></pre></td></tr></table></figure>
+]]></content>
     
     <summary type="html">
     
