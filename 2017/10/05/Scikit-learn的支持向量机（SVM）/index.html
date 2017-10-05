@@ -95,45 +95,46 @@
 
 
 
-<meta name="description" content="支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。 支持向量机的优点包括：  在高维空间中行之有效。 当维数大于样本数时仍然可用。 在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。 用途广泛：决策函数中可以使用不同的核函数。提供了一种通用的核，但是也可以指定自定义的核。  而其劣势在于  如果特征数量远大于样本数量，则表现会比较差。 SVM不直接提供概率估计。">
+<meta name="description" content="文章排版还有问题，待修改  支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。 支持向量机的优点包括：  在高维空间中行之有效。 当维数大于样本数时仍然可用。 在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。 用途广泛：决策函数中可以使用不同的核函数。提供了一种通用的核，但是也可以指定自定义的核。  而其劣势在于  如果特征数量远大于样本数量，则表现会比较">
 <meta name="keywords" content="Python,Machine Learning,SVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Scikit-learn的支持向量机（SVM）">
 <meta property="og:url" content="http://yoursite.com/2017/10/05/Scikit-learn的支持向量机（SVM）/index.html">
 <meta property="og:site_name" content="Gavin&#39;s Blog">
-<meta property="og:description" content="支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。 支持向量机的优点包括：  在高维空间中行之有效。 当维数大于样本数时仍然可用。 在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。 用途广泛：决策函数中可以使用不同的核函数。提供了一种通用的核，但是也可以指定自定义的核。  而其劣势在于  如果特征数量远大于样本数量，则表现会比较差。 SVM不直接提供概率估计。">
+<meta property="og:description" content="文章排版还有问题，待修改  支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。 支持向量机的优点包括：  在高维空间中行之有效。 当维数大于样本数时仍然可用。 在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。 用途广泛：决策函数中可以使用不同的核函数。提供了一种通用的核，但是也可以指定自定义的核。  而其劣势在于  如果特征数量远大于样本数量，则表现会比较">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/sphx_glr_plot_iris_0012.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/sphx_glr_plot_separating_hyperplane_unbalanced_0011.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/sphx_glr_plot_weighted_samples_0011%20(1">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/sphx_glr_plot_oneclass_0011.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/cc655b2d07d61893992ca7bfb9256b43314933bf.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/caed8545ad94ab355e204242314fb76bb96b2b09.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/d571609cf042d44f541e8c11efbc305354206096.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/3666981dc77862de77b6ecfcb64aad59b425cbaf.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/e5dadad6828c157553e944e605a295afdcc600cf.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/sphx_glr_plot_separating_hyperplane_0011.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/3c2810ae28117c8ad2d9464adc7f57ad2143887c.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/ede528003a9c8d8f47c5e4c3c8ed4dc0056b8c36.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/afe25ea32dba823e13d2ae45b439d4529cd15364%20(1">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/ca662d71b1a44a2cdf255fbe69c8a72803eded1c%20(1">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/02d6bcb474ff4e171fdd4de3e6d3e3b772b41c8c.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/4488f5555693ea818a6bb1cb471fa11fdd11b39f.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/c2f31c22645274c375eff7920cfdfdc18d60341f.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/cb88554a78c6610201fd61574c2591aa23da35ac.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/3c2810ae28117c8ad2d9464adc7f57ad2143887c%20(1">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/1269782190e528401491505bf582106d5990f870.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/3cb373a8030ad846aed7b1ee45bab27b13775928.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/84dfa253bd3c36093102158fbe951a73819f96df%20(1">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/adfba00b3343f39be094f322b9349d472f29fd63%20(1">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/a3e3a226d8b165a8871e4aa2b981e440ca1ccc1d.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/c2f31c22645274c375eff7920cfdfdc18d60341f.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/7b2ae68afb44fc8ac21ce0e4c5028ec7497cb5cc%20(1">
-<meta property="og:updated_time" content="2017-10-05T09:45:55.096Z">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/sphx_glr_plot_iris_001.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/sphx_glr_plot_separating_hyperplane_unbalanced_001.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/sphx_glr_plot_weighted_samples_001.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/sphx_glr_plot_oneclass_001.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/cc655b2d07d61893992ca7bfb9256b43314933bf.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/d571609cf042d44f541e8c11efbc305354206096.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/e5dadad6828c157553e944e605a295afdcc600cf.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/sphx_glr_plot_separating_hyperplane_0011.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/3c2810ae28117c8ad2d9464adc7f57ad2143887c.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/ede528003a9c8d8f47c5e4c3c8ed4dc0056b8c36.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/afe25ea32dba823e13d2ae45b439d4529cd15364.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/ca662d71b1a44a2cdf255fbe69c8a72803eded1c.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/02d6bcb474ff4e171fdd4de3e6d3e3b772b41c8c.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/4488f5555693ea818a6bb1cb471fa11fdd11b39f.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/c2f31c22645274c375eff7920cfdfdc18d60341f.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/c4b8feb333aa69aaa37401ee4db26ae4afdbeb63.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/cb88554a78c6610201fd61574c2591aa23da35ac.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/3c2810ae28117c8ad2d9464adc7f57ad2143887c.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/1269782190e528401491505bf582106d5990f870.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/3cb373a8030ad846aed7b1ee45bab27b13775928.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/84dfa253bd3c36093102158fbe951a73819f96df.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/adfba00b3343f39be094f322b9349d472f29fd63.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/a3e3a226d8b165a8871e4aa2b981e440ca1ccc1d.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/c2f31c22645274c375eff7920cfdfdc18d60341f.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/7b2ae68afb44fc8ac21ce0e4c5028ec7497cb5cc.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/c7e6ffac97e60b9e6f0c0e0e6efe7425064c0013.png">
+<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/9a51ab9a0b521705e1e8762fac6bdd6f11771758.png">
+<meta property="og:updated_time" content="2017-10-05T10:28:27.844Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scikit-learn的支持向量机（SVM）">
-<meta name="twitter:description" content="支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。 支持向量机的优点包括：  在高维空间中行之有效。 当维数大于样本数时仍然可用。 在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。 用途广泛：决策函数中可以使用不同的核函数。提供了一种通用的核，但是也可以指定自定义的核。  而其劣势在于  如果特征数量远大于样本数量，则表现会比较差。 SVM不直接提供概率估计。">
-<meta name="twitter:image" content="http://yoursite.com/Users/sephiroth/Downloads/sphx_glr_plot_iris_0012.png">
+<meta name="twitter:description" content="文章排版还有问题，待修改  支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。 支持向量机的优点包括：  在高维空间中行之有效。 当维数大于样本数时仍然可用。 在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。 用途广泛：决策函数中可以使用不同的核函数。提供了一种通用的核，但是也可以指定自定义的核。  而其劣势在于  如果特征数量远大于样本数量，则表现会比较">
+<meta name="twitter:image" content="http://scikit-learn.org/stable/_images/sphx_glr_plot_iris_001.png">
 
 
 
@@ -429,7 +430,11 @@
       
 
       
-        <p>支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。</p>
+        <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<p>文章排版还有问题，待修改</p>
+<hr>
+<p>支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。</p>
 <p>支持向量机的优点包括：</p>
 <ul>
 <li>在高维空间中行之有效。</li>
@@ -445,7 +450,7 @@
 <p>Scikit-learn中的支持向量机同时支持密集样本向量（<code>numpy.ndarray</code>和可通过<code>numpy.asarray</code>转化的数据类型）和稀疏样本向量（任何<code>scipy.sparse</code>对象）。但是如果想用SVM对稀疏数据进行预测，则必须先在这些数据上拟合。为了优化性能，应该使用C阶（C-Ordered）<code>numpy.ndarray</code>（密集的）或<code>scipy.sparse.csr_matrix</code>（稀疏的），并指定<code>dtype=float64</code>。</p>
 <a id="more"></a>
 <h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>要在数据集上进行多类别分类，可以使用<a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC" target="_blank" rel="external"><code>SVC</code></a>，<a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.NuSVC.html#sklearn.svm.NuSVC" target="_blank" rel="external"><code>NuSVC</code></a>和<a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html#sklearn.svm.LinearSVC" target="_blank" rel="external"><code>LinearSVC</code></a>这三个类。</p>
-<p><img src="/Users/sephiroth/Downloads/sphx_glr_plot_iris_0012.png" alt="sphx_glr_plot_iris_0012"></p>
+<p><img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_iris_001.png" alt="sphx_glr_plot_iris_0012"></p>
 <p> <code>SVC</code>和<code>NuSVC</code>两种方法类似，但是接受的参数有细微不同，而且底层的数学原理不一样（见“数学原理”一节）。另一方面，<code>LinearSVC</code>是对支持向量分类的另一种实现，使用了线性核。注意<code>LinearSVC</code>不接受关键字<code>kernel</code>，因为核被预设为是线性的。其与<code>SVC</code>和<code>NuSVC</code>相比还缺少了一些成员，如<code>support_</code>。</p>
 <p>和其它分类器一样，<a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC" target="_blank" rel="external"><code>SVC</code></a>，<a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.NuSVC.html#sklearn.svm.NuSVC" target="_blank" rel="external"><code>NuSVC</code></a>和<a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html#sklearn.svm.LinearSVC" target="_blank" rel="external"><code>LinearSVC</code></a>接受两个数组：大小为<code>[n_samples, n_features]</code>的数组X，包含训练样本；以及大小为<code>[n_samples]</code>的数组y，包含类别标签（以字符串类型或整型存储）：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> sklearn <span class="keyword">import</span> svm</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>X = [[<span class="number">0</span>, <span class="number">0</span>], [<span class="number">1</span>, <span class="number">1</span>]]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>y = [<span class="number">0</span>, <span class="number">1</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>clf = svm.SVC()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>clf.fit(X, y)  </div><div class="line">SVC(C=<span class="number">1.0</span>, cache_size=<span class="number">200</span>, class_weight=<span class="keyword">None</span>, coef0=<span class="number">0.0</span>,</div><div class="line">    decision_function_shape=<span class="keyword">None</span>, degree=<span class="number">3</span>, gamma=<span class="string">'auto'</span>, kernel=<span class="string">'rbf'</span>,</div><div class="line">    max_iter=<span class="number">-1</span>, probability=<span class="keyword">False</span>, random_state=<span class="keyword">None</span>, shrinking=<span class="keyword">True</span>,</div><div class="line">    tol=<span class="number">0.001</span>, verbose=<span class="keyword">False</span>)</div></pre></td></tr></table></figure>
@@ -473,9 +478,9 @@
 </blockquote>
 <h3 id="不平衡问题"><a href="#不平衡问题" class="headerlink" title="不平衡问题"></a>不平衡问题</h3><p>在某些情况下，一些指定的类别或某几个样本关键字可能更加重要，这时可以使用<code>class_weight</code>和<code>sample_weight</code>。</p>
 <p><code>SVC</code>（不是<code>NuSVC</code>）在<code>fit</code>方法中实现了关键字<code>class_weight</code>。该关键字是字典类型，形式为<code>{class_label : value}</code>，这里<code>value</code>是一个正浮点数，将类别<code>class_label</code>的参数<code>C</code>设为<code>C * value</code>。</p>
-<p><img src="/Users/sephiroth/Downloads/sphx_glr_plot_separating_hyperplane_unbalanced_0011.png" alt="sphx_glr_plot_separating_hyperplane_unbalanced_0011"></p>
+<p><img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_separating_hyperplane_unbalanced_001.png" alt="sphx_glr_plot_separating_hyperplane_unbalanced_0011"></p>
 <p> <code>SVC</code>，<code>NuSVC</code>，<code>SVR</code>，<code>NuSVR</code>和<code>OneClassSVM</code>同样在<code>fit</code>方法中通过关键字<code>sample_weight</code>实现了对单独样本赋予特殊权重的功能。与<code>class_weight</code>类似，它们把第i个样本的参数<code>C</code>设为<code>C * sample_weight[i]</code>。</p>
-<p><img src="/Users/sephiroth/Downloads/sphx_glr_plot_weighted_samples_0011 (1" alt="sphx_glr_plot_weighted_samples_0011 (1)">.png)</p>
+<p><img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_weighted_samples_001.png" alt="sphx_glr_plot_weighted_samples_0011 (1)"></p>
 <blockquote>
 <ul>
 <li><a href="http://scikit-learn.org/stable/auto_examples/svm/plot_iris.html#example-svm-plot-iris-py" target="_blank" rel="external">在iris数据集中试验不同的SVM分类器，并作图比较</a></li>
@@ -497,7 +502,7 @@
 </ul>
 </blockquote>
 <h2 id="密度估计与新奇值检测（novelty-detection）"><a href="#密度估计与新奇值检测（novelty-detection）" class="headerlink" title="密度估计与新奇值检测（novelty detection）"></a>密度估计与新奇值检测（novelty detection）</h2><p>单类别SVM可用于新奇值检测，即给定一组样本，检测出该数据集的软边界，以判断新数据点是否属于该数据集。<a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html#sklearn.svm.OneClassSVM" target="_blank" rel="external"><code>OneClassSVM</code></a>类实现该方法。在这种情况下，由于这是一种无监督学习，数据没有类别标签，因此<code>fit</code>方法只接受数组X作为输入。见<a href="http://scikit-learn.org/stable/modules/outlier_detection.html#outlier-detection" target="_blank" rel="external">新奇值与异常值检测检测</a>一节了解更多用法。</p>
-<p><img src="/Users/sephiroth/Downloads/sphx_glr_plot_oneclass_0011.png" alt="sphx_glr_plot_oneclass_0011"></p>
+<p><img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_oneclass_001.png" alt="sphx_glr_plot_oneclass_0011"></p>
 <blockquote>
 <ul>
 <li><a href="http://scikit-learn.org/stable/auto_examples/svm/plot_oneclass.html#example-svm-plot-oneclass-py" target="_blank" rel="external">使用非线性核（RBF）的单类别SVM</a></li>
@@ -516,10 +521,14 @@
 </ul>
 <h2 id="内核函数"><a href="#内核函数" class="headerlink" title="内核函数"></a>内核函数</h2><p><strong>核函数</strong>可以有以下几种选择：</p>
 <ul>
-<li>线性（linear）核：<img src="/Users/sephiroth/Downloads/cc655b2d07d61893992ca7bfb9256b43314933bf.png" alt="cc655b2d07d61893992ca7bfb9256b43314933bf"></li>
-<li>多项式（polynomial）核：<img src="/Users/sephiroth/Downloads/caed8545ad94ab355e204242314fb76bb96b2b09.png" alt="caed8545ad94ab355e204242314fb76bb96b2b09">。其中d由选项<code>degree</code>指定，r由<code>coef0</code>指定</li>
-<li>径向基（RBF）函数：<img src="/Users/sephiroth/Downloads/d571609cf042d44f541e8c11efbc305354206096.png" alt="d571609cf042d44f541e8c11efbc305354206096">。其中<img src="/Users/sephiroth/Downloads/3666981dc77862de77b6ecfcb64aad59b425cbaf.png" alt="3666981dc77862de77b6ecfcb64aad59b425cbaf">由选项<code>gamma</code>指定，必须大于0</li>
-<li>sigmoid函数(<img src="/Users/sephiroth/Downloads/e5dadad6828c157553e944e605a295afdcc600cf.png" alt="e5dadad6828c157553e944e605a295afdcc600cf">)，其中由选项<code>coef0</code>指定</li>
+<li><p>线性（linear）核：<img src="http://scikit-learn.org/stable/_images/math/cc655b2d07d61893992ca7bfb9256b43314933bf.png" alt="\ langle x，x&#39;\ rangle">。</p>
+</li>
+<li><p>多项式（polynomial）核：<br>$$<br>\left (\gamma \left \langle x, {x}’  \right \rangle +r  \right )^{d}<br>$$<br>。其中d由选项<code>degree</code>指定，r由<code>coef0</code>指定</p>
+</li>
+<li><p>径向基（RBF）函数：<img src="http://scikit-learn.org/stable/_images/math/d571609cf042d44f541e8c11efbc305354206096.png" alt="\ exp（ -  \ gamma \ | x-x&#39;\ | ^ 2）">。其中<br>$$<br>\gamma<br>$$<br>由选项<code>gamma</code>指定，必须大于0</p>
+</li>
+<li><p>sigmoid函数(<img src="http://scikit-learn.org/stable/_images/math/e5dadad6828c157553e944e605a295afdcc600cf.png" alt="\ tanh（\ gamma \ langle x，x&#39;\ rangle + r）">)，其中由选项<code>coef0</code>指定</p>
+</li>
 </ul>
 <p>在初始化时通过选项<code>kernel</code>指定用什么核</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>linear_svc = svm.SVC(kernel=<span class="string">'linear'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>linear_svc.kernel</div><div class="line"><span class="string">'linear'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>rbf_svc = svm.SVC(kernel=<span class="string">'rbf'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>rbf_svc.kernel</div><div class="line"><span class="string">'rbf'</span></div></pre></td></tr></table></figure>
@@ -535,13 +544,14 @@
 <p><a href="http://scikit-learn.org/stable/auto_examples/svm/plot_custom_kernel.html#example-svm-plot-custom-kernel-py" target="_blank" rel="external">使用自定义核的SVM</a></p>
 </blockquote>
 <h2 id="数学原理"><a href="#数学原理" class="headerlink" title="数学原理"></a>数学原理</h2><p>支持向量机的原理是在高维甚至无限维空间中构建一个超平面或者若干超平面组成的集合，并藉此用于分类、回归或其它任务。从直觉上来讲，好的分隔面是由使得函数间隔最大的超平面得到（即该超平面到任何类别最近训练数据点的距离都取得最大值），因为总体上来讲，间隔越大，分类器的泛化误差越小。</p>
-<p><img src="/Users/sephiroth/Downloads/sphx_glr_plot_separating_hyperplane_0011.png" alt="sphx_glr_plot_separating_hyperplane_0011"></p>
-<h3 id="SVC"><a href="#SVC" class="headerlink" title="SVC"></a>SVC</h3><p>给定可能属于某两种类别的训练向量<img src="/Users/sephiroth/Downloads/3c2810ae28117c8ad2d9464adc7f57ad2143887c.png" alt="3c2810ae28117c8ad2d9464adc7f57ad2143887c">,<code>i=1, ..., n</code>和向量<img src="/Users/sephiroth/Downloads/ede528003a9c8d8f47c5e4c3c8ed4dc0056b8c36.png" alt="ede528003a9c8d8f47c5e4c3c8ed4dc0056b8c36">，SVC解决的首要问题是</p>
-<p><img src="/Users/sephiroth/Downloads/afe25ea32dba823e13d2ae45b439d4529cd15364 (1" alt="afe25ea32dba823e13d2ae45b439d4529cd15364 (1)">.png)</p>
+<p><img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_separating_hyperplane_0011.png" alt="sphx_glr_plot_separating_hyperplane_0011"></p>
+<h3 id="SVC"><a href="#SVC" class="headerlink" title="SVC"></a>SVC</h3><p>给定可能属于某两种类别的训练向量<img src="http://scikit-learn.org/stable/_images/math/3c2810ae28117c8ad2d9464adc7f57ad2143887c.png" alt="3c2810ae28117c8ad2d9464adc7f57ad2143887c">,<code>i=1, ..., n</code>和向量<img src="http://scikit-learn.org/stable/_images/math/ede528003a9c8d8f47c5e4c3c8ed4dc0056b8c36.png" alt="ede528003a9c8d8f47c5e4c3c8ed4dc0056b8c36">，SVC解决的首要问题是</p>
+<p><img src="http://scikit-learn.org/stable/_images/math/afe25ea32dba823e13d2ae45b439d4529cd15364.png" alt="afe25ea32dba823e13d2ae45b439d4529cd15364 (1)"></p>
 <p>其对偶形式为</p>
-<p><img src="/Users/sephiroth/Downloads/ca662d71b1a44a2cdf255fbe69c8a72803eded1c (1" alt="ca662d71b1a44a2cdf255fbe69c8a72803eded1c (1)">.png)</p>
-<p>其中<code>e</code>是全1向量，<code>C &gt; 0</code>是上界，<code>Q</code>是一个半正定矩阵，<img src="/Users/sephiroth/Downloads/02d6bcb474ff4e171fdd4de3e6d3e3b772b41c8c.png" alt="02d6bcb474ff4e171fdd4de3e6d3e3b772b41c8c">，其中<img src="/Users/sephiroth/Downloads/4488f5555693ea818a6bb1cb471fa11fdd11b39f.png" alt="4488f5555693ea818a6bb1cb471fa11fdd11b39f">是核。这里训练向量通过函数被隐式映射到一个高维（甚至无限维）空间<img src="/Users/sephiroth/Downloads/c2f31c22645274c375eff7920cfdfdc18d60341f.png" alt="c2f31c22645274c375eff7920cfdfdc18d60341f">。</p>
+<p><img src="http://scikit-learn.org/stable/_images/math/ca662d71b1a44a2cdf255fbe69c8a72803eded1c.png" alt="ca662d71b1a44a2cdf255fbe69c8a72803eded1c (1)"></p>
+<p>其中<code>e</code>是全1向量，<code>C &gt; 0</code>是上界，<code>Q</code>是一个半正定矩阵，<img src="http://scikit-learn.org/stable/_images/math/02d6bcb474ff4e171fdd4de3e6d3e3b772b41c8c.png" alt="02d6bcb474ff4e171fdd4de3e6d3e3b772b41c8c">，其中<img src="http://scikit-learn.org/stable/_images/math/4488f5555693ea818a6bb1cb471fa11fdd11b39f.png" alt="4488f5555693ea818a6bb1cb471fa11fdd11b39f">是核。这里训练向量通过函数被隐式映射到一个高维（甚至无限维）空间<img src="http://scikit-learn.org/stable/_images/math/c2f31c22645274c375eff7920cfdfdc18d60341f.png" alt="c2f31c22645274c375eff7920cfdfdc18d60341f">。</p>
 <p>决策函数是 <strong>注意</strong>：虽然从<a href="http://www.csie.ntu.edu.tw/~cjlin/libsvm/" target="_blank" rel="external"><code>libsvm</code></a>和<a href="http://www.csie.ntu.edu.tw/~cjlin/liblinear/" target="_blank" rel="external"><code>liblinear</code></a>导出的SVM模型使用<code>C</code>作为正则化参数，但实际上其它更多预测器使用的是<code>alpha</code>。这两个参数之间的关系是</p>
+<p><img src="http://scikit-learn.org/stable/_images/math/c4b8feb333aa69aaa37401ee4db26ae4afdbeb63.png" alt="2"></p>
 <p>这些参数可以通过各个成员变量访问：<code>dual_coef_</code>存放乘积，<code>support_vectors</code>存放支持向量，<code>intercept_</code>存放独立项：</p>
 <blockquote>
 <p>参考文献：</p>
@@ -550,16 +560,16 @@
 <li><a href="http://link.springer.com/article/10.1007%2FBF00994018" target="_blank" rel="external">“Support-vector networks”</a>, C. Cortes, V. Vapnik - Machine Learning, 20, 273-297 (1995).</li>
 </ul>
 </blockquote>
-<h3 id="NuSVC"><a href="#NuSVC" class="headerlink" title="NuSVC"></a>NuSVC</h3><p>其提供了一个新的参数，控制支持向量的个数和训练误差。参数<img src="/Users/sephiroth/Downloads/cb88554a78c6610201fd61574c2591aa23da35ac.png" alt="cb88554a78c6610201fd61574c2591aa23da35ac">是训练误差的上限和支持向量的下限。</p>
+<h3 id="NuSVC"><a href="#NuSVC" class="headerlink" title="NuSVC"></a>NuSVC</h3><p>其提供了一个新的参数，控制支持向量的个数和训练误差。参数<img src="http://scikit-learn.org/stable/_images/math/cb88554a78c6610201fd61574c2591aa23da35ac.png" alt="cb88554a78c6610201fd61574c2591aa23da35ac">是训练误差的上限和支持向量的下限。</p>
 <p>可以看到<code>v-SVC</code>是<code>C-SVC</code>的一种重参数化形式，因此两者在数学上是等价的。</p>
-<h3 id="SVR"><a href="#SVR" class="headerlink" title="SVR"></a>SVR</h3><p>给定训练向量组<img src="/Users/sephiroth/Downloads/3c2810ae28117c8ad2d9464adc7f57ad2143887c (1" alt="3c2810ae28117c8ad2d9464adc7f57ad2143887c (1)">.png),<code>i=1, ..., n</code>和向量<img src="/Users/sephiroth/Downloads/1269782190e528401491505bf582106d5990f870.png" alt="1269782190e528401491505bf582106d5990f870">，<img src="/Users/sephiroth/Downloads/3cb373a8030ad846aed7b1ee45bab27b13775928.png" alt="3cb373a8030ad846aed7b1ee45bab27b13775928">-SVR要解决的主要问题如下所示：</p>
-<p><img src="/Users/sephiroth/Downloads/84dfa253bd3c36093102158fbe951a73819f96df (1" alt="84dfa253bd3c36093102158fbe951a73819f96df (1)">.png)</p>
+<h3 id="SVR"><a href="#SVR" class="headerlink" title="SVR"></a>SVR</h3><p>给定训练向量组<img src="http://scikit-learn.org/stable/_images/math/3c2810ae28117c8ad2d9464adc7f57ad2143887c.png" alt="3c2810ae28117c8ad2d9464adc7f57ad2143887c (1)">,<code>i=1, ..., n</code>和向量<img src="http://scikit-learn.org/stable/_images/math/1269782190e528401491505bf582106d5990f870.png" alt="1269782190e528401491505bf582106d5990f870">，<img src="http://scikit-learn.org/stable/_images/math/3cb373a8030ad846aed7b1ee45bab27b13775928.png" alt="3cb373a8030ad846aed7b1ee45bab27b13775928">-SVR要解决的主要问题如下所示：</p>
+<p><img src="http://scikit-learn.org/stable/_images/math/84dfa253bd3c36093102158fbe951a73819f96df.png" alt="84dfa253bd3c36093102158fbe951a73819f96df (1)"></p>
 <p> 其对偶为</p>
-<p><img src="/Users/sephiroth/Downloads/adfba00b3343f39be094f322b9349d472f29fd63 (1" alt="adfba00b3343f39be094f322b9349d472f29fd63 (1)">.png)</p>
-<p>其中<code>e</code>是全1向量，<code>C &gt; 0</code>是上界，<code>Q</code>是一个半正定矩阵，<img src="/Users/sephiroth/Downloads/a3e3a226d8b165a8871e4aa2b981e440ca1ccc1d.png" alt="a3e3a226d8b165a8871e4aa2b981e440ca1ccc1d">是内核。这里训练向量通过函数被隐式映射到一个高维（甚至无限维）空间<img src="/Users/sephiroth/Downloads/c2f31c22645274c375eff7920cfdfdc18d60341f.png" alt="c2f31c22645274c375eff7920cfdfdc18d60341f">。</p>
+<p><img src="http://scikit-learn.org/stable/_images/math/adfba00b3343f39be094f322b9349d472f29fd63.png" alt="adfba00b3343f39be094f322b9349d472f29fd63 (1)"></p>
+<p>其中<code>e</code>是全1向量，<code>C &gt; 0</code>是上界，<code>Q</code>是一个半正定矩阵，<img src="http://scikit-learn.org/stable/_images/math/a3e3a226d8b165a8871e4aa2b981e440ca1ccc1d.png" alt="a3e3a226d8b165a8871e4aa2b981e440ca1ccc1d">是内核。这里训练向量通过函数被隐式映射到一个高维（甚至无限维）空间<img src="http://scikit-learn.org/stable/_images/math/c2f31c22645274c375eff7920cfdfdc18d60341f.png" alt="\披">。</p>
 <p>决策函数为</p>
-<p><img src="/Users/sephiroth/Downloads/7b2ae68afb44fc8ac21ce0e4c5028ec7497cb5cc (1" alt="7b2ae68afb44fc8ac21ce0e4c5028ec7497cb5cc (1)">.png)</p>
-<p>这些参数可以通过各个成员变量访问。其中变量<code>dual_coef_</code>存储，<code>support_vectors_</code>存储支持向量，<code>intercept_</code>存储独立项。</p>
+<p><img src="http://scikit-learn.org/stable/_images/math/7b2ae68afb44fc8ac21ce0e4c5028ec7497cb5cc.png" alt="7b2ae68afb44fc8ac21ce0e4c5028ec7497cb5cc (1)"></p>
+<p>这些参数可以通过各个成员变量访问。其保持的差<img src="http://scikit-learn.org/stable/_images/math/c7e6ffac97e60b9e6f0c0e0e6efe7425064c0013.png" alt="\ alpha_i  -  \ alpha_i ^ *">，其中变量<code>dual_coef_</code>存储，<code>support_vectors_</code>存储支持向量，<code>intercept_</code>存储独立项<img src="http://scikit-learn.org/stable/_images/math/9a51ab9a0b521705e1e8762fac6bdd6f11771758.png" alt="1">。</p>
 <blockquote>
 <p>参考文献：</p>
 <ul>
