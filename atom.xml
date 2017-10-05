@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-10-05T10:28:27.844Z</updated>
+  <updated>2017-10-05T12:25:47.053Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/10/05/Scikit-learn%E7%9A%84%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%EF%BC%88SVM%EF%BC%89/"/>
     <id>http://yoursite.com/2017/10/05/Scikit-learn的支持向量机（SVM）/</id>
     <published>2017-10-05T09:41:54.682Z</published>
-    <updated>2017-10-05T10:28:27.844Z</updated>
+    <updated>2017-10-05T12:25:47.053Z</updated>
     
     <content type="html"><![CDATA[<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
@@ -33,11 +33,15 @@
 <li>当维数大于样本数时仍然可用。</li>
 <li>在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。</li>
 <li>用途广泛：决策函数中可以使用不同的<a href="http://scikit-learn.org/stable/modules/svm.html#svm-kernels" target="_blank" rel="external">核函数</a>。提供了一种通用的核，但是也可以指定自定义的核。</li>
+<li>返回的分割直线满足margin最大的条件，所以是一个robust的解。</li>
+<li><strong>SVM对数据点的依赖是稀疏的</strong>，只有少量支持向量对最终结果有贡献。</li>
 </ul>
 <p>而其劣势在于</p>
 <ul>
 <li>如果特征数量远大于样本数量，则表现会比较差。</li>
 <li>SVM不直接提供概率估计。这个值通过五折交叉验证计算，代价比较高（见下面“跑分与概率”一节）。</li>
+<li>首先SVM的优化问题比较复杂，不仅人难以理解，写起程序来也比较复杂，必须要用到Sequential minimal optimization（SMO）。</li>
+<li>其次，传统的SVM只能处理线性可分的问题，并且对数据中的噪音也很敏感，因此我们必要对算法进行改造。</li>
 </ul>
 <p>Scikit-learn中的支持向量机同时支持密集样本向量（<code>numpy.ndarray</code>和可通过<code>numpy.asarray</code>转化的数据类型）和稀疏样本向量（任何<code>scipy.sparse</code>对象）。但是如果想用SVM对稀疏数据进行预测，则必须先在这些数据上拟合。为了优化性能，应该使用C阶（C-Ordered）<code>numpy.ndarray</code>（密集的）或<code>scipy.sparse.csr_matrix</code>（稀疏的），并指定<code>dtype=float64</code>。</p>
 <a id="more"></a>
@@ -111,13 +115,19 @@
 <li><code>LinearSVC</code>的底层实现使用了随机数生成器来在拟合模型时选择特征。因此对同样的输入数据有略微不同的结果不是怪事。如果发生了这样的情况，试一个更小的tol参数</li>
 <li>利用<code>LinearSVC(loss=&#39;l2&#39;, penalty=&#39;l1&#39;, dual=False)</code>来引入L1惩罚项会产生一个稀疏解，即特征权重中只有一少部分不为0，会对决策函数产生贡献。增加<code>C</code>会产生一个更复杂的模型（有更多特征被选择）。可以通过<a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.l1_min_c.html#sklearn.svm.l1_min_c" target="_blank" rel="external"><code>l1_min_c</code></a>来计算产生“空”模型（所有权重都是0）的<code>C</code>值。</li>
 </ul>
-<h2 id="内核函数"><a href="#内核函数" class="headerlink" title="内核函数"></a>内核函数</h2><p><strong>核函数</strong>可以有以下几种选择：</p>
+<h2 id="内核函数"><a href="#内核函数" class="headerlink" title="内核函数"></a>内核函数</h2><p>升维的思想简单说来就是：在原来feature的基础上人为的构造一些新的feature，在更高维度的空间里，原来不线性可分的问题就会变成线性可分的问题，就又可以用svm了。</p>
+<blockquote>
+<p><a href="http://www.zhihu.com/question/30371867" target="_blank" rel="external">对高维空间里的线性可分</a></p>
+</blockquote>
+<p>升维的思想确实很漂亮，但是现实往往是很骨感的：如果对不同的数据集，每次都要寻找一个合适的函数，来把低维空间中的点x映射到高维空间中去是一件很困难的事情。<br>但是回想一下svm里的最终表达式，其实具体的表达式并不在最终结果里出现，出现的只有内积。如果有办法直接算出高维空间中的新内积，就不需要费力去构造。</p>
+<p>核函数（Kernel method）正是基于这一思想的技巧。我们可以把kernel想象成，然后不去操心f(x)，而是尝试不同的核函数就可以了。</p>
+<p><strong>核函数</strong>可以有以下几种选择：</p>
 <ul>
 <li><p>线性（linear）核：<img src="http://scikit-learn.org/stable/_images/math/cc655b2d07d61893992ca7bfb9256b43314933bf.png" alt="\ langle x，x&#39;\ rangle">。</p>
 </li>
 <li><p>多项式（polynomial）核：<br>$$<br>\left (\gamma \left \langle x, {x}’  \right \rangle +r  \right )^{d}<br>$$<br>。其中d由选项<code>degree</code>指定，r由<code>coef0</code>指定</p>
 </li>
-<li><p>径向基（RBF）函数：<img src="http://scikit-learn.org/stable/_images/math/d571609cf042d44f541e8c11efbc305354206096.png" alt="\ exp（ -  \ gamma \ | x-x&#39;\ | ^ 2）">。其中<br>$$<br>\gamma<br>$$<br>由选项<code>gamma</code>指定，必须大于0</p>
+<li><p>径向基Gaussian（RBF）函数：<img src="http://scikit-learn.org/stable/_images/math/d571609cf042d44f541e8c11efbc305354206096.png" alt="\ exp（ -  \ gamma \ | x-x&#39;\ | ^ 2）">。其中<br>$$<br>\gamma<br>$$<br>由选项<code>gamma</code>指定，必须大于0</p>
 </li>
 <li><p>sigmoid函数(<img src="http://scikit-learn.org/stable/_images/math/e5dadad6828c157553e944e605a295afdcc600cf.png" alt="\ tanh（\ gamma \ langle x，x&#39;\ rangle + r）">)，其中由选项<code>coef0</code>指定</p>
 </li>
@@ -191,11 +201,15 @@
 &lt;li&gt;当维数大于样本数时仍然可用。&lt;/li&gt;
 &lt;li&gt;在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。&lt;/li&gt;
 &lt;li&gt;用途广泛：决策函数中可以使用不同的&lt;a href=&quot;http://scikit-learn.org/stable/modules/svm.html#svm-kernels&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;核函数&lt;/a&gt;。提供了一种通用的核，但是也可以指定自定义的核。&lt;/li&gt;
+&lt;li&gt;返回的分割直线满足margin最大的条件，所以是一个robust的解。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SVM对数据点的依赖是稀疏的&lt;/strong&gt;，只有少量支持向量对最终结果有贡献。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;而其劣势在于&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;如果特征数量远大于样本数量，则表现会比较差。&lt;/li&gt;
 &lt;li&gt;SVM不直接提供概率估计。这个值通过五折交叉验证计算，代价比较高（见下面“跑分与概率”一节）。&lt;/li&gt;
+&lt;li&gt;首先SVM的优化问题比较复杂，不仅人难以理解，写起程序来也比较复杂，必须要用到Sequential minimal optimization（SMO）。&lt;/li&gt;
+&lt;li&gt;其次，传统的SVM只能处理线性可分的问题，并且对数据中的噪音也很敏感，因此我们必要对算法进行改造。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Scikit-learn中的支持向量机同时支持密集样本向量（&lt;code&gt;numpy.ndarray&lt;/code&gt;和可通过&lt;code&gt;numpy.asarray&lt;/code&gt;转化的数据类型）和稀疏样本向量（任何&lt;code&gt;scipy.sparse&lt;/code&gt;对象）。但是如果想用SVM对稀疏数据进行预测，则必须先在这些数据上拟合。为了优化性能，应该使用C阶（C-Ordered）&lt;code&gt;numpy.ndarray&lt;/code&gt;（密集的）或&lt;code&gt;scipy.sparse.csr_matrix&lt;/code&gt;（稀疏的），并指定&lt;code&gt;dtype=float64&lt;/code&gt;。&lt;/p&gt;
     
@@ -801,7 +815,7 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;==、!=：比较字符串&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt;、&amp;gt;&amp;gt;：输出、输入字符串&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt;、&amp;gt;&amp;gt;：输出、输入字符串&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;
     
     </summary>
     
@@ -877,18 +891,18 @@
 <h3 id="查看隐藏文件"><a href="#查看隐藏文件" class="headerlink" title="查看隐藏文件"></a>查看隐藏文件</h3><p>为了简化工作，command line 和 Finder 都会隐藏许多文件和文件夹，这些内容通常是系统需要的。不借助第三方工具让 Finder 显示隐藏文件比较困难，但是在 command line 中却非常简单。首先，许多隐藏文件的隐藏是通过隐藏属性在 Finder 中隐藏的，而 command line 会忽略这些属性，所以这些文件会在 command line 中显示。另外，<code>ls</code>命令会隐藏文件名以<code>.</code>开头的文件，但是这些文件却可以被显示出来，方法是利用<code>-a</code>选项。例如：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">michelle$</span> ls -la</div></pre></td></tr></table></figure>
 <p>我们还添加了<code>-l</code>选项，目的是控制输出格式。如果你注意输出内容的话，会发现还包括<code>.</code>和<code>..</code>两项，它们分别表示当前文件夹和父文件夹（如图）。如果你不想显示这两项，只需要把<code>-a</code>改成<code>-A</code>即可。</p>
-<p><img src="/Users/sephiroth/Downloads/terminal729.png" alt="terminal729"></p>
+<p><img src="/2017/03/17/Mac OS X Terminal 101：终端使用初级教程/Users/sephiroth/Downloads/terminal729.png" alt="terminal729"></p>
 <h3 id="前往其他卷"><a href="#前往其他卷" class="headerlink" title="前往其他卷"></a>前往其他卷</h3><p>在 command line 中，系统卷（也称为 root volume）是由开始的一个正斜杠表示的。然而也许听起来不可思议，在 command line 中其他卷看起来就在文件系统中一个叫做 Volumes 的文件夹中。下面的命令清晰地显示出这种逻辑关系：我从我的 home folder 出发，最终前往一个叫 Time Machine 的卷，该卷是外接在 Mac 上的。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">bogon:~ renfei$ pwd</div><div class="line">/Users/renfei</div><div class="line">bogon:~ renfei$ cd /Volumes/</div><div class="line">bogon:Volumes renfei$ pwd</div><div class="line">/Volumes</div><div class="line">bogon:Volumes renfei$ ls</div><div class="line">Macintosh SSD &amp;nbsp; &amp;nbsp; &amp;nbsp;Time Machine</div><div class="line">bogon:Volumes renfei$ cd Time\ Machine/</div><div class="line">bogon:Time Machine renfei$ pwd</div><div class="line">/Volumes/Time Machine</div></pre></td></tr></table></figure>
 <h2 id="用Command-Line管理文件"><a href="#用Command-Line管理文件" class="headerlink" title="用Command-Line管理文件"></a>用Command-Line管理文件</h2><h3 id="检视文件"><a href="#检视文件" class="headerlink" title="检视文件"></a>检视文件</h3><p>有许多基础命令用来定位、检视文件和文件夹，包括<code>cat</code>, <code>less</code>, <code>which</code>, <code>file</code>以及<code>find</code>。别忘了，你可以利用<code>man</code>命令来查阅每个命令的使用指南。</p>
 <h4 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h4><p><code>cat</code>是“concatenate”的意思，会按顺序读取文件并输出到 Terminal 窗口，语法为<code>cat</code>后接你需要查看的文件的路径。<code>cat</code>命令也可以用<code>&gt;&gt;</code>来增加文本文件的内容，例如命令<code>cat ../textOne.txt &gt;&gt; textTwo.txt</code>会把 textOne.txt 的内容添加到 textTwo.txt 的结尾。这个<code>&gt;&gt;</code>就属于上一篇提到的“Extras”。</p>
 <h4 id="less"><a href="#less" class="headerlink" title="less"></a>less</h4><p>这个命令更适合用来查看长文本文件，因为它会允许你查找文本。语法为 <code>less</code>后接文件路径，和<code>cat</code>一样。用<code>less</code>命令打开的文件其实和你查看命令使用指南的时候使用的是一个查看器，所以操作是相同的，同样可以使用▲（上箭头）或▼（下箭头）来上下移动文本，使用 空格 来翻页，输入<code>/</code>和关键字来按照关键字搜索，按Q来退出使用指南页面。除此之外，按V键来使用<code>vi</code>文本编辑器。</p>
 <h4 id="which"><a href="#which" class="headerlink" title="which"></a>which</h4><p>这个命令会定位某个命令的文件路径。换言之，它会告诉你你执行某个具体命令的时候，在使用哪个文件。语法为<code>which</code>后接某个命令。如图：</p>
-<p><img src="/Users/sephiroth/Downloads/屏幕快照-2012-07-29-13.53.59.png" alt="屏幕快照-2012-07-29-13.53.59"></p>
+<p><img src="/2017/03/17/Mac OS X Terminal 101：终端使用初级教程/Users/sephiroth/Downloads/屏幕快照-2012-07-29-13.53.59.png" alt="屏幕快照-2012-07-29-13.53.59"></p>
 <h4 id="file"><a href="#file" class="headerlink" title="file"></a>file</h4><p>这个命令会尝试根据文件的内容输出文件类型。如果一个文件缺失了扩展名，那么这个命令可能会非常有用。语法为<code>file</code>后接文件路径。如图，此例为一个 PNG 文件，还给出了它的尺寸、颜色数等信息。</p>
-<p><img src="/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.04.51.png" alt="屏幕快照-2012-07-29-14.04.51"></p>
+<p><img src="/2017/03/17/Mac OS X Terminal 101：终端使用初级教程/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.04.51.png" alt="屏幕快照-2012-07-29-14.04.51"></p>
 <h4 id="find"><a href="#find" class="headerlink" title="find"></a>find</h4><p>这个命令用来根据搜索关键词定位文件路径。 <code>find</code>命令不使用 Spotlight 搜索服务，但是它允许你设置非常具体的搜索条件，以及通配符（稍后介绍）。语法为<code>find</code>后接搜索的起始路径，后接定义搜索的选项，后接搜索内容（包含在引号里）。例如：</p>
-<p><img src="/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.12.49.png" alt="屏幕快照-2012-07-29-14.12.49"></p>
+<p><img src="/2017/03/17/Mac OS X Terminal 101：终端使用初级教程/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.12.49.png" alt="屏幕快照-2012-07-29-14.12.49"></p>
 <p><strong>注意</strong></p>
 <ol>
 <li>如果你要搜索根目录，也许你想使用<code>-x</code>选项来避免搜索 /Volumes 文件夹。</li>
@@ -902,7 +916,7 @@
 </ul>
 <p>配合使用上面三种通配符可以大大提高效率。</p>
 <h3 id="使用递归命令"><a href="#使用递归命令" class="headerlink" title="使用递归命令"></a>使用递归命令</h3><p>简单来说，递归命令可以允许命令不执行于一个特定文件，而是指定的路径下的所有文件。大多数命令包含一个<code>-r</code>或者<code>-R</code>选项，来设定你想递归地执行这个命令。例如下面的例子，展示了添加<code>-R</code>后<code>ls</code>命令的执行方式：</p>
-<p><img src="/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.39.00.png" alt="屏幕快照-2012-07-29-14.39.00"></p>
+<p><img src="/2017/03/17/Mac OS X Terminal 101：终端使用初级教程/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.39.00.png" alt="屏幕快照-2012-07-29-14.39.00"></p>
 <h3 id="编辑文件和文件夹"><a href="#编辑文件和文件夹" class="headerlink" title="编辑文件和文件夹"></a>编辑文件和文件夹</h3><p>有许多基础的命令用来编辑文件和文件夹，包括<code>mkdir</code>, <code>cp</code>, <code>mv</code>, <code>rm</code>, <code>rmdir</code>以及<code>vi</code>。下面我们来简要地介绍一下这些命令。</p>
 <h4 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h4><p>“make diretory”的缩写，用来创建文件夹，语法为<code>mkdir</code>后接新文件夹的目录。可以用<code>-p</code>选项，来一起创建路径中不存在的文件夹（这样你就不用挨层创建了）。</p>
 <h4 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h4><p>“copy”的缩写，用来把文件从一处复制到另一处。语法为<code>cp</code>后接原始路径，后接目标路径。如果你想复制整个文件夹和所有内容，需要添加<code>-R</code>选项。如果指定的目标路径不含文件名，则 cp 命令会按原名复制。如果指定的目标路径包括文件名，则会复制为你指定的文件名。如果仅指定新文件名，则会在原处以新名称创建文件副本。注意，系统会自动替换同名文件而不出现提示。</p>

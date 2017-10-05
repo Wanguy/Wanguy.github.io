@@ -95,13 +95,13 @@
 
 
 
-<meta name="description" content="文章排版还有问题，待修改  支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。 支持向量机的优点包括：  在高维空间中行之有效。 当维数大于样本数时仍然可用。 在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。 用途广泛：决策函数中可以使用不同的核函数。提供了一种通用的核，但是也可以指定自定义的核。  而其劣势在于  如果特征数量远大于样本数量，则表现会比较">
+<meta name="description" content="文章排版还有问题，待修改  支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。 支持向量机的优点包括：  在高维空间中行之有效。 当维数大于样本数时仍然可用。 在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。 用途广泛：决策函数中可以使用不同的核函数。提供了一种通用的核，但是也可以指定自定义的核。 返回的分割直线满足margin最大的条件，所以是一个rob">
 <meta name="keywords" content="Python,Machine Learning,SVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Scikit-learn的支持向量机（SVM）">
 <meta property="og:url" content="http://yoursite.com/2017/10/05/Scikit-learn的支持向量机（SVM）/index.html">
 <meta property="og:site_name" content="Gavin&#39;s Blog">
-<meta property="og:description" content="文章排版还有问题，待修改  支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。 支持向量机的优点包括：  在高维空间中行之有效。 当维数大于样本数时仍然可用。 在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。 用途广泛：决策函数中可以使用不同的核函数。提供了一种通用的核，但是也可以指定自定义的核。  而其劣势在于  如果特征数量远大于样本数量，则表现会比较">
+<meta property="og:description" content="文章排版还有问题，待修改  支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。 支持向量机的优点包括：  在高维空间中行之有效。 当维数大于样本数时仍然可用。 在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。 用途广泛：决策函数中可以使用不同的核函数。提供了一种通用的核，但是也可以指定自定义的核。 返回的分割直线满足margin最大的条件，所以是一个rob">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://scikit-learn.org/stable/_images/sphx_glr_plot_iris_001.png">
 <meta property="og:image" content="http://scikit-learn.org/stable/_images/sphx_glr_plot_separating_hyperplane_unbalanced_001.png">
@@ -130,10 +130,10 @@
 <meta property="og:image" content="http://scikit-learn.org/stable/_images/math/7b2ae68afb44fc8ac21ce0e4c5028ec7497cb5cc.png">
 <meta property="og:image" content="http://scikit-learn.org/stable/_images/math/c7e6ffac97e60b9e6f0c0e0e6efe7425064c0013.png">
 <meta property="og:image" content="http://scikit-learn.org/stable/_images/math/9a51ab9a0b521705e1e8762fac6bdd6f11771758.png">
-<meta property="og:updated_time" content="2017-10-05T10:28:27.844Z">
+<meta property="og:updated_time" content="2017-10-05T12:25:47.053Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scikit-learn的支持向量机（SVM）">
-<meta name="twitter:description" content="文章排版还有问题，待修改  支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。 支持向量机的优点包括：  在高维空间中行之有效。 当维数大于样本数时仍然可用。 在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。 用途广泛：决策函数中可以使用不同的核函数。提供了一种通用的核，但是也可以指定自定义的核。  而其劣势在于  如果特征数量远大于样本数量，则表现会比较">
+<meta name="twitter:description" content="文章排版还有问题，待修改  支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。 支持向量机的优点包括：  在高维空间中行之有效。 当维数大于样本数时仍然可用。 在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。 用途广泛：决策函数中可以使用不同的核函数。提供了一种通用的核，但是也可以指定自定义的核。 返回的分割直线满足margin最大的条件，所以是一个rob">
 <meta name="twitter:image" content="http://scikit-learn.org/stable/_images/sphx_glr_plot_iris_001.png">
 
 
@@ -441,11 +441,15 @@
 <li>当维数大于样本数时仍然可用。</li>
 <li>在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。</li>
 <li>用途广泛：决策函数中可以使用不同的<a href="http://scikit-learn.org/stable/modules/svm.html#svm-kernels" target="_blank" rel="external">核函数</a>。提供了一种通用的核，但是也可以指定自定义的核。</li>
+<li>返回的分割直线满足margin最大的条件，所以是一个robust的解。</li>
+<li><strong>SVM对数据点的依赖是稀疏的</strong>，只有少量支持向量对最终结果有贡献。</li>
 </ul>
 <p>而其劣势在于</p>
 <ul>
 <li>如果特征数量远大于样本数量，则表现会比较差。</li>
 <li>SVM不直接提供概率估计。这个值通过五折交叉验证计算，代价比较高（见下面“跑分与概率”一节）。</li>
+<li>首先SVM的优化问题比较复杂，不仅人难以理解，写起程序来也比较复杂，必须要用到Sequential minimal optimization（SMO）。</li>
+<li>其次，传统的SVM只能处理线性可分的问题，并且对数据中的噪音也很敏感，因此我们必要对算法进行改造。</li>
 </ul>
 <p>Scikit-learn中的支持向量机同时支持密集样本向量（<code>numpy.ndarray</code>和可通过<code>numpy.asarray</code>转化的数据类型）和稀疏样本向量（任何<code>scipy.sparse</code>对象）。但是如果想用SVM对稀疏数据进行预测，则必须先在这些数据上拟合。为了优化性能，应该使用C阶（C-Ordered）<code>numpy.ndarray</code>（密集的）或<code>scipy.sparse.csr_matrix</code>（稀疏的），并指定<code>dtype=float64</code>。</p>
 <a id="more"></a>
@@ -519,13 +523,19 @@
 <li><code>LinearSVC</code>的底层实现使用了随机数生成器来在拟合模型时选择特征。因此对同样的输入数据有略微不同的结果不是怪事。如果发生了这样的情况，试一个更小的tol参数</li>
 <li>利用<code>LinearSVC(loss=&#39;l2&#39;, penalty=&#39;l1&#39;, dual=False)</code>来引入L1惩罚项会产生一个稀疏解，即特征权重中只有一少部分不为0，会对决策函数产生贡献。增加<code>C</code>会产生一个更复杂的模型（有更多特征被选择）。可以通过<a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.l1_min_c.html#sklearn.svm.l1_min_c" target="_blank" rel="external"><code>l1_min_c</code></a>来计算产生“空”模型（所有权重都是0）的<code>C</code>值。</li>
 </ul>
-<h2 id="内核函数"><a href="#内核函数" class="headerlink" title="内核函数"></a>内核函数</h2><p><strong>核函数</strong>可以有以下几种选择：</p>
+<h2 id="内核函数"><a href="#内核函数" class="headerlink" title="内核函数"></a>内核函数</h2><p>升维的思想简单说来就是：在原来feature的基础上人为的构造一些新的feature，在更高维度的空间里，原来不线性可分的问题就会变成线性可分的问题，就又可以用svm了。</p>
+<blockquote>
+<p><a href="http://www.zhihu.com/question/30371867" target="_blank" rel="external">对高维空间里的线性可分</a></p>
+</blockquote>
+<p>升维的思想确实很漂亮，但是现实往往是很骨感的：如果对不同的数据集，每次都要寻找一个合适的函数，来把低维空间中的点x映射到高维空间中去是一件很困难的事情。<br>但是回想一下svm里的最终表达式，其实具体的表达式并不在最终结果里出现，出现的只有内积。如果有办法直接算出高维空间中的新内积，就不需要费力去构造。</p>
+<p>核函数（Kernel method）正是基于这一思想的技巧。我们可以把kernel想象成，然后不去操心f(x)，而是尝试不同的核函数就可以了。</p>
+<p><strong>核函数</strong>可以有以下几种选择：</p>
 <ul>
 <li><p>线性（linear）核：<img src="http://scikit-learn.org/stable/_images/math/cc655b2d07d61893992ca7bfb9256b43314933bf.png" alt="\ langle x，x&#39;\ rangle">。</p>
 </li>
 <li><p>多项式（polynomial）核：<br>$$<br>\left (\gamma \left \langle x, {x}’  \right \rangle +r  \right )^{d}<br>$$<br>。其中d由选项<code>degree</code>指定，r由<code>coef0</code>指定</p>
 </li>
-<li><p>径向基（RBF）函数：<img src="http://scikit-learn.org/stable/_images/math/d571609cf042d44f541e8c11efbc305354206096.png" alt="\ exp（ -  \ gamma \ | x-x&#39;\ | ^ 2）">。其中<br>$$<br>\gamma<br>$$<br>由选项<code>gamma</code>指定，必须大于0</p>
+<li><p>径向基Gaussian（RBF）函数：<img src="http://scikit-learn.org/stable/_images/math/d571609cf042d44f541e8c11efbc305354206096.png" alt="\ exp（ -  \ gamma \ | x-x&#39;\ | ^ 2）">。其中<br>$$<br>\gamma<br>$$<br>由选项<code>gamma</code>指定，必须大于0</p>
 </li>
 <li><p>sigmoid函数(<img src="http://scikit-learn.org/stable/_images/math/e5dadad6828c157553e944e605a295afdcc600cf.png" alt="\ tanh（\ gamma \ langle x，x&#39;\ rangle + r）">)，其中由选项<code>coef0</code>指定</p>
 </li>
@@ -901,8 +911,6 @@
   
 
 
-  
-
 
 
 
@@ -930,9 +938,6 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   

@@ -103,16 +103,16 @@
 <meta property="og:site_name" content="Gavin&#39;s Blog">
 <meta property="og:description" content="最近学习苹果认证的《Mac OS X Support Essentials》教程，看到 Command Line 一节有很多实用的知识，下面选取一部分翻译 + 笔记，整理成此文。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/terminal729.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/屏幕快照-2012-07-29-13.53.59.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.04.51.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.12.49.png">
-<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.39.00.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/17/Mac%20OS%20X%20Terminal%20101：终端使用初级教程/Users/sephiroth/Downloads/terminal729.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/17/Mac%20OS%20X%20Terminal%20101：终端使用初级教程/Users/sephiroth/Downloads/屏幕快照-2012-07-29-13.53.59.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/17/Mac%20OS%20X%20Terminal%20101：终端使用初级教程/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.04.51.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/17/Mac%20OS%20X%20Terminal%20101：终端使用初级教程/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.12.49.png">
+<meta property="og:image" content="http://yoursite.com/2017/03/17/Mac%20OS%20X%20Terminal%20101：终端使用初级教程/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.39.00.png">
 <meta property="og:updated_time" content="2017-09-08T12:17:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac OS X Terminal 101：终端使用初级教程">
 <meta name="twitter:description" content="最近学习苹果认证的《Mac OS X Support Essentials》教程，看到 Command Line 一节有很多实用的知识，下面选取一部分翻译 + 笔记，整理成此文。">
-<meta name="twitter:image" content="http://yoursite.com/Users/sephiroth/Downloads/terminal729.png">
+<meta name="twitter:image" content="http://yoursite.com/2017/03/17/Mac%20OS%20X%20Terminal%20101：终端使用初级教程/Users/sephiroth/Downloads/terminal729.png">
 
 
 
@@ -466,18 +466,18 @@
 <h3 id="查看隐藏文件"><a href="#查看隐藏文件" class="headerlink" title="查看隐藏文件"></a>查看隐藏文件</h3><p>为了简化工作，command line 和 Finder 都会隐藏许多文件和文件夹，这些内容通常是系统需要的。不借助第三方工具让 Finder 显示隐藏文件比较困难，但是在 command line 中却非常简单。首先，许多隐藏文件的隐藏是通过隐藏属性在 Finder 中隐藏的，而 command line 会忽略这些属性，所以这些文件会在 command line 中显示。另外，<code>ls</code>命令会隐藏文件名以<code>.</code>开头的文件，但是这些文件却可以被显示出来，方法是利用<code>-a</code>选项。例如：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">michelle$</span> ls -la</div></pre></td></tr></table></figure>
 <p>我们还添加了<code>-l</code>选项，目的是控制输出格式。如果你注意输出内容的话，会发现还包括<code>.</code>和<code>..</code>两项，它们分别表示当前文件夹和父文件夹（如图）。如果你不想显示这两项，只需要把<code>-a</code>改成<code>-A</code>即可。</p>
-<p><img src="/Users/sephiroth/Downloads/terminal729.png" alt="terminal729"></p>
+<p><img src="/2017/03/17/Mac OS X Terminal 101：终端使用初级教程/Users/sephiroth/Downloads/terminal729.png" alt="terminal729"></p>
 <h3 id="前往其他卷"><a href="#前往其他卷" class="headerlink" title="前往其他卷"></a>前往其他卷</h3><p>在 command line 中，系统卷（也称为 root volume）是由开始的一个正斜杠表示的。然而也许听起来不可思议，在 command line 中其他卷看起来就在文件系统中一个叫做 Volumes 的文件夹中。下面的命令清晰地显示出这种逻辑关系：我从我的 home folder 出发，最终前往一个叫 Time Machine 的卷，该卷是外接在 Mac 上的。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">bogon:~ renfei$ pwd</div><div class="line">/Users/renfei</div><div class="line">bogon:~ renfei$ cd /Volumes/</div><div class="line">bogon:Volumes renfei$ pwd</div><div class="line">/Volumes</div><div class="line">bogon:Volumes renfei$ ls</div><div class="line">Macintosh SSD &amp;nbsp; &amp;nbsp; &amp;nbsp;Time Machine</div><div class="line">bogon:Volumes renfei$ cd Time\ Machine/</div><div class="line">bogon:Time Machine renfei$ pwd</div><div class="line">/Volumes/Time Machine</div></pre></td></tr></table></figure>
 <h2 id="用Command-Line管理文件"><a href="#用Command-Line管理文件" class="headerlink" title="用Command-Line管理文件"></a>用Command-Line管理文件</h2><h3 id="检视文件"><a href="#检视文件" class="headerlink" title="检视文件"></a>检视文件</h3><p>有许多基础命令用来定位、检视文件和文件夹，包括<code>cat</code>, <code>less</code>, <code>which</code>, <code>file</code>以及<code>find</code>。别忘了，你可以利用<code>man</code>命令来查阅每个命令的使用指南。</p>
 <h4 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h4><p><code>cat</code>是“concatenate”的意思，会按顺序读取文件并输出到 Terminal 窗口，语法为<code>cat</code>后接你需要查看的文件的路径。<code>cat</code>命令也可以用<code>&gt;&gt;</code>来增加文本文件的内容，例如命令<code>cat ../textOne.txt &gt;&gt; textTwo.txt</code>会把 textOne.txt 的内容添加到 textTwo.txt 的结尾。这个<code>&gt;&gt;</code>就属于上一篇提到的“Extras”。</p>
 <h4 id="less"><a href="#less" class="headerlink" title="less"></a>less</h4><p>这个命令更适合用来查看长文本文件，因为它会允许你查找文本。语法为 <code>less</code>后接文件路径，和<code>cat</code>一样。用<code>less</code>命令打开的文件其实和你查看命令使用指南的时候使用的是一个查看器，所以操作是相同的，同样可以使用▲（上箭头）或▼（下箭头）来上下移动文本，使用 空格 来翻页，输入<code>/</code>和关键字来按照关键字搜索，按Q来退出使用指南页面。除此之外，按V键来使用<code>vi</code>文本编辑器。</p>
 <h4 id="which"><a href="#which" class="headerlink" title="which"></a>which</h4><p>这个命令会定位某个命令的文件路径。换言之，它会告诉你你执行某个具体命令的时候，在使用哪个文件。语法为<code>which</code>后接某个命令。如图：</p>
-<p><img src="/Users/sephiroth/Downloads/屏幕快照-2012-07-29-13.53.59.png" alt="屏幕快照-2012-07-29-13.53.59"></p>
+<p><img src="/2017/03/17/Mac OS X Terminal 101：终端使用初级教程/Users/sephiroth/Downloads/屏幕快照-2012-07-29-13.53.59.png" alt="屏幕快照-2012-07-29-13.53.59"></p>
 <h4 id="file"><a href="#file" class="headerlink" title="file"></a>file</h4><p>这个命令会尝试根据文件的内容输出文件类型。如果一个文件缺失了扩展名，那么这个命令可能会非常有用。语法为<code>file</code>后接文件路径。如图，此例为一个 PNG 文件，还给出了它的尺寸、颜色数等信息。</p>
-<p><img src="/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.04.51.png" alt="屏幕快照-2012-07-29-14.04.51"></p>
+<p><img src="/2017/03/17/Mac OS X Terminal 101：终端使用初级教程/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.04.51.png" alt="屏幕快照-2012-07-29-14.04.51"></p>
 <h4 id="find"><a href="#find" class="headerlink" title="find"></a>find</h4><p>这个命令用来根据搜索关键词定位文件路径。 <code>find</code>命令不使用 Spotlight 搜索服务，但是它允许你设置非常具体的搜索条件，以及通配符（稍后介绍）。语法为<code>find</code>后接搜索的起始路径，后接定义搜索的选项，后接搜索内容（包含在引号里）。例如：</p>
-<p><img src="/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.12.49.png" alt="屏幕快照-2012-07-29-14.12.49"></p>
+<p><img src="/2017/03/17/Mac OS X Terminal 101：终端使用初级教程/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.12.49.png" alt="屏幕快照-2012-07-29-14.12.49"></p>
 <p><strong>注意</strong></p>
 <ol>
 <li>如果你要搜索根目录，也许你想使用<code>-x</code>选项来避免搜索 /Volumes 文件夹。</li>
@@ -491,7 +491,7 @@
 </ul>
 <p>配合使用上面三种通配符可以大大提高效率。</p>
 <h3 id="使用递归命令"><a href="#使用递归命令" class="headerlink" title="使用递归命令"></a>使用递归命令</h3><p>简单来说，递归命令可以允许命令不执行于一个特定文件，而是指定的路径下的所有文件。大多数命令包含一个<code>-r</code>或者<code>-R</code>选项，来设定你想递归地执行这个命令。例如下面的例子，展示了添加<code>-R</code>后<code>ls</code>命令的执行方式：</p>
-<p><img src="/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.39.00.png" alt="屏幕快照-2012-07-29-14.39.00"></p>
+<p><img src="/2017/03/17/Mac OS X Terminal 101：终端使用初级教程/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.39.00.png" alt="屏幕快照-2012-07-29-14.39.00"></p>
 <h3 id="编辑文件和文件夹"><a href="#编辑文件和文件夹" class="headerlink" title="编辑文件和文件夹"></a>编辑文件和文件夹</h3><p>有许多基础的命令用来编辑文件和文件夹，包括<code>mkdir</code>, <code>cp</code>, <code>mv</code>, <code>rm</code>, <code>rmdir</code>以及<code>vi</code>。下面我们来简要地介绍一下这些命令。</p>
 <h4 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h4><p>“make diretory”的缩写，用来创建文件夹，语法为<code>mkdir</code>后接新文件夹的目录。可以用<code>-p</code>选项，来一起创建路径中不存在的文件夹（这样你就不用挨层创建了）。</p>
 <h4 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h4><p>“copy”的缩写，用来把文件从一处复制到另一处。语法为<code>cp</code>后接原始路径，后接目标路径。如果你想复制整个文件夹和所有内容，需要添加<code>-R</code>选项。如果指定的目标路径不含文件名，则 cp 命令会按原名复制。如果指定的目标路径包括文件名，则会复制为你指定的文件名。如果仅指定新文件名，则会在原处以新名称创建文件副本。注意，系统会自动替换同名文件而不出现提示。</p>
@@ -837,8 +837,6 @@
   
 
 
-  
-
 
 
 
@@ -866,9 +864,6 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
