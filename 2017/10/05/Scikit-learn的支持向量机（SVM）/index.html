@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python,Machine Learning,SVM," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。 支持向量机的优点包括：  在高维空间中行之有效。 当维数大于样本数时仍然可用。 在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。 用途广泛：决策函数中可以使用不同的核函数。提供了一种通用的核，但是也可以指定自定义的核。  而其劣势在于  如果特征数量远大于样本数量，则表现会比较差。 SVM不直接提供概率估计。">
+<meta name="keywords" content="Python,Machine Learning,SVM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scikit-learn的支持向量机（SVM）">
+<meta property="og:url" content="http://yoursite.com/2017/10/05/Scikit-learn的支持向量机（SVM）/index.html">
+<meta property="og:site_name" content="Gavin&#39;s Blog">
+<meta property="og:description" content="支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。 支持向量机的优点包括：  在高维空间中行之有效。 当维数大于样本数时仍然可用。 在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。 用途广泛：决策函数中可以使用不同的核函数。提供了一种通用的核，但是也可以指定自定义的核。  而其劣势在于  如果特征数量远大于样本数量，则表现会比较差。 SVM不直接提供概率估计。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/sphx_glr_plot_iris_0012.png">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/sphx_glr_plot_separating_hyperplane_unbalanced_0011.png">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/sphx_glr_plot_weighted_samples_0011%20(1">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/sphx_glr_plot_oneclass_0011.png">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/cc655b2d07d61893992ca7bfb9256b43314933bf.png">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/caed8545ad94ab355e204242314fb76bb96b2b09.png">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/d571609cf042d44f541e8c11efbc305354206096.png">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/3666981dc77862de77b6ecfcb64aad59b425cbaf.png">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/e5dadad6828c157553e944e605a295afdcc600cf.png">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/sphx_glr_plot_separating_hyperplane_0011.png">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/3c2810ae28117c8ad2d9464adc7f57ad2143887c.png">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/ede528003a9c8d8f47c5e4c3c8ed4dc0056b8c36.png">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/afe25ea32dba823e13d2ae45b439d4529cd15364%20(1">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/ca662d71b1a44a2cdf255fbe69c8a72803eded1c%20(1">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/02d6bcb474ff4e171fdd4de3e6d3e3b772b41c8c.png">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/4488f5555693ea818a6bb1cb471fa11fdd11b39f.png">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/c2f31c22645274c375eff7920cfdfdc18d60341f.png">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/cb88554a78c6610201fd61574c2591aa23da35ac.png">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/3c2810ae28117c8ad2d9464adc7f57ad2143887c%20(1">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/1269782190e528401491505bf582106d5990f870.png">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/3cb373a8030ad846aed7b1ee45bab27b13775928.png">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/84dfa253bd3c36093102158fbe951a73819f96df%20(1">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/adfba00b3343f39be094f322b9349d472f29fd63%20(1">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/a3e3a226d8b165a8871e4aa2b981e440ca1ccc1d.png">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/c2f31c22645274c375eff7920cfdfdc18d60341f.png">
+<meta property="og:image" content="http://yoursite.com/Users/sephiroth/Downloads/7b2ae68afb44fc8ac21ce0e4c5028ec7497cb5cc%20(1">
+<meta property="og:updated_time" content="2017-10-05T09:45:55.096Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Scikit-learn的支持向量机（SVM）">
+<meta name="twitter:description" content="支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。 支持向量机的优点包括：  在高维空间中行之有效。 当维数大于样本数时仍然可用。 在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。 用途广泛：决策函数中可以使用不同的核函数。提供了一种通用的核，但是也可以指定自定义的核。  而其劣势在于  如果特征数量远大于样本数量，则表现会比较差。 SVM不直接提供概率估计。">
+<meta name="twitter:image" content="http://yoursite.com/Users/sephiroth/Downloads/sphx_glr_plot_iris_0012.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/05/Scikit-learn的支持向量机（SVM）/"/>
+
+
+
+
+
+  <title>Scikit-learn的支持向量机（SVM） | Gavin's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gavin's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hello, World</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/05/Scikit-learn的支持向量机（SVM）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Richard Gavin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Scikit-learn的支持向量机（SVM）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-05T17:41:54+08:00">
+                10-05-2017
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Note/" itemprop="url" rel="index">
+                    <span itemprop="name">Note</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。</p>
+<p>支持向量机的优点包括：</p>
+<ul>
+<li>在高维空间中行之有效。</li>
+<li>当维数大于样本数时仍然可用。</li>
+<li>在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。</li>
+<li>用途广泛：决策函数中可以使用不同的<a href="http://scikit-learn.org/stable/modules/svm.html#svm-kernels" target="_blank" rel="external">核函数</a>。提供了一种通用的核，但是也可以指定自定义的核。</li>
+</ul>
+<p>而其劣势在于</p>
+<ul>
+<li>如果特征数量远大于样本数量，则表现会比较差。</li>
+<li>SVM不直接提供概率估计。这个值通过五折交叉验证计算，代价比较高（见下面“跑分与概率”一节）。</li>
+</ul>
+<p>Scikit-learn中的支持向量机同时支持密集样本向量（<code>numpy.ndarray</code>和可通过<code>numpy.asarray</code>转化的数据类型）和稀疏样本向量（任何<code>scipy.sparse</code>对象）。但是如果想用SVM对稀疏数据进行预测，则必须先在这些数据上拟合。为了优化性能，应该使用C阶（C-Ordered）<code>numpy.ndarray</code>（密集的）或<code>scipy.sparse.csr_matrix</code>（稀疏的），并指定<code>dtype=float64</code>。</p>
+<a id="more"></a>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>要在数据集上进行多类别分类，可以使用<a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC" target="_blank" rel="external"><code>SVC</code></a>，<a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.NuSVC.html#sklearn.svm.NuSVC" target="_blank" rel="external"><code>NuSVC</code></a>和<a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html#sklearn.svm.LinearSVC" target="_blank" rel="external"><code>LinearSVC</code></a>这三个类。</p>
+<p><img src="/Users/sephiroth/Downloads/sphx_glr_plot_iris_0012.png" alt="sphx_glr_plot_iris_0012"></p>
+<p> <code>SVC</code>和<code>NuSVC</code>两种方法类似，但是接受的参数有细微不同，而且底层的数学原理不一样（见“数学原理”一节）。另一方面，<code>LinearSVC</code>是对支持向量分类的另一种实现，使用了线性核。注意<code>LinearSVC</code>不接受关键字<code>kernel</code>，因为核被预设为是线性的。其与<code>SVC</code>和<code>NuSVC</code>相比还缺少了一些成员，如<code>support_</code>。</p>
+<p>和其它分类器一样，<a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC" target="_blank" rel="external"><code>SVC</code></a>，<a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.NuSVC.html#sklearn.svm.NuSVC" target="_blank" rel="external"><code>NuSVC</code></a>和<a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html#sklearn.svm.LinearSVC" target="_blank" rel="external"><code>LinearSVC</code></a>接受两个数组：大小为<code>[n_samples, n_features]</code>的数组X，包含训练样本；以及大小为<code>[n_samples]</code>的数组y，包含类别标签（以字符串类型或整型存储）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> sklearn <span class="keyword">import</span> svm</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>X = [[<span class="number">0</span>, <span class="number">0</span>], [<span class="number">1</span>, <span class="number">1</span>]]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>y = [<span class="number">0</span>, <span class="number">1</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>clf = svm.SVC()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>clf.fit(X, y)  </div><div class="line">SVC(C=<span class="number">1.0</span>, cache_size=<span class="number">200</span>, class_weight=<span class="keyword">None</span>, coef0=<span class="number">0.0</span>,</div><div class="line">    decision_function_shape=<span class="keyword">None</span>, degree=<span class="number">3</span>, gamma=<span class="string">'auto'</span>, kernel=<span class="string">'rbf'</span>,</div><div class="line">    max_iter=<span class="number">-1</span>, probability=<span class="keyword">False</span>, random_state=<span class="keyword">None</span>, shrinking=<span class="keyword">True</span>,</div><div class="line">    tol=<span class="number">0.001</span>, verbose=<span class="keyword">False</span>)</div></pre></td></tr></table></figure>
+<p>拟合以后就可以用得到的模型预测新值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>clf.predict([[<span class="number">2.</span>, <span class="number">2.</span>]])</div><div class="line">array([<span class="number">1</span>])</div></pre></td></tr></table></figure>
+<p>SVM的决策函数依赖于训练数据的一个子集，称为支持向量。它们的一些属性可以在成员变量<code>support_vectors_</code>，<code>support_</code>和<code>n_support</code>中找到</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># get support vectors</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>clf.support_vectors_</div><div class="line">array([[ <span class="number">0.</span>,  <span class="number">0.</span>],</div><div class="line">       [ <span class="number">1.</span>,  <span class="number">1.</span>]])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># get indices of support vectors</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>clf.support_ </div><div class="line">array([<span class="number">0</span>, <span class="number">1</span>]...)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># get number of support vectors for each class</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>clf.n_support_ </div><div class="line">array([<span class="number">1</span>, <span class="number">1</span>]...)</div></pre></td></tr></table></figure>
+<h3 id="多类别分类"><a href="#多类别分类" class="headerlink" title="多类别分类"></a>多类别分类</h3><p><code>SVC</code>和<code>NuSVC</code>使用“一对多”方法（Knerr et al., 1990）来实现多类别分类。如果<code>n_class</code>是类别的数目，则该实现会构造<code>n_class * (n_class - 1) / 2</code>个分类器，每个分类器针对两个类别对数据进行训练。为了提供一个和其它分类器一致的接口，选项<code>decision_function_shape</code>允许调用者将所有“一对一”分类器的结果聚合进一个<code>(n_samples, n_classes)</code>的决策函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>X = [[<span class="number">0</span>], [<span class="number">1</span>], [<span class="number">2</span>], [<span class="number">3</span>]]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>Y = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>clf = svm.SVC(decision_function_shape=<span class="string">'ovo'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>clf.fit(X, Y) </div><div class="line">SVC(C=<span class="number">1.0</span>, cache_size=<span class="number">200</span>, class_weight=<span class="keyword">None</span>, coef0=<span class="number">0.0</span>,</div><div class="line">    decision_function_shape=<span class="string">'ovo'</span>, degree=<span class="number">3</span>, gamma=<span class="string">'auto'</span>, kernel=<span class="string">'rbf'</span>,</div><div class="line">    max_iter=<span class="number">-1</span>, probability=<span class="keyword">False</span>, random_state=<span class="keyword">None</span>, shrinking=<span class="keyword">True</span>,</div><div class="line">    tol=<span class="number">0.001</span>, verbose=<span class="keyword">False</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dec = clf.decision_function([[<span class="number">1</span>]])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dec.shape[<span class="number">1</span>] <span class="comment"># 4 classes: 4*3/2 = 6</span></div><div class="line"><span class="number">6</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>clf.decision_function_shape = <span class="string">"ovr"</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dec = clf.decision_function([[<span class="number">1</span>]])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dec.shape[<span class="number">1</span>] <span class="comment"># 4 classes</span></div><div class="line"><span class="number">4</span></div></pre></td></tr></table></figure>
+<p>另一方面，<code>LinearSVC</code>实现了“一对多”分类法，因此会训练n_class个模型。如果只有两个类别，那么只会得到一个模型：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>lin_clf = svm.LinearSVC()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>lin_clf.fit(X, Y) </div><div class="line">LinearSVC(C=<span class="number">1.0</span>, class_weight=<span class="keyword">None</span>, dual=<span class="keyword">True</span>, fit_intercept=<span class="keyword">True</span>,</div><div class="line">     intercept_scaling=<span class="number">1</span>, loss=<span class="string">'squared_hinge'</span>, max_iter=<span class="number">1000</span>,</div><div class="line">     multi_class=<span class="string">'ovr'</span>, penalty=<span class="string">'l2'</span>, random_state=<span class="keyword">None</span>, tol=<span class="number">0.0001</span>,</div><div class="line">     verbose=<span class="number">0</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dec = lin_clf.decision_function([[<span class="number">1</span>]])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dec.shape[<span class="number">1</span>]</div><div class="line"><span class="number">4</span></div></pre></td></tr></table></figure>
+<p>决策函数的完整描述可见“数学原理”一节。</p>
+<p>需要注意的是，<code>LinearSVC</code>还实现了另一种分类策略，即所谓的多类别SVM（由Crammer和Singer提出）。通过指定<code>multi_class=&#39;crammer_singer&#39;</code>，可以使用该方法。它得到的结果总是一致的，但是一对多分类法并不能保证这一点。然而在实际应用中，还是一对多分类法用的更多，因为通常来讲该方法得到的结果变化不会太大（mostly similar），而且用的时间显著的短。</p>
+<p>一对多<code>LinearSVC</code>得到的属性中，<code>coef_</code>是<code>n_class * n_features</code>维矩阵，而<code>intercept_</code>是<code>n_class * 1</code>维的。系数中的每一行都对应于n_class个“一对多”分类器中的一个（截距也是类似），按照每个与其它类别进行比较的类别顺序排序（in the order of the “one” class）。</p>
+<p>而在“一对一”<code>SVC</code>中，属性的格式略微有些复杂难懂。在有线性核的情况下，<code>coef_</code>和<code>intercept_</code>的格式与上面所述<code>LinearSVC</code>的类似，只不过<code>coef</code>的大小为<code>[n_class * (n_class - 1) / 2, n_features]</code>（对应于二元分类器的个数）。类别0到n的顺序是“0 vs 1”, “0 vs 2” , … “0 vs n”, “1 vs 2”, “1 vs 3”, “1 vs n”, . . . “n-1 vs n”。</p>
+<p><code>dual_coef</code>的大小是[n_class-1, n_SV]，不过格式有些难以描述。列对应于<code>n_class * (n_class - 1) / 2</code>个“一对一”分类器中出现的支持向量。每个支持向量被用于<code>n_class - 1</code>个分类器中。每一行中<code>n_class - 1</code>个项目对应于这些分类器的对偶系数（dual coefficient）。</p>
+<h3 id="得分和概率"><a href="#得分和概率" class="headerlink" title="得分和概率"></a>得分和概率</h3><p><code>SVC</code>中的<code>decision_function</code>方法对每个样本都会给出在各个类别上的分数（在二元分类问题中，是对每个样本给出一个分数）。如果构造函数的<code>probability</code>被设为<code>True</code>，则可以得到属于每个类别的概率估计（通过<code>predict_proba</code>和<code>predict_log_proba</code>方法）。在二元分类中，概率使用Platt缩放进行调整：通过在训练机上做额外的交叉检验来拟合一个在SVM分数上的Logistic回归。在多元分类中，这种方法被Wu et al. (2004)扩展了。</p>
+<p>显而易见的是，Platt缩放中的交叉检验在大数据集上是一个代价很高的操作。此外，概率估计与实际得分可能会不一致，即使得分取得了最大值，概率并不一定也能取到最大值。（例如在二元分类中，某个样本经由<code>predict</code>方法得到的分类标签，如果使用<code>predict_proba</code>计算可能概率小于1/2。）Platt的方法在理论上也有一些问题。如果需要拿到置信分数，而这些分数又不一定非得是概率，则建议把<code>probability</code>置为<code>False</code>，并且使用<code>decision_function</code>，而不是<code>predict_proba</code>。</p>
+<blockquote>
+<p>参考文献：</p>
+<ul>
+<li>Wu, Lin and Weng, <a href="http://www.csie.ntu.edu.tw/~cjlin/papers/svmprob/svmprob.pdf" target="_blank" rel="external">“Probability estimates for multi-class classification by pairwise coupling”</a>, JMLR 5:975-1005, 2004.</li>
+<li><a href="http://www.cs.colorado.edu/~mozer/Teaching/syllabi/6622/papers/Platt1999.pdf" target="_blank" rel="external">Platt “Probabilistic outputs for SVMs and comparisons to regularized likelihood methods” </a>.</li>
+</ul>
+</blockquote>
+<h3 id="不平衡问题"><a href="#不平衡问题" class="headerlink" title="不平衡问题"></a>不平衡问题</h3><p>在某些情况下，一些指定的类别或某几个样本关键字可能更加重要，这时可以使用<code>class_weight</code>和<code>sample_weight</code>。</p>
+<p><code>SVC</code>（不是<code>NuSVC</code>）在<code>fit</code>方法中实现了关键字<code>class_weight</code>。该关键字是字典类型，形式为<code>{class_label : value}</code>，这里<code>value</code>是一个正浮点数，将类别<code>class_label</code>的参数<code>C</code>设为<code>C * value</code>。</p>
+<p><img src="/Users/sephiroth/Downloads/sphx_glr_plot_separating_hyperplane_unbalanced_0011.png" alt="sphx_glr_plot_separating_hyperplane_unbalanced_0011"></p>
+<p> <code>SVC</code>，<code>NuSVC</code>，<code>SVR</code>，<code>NuSVR</code>和<code>OneClassSVM</code>同样在<code>fit</code>方法中通过关键字<code>sample_weight</code>实现了对单独样本赋予特殊权重的功能。与<code>class_weight</code>类似，它们把第i个样本的参数<code>C</code>设为<code>C * sample_weight[i]</code>。</p>
+<p><img src="/Users/sephiroth/Downloads/sphx_glr_plot_weighted_samples_0011 (1" alt="sphx_glr_plot_weighted_samples_0011 (1)">.png)</p>
+<blockquote>
+<ul>
+<li><a href="http://scikit-learn.org/stable/auto_examples/svm/plot_iris.html#example-svm-plot-iris-py" target="_blank" rel="external">在iris数据集中试验不同的SVM分类器，并作图比较</a></li>
+<li><a href="http://scikit-learn.org/stable/auto_examples/svm/plot_separating_hyperplane.html#example-svm-plot-separating-hyperplane-py" target="_blank" rel="external">SVM：最大化间隔分离超平面</a></li>
+<li><a href="http://scikit-learn.org/stable/auto_examples/svm/plot_separating_hyperplane_unbalanced.html#example-svm-plot-separating-hyperplane-unbalanced-py" target="_blank" rel="external">SVM：不平衡类别的分离超平面</a></li>
+<li><a href="http://scikit-learn.org/stable/auto_examples/svm/plot_svm_anova.html#example-svm-plot-svm-anova-py" target="_blank" rel="external">SVM-Anova：带有单变量特征选择的SVM</a></li>
+<li><a href="http://scikit-learn.org/stable/auto_examples/svm/plot_svm_nonlinear.html#example-svm-plot-svm-nonlinear-py" target="_blank" rel="external">非线性SVM</a></li>
+<li><a href="http://scikit-learn.org/stable/auto_examples/svm/plot_weighted_samples.html#example-svm-plot-weighted-samples-py" target="_blank" rel="external">SVM：带权重问题的例子</a></li>
+</ul>
+</blockquote>
+<h2 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h2><p>支持向量分类这样的方法可以经扩展用在回归问题上，称作支持向量回归。</p>
+<p>支持向量分类产生的模型，如上所述，只依赖于训练数据的一个子集。其原因在于，构造模型时用到的代价函数并不关心那些不在边界上的数据点。类似的，支持向量回归所生成的模型也只依赖于训练数据的一个自己，因为构造模型时用到的代价函数用不上那些与预测值很接近的训练数据。</p>
+<p>支持向量回归有三种不同实现：<a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html#sklearn.svm.SVR" target="_blank" rel="external"><code>SVR</code></a>, <a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.NuSVR.html#sklearn.svm.NuSVR" target="_blank" rel="external"><code>NuSVR</code></a>和<a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVR.html#sklearn.svm.LinearSVR" target="_blank" rel="external"><code>LinearSVR</code></a>。<code>LinearSVR</code>提供的实现比<code>SVR</code>快，但是只使用线性核。<code>NuSVR</code>则是使用了一个略不同的数学原理。细节见后面“实现细节”部分。</p>
+<p>与分类问题类似，<code>fit</code>方法接受向量X和y作为参数，不过这里y应该是浮点型而不是整型：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> sklearn <span class="keyword">import</span> svm</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>X = [[<span class="number">0</span>, <span class="number">0</span>], [<span class="number">2</span>, <span class="number">2</span>]]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>y = [<span class="number">0.5</span>, <span class="number">2.5</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>clf = svm.SVR()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>clf.fit(X, y) </div><div class="line">SVR(C=<span class="number">1.0</span>, cache_size=<span class="number">200</span>, coef0=<span class="number">0.0</span>, degree=<span class="number">3</span>, epsilon=<span class="number">0.1</span>, gamma=<span class="string">'auto'</span>,</div><div class="line">    kernel=<span class="string">'rbf'</span>, max_iter=<span class="number">-1</span>, shrinking=<span class="keyword">True</span>, tol=<span class="number">0.001</span>, verbose=<span class="keyword">False</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>clf.predict([[<span class="number">1</span>, <span class="number">1</span>]])</div><div class="line">array([ <span class="number">1.5</span>])</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li><a href="http://scikit-learn.org/stable/auto_examples/svm/plot_svm_regression.html#example-svm-plot-svm-regression-py" target="_blank" rel="external">使用线性核和非线性核进行支持向量回归（SVR)</a></li>
+</ul>
+</blockquote>
+<h2 id="密度估计与新奇值检测（novelty-detection）"><a href="#密度估计与新奇值检测（novelty-detection）" class="headerlink" title="密度估计与新奇值检测（novelty detection）"></a>密度估计与新奇值检测（novelty detection）</h2><p>单类别SVM可用于新奇值检测，即给定一组样本，检测出该数据集的软边界，以判断新数据点是否属于该数据集。<a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html#sklearn.svm.OneClassSVM" target="_blank" rel="external"><code>OneClassSVM</code></a>类实现该方法。在这种情况下，由于这是一种无监督学习，数据没有类别标签，因此<code>fit</code>方法只接受数组X作为输入。见<a href="http://scikit-learn.org/stable/modules/outlier_detection.html#outlier-detection" target="_blank" rel="external">新奇值与异常值检测检测</a>一节了解更多用法。</p>
+<p><img src="/Users/sephiroth/Downloads/sphx_glr_plot_oneclass_0011.png" alt="sphx_glr_plot_oneclass_0011"></p>
+<blockquote>
+<ul>
+<li><a href="http://scikit-learn.org/stable/auto_examples/svm/plot_oneclass.html#example-svm-plot-oneclass-py" target="_blank" rel="external">使用非线性核（RBF）的单类别SVM</a></li>
+<li><a href="http://scikit-learn.org/stable/auto_examples/applications/plot_species_distribution_modeling.html#example-applications-plot-species-distribution-modeling-py" target="_blank" rel="external">种类分布建模</a></li>
+</ul>
+</blockquote>
+<h2 id="应用建议"><a href="#应用建议" class="headerlink" title="应用建议"></a>应用建议</h2><ul>
+<li><strong>避免数据拷贝</strong>：对<code>SVC</code>、<code>SVR</code>、<code>NuSVC</code>和<code>NuSVR</code>，如果传给特定方法的数据不是以C语言所使用的顺序排列，而且是double精度，那么该数据会在调用底层C实现之前被拷贝一份。通过检查<code>flag</code>属性，可以检查给定的numpy数组是否是以C格式的连续存储方式排列的。对<code>LinearSVC</code>和<code>LogisticRegression</code>，任何以numpy数组形式传入的输入都会被拷贝，然后转化为liblinear内部的稀疏数据表示形式（双精度浮点数，对非零元素存储32位整型的索引）。如果你想训练一个大规模的线性分类器，而又不想拷贝一个稠密的numpy C-存储双精度数组，我们建议使用<code>SGDClassifier</code>。可以对它的目标函数进行配置，使其与<code>LinearSVC</code>模型所使用的基本相同。</li>
+<li><strong>核缓存大小</strong>：对<code>SVC</code>、<code>SVR</code>、<code>NuSVC</code>和<code>NuSVR</code>，核缓存的大小对较大问题求解的运行时间有非常强的影响。如果你有足够内存，建议将<code>cache_size</code>设置为一个高于默认值200（MB）的值，比如500（MB）或1000（MB）。</li>
+<li><strong>设置C</strong>：默认情况下<code>C</code>设为1，这是一个合理的选择。如果样本中有许多噪音观察点，则应该减小这个值。这意味着对估计结果进行更严格的正则化。</li>
+<li>SVM算法会受数据取值范围的影响，所以<strong>强烈建议在使用之前对数据进行缩放</strong>。例如把输入向量X的每个属性缩放到[0,1]或[-1,+1]内，或者进行标准化使数据的均值为0方差为1。注意在测试向量上也要进行<strong>同样的</strong>缩放，这样才能得到有意义的结果。关于数据缩放和标准化的更多细节，参见<a href="http://scikit-learn.org/stable/modules/preprocessing.html#preprocessing" target="_blank" rel="external">处理数据</a>一节</li>
+<li><code>NuSVC</code>/<code>OneClassVM</code>/<code>NuSVR</code>中的参数<code>mu</code>估计了训练误差和支持向量的比率</li>
+<li>在<code>SVC</code>中，如果要分类的数据是不平衡的（如有很多正数据但是很少负数据），应该加选项<code>class_weight=&#39;balanced&#39;</code>然后/或者尝试不同的惩罚项参数<code>C</code>。</li>
+<li><code>LinearSVC</code>的底层实现使用了随机数生成器来在拟合模型时选择特征。因此对同样的输入数据有略微不同的结果不是怪事。如果发生了这样的情况，试一个更小的tol参数</li>
+<li>利用<code>LinearSVC(loss=&#39;l2&#39;, penalty=&#39;l1&#39;, dual=False)</code>来引入L1惩罚项会产生一个稀疏解，即特征权重中只有一少部分不为0，会对决策函数产生贡献。增加<code>C</code>会产生一个更复杂的模型（有更多特征被选择）。可以通过<a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.l1_min_c.html#sklearn.svm.l1_min_c" target="_blank" rel="external"><code>l1_min_c</code></a>来计算产生“空”模型（所有权重都是0）的<code>C</code>值。</li>
+</ul>
+<h2 id="内核函数"><a href="#内核函数" class="headerlink" title="内核函数"></a>内核函数</h2><p><strong>核函数</strong>可以有以下几种选择：</p>
+<ul>
+<li>线性（linear）核：<img src="/Users/sephiroth/Downloads/cc655b2d07d61893992ca7bfb9256b43314933bf.png" alt="cc655b2d07d61893992ca7bfb9256b43314933bf"></li>
+<li>多项式（polynomial）核：<img src="/Users/sephiroth/Downloads/caed8545ad94ab355e204242314fb76bb96b2b09.png" alt="caed8545ad94ab355e204242314fb76bb96b2b09">。其中d由选项<code>degree</code>指定，r由<code>coef0</code>指定</li>
+<li>径向基（RBF）函数：<img src="/Users/sephiroth/Downloads/d571609cf042d44f541e8c11efbc305354206096.png" alt="d571609cf042d44f541e8c11efbc305354206096">。其中<img src="/Users/sephiroth/Downloads/3666981dc77862de77b6ecfcb64aad59b425cbaf.png" alt="3666981dc77862de77b6ecfcb64aad59b425cbaf">由选项<code>gamma</code>指定，必须大于0</li>
+<li>sigmoid函数(<img src="/Users/sephiroth/Downloads/e5dadad6828c157553e944e605a295afdcc600cf.png" alt="e5dadad6828c157553e944e605a295afdcc600cf">)，其中由选项<code>coef0</code>指定</li>
+</ul>
+<p>在初始化时通过选项<code>kernel</code>指定用什么核</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>linear_svc = svm.SVC(kernel=<span class="string">'linear'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>linear_svc.kernel</div><div class="line"><span class="string">'linear'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>rbf_svc = svm.SVC(kernel=<span class="string">'rbf'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>rbf_svc.kernel</div><div class="line"><span class="string">'rbf'</span></div></pre></td></tr></table></figure>
+<h3 id="自定义核"><a href="#自定义核" class="headerlink" title="自定义核"></a>自定义核</h3><p>Scikit提供两种方法来自定义核函数：给参数<code>kernel</code>传入一个python函数，或者提前计算好Gram矩阵。使用自定义核的分类器和其它分类器有类似的行为，不过以下两点除外：</p>
+<ul>
+<li><code>support_vectors_</code>域为空，只在<code>support_</code>里面存储支持向量的索引</li>
+<li>会为<code>fit()</code>方法的第一个参数存储一个引用（不是拷贝），来为以后引用之做准备。如果在调用<code>fit()</code>之后，在调用<code>predict()</code>之前修改这个数组，则会产生一些不可预知的结果。</li>
+</ul>
+<h4 id="使用Python函数作为核"><a href="#使用Python函数作为核" class="headerlink" title="使用Python函数作为核"></a>使用Python函数作为核</h4><p>可以在构造函数中向参数<code>kernel</code>传进一个函数，来使用自定义的核。该函数必须接受两个大小分别为<code>(n_samples_1, n_features)</code>, <code>(n_samples_2, n_features)</code>的矩阵作为参数，返回一个大小为<code>(n_samples_1, n_samples_2)</code>的核矩阵。</p>
+<p>如下代码定义了一个线性核，并使用该核创建了一个分类器实例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> sklearn <span class="keyword">import</span> svm</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">my_kernel</span><span class="params">(X, Y)</span>:</span></div><div class="line"><span class="meta">... </span>    <span class="keyword">return</span> np.dot(X, Y.T)</div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>clf = svm.SVC(kernel=my_kernel)</div></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="http://scikit-learn.org/stable/auto_examples/svm/plot_custom_kernel.html#example-svm-plot-custom-kernel-py" target="_blank" rel="external">使用自定义核的SVM</a></p>
+</blockquote>
+<h2 id="数学原理"><a href="#数学原理" class="headerlink" title="数学原理"></a>数学原理</h2><p>支持向量机的原理是在高维甚至无限维空间中构建一个超平面或者若干超平面组成的集合，并藉此用于分类、回归或其它任务。从直觉上来讲，好的分隔面是由使得函数间隔最大的超平面得到（即该超平面到任何类别最近训练数据点的距离都取得最大值），因为总体上来讲，间隔越大，分类器的泛化误差越小。</p>
+<p><img src="/Users/sephiroth/Downloads/sphx_glr_plot_separating_hyperplane_0011.png" alt="sphx_glr_plot_separating_hyperplane_0011"></p>
+<h3 id="SVC"><a href="#SVC" class="headerlink" title="SVC"></a>SVC</h3><p>给定可能属于某两种类别的训练向量<img src="/Users/sephiroth/Downloads/3c2810ae28117c8ad2d9464adc7f57ad2143887c.png" alt="3c2810ae28117c8ad2d9464adc7f57ad2143887c">,<code>i=1, ..., n</code>和向量<img src="/Users/sephiroth/Downloads/ede528003a9c8d8f47c5e4c3c8ed4dc0056b8c36.png" alt="ede528003a9c8d8f47c5e4c3c8ed4dc0056b8c36">，SVC解决的首要问题是</p>
+<p><img src="/Users/sephiroth/Downloads/afe25ea32dba823e13d2ae45b439d4529cd15364 (1" alt="afe25ea32dba823e13d2ae45b439d4529cd15364 (1)">.png)</p>
+<p>其对偶形式为</p>
+<p><img src="/Users/sephiroth/Downloads/ca662d71b1a44a2cdf255fbe69c8a72803eded1c (1" alt="ca662d71b1a44a2cdf255fbe69c8a72803eded1c (1)">.png)</p>
+<p>其中<code>e</code>是全1向量，<code>C &gt; 0</code>是上界，<code>Q</code>是一个半正定矩阵，<img src="/Users/sephiroth/Downloads/02d6bcb474ff4e171fdd4de3e6d3e3b772b41c8c.png" alt="02d6bcb474ff4e171fdd4de3e6d3e3b772b41c8c">，其中<img src="/Users/sephiroth/Downloads/4488f5555693ea818a6bb1cb471fa11fdd11b39f.png" alt="4488f5555693ea818a6bb1cb471fa11fdd11b39f">是核。这里训练向量通过函数被隐式映射到一个高维（甚至无限维）空间<img src="/Users/sephiroth/Downloads/c2f31c22645274c375eff7920cfdfdc18d60341f.png" alt="c2f31c22645274c375eff7920cfdfdc18d60341f">。</p>
+<p>决策函数是 <strong>注意</strong>：虽然从<a href="http://www.csie.ntu.edu.tw/~cjlin/libsvm/" target="_blank" rel="external"><code>libsvm</code></a>和<a href="http://www.csie.ntu.edu.tw/~cjlin/liblinear/" target="_blank" rel="external"><code>liblinear</code></a>导出的SVM模型使用<code>C</code>作为正则化参数，但实际上其它更多预测器使用的是<code>alpha</code>。这两个参数之间的关系是</p>
+<p>这些参数可以通过各个成员变量访问：<code>dual_coef_</code>存放乘积，<code>support_vectors</code>存放支持向量，<code>intercept_</code>存放独立项：</p>
+<blockquote>
+<p>参考文献：</p>
+<ul>
+<li><a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.17.7215" target="_blank" rel="external">“Automatic Capacity Tuning of Very Large VC-dimension Classifiers”</a>, I. Guyon, B. Boser, V. Vapnik - Advances in neural information processing 1993.</li>
+<li><a href="http://link.springer.com/article/10.1007%2FBF00994018" target="_blank" rel="external">“Support-vector networks”</a>, C. Cortes, V. Vapnik - Machine Learning, 20, 273-297 (1995).</li>
+</ul>
+</blockquote>
+<h3 id="NuSVC"><a href="#NuSVC" class="headerlink" title="NuSVC"></a>NuSVC</h3><p>其提供了一个新的参数，控制支持向量的个数和训练误差。参数<img src="/Users/sephiroth/Downloads/cb88554a78c6610201fd61574c2591aa23da35ac.png" alt="cb88554a78c6610201fd61574c2591aa23da35ac">是训练误差的上限和支持向量的下限。</p>
+<p>可以看到<code>v-SVC</code>是<code>C-SVC</code>的一种重参数化形式，因此两者在数学上是等价的。</p>
+<h3 id="SVR"><a href="#SVR" class="headerlink" title="SVR"></a>SVR</h3><p>给定训练向量组<img src="/Users/sephiroth/Downloads/3c2810ae28117c8ad2d9464adc7f57ad2143887c (1" alt="3c2810ae28117c8ad2d9464adc7f57ad2143887c (1)">.png),<code>i=1, ..., n</code>和向量<img src="/Users/sephiroth/Downloads/1269782190e528401491505bf582106d5990f870.png" alt="1269782190e528401491505bf582106d5990f870">，<img src="/Users/sephiroth/Downloads/3cb373a8030ad846aed7b1ee45bab27b13775928.png" alt="3cb373a8030ad846aed7b1ee45bab27b13775928">-SVR要解决的主要问题如下所示：</p>
+<p><img src="/Users/sephiroth/Downloads/84dfa253bd3c36093102158fbe951a73819f96df (1" alt="84dfa253bd3c36093102158fbe951a73819f96df (1)">.png)</p>
+<p> 其对偶为</p>
+<p><img src="/Users/sephiroth/Downloads/adfba00b3343f39be094f322b9349d472f29fd63 (1" alt="adfba00b3343f39be094f322b9349d472f29fd63 (1)">.png)</p>
+<p>其中<code>e</code>是全1向量，<code>C &gt; 0</code>是上界，<code>Q</code>是一个半正定矩阵，<img src="/Users/sephiroth/Downloads/a3e3a226d8b165a8871e4aa2b981e440ca1ccc1d.png" alt="a3e3a226d8b165a8871e4aa2b981e440ca1ccc1d">是内核。这里训练向量通过函数被隐式映射到一个高维（甚至无限维）空间<img src="/Users/sephiroth/Downloads/c2f31c22645274c375eff7920cfdfdc18d60341f.png" alt="c2f31c22645274c375eff7920cfdfdc18d60341f">。</p>
+<p>决策函数为</p>
+<p><img src="/Users/sephiroth/Downloads/7b2ae68afb44fc8ac21ce0e4c5028ec7497cb5cc (1" alt="7b2ae68afb44fc8ac21ce0e4c5028ec7497cb5cc (1)">.png)</p>
+<p>这些参数可以通过各个成员变量访问。其中变量<code>dual_coef_</code>存储，<code>support_vectors_</code>存储支持向量，<code>intercept_</code>存储独立项。</p>
+<blockquote>
+<p>参考文献：</p>
+<ul>
+<li><a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.114.4288" target="_blank" rel="external">“A Tutorial on Support Vector Regression”</a>, Alex J. Smola, Bernhard Schölkopf - Statistics and Computing archive Volume 14 Issue 3, August 2004, p. 199-222.</li>
+</ul>
+</blockquote>
+<h2 id="底层实现"><a href="#底层实现" class="headerlink" title="底层实现"></a>底层实现</h2><p>在底层，使用 <a href="http://www.csie.ntu.edu.tw/~cjlin/libsvm/" target="_blank" rel="external">libsvm</a> 和 <a href="http://www.csie.ntu.edu.tw/~cjlin/liblinear/" target="_blank" rel="external">liblinear</a> 来处理所有计算逻辑。这些库是被C和Cython包装的。</p>
+<blockquote>
+<p><strong>参考文献</strong>：</p>
+<ul>
+<li><a href="http://www.csie.ntu.edu.tw/~cjlin/papers/libsvm.pdf" target="_blank" rel="external">LIBSVM: a library for Support Vector Machines</a></li>
+<li><a href="http://www.csie.ntu.edu.tw/~cjlin/liblinear/" target="_blank" rel="external">LIBLINEAR – A Library for Large Linear Classification</a></li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+    <div>
+  
+    
+<div style="text-align:center;color: #ccc;font-size:14px;">
+    ------ end ------
+</div>
+<br/>
+<div style="border: 1px solid black">
+    <div style="margin-left:10px">
+        <span style="font-weight:blod">Licenses</span>
+        <img alt="Creative Commons License" style="border-width:0"
+             src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/>
+        <br/>
+        <p style="font-size: 10px;line-height: 30px">
+            <a href="https://wanguy.github.io/" style="color:#258FC6">Gavin's Blog</a>
+            by <a href="https://twitter.com/rp_Wang" style="color:#258FC6">Richard Gavin</a> is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+               style="color:#258FC6">Creative
+                Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+            <br/>
+            由<a href="https://twitter.com/rp_Wang" style="color:#258FC6">Richard Gavin</a>创作并维护的
+            <a href="https://wanguy.github.io/"
+               style="color:#258FC6">Gavin's Blog</a>博客采用<a
+                href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:#258FC6">知识共享署名-非商业性使用-相同方式共享 4.0 国际共享协议</a>进行许可。
+        </p>
+    </div>
+</div>
+
+
+  
+</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
+          
+            <a href="/tags/SVM/" rel="tag"># SVM</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/19/数据表查询/" rel="next" title="数据表查询">
+                <i class="fa fa-chevron-left"></i> 数据表查询
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/profile.jpg"
+              alt="Richard Gavin" />
+          
+            <p class="site-author-name" itemprop="name">Richard Gavin</p>
+            <p class="site-description motion-element" itemprop="description">Know Thyself</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Wanguy" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>Github</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/Wanguy/activities" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>Zhihu</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/rp_Wang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/sephirothgavin/" target="_blank" title="Instagram">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">1.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#多类别分类"><span class="nav-number">1.1.</span> <span class="nav-text">多类别分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#得分和概率"><span class="nav-number">1.2.</span> <span class="nav-text">得分和概率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不平衡问题"><span class="nav-number">1.3.</span> <span class="nav-text">不平衡问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回归"><span class="nav-number">2.</span> <span class="nav-text">回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#密度估计与新奇值检测（novelty-detection）"><span class="nav-number">3.</span> <span class="nav-text">密度估计与新奇值检测（novelty detection）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用建议"><span class="nav-number">4.</span> <span class="nav-text">应用建议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内核函数"><span class="nav-number">5.</span> <span class="nav-text">内核函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义核"><span class="nav-number">5.1.</span> <span class="nav-text">自定义核</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用Python函数作为核"><span class="nav-number">5.1.1.</span> <span class="nav-text">使用Python函数作为核</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学原理"><span class="nav-number">6.</span> <span class="nav-text">数学原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SVC"><span class="nav-number">6.1.</span> <span class="nav-text">SVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NuSVC"><span class="nav-number">6.2.</span> <span class="nav-text">NuSVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVR"><span class="nav-number">6.3.</span> <span class="nav-text">SVR</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#底层实现"><span class="nav-number">7.</span> <span class="nav-text">底层实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 &mdash; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Gavin</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
