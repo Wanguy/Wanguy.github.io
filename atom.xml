@@ -17,8 +17,8 @@
   
   <entry>
     <title>矩阵，向量求导法则</title>
-    <link href="http://yoursite.com/2017/10/12/%E7%9F%A9%E9%98%B5%EF%BC%8C%E5%90%91%E9%87%8F%E6%B1%82%E5%AF%BC%E6%B3%95%E5%88%99/"/>
-    <id>http://yoursite.com/2017/10/12/矩阵，向量求导法则/</id>
+    <link href="http://yoursite.com/2017/10/12/Derivation%20formula%20of%20matrix%20and%20vector/"/>
+    <id>http://yoursite.com/2017/10/12/Derivation formula of matrix and vector/</id>
     <published>2017-10-12T14:55:37.832Z</published>
     <updated>2017-10-12T15:03:40.846Z</updated>
     
@@ -50,8 +50,8 @@
   
   <entry>
     <title>C#中的abstract和virtual</title>
-    <link href="http://yoursite.com/2017/10/12/Csharp%E4%B8%AD%E7%9A%84abstract%E5%92%8Cvirtual/"/>
-    <id>http://yoursite.com/2017/10/12/Csharp中的abstract和virtual/</id>
+    <link href="http://yoursite.com/2017/10/12/The%20abstract%20and%20virtual%20in%20C%20Sharp/"/>
+    <id>http://yoursite.com/2017/10/12/The abstract and virtual in C Sharp/</id>
     <published>2017-10-12T08:07:11.021Z</published>
     <updated>2017-10-12T15:01:48.390Z</updated>
     
@@ -83,8 +83,8 @@
   
   <entry>
     <title>Scikit-learn的支持向量机（SVM）</title>
-    <link href="http://yoursite.com/2017/10/05/Scikit-learn%E7%9A%84%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%EF%BC%88SVM%EF%BC%89/"/>
-    <id>http://yoursite.com/2017/10/05/Scikit-learn的支持向量机（SVM）/</id>
+    <link href="http://yoursite.com/2017/10/05/Support%20vector%20machine%20(SVM)%20for%20scikit-learn/"/>
+    <id>http://yoursite.com/2017/10/05/Support vector machine (SVM) for scikit-learn/</id>
     <published>2017-10-05T09:41:54.682Z</published>
     <updated>2017-10-05T12:25:47.053Z</updated>
     
@@ -284,9 +284,9 @@
       <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
       <category term="Machine Learning" scheme="http://yoursite.com/tags/Machine-Learning/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="SVM" scheme="http://yoursite.com/tags/SVM/"/>
     
@@ -294,8 +294,8 @@
   
   <entry>
     <title>数据表查询</title>
-    <link href="http://yoursite.com/2017/09/19/%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%9F%A5%E8%AF%A2/"/>
-    <id>http://yoursite.com/2017/09/19/数据表查询/</id>
+    <link href="http://yoursite.com/2017/09/19/Query%20database/"/>
+    <id>http://yoursite.com/2017/09/19/Query database/</id>
     <published>2017-09-19T05:53:24.000Z</published>
     <updated>2017-09-26T01:26:41.000Z</updated>
     
@@ -549,8 +549,8 @@
   
   <entry>
     <title>VPS搭载ss实现科学上网</title>
-    <link href="http://yoursite.com/2017/09/18/VPS%E6%90%AD%E8%BD%BDss%E5%AE%9E%E7%8E%B0%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
-    <id>http://yoursite.com/2017/09/18/VPS搭载ss实现科学上网/</id>
+    <link href="http://yoursite.com/2017/09/18/The%20Usage%20of%20traffic-proxy%20in%20Shadowsocks%20at%20VPS/"/>
+    <id>http://yoursite.com/2017/09/18/The Usage of traffic-proxy in Shadowsocks at VPS/</id>
     <published>2017-09-18T13:01:35.000Z</published>
     <updated>2017-09-18T13:17:10.000Z</updated>
     
@@ -618,8 +618,8 @@
   
   <entry>
     <title>MySQL修改root用户密码</title>
-    <link href="http://yoursite.com/2017/09/08/MySQL%E4%BF%AE%E6%94%B9root%E7%94%A8%E6%88%B7%E5%AF%86%E7%A0%81/"/>
-    <id>http://yoursite.com/2017/09/08/MySQL修改root用户密码/</id>
+    <link href="http://yoursite.com/2017/09/08/Changes%20the%20root%20user%20password%20for%20MySQL/"/>
+    <id>http://yoursite.com/2017/09/08/Changes the root user password for MySQL/</id>
     <published>2017-09-08T12:00:20.000Z</published>
     <updated>2017-09-19T05:56:44.000Z</updated>
     
@@ -664,8 +664,8 @@
   
   <entry>
     <title>Git 快速开始简明教程</title>
-    <link href="http://yoursite.com/2017/03/19/Git%20%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/"/>
-    <id>http://yoursite.com/2017/03/19/Git 快速开始简明教程/</id>
+    <link href="http://yoursite.com/2017/03/19/The%20introductory%20of%20Git/"/>
+    <id>http://yoursite.com/2017/03/19/The introductory of Git/</id>
     <published>2017-03-19T12:18:00.000Z</published>
     <updated>2017-09-19T06:06:09.000Z</updated>
     
@@ -731,8 +731,8 @@
   
   <entry>
     <title>Ubuntu 配置 Apache, MySQL, PHP 以及 phpMyAdmin 过程记录</title>
-    <link href="http://yoursite.com/2017/03/17/Ubuntu%20%E9%85%8D%E7%BD%AE%20Apache,%20MySQL,%20PHP%20%E4%BB%A5%E5%8F%8A%20phpMyAdmin%20%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/"/>
-    <id>http://yoursite.com/2017/03/17/Ubuntu 配置 Apache, MySQL, PHP 以及 phpMyAdmin 过程记录/</id>
+    <link href="http://yoursite.com/2017/03/17/The%20process%20of%20configures%20Apache,%20MySQL,%20PHP,%20and%20phpMyAdmin%20at%20Ubuntu/"/>
+    <id>http://yoursite.com/2017/03/17/The process of configures Apache, MySQL, PHP, and phpMyAdmin at Ubuntu/</id>
     <published>2017-03-17T06:14:49.000Z</published>
     <updated>2017-09-08T12:14:02.000Z</updated>
     
@@ -806,16 +806,16 @@
       <category term="Tutorial" scheme="http://yoursite.com/categories/Tutorial/"/>
     
     
-      <category term="Ubuntu" scheme="http://yoursite.com/tags/Ubuntu/"/>
-    
       <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+    
+      <category term="Ubuntu" scheme="http://yoursite.com/tags/Ubuntu/"/>
     
   </entry>
   
   <entry>
     <title>C++ string 字符串函数详解</title>
-    <link href="http://yoursite.com/2017/03/17/C++%20string%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/"/>
-    <id>http://yoursite.com/2017/03/17/C++ string 字符串函数详解/</id>
+    <link href="http://yoursite.com/2017/03/17/The%20details%20of%20string%20function%20of%20Cpp/"/>
+    <id>http://yoursite.com/2017/03/17/The details of string function of Cpp/</id>
     <published>2017-03-17T06:07:34.000Z</published>
     <updated>2017-10-12T08:08:12.306Z</updated>
     
@@ -894,8 +894,8 @@
   
   <entry>
     <title>用纯 CSS 为 HTML checkbox 添加自定义样式及动画效果</title>
-    <link href="http://yoursite.com/2017/03/17/%E7%94%A8%E7%BA%AF%20CSS%20%E4%B8%BA%20HTML%20checkbox%20%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E5%8F%8A%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/"/>
-    <id>http://yoursite.com/2017/03/17/用纯 CSS 为 HTML checkbox 添加自定义样式及动画效果/</id>
+    <link href="http://yoursite.com/2017/03/17/Add%20custom%20style%20and%20animation%20effects%20to%20HTML%20checkbox%20with%20CSS/"/>
+    <id>http://yoursite.com/2017/03/17/Add custom style and animation effects to HTML checkbox with CSS/</id>
     <published>2017-03-17T06:07:34.000Z</published>
     <updated>2017-09-08T12:18:28.000Z</updated>
     
@@ -936,8 +936,8 @@
   
   <entry>
     <title>Mac OS X Terminal 101：终端使用初级教程</title>
-    <link href="http://yoursite.com/2017/03/17/Mac%20OS%20X%20Terminal%20101%EF%BC%9A%E7%BB%88%E7%AB%AF%E4%BD%BF%E7%94%A8%E5%88%9D%E7%BA%A7%E6%95%99%E7%A8%8B/"/>
-    <id>http://yoursite.com/2017/03/17/Mac OS X Terminal 101：终端使用初级教程/</id>
+    <link href="http://yoursite.com/2017/03/17/The%20introductory%20of%20macOS%20Terminal/"/>
+    <id>http://yoursite.com/2017/03/17/The introductory of macOS Terminal/</id>
     <published>2017-03-17T06:07:34.000Z</published>
     <updated>2017-09-08T12:17:34.000Z</updated>
     
@@ -999,18 +999,18 @@
 <h3 id="查看隐藏文件"><a href="#查看隐藏文件" class="headerlink" title="查看隐藏文件"></a>查看隐藏文件</h3><p>为了简化工作，command line 和 Finder 都会隐藏许多文件和文件夹，这些内容通常是系统需要的。不借助第三方工具让 Finder 显示隐藏文件比较困难，但是在 command line 中却非常简单。首先，许多隐藏文件的隐藏是通过隐藏属性在 Finder 中隐藏的，而 command line 会忽略这些属性，所以这些文件会在 command line 中显示。另外，<code>ls</code>命令会隐藏文件名以<code>.</code>开头的文件，但是这些文件却可以被显示出来，方法是利用<code>-a</code>选项。例如：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">michelle$</span> ls -la</div></pre></td></tr></table></figure>
 <p>我们还添加了<code>-l</code>选项，目的是控制输出格式。如果你注意输出内容的话，会发现还包括<code>.</code>和<code>..</code>两项，它们分别表示当前文件夹和父文件夹（如图）。如果你不想显示这两项，只需要把<code>-a</code>改成<code>-A</code>即可。</p>
-<p><img src="/2017/03/17/Mac OS X Terminal 101：终端使用初级教程/Users/sephiroth/Downloads/terminal729.png" alt="terminal729"></p>
+<p><img src="/2017/03/17/The introductory of macOS Terminal/Users/sephiroth/Downloads/terminal729.png" alt="terminal729"></p>
 <h3 id="前往其他卷"><a href="#前往其他卷" class="headerlink" title="前往其他卷"></a>前往其他卷</h3><p>在 command line 中，系统卷（也称为 root volume）是由开始的一个正斜杠表示的。然而也许听起来不可思议，在 command line 中其他卷看起来就在文件系统中一个叫做 Volumes 的文件夹中。下面的命令清晰地显示出这种逻辑关系：我从我的 home folder 出发，最终前往一个叫 Time Machine 的卷，该卷是外接在 Mac 上的。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">bogon:~ renfei$ pwd</div><div class="line">/Users/renfei</div><div class="line">bogon:~ renfei$ cd /Volumes/</div><div class="line">bogon:Volumes renfei$ pwd</div><div class="line">/Volumes</div><div class="line">bogon:Volumes renfei$ ls</div><div class="line">Macintosh SSD &amp;nbsp; &amp;nbsp; &amp;nbsp;Time Machine</div><div class="line">bogon:Volumes renfei$ cd Time\ Machine/</div><div class="line">bogon:Time Machine renfei$ pwd</div><div class="line">/Volumes/Time Machine</div></pre></td></tr></table></figure>
 <h2 id="用Command-Line管理文件"><a href="#用Command-Line管理文件" class="headerlink" title="用Command-Line管理文件"></a>用Command-Line管理文件</h2><h3 id="检视文件"><a href="#检视文件" class="headerlink" title="检视文件"></a>检视文件</h3><p>有许多基础命令用来定位、检视文件和文件夹，包括<code>cat</code>, <code>less</code>, <code>which</code>, <code>file</code>以及<code>find</code>。别忘了，你可以利用<code>man</code>命令来查阅每个命令的使用指南。</p>
 <h4 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h4><p><code>cat</code>是“concatenate”的意思，会按顺序读取文件并输出到 Terminal 窗口，语法为<code>cat</code>后接你需要查看的文件的路径。<code>cat</code>命令也可以用<code>&gt;&gt;</code>来增加文本文件的内容，例如命令<code>cat ../textOne.txt &gt;&gt; textTwo.txt</code>会把 textOne.txt 的内容添加到 textTwo.txt 的结尾。这个<code>&gt;&gt;</code>就属于上一篇提到的“Extras”。</p>
 <h4 id="less"><a href="#less" class="headerlink" title="less"></a>less</h4><p>这个命令更适合用来查看长文本文件，因为它会允许你查找文本。语法为 <code>less</code>后接文件路径，和<code>cat</code>一样。用<code>less</code>命令打开的文件其实和你查看命令使用指南的时候使用的是一个查看器，所以操作是相同的，同样可以使用▲（上箭头）或▼（下箭头）来上下移动文本，使用 空格 来翻页，输入<code>/</code>和关键字来按照关键字搜索，按Q来退出使用指南页面。除此之外，按V键来使用<code>vi</code>文本编辑器。</p>
 <h4 id="which"><a href="#which" class="headerlink" title="which"></a>which</h4><p>这个命令会定位某个命令的文件路径。换言之，它会告诉你你执行某个具体命令的时候，在使用哪个文件。语法为<code>which</code>后接某个命令。如图：</p>
-<p><img src="/2017/03/17/Mac OS X Terminal 101：终端使用初级教程/Users/sephiroth/Downloads/屏幕快照-2012-07-29-13.53.59.png" alt="屏幕快照-2012-07-29-13.53.59"></p>
+<p><img src="/2017/03/17/The introductory of macOS Terminal/Users/sephiroth/Downloads/屏幕快照-2012-07-29-13.53.59.png" alt="屏幕快照-2012-07-29-13.53.59"></p>
 <h4 id="file"><a href="#file" class="headerlink" title="file"></a>file</h4><p>这个命令会尝试根据文件的内容输出文件类型。如果一个文件缺失了扩展名，那么这个命令可能会非常有用。语法为<code>file</code>后接文件路径。如图，此例为一个 PNG 文件，还给出了它的尺寸、颜色数等信息。</p>
-<p><img src="/2017/03/17/Mac OS X Terminal 101：终端使用初级教程/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.04.51.png" alt="屏幕快照-2012-07-29-14.04.51"></p>
+<p><img src="/2017/03/17/The introductory of macOS Terminal/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.04.51.png" alt="屏幕快照-2012-07-29-14.04.51"></p>
 <h4 id="find"><a href="#find" class="headerlink" title="find"></a>find</h4><p>这个命令用来根据搜索关键词定位文件路径。 <code>find</code>命令不使用 Spotlight 搜索服务，但是它允许你设置非常具体的搜索条件，以及通配符（稍后介绍）。语法为<code>find</code>后接搜索的起始路径，后接定义搜索的选项，后接搜索内容（包含在引号里）。例如：</p>
-<p><img src="/2017/03/17/Mac OS X Terminal 101：终端使用初级教程/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.12.49.png" alt="屏幕快照-2012-07-29-14.12.49"></p>
+<p><img src="/2017/03/17/The introductory of macOS Terminal/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.12.49.png" alt="屏幕快照-2012-07-29-14.12.49"></p>
 <p><strong>注意</strong></p>
 <ol>
 <li>如果你要搜索根目录，也许你想使用<code>-x</code>选项来避免搜索 /Volumes 文件夹。</li>
@@ -1024,7 +1024,7 @@
 </ul>
 <p>配合使用上面三种通配符可以大大提高效率。</p>
 <h3 id="使用递归命令"><a href="#使用递归命令" class="headerlink" title="使用递归命令"></a>使用递归命令</h3><p>简单来说，递归命令可以允许命令不执行于一个特定文件，而是指定的路径下的所有文件。大多数命令包含一个<code>-r</code>或者<code>-R</code>选项，来设定你想递归地执行这个命令。例如下面的例子，展示了添加<code>-R</code>后<code>ls</code>命令的执行方式：</p>
-<p><img src="/2017/03/17/Mac OS X Terminal 101：终端使用初级教程/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.39.00.png" alt="屏幕快照-2012-07-29-14.39.00"></p>
+<p><img src="/2017/03/17/The introductory of macOS Terminal/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.39.00.png" alt="屏幕快照-2012-07-29-14.39.00"></p>
 <h3 id="编辑文件和文件夹"><a href="#编辑文件和文件夹" class="headerlink" title="编辑文件和文件夹"></a>编辑文件和文件夹</h3><p>有许多基础的命令用来编辑文件和文件夹，包括<code>mkdir</code>, <code>cp</code>, <code>mv</code>, <code>rm</code>, <code>rmdir</code>以及<code>vi</code>。下面我们来简要地介绍一下这些命令。</p>
 <h4 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h4><p>“make diretory”的缩写，用来创建文件夹，语法为<code>mkdir</code>后接新文件夹的目录。可以用<code>-p</code>选项，来一起创建路径中不存在的文件夹（这样你就不用挨层创建了）。</p>
 <h4 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h4><p>“copy”的缩写，用来把文件从一处复制到另一处。语法为<code>cp</code>后接原始路径，后接目标路径。如果你想复制整个文件夹和所有内容，需要添加<code>-R</code>选项。如果指定的目标路径不含文件名，则 cp 命令会按原名复制。如果指定的目标路径包括文件名，则会复制为你指定的文件名。如果仅指定新文件名，则会在原处以新名称创建文件副本。注意，系统会自动替换同名文件而不出现提示。</p>

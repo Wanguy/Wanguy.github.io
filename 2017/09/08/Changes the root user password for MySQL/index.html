@@ -103,7 +103,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="MySQL," />
 
 
 
@@ -119,16 +119,18 @@
 
 
 
-<meta name="description" content="Know Thyself">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gavin&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/MySQL/index.html">
+<meta name="description" content="新安装了MySQL，安装之后粗心把密码给搞丢了，进入MySQL时报错：ERROR 1045 (28000): Access denied for user ‘root’@’localhost’ (using password: NO). 通过以下步骤修改密码。">
+<meta name="keywords" content="MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL修改root用户密码">
+<meta property="og:url" content="http://yoursite.com/2017/09/08/Changes the root user password for MySQL/index.html">
 <meta property="og:site_name" content="Gavin&#39;s Blog">
-<meta property="og:description" content="Know Thyself">
+<meta property="og:description" content="新安装了MySQL，安装之后粗心把密码给搞丢了，进入MySQL时报错：ERROR 1045 (28000): Access denied for user ‘root’@’localhost’ (using password: NO). 通过以下步骤修改密码。">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-09-19T05:56:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gavin&#39;s Blog">
-<meta name="twitter:description" content="Know Thyself">
+<meta name="twitter:title" content="MySQL修改root用户密码">
+<meta name="twitter:description" content="新安装了MySQL，安装之后粗心把密码给搞丢了，进入MySQL时报错：ERROR 1045 (28000): Access denied for user ‘root’@’localhost’ (using password: NO). 通过以下步骤修改密码。">
 
 
 
@@ -158,13 +160,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/MySQL/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/08/Changes the root user password for MySQL/"/>
 
 
 
 
 
-  <title>Tag: MySQL | Gavin's Blog</title>
+  <title>MySQL修改root用户密码 | Gavin's Blog</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -201,7 +203,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -339,110 +341,237 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>MySQL<small>Tag</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/08/Changes the root user password for MySQL/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Richard Gavin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/IMG_0629.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/09/19/Query database/" itemprop="url">
-              
-                <span itemprop="name">数据表查询</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">MySQL修改root用户密码</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-19T13:53:24+08:00"
-              content="09-19-2017" >
-          09-19
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-08T20:00:20+08:00">
+                09-08-2017
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tutorial/" itemprop="url" rel="index">
+                    <span itemprop="name">Tutorial</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/09/08/Changes the root user password for MySQL/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/09/08/Changes the root user password for MySQL/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/08/Changes the root user password for MySQL/" itemprop="url">
-              
-                <span itemprop="name">MySQL修改root用户密码</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-08T20:00:20+08:00"
-              content="09-08-2017" >
-          09-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/17/The process of configures Apache, MySQL, PHP, and phpMyAdmin at Ubuntu/" itemprop="url">
-              
-                <span itemprop="name">Ubuntu 配置 Apache, MySQL, PHP 以及 phpMyAdmin 过程记录</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-17T14:14:49+08:00"
-              content="03-17-2017" >
-          03-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+        <p>新安装了MySQL，安装之后粗心把密码给搞丢了，进入MySQL时报错：ERROR 1045 (28000): Access denied for user ‘root’@’localhost’ (using password: NO).</p>
+<p>通过以下步骤修改密码。</p>
+<a id="more"></a>
+<h3 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h3><p>关闭MySQL服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /usr/local/mysql/support-files/mysql.server stop</div></pre></td></tr></table></figure>
+<blockquote>
+<p>① 通过DMG安装的MySQL通过’<code>&#39;System Prefrences&#39; &gt; MySQL &gt; &#39;Stop MySQL Server&#39;</code>来结束MySQL服务。</p>
+<p>如果报错：ERROR! MySQL server PID file could not be found! 则直接用 ① 的方法关闭即可。</p>
+<p>同理打开服务为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> sudo /usr/local/mysql/support-files/mysql.server start</div><div class="line"><span class="meta">&gt;</span></div></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h3><p>使用安全模式启动MySQL</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /usr/local/mysql/bin/mysqld_safe --skip-grant-tables</div></pre></td></tr></table></figure>
+<h3 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h3><p>在新的Terminal中输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -u root</div></pre></td></tr></table></figure>
+<p>在打开的MySQL命令行窗口依次输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">UPDATE mysql.user SET authentication_string=PASSWORD(&apos;YOUR_NEW_PASSWORD&apos;) WHERE User=&apos;root&apos;;</div><div class="line">FLUSH PRIVILEGES;</div><div class="line">\q</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里注意结尾的 <code>;</code>不能少。</p>
+<p><code>YOUR_NEW_PASSWORD</code> 是你的新密码</p>
+<p>5.7之前的版本，mysql.user表里面的<code>authentication_string</code>字段改成了：<code>password</code></p>
+</blockquote>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>重启MySQL后运行以下命令测试密码是否修改成功</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -u root -p</div></pre></td></tr></table></figure>
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+    <div>
+  
+    
+<div style="text-align:center;color: #ccc;font-size:14px;">
+    ------ end ------
+</div>
+<br/>
+<div style="border: 1px solid black">
+    <div style="margin-left:10px">
+        <span style="font-weight:blod">Licenses</span>
+        <img alt="Creative Commons License" style="border-width:0"
+             src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/>
+        <br/>
+        <p style="font-size: 10px;line-height: 30px">
+            <a href="https://wanguy.github.io/" style="color:#258FC6">Gavin's Blog</a>
+            by <a href="https://twitter.com/rp_Wang" style="color:#258FC6">Richard Gavin</a> is licensed under a
+            <a rel="license"
+               href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+               style="color:#258FC6">Creative
+                Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+            <br/>
+            由<a href="https://twitter.com/rp_Wang" style="color:#258FC6">Richard Gavin</a>创作并维护的
+            <a href="https://wanguy.github.io/"
+               style="color:#258FC6">Gavin's Blog</a>博客采用<a
+                href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:#258FC6">知识共享署名-非商业性使用-相同方式共享 4.0 国际共享协议</a>进行许可。
+        </p>
+    </div>
+</div>
+
+
+  
+</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/19/The introductory of Git/" rel="next" title="Git 快速开始简明教程">
+                <i class="fa fa-chevron-left"></i> Git 快速开始简明教程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/18/The Usage of traffic-proxy in Shadowsocks at VPS/" rel="prev" title="VPS搭载ss实现科学上网">
+                VPS搭载ss实现科学上网 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -450,6 +579,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="fb-comments"
+           data-href="http://yoursite.com/2017/09/08/Changes the root user password for MySQL/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -470,8 +610,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -562,6 +711,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-1"><span class="nav-number">1.</span> <span class="nav-text">Step 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-2"><span class="nav-number">2.</span> <span class="nav-text">Step 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-3"><span class="nav-number">3.</span> <span class="nav-text">Step 3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">4.</span> <span class="nav-text">测试</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
