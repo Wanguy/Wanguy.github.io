@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-10-05T12:25:47.053Z</updated>
+  <updated>2017-10-12T08:23:59.622Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C#中的abstract和virtual</title>
+    <link href="http://yoursite.com/2017/10/12/C#%E4%B8%AD%E7%9A%84abstract%E5%92%8Cvirtual/"/>
+    <id>http://yoursite.com/2017/10/12/C#中的abstract和virtual/</id>
+    <published>2017-10-12T08:07:11.021Z</published>
+    <updated>2017-10-12T08:23:59.622Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="abstract-new和override"><a href="#abstract-new和override" class="headerlink" title="abstract, new和override"></a><code>abstract</code>, <code>new</code>和<code>override</code></h2><ul>
+<li>抽象（<code>abstract</code>）方法<strong>必须</strong>在抽象类中定义，且没有方法的实现。</li>
+<li>基类中的抽象（<code>abstract</code>）方法<strong>必须</strong>在派生类中重写（<code>override</code>）。</li>
+<li>抽象类无法创建基实例，只能继承后创建。</li>
+<li>派生类中如果重新定义和基类同名的方法，使用<code>new</code>关键字。</li>
+<li>派生类中如果要重写基类中同名已经实现的方法，则基类中的方法用<code>virtual</code>关键字，派生类中的同名方法用<code>override</code>关键字重写。</li>
+<li><code>virtual</code>修饰的法法必须要实现。</li>
+<li><code>virtual</code>和<code>abstract</code>修饰的方法必须是<code>pubulic</code>。</li>
+<li><code>virtual</code>方法<strong>必须</strong>实现，<code>abstract</code>方法<strong>不一定</strong>要实现。</li>
+<li><code>virtual</code>方法<strong>可以</strong>被派生类重写，<code>abstract</code>方法<strong>必须</strong>在派生类中重写。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;abstract-new和override&quot;&gt;&lt;a href=&quot;#abstract-new和override&quot; class=&quot;headerlink&quot; title=&quot;abstract, new和override&quot;&gt;&lt;/a&gt;&lt;code&gt;abstract&lt;/code&gt;,
+    
+    </summary>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+    
+      <category term="C#" scheme="http://yoursite.com/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>Scikit-learn的支持向量机（SVM）</title>
@@ -751,7 +784,7 @@
     <link href="http://yoursite.com/2017/03/17/C++%20string%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3/"/>
     <id>http://yoursite.com/2017/03/17/C++ string 字符串函数详解/</id>
     <published>2017-03-17T06:07:34.000Z</published>
-    <updated>2017-09-08T12:16:19.000Z</updated>
+    <updated>2017-10-12T08:08:12.306Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <h2 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h2></blockquote>
