@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-10-12T08:23:59.622Z</updated>
+  <updated>2017-10-12T15:03:40.846Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,44 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>矩阵，向量求导法则</title>
+    <link href="http://yoursite.com/2017/10/12/%E7%9F%A9%E9%98%B5%EF%BC%8C%E5%90%91%E9%87%8F%E6%B1%82%E5%AF%BC%E6%B3%95%E5%88%99/"/>
+    <id>http://yoursite.com/2017/10/12/矩阵，向量求导法则/</id>
+    <published>2017-10-12T14:55:37.832Z</published>
+    <updated>2017-10-12T15:03:40.846Z</updated>
+    
+    <content type="html"><![CDATA[
+
+	<div class="row">
+    <embed src="http://files.cnblogs.com/files/leoleo/matrix_rules.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+]]></content>
+    
+    <summary type="html">
+    
+      
+
+	&lt;div class=&quot;row&quot;&gt;
+    &lt;embed src=&quot;http://files.cnblogs.com/files/leoleo/matrix_rules.pdf&quot; width=&quot;100%&quot; height=&quot;550&quot; type=&quot;application/pdf
+    
+    </summary>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+    
+      <category term="Machine Learning" scheme="http://yoursite.com/tags/Machine-Learning/"/>
+    
+  </entry>
+  
+  <entry>
     <title>C#中的abstract和virtual</title>
-    <link href="http://yoursite.com/2017/10/12/C#%E4%B8%AD%E7%9A%84abstract%E5%92%8Cvirtual/"/>
-    <id>http://yoursite.com/2017/10/12/C#中的abstract和virtual/</id>
+    <link href="http://yoursite.com/2017/10/12/Csharp%E4%B8%AD%E7%9A%84abstract%E5%92%8Cvirtual/"/>
+    <id>http://yoursite.com/2017/10/12/Csharp中的abstract和virtual/</id>
     <published>2017-10-12T08:07:11.021Z</published>
-    <updated>2017-10-12T08:23:59.622Z</updated>
+    <updated>2017-10-12T15:01:48.390Z</updated>
     
     <content type="html"><![CDATA[<h2 id="abstract-new和override"><a href="#abstract-new和override" class="headerlink" title="abstract, new和override"></a><code>abstract</code>, <code>new</code>和<code>override</code></h2><ul>
 <li>抽象（<code>abstract</code>）方法<strong>必须</strong>在抽象类中定义，且没有方法的实现。</li>
@@ -773,9 +806,9 @@
       <category term="Tutorial" scheme="http://yoursite.com/categories/Tutorial/"/>
     
     
-      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
-    
       <category term="Ubuntu" scheme="http://yoursite.com/tags/Ubuntu/"/>
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
     
   </entry>
   
@@ -856,6 +889,48 @@
     
     
       <category term="C++" scheme="http://yoursite.com/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用纯 CSS 为 HTML checkbox 添加自定义样式及动画效果</title>
+    <link href="http://yoursite.com/2017/03/17/%E7%94%A8%E7%BA%AF%20CSS%20%E4%B8%BA%20HTML%20checkbox%20%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E5%8F%8A%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/"/>
+    <id>http://yoursite.com/2017/03/17/用纯 CSS 为 HTML checkbox 添加自定义样式及动画效果/</id>
+    <published>2017-03-17T06:07:34.000Z</published>
+    <updated>2017-09-08T12:18:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>一般情况下，<code>`元素（也包括一部分其他</code>input<code>元素）是由操作系统（而非浏览器）进行渲染的。在不同操作系统下，这类特殊元素的样式往往和系统本身的风格一致，和浏览器无关。也正是由于这种机制，开发者无法像一般元素那样使用 CSS 来修饰这类元素。这里介绍一种利用纯 CSS 实现自定义 checkbox 样式的方法。思路很简单：由于控件所对应的</code>label<code>元素是可以点击并切换控件状态的，而</code>label<code>元素的样式又可以自由设定，因此我们可将</code>input<code>元素隐藏，通过</code>label`元素实现交互。</p>
+<a id="more"></a>
+<p>HTML 代码如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;input type="checkbox" id="checkbox" class="checkbox"/&gt;</div><div class="line">&lt;div class="checkbox-wrapper"&gt;</div><div class="line">    &lt;label for="checkbox" class="checkbox-label"&gt;&lt;/label&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="样式一：Metro-UI-风格"><a href="#样式一：Metro-UI-风格" class="headerlink" title="样式一：Metro UI 风格"></a>样式一：Metro UI 风格</h2></blockquote>
+<p>效果：</p>
+<p>CSS 代码如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">80px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span> &#123;</div><div class="line">    <span class="attribute">display</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::before</span>,</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">    <span class="attribute">font-family</span>: sans-serif;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">13px</span>;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">font-weight</span>: bold;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::before</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">'ON'</span>;</div><div class="line">    <span class="attribute">left</span>: -<span class="number">40px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#45b6af</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">'OFF'</span>;</div><div class="line">    <span class="attribute">right</span>: -<span class="number">40px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#f3565d</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">4s</span> ease;</div><div class="line">    <span class="attribute">cursor</span>: pointer;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#dddddd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> <span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">left</span>: <span class="number">40px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="样式二：iOS-7-风格"><a href="#样式二：iOS-7-风格" class="headerlink" title="样式二：iOS 7 风格"></a>样式二：iOS 7 风格</h2></blockquote>
+<p>效果：</p>
+<p>CSS代码如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">58px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">16px</span>;</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">3s</span> ease-out;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">2px</span> <span class="number">#ddd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span> &#123;</div><div class="line">    <span class="attribute">display</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0px</span>;</div><div class="line">    <span class="attribute">top</span>: <span class="number">0px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">cursor</span>: pointer;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">16px</span>;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">2px</span> <span class="number">3px</span> <span class="built_in">rgba</span>(0,0,0,0.2);</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">3s</span> ease-out;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#0bd318</span>;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">2px</span> <span class="number">#0bd318</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> <span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">left</span>: <span class="number">26px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>值得一提的是，这个例子虽然比较完美的还原了 iOS 7 中 UISwitch 控件的外观，但是动画曲线却还有些差距。iOS 7 中使用的是一种名为 String Animation 的动画（该 API 在 iOS 8 中已经公开），仔细看的话可以发现开始滑块移动很快，到后面逐渐变慢，并且结束时还有小幅度的「反弹」效果。这里我们为了方便，使用 ease-out 来模拟。</p>
+<blockquote>
+<h2 id="JSFiddle"><a href="#JSFiddle" class="headerlink" title="JSFiddle"></a>JSFiddle</h2></blockquote>
+<p>点击<a href="http://jsfiddle.net/gnu1qqnq/" target="_blank" rel="external">此处</a>查看本教程在 JSFiddle 的示范代码。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一般情况下，&lt;code&gt;`元素（也包括一部分其他&lt;/code&gt;input&lt;code&gt;元素）是由操作系统（而非浏览器）进行渲染的。在不同操作系统下，这类特殊元素的样式往往和系统本身的风格一致，和浏览器无关。也正是由于这种机制，开发者无法像一般元素那样使用 CSS 来修饰这类元素。这里介绍一种利用纯 CSS 实现自定义 checkbox 样式的方法。思路很简单：由于控件所对应的&lt;/code&gt;label&lt;code&gt;元素是可以点击并切换控件状态的，而&lt;/code&gt;label&lt;code&gt;元素的样式又可以自由设定，因此我们可将&lt;/code&gt;input&lt;code&gt;元素隐藏，通过&lt;/code&gt;label`元素实现交互。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+    
+      <category term="HTML" scheme="http://yoursite.com/tags/HTML/"/>
+    
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
     
   </entry>
   
@@ -990,48 +1065,6 @@
     
     
       <category term="Terminal" scheme="http://yoursite.com/tags/Terminal/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用纯 CSS 为 HTML checkbox 添加自定义样式及动画效果</title>
-    <link href="http://yoursite.com/2017/03/17/%E7%94%A8%E7%BA%AF%20CSS%20%E4%B8%BA%20HTML%20checkbox%20%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F%E5%8F%8A%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/"/>
-    <id>http://yoursite.com/2017/03/17/用纯 CSS 为 HTML checkbox 添加自定义样式及动画效果/</id>
-    <published>2017-03-17T06:07:34.000Z</published>
-    <updated>2017-09-08T12:18:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>一般情况下，<code>`元素（也包括一部分其他</code>input<code>元素）是由操作系统（而非浏览器）进行渲染的。在不同操作系统下，这类特殊元素的样式往往和系统本身的风格一致，和浏览器无关。也正是由于这种机制，开发者无法像一般元素那样使用 CSS 来修饰这类元素。这里介绍一种利用纯 CSS 实现自定义 checkbox 样式的方法。思路很简单：由于控件所对应的</code>label<code>元素是可以点击并切换控件状态的，而</code>label<code>元素的样式又可以自由设定，因此我们可将</code>input<code>元素隐藏，通过</code>label`元素实现交互。</p>
-<a id="more"></a>
-<p>HTML 代码如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;input type="checkbox" id="checkbox" class="checkbox"/&gt;</div><div class="line">&lt;div class="checkbox-wrapper"&gt;</div><div class="line">    &lt;label for="checkbox" class="checkbox-label"&gt;&lt;/label&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="样式一：Metro-UI-风格"><a href="#样式一：Metro-UI-风格" class="headerlink" title="样式一：Metro UI 风格"></a>样式一：Metro UI 风格</h2></blockquote>
-<p>效果：</p>
-<p>CSS 代码如下：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">80px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span> &#123;</div><div class="line">    <span class="attribute">display</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::before</span>,</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">    <span class="attribute">font-family</span>: sans-serif;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">13px</span>;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">font-weight</span>: bold;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::before</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">'ON'</span>;</div><div class="line">    <span class="attribute">left</span>: -<span class="number">40px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#45b6af</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">'OFF'</span>;</div><div class="line">    <span class="attribute">right</span>: -<span class="number">40px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#f3565d</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">4s</span> ease;</div><div class="line">    <span class="attribute">cursor</span>: pointer;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#dddddd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> <span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">left</span>: <span class="number">40px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="样式二：iOS-7-风格"><a href="#样式二：iOS-7-风格" class="headerlink" title="样式二：iOS 7 风格"></a>样式二：iOS 7 风格</h2></blockquote>
-<p>效果：</p>
-<p>CSS代码如下：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">58px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">16px</span>;</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">3s</span> ease-out;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">2px</span> <span class="number">#ddd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span> &#123;</div><div class="line">    <span class="attribute">display</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0px</span>;</div><div class="line">    <span class="attribute">top</span>: <span class="number">0px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">cursor</span>: pointer;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">16px</span>;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">2px</span> <span class="number">3px</span> <span class="built_in">rgba</span>(0,0,0,0.2);</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">3s</span> ease-out;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#0bd318</span>;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">2px</span> <span class="number">#0bd318</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> <span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">left</span>: <span class="number">26px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>值得一提的是，这个例子虽然比较完美的还原了 iOS 7 中 UISwitch 控件的外观，但是动画曲线却还有些差距。iOS 7 中使用的是一种名为 String Animation 的动画（该 API 在 iOS 8 中已经公开），仔细看的话可以发现开始滑块移动很快，到后面逐渐变慢，并且结束时还有小幅度的「反弹」效果。这里我们为了方便，使用 ease-out 来模拟。</p>
-<blockquote>
-<h2 id="JSFiddle"><a href="#JSFiddle" class="headerlink" title="JSFiddle"></a>JSFiddle</h2></blockquote>
-<p>点击<a href="http://jsfiddle.net/gnu1qqnq/" target="_blank" rel="external">此处</a>查看本教程在 JSFiddle 的示范代码。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一般情况下，&lt;code&gt;`元素（也包括一部分其他&lt;/code&gt;input&lt;code&gt;元素）是由操作系统（而非浏览器）进行渲染的。在不同操作系统下，这类特殊元素的样式往往和系统本身的风格一致，和浏览器无关。也正是由于这种机制，开发者无法像一般元素那样使用 CSS 来修饰这类元素。这里介绍一种利用纯 CSS 实现自定义 checkbox 样式的方法。思路很简单：由于控件所对应的&lt;/code&gt;label&lt;code&gt;元素是可以点击并切换控件状态的，而&lt;/code&gt;label&lt;code&gt;元素的样式又可以自由设定，因此我们可将&lt;/code&gt;input&lt;code&gt;元素隐藏，通过&lt;/code&gt;label`元素实现交互。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
-    
-    
-      <category term="HTML" scheme="http://yoursite.com/tags/HTML/"/>
-    
-      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
     
   </entry>
   
