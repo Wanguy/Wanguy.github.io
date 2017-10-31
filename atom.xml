@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-10-25T10:17:38.164Z</updated>
+  <updated>2017-10-31T08:19:58.131Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,61 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>命令行、终端和 Git 的代理设置</title>
+    <link href="http://yoursite.com/2017/10/31/Proxy%20setting%20of%20CMD:Terminal/"/>
+    <id>http://yoursite.com/2017/10/31/Proxy setting of CMD:Terminal/</id>
+    <published>2017-10-31T08:19:58.131Z</published>
+    <updated>2017-10-31T08:19:58.131Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文整理了 Windows 命令行 和 Linux 终端以及 Git 中设置代理的命令。以本地 HTTP/HTTPS 代理 <code>127.0.0.1:8118</code> 和 SOCKS5 代理 <code>127.0.0.1:1080</code> 为例。</p>
+<a id="more"></a>
+<h2 id="Windows-命令行代理设置"><a href="#Windows-命令行代理设置" class="headerlink" title="Windows 命令行代理设置"></a>Windows 命令行代理设置</h2><p>HTTP 代理设置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">set http_proxy=http://127.0.0.1:8118</div><div class="line">set https_proxy=http://127.0.0.1:8118</div></pre></td></tr></table></figure>
+<p>SOCKS5 代理设置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">set http_proxy=socks5://127.0.0.1:1080</div><div class="line">set https_proxy=socks5://127.0.0.1:1080</div></pre></td></tr></table></figure>
+<p>可以通过 <code>echo %http_proxy%</code> 命令查看是否设置成功。</p>
+<p>取消代理设置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">set http_proxy=</div><div class="line">set https_proxy=</div></pre></td></tr></table></figure>
+<h2 id="Linux-终端代理设置"><a href="#Linux-终端代理设置" class="headerlink" title="Linux 终端代理设置"></a>Linux 终端代理设置</h2><h3 id="临时代理设置"><a href="#临时代理设置" class="headerlink" title="临时代理设置"></a>临时代理设置</h3><p>Linux 终端设置 HTTP 代理（只对当前终端有效）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> export http_proxy=http://127.0.0.1:8118</div><div class="line"><span class="meta">$</span> export https_proxy=http://127.0.0.1:8118</div></pre></td></tr></table></figure>
+<p>Linux 中设置 SOCKS5 代理（只对当前终端有效）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> export http_proxy=socks5://127.0.0.1:1080</div><div class="line"><span class="meta">$</span> export https_proxy=socks5://127.0.0.1:1080</div></pre></td></tr></table></figure>
+<p>设置终端中的 wget、curl 等都走 SOCKS5 代理（只对当前终端有效）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> export ALL_PROXY=socks5://127.0.0.1:1080</div></pre></td></tr></table></figure>
+<p>Linux 终端中取消代理设置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> unset http_proxy</div><div class="line"><span class="meta">$</span> unset https_proxy</div><div class="line"><span class="meta">$</span> unset ALL_RPOXY</div></pre></td></tr></table></figure>
+<h3 id="永久代理设置"><a href="#永久代理设置" class="headerlink" title="永久代理设置"></a>永久代理设置</h3><p>将代理命令写入配置文件 <code>~/.profile</code> 或 <code>~/.bashrc</code> 或 <code>~/.zshrc</code> 中：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> HTTP 代理设置</div><div class="line">export http_proxy=http://127.0.0.1:8118</div><div class="line">export https_proxy=http://127.0.0.1:8118</div></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> SOCKS5 代理设置</div><div class="line">export http_proxy=socks5://127.0.0.1:1080</div><div class="line">export https_proxy=socks5://127.0.0.1:1080</div></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 强制终端中的 wget、curl 等都走 SOCKS5 代理</div><div class="line">export ALL_PROXY=socks5://127.0.0.1:1080</div></pre></td></tr></table></figure>
+<p>或简化操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alias pc="export ALL_PROXY=socks5://127.0.0.1:1080; echo 'Proxy on';"</div></pre></td></tr></table></figure>
+<h2 id="Git-设置代理"><a href="#Git-设置代理" class="headerlink" title="Git 设置代理"></a>Git 设置代理</h2><p>代理格式 <code>[protocol://][user[:password]@]proxyhost[:port]</code><br>参考 <a href="https://git-scm.com/docs/git-config" target="_blank" rel="external">https://git-scm.com/docs/git-config</a></p>
+<p>设置 HTTP 代理：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global http.proxy http://127.0.0.1:8118</div><div class="line">git config --global https.proxy http://127.0.0.1:8118</div></pre></td></tr></table></figure>
+<p>设置 SOCKS5 代理：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global http.proxy socks5://127.0.0.1:1080</div><div class="line">git config --global https.proxy socks5://127.0.0.1:1080</div></pre></td></tr></table></figure>
+<p>Git 取消代理设置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global --unset http.proxy</div><div class="line">git config --global --unset https.proxy</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文整理了 Windows 命令行 和 Linux 终端以及 Git 中设置代理的命令。以本地 HTTP/HTTPS 代理 &lt;code&gt;127.0.0.1:8118&lt;/code&gt; 和 SOCKS5 代理 &lt;code&gt;127.0.0.1:1080&lt;/code&gt; 为例。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Tutorial" scheme="http://yoursite.com/categories/Tutorial/"/>
+    
+    
+      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+      <category term="Terminal" scheme="http://yoursite.com/tags/Terminal/"/>
+    
+  </entry>
   
   <entry>
     <title>初步了解 Swift 中的可选类型和方法函数</title>
@@ -110,7 +165,7 @@
 </ul>
 <p>让我们来看看<code>if</code>和<code>for</code>语句的更多细节。</p>
 <h3 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h3><h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a><code>if</code>语句</h4><p><code>if</code>语句的基本结构是这个样子的：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="built_in">count</span> == <span class="number">0</span> &#123;</div><div class="line">	text = <span class="string">"No Items"</span></div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="built_in">count</span> == <span class="number">1</span> &#123;</div><div class="line">	text = <span class="string">"1 Item"</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">	text = <span class="string">"<span class="subst">\(<span class="built_in">count</span>)</span> Items"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="built_in">count</span> == <span class="number">0</span> &#123;</div><div class="line">	text = <span class="string">"No Items"</span></div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="built_in">count</span> == <span class="number">1</span> &#123;</div><div class="line">	text = <span class="string">"1 Item"</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">	text = <span class="string">"\(count) Items"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><code>if</code>后面的表达式称之为条件。如果条件为真，那么<code>if</code>后面花括号内的语句会被执行。如果没有一个条件为真，那么最后一个<code>else</code>后面的花括号内的语句会被执行。</p>
 <p>通过使用比较运算符来对两个值进行比较：</p>
 <ul>
@@ -534,9 +589,9 @@
       <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
     
     
-      <category term="Machine Learning" scheme="http://yoursite.com/tags/Machine-Learning/"/>
-    
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="Machine Learning" scheme="http://yoursite.com/tags/Machine-Learning/"/>
     
       <category term="SVM" scheme="http://yoursite.com/tags/SVM/"/>
     
@@ -547,7 +602,7 @@
     <link href="http://yoursite.com/2017/09/19/Query%20database/"/>
     <id>http://yoursite.com/2017/09/19/Query database/</id>
     <published>2017-09-19T05:53:24.000Z</published>
-    <updated>2017-09-26T01:26:41.000Z</updated>
+    <updated>2017-10-30T03:16:04.028Z</updated>
     
     <content type="html"><![CDATA[<p>数据查询是数据库操作的核心操作。SQL提供了<code>SELECT</code>语句进行数据查询，其一般格式为：</p>
 <p><code>SELECT [ALL | DISTINCT] &lt;目标列表达式&gt; FROM &lt;表名或视图名&gt; (&lt;SELECT 语句&gt;) [AS] &lt;别名&gt; [WHERE&lt;条件表达式&gt;]</code></p>
@@ -704,7 +759,7 @@
 <p>如果没有<code>distinct</code>关键词，则默认为<code>all</code>。</p>
 </blockquote>
 <h4 id="查询满足条件的元组"><a href="#查询满足条件的元组" class="headerlink" title="查询满足条件的元组"></a>查询满足条件的元组</h4><h5 id="比较大小"><a href="#比较大小" class="headerlink" title="比较大小"></a>比较大小</h5><h6 id="查询所有年龄小于20岁的学生姓名及年龄"><a href="#查询所有年龄小于20岁的学生姓名及年龄" class="headerlink" title="查询所有年龄小于20岁的学生姓名及年龄"></a>查询所有年龄小于20岁的学生姓名及年龄</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNAME, SAGE </div><div class="line"><span class="keyword">from</span> Student </div><div class="line"><span class="keyword">where</span> SAGE&lt;<span class="number">20</span>;</div></pre></td></tr></table></figure>
-<h5 id="确定范围"><a href="#确定范围" class="headerlink" title="确定范围"></a>确定范围</h5><h6 id="查询年龄在20-23岁（包括20-23岁）之间的学生姓名，系别和年龄。"><a href="#查询年龄在20-23岁（包括20-23岁）之间的学生姓名，系别和年龄。" class="headerlink" title="查询年龄在20~23岁（包括20~23岁）之间的学生姓名，系别和年龄。"></a>查询年龄在20~23岁（包括20~23岁）之间的学生姓名，系别和年龄。</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNAME, SDEPT, SAGE </div><div class="line"><span class="keyword">from</span> Student </div><div class="line"><span class="keyword">where</span> SAGE <span class="keyword">between</span> <span class="number">20</span> <span class="keyword">and</span> <span class="number">23</span>;</div></pre></td></tr></table></figure>
+<h5 id="确定范围"><a href="#确定范围" class="headerlink" title="确定范围"></a>确定范围</h5><h6 id="查询年龄在20-23岁之间的学生姓名，系别和年龄。"><a href="#查询年龄在20-23岁之间的学生姓名，系别和年龄。" class="headerlink" title="查询年龄在20~23岁之间的学生姓名，系别和年龄。"></a>查询年龄在20~23岁之间的学生姓名，系别和年龄。</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNAME, SDEPT, SAGE </div><div class="line"><span class="keyword">from</span> Student </div><div class="line"><span class="keyword">where</span> SAGE <span class="keyword">between</span> <span class="number">20</span> <span class="keyword">and</span> <span class="number">23</span>;</div></pre></td></tr></table></figure>
 <h6 id="查询年龄不在20-23岁之间的学生姓名，系别和年龄。"><a href="#查询年龄不在20-23岁之间的学生姓名，系别和年龄。" class="headerlink" title="查询年龄不在20~23岁之间的学生姓名，系别和年龄。"></a>查询年龄不在20~23岁之间的学生姓名，系别和年龄。</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNAME, SDEPT, SAGE </div><div class="line"><span class="keyword">from</span> Student </div><div class="line"><span class="keyword">where</span> SAGE <span class="keyword">not</span> <span class="keyword">between</span> <span class="number">20</span> <span class="keyword">and</span> <span class="number">23</span>;</div></pre></td></tr></table></figure>
 <h5 id="确定集合"><a href="#确定集合" class="headerlink" title="确定集合"></a>确定集合</h5><h6 id="查询CS，MA，IS学生的姓名和性别"><a href="#查询CS，MA，IS学生的姓名和性别" class="headerlink" title="查询CS，MA，IS学生的姓名和性别"></a>查询CS，MA，IS学生的姓名和性别</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNAME, SSEX </div><div class="line"><span class="keyword">from</span> Student </div><div class="line"><span class="keyword">where</span> SDEPT <span class="keyword">in</span> (<span class="string">'CS'</span>, <span class="string">'MA'</span>, <span class="string">'IS'</span>);</div></pre></td></tr></table></figure>
 <h6 id="查询不在CS，MA，IS学生的姓名和性别"><a href="#查询不在CS，MA，IS学生的姓名和性别" class="headerlink" title="查询不在CS，MA，IS学生的姓名和性别"></a>查询不在CS，MA，IS学生的姓名和性别</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNAME, SSEX </div><div class="line"><span class="keyword">from</span> Student </div><div class="line"><span class="keyword">where</span> SDEPT <span class="keyword">not</span> <span class="keyword">in</span> (<span class="string">'CS'</span>, <span class="string">'MA'</span>, <span class="string">'IS'</span>);</div></pre></td></tr></table></figure>
@@ -719,7 +774,6 @@
 </blockquote>
 <h6 id="查询学号为’201215121’的学生的详细情况"><a href="#查询学号为’201215121’的学生的详细情况" class="headerlink" title="查询学号为’201215121’的学生的详细情况"></a>查询学号为’201215121’的学生的详细情况</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * </div><div class="line"><span class="keyword">from</span> Student </div><div class="line"><span class="keyword">where</span> SNO <span class="keyword">like</span> <span class="string">'201215121'</span>;</div></pre></td></tr></table></figure>
 <h6 id="查询所有姓’Liu’的学生姓名，学号和性别"><a href="#查询所有姓’Liu’的学生姓名，学号和性别" class="headerlink" title="查询所有姓’Liu’的学生姓名，学号和性别"></a>查询所有姓’Liu’的学生姓名，学号和性别</h6><figure class="highlight sql"><figcaption><span>lite</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNAME, SNO, SSEX </div><div class="line"><span class="keyword">from</span> Student</div><div class="line"><span class="keyword">where</span> SNAME <span class="keyword">like</span> <span class="string">'Liu%'</span>;</div></pre></td></tr></table></figure>
-<h6 id="查询所有姓’Liu’的学生姓名，学号和性别-1"><a href="#查询所有姓’Liu’的学生姓名，学号和性别-1" class="headerlink" title="查询所有姓’Liu’的学生姓名，学号和性别"></a>查询所有姓’Liu’的学生姓名，学号和性别</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNAME, SNO, SSEX </div><div class="line"><span class="keyword">from</span> Student</div><div class="line"><span class="keyword">where</span> SNAME <span class="keyword">not</span> <span class="keyword">like</span> <span class="string">'Liu%'</span>;</div></pre></td></tr></table></figure>
 <h6 id="查询DB-Design课程的课程号和学分"><a href="#查询DB-Design课程的课程号和学分" class="headerlink" title="查询DB_Design课程的课程号和学分"></a>查询DB_Design课程的课程号和学分</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> CNO, CCREDIT </div><div class="line"><span class="keyword">from</span> Course </div><div class="line"><span class="keyword">where</span> CNAME <span class="keyword">like</span> <span class="string">'DB\_Design'</span> escape <span class="string">'\';</span></div></pre></td></tr></table></figure>
 <h5 id="涉及空值的查询"><a href="#涉及空值的查询" class="headerlink" title="涉及空值的查询"></a>涉及空值的查询</h5><h6 id="查询所有有成绩的学生的学号和成绩"><a href="#查询所有有成绩的学生的学号和成绩" class="headerlink" title="查询所有有成绩的学生的学号和成绩"></a>查询所有有成绩的学生的学号和成绩</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNO, GRADE </div><div class="line"><span class="keyword">from</span> SC </div><div class="line"><span class="keyword">where</span> GRADE <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>;</div></pre></td></tr></table></figure>
 <h5 id="多重条件查询"><a href="#多重条件查询" class="headerlink" title="多重条件查询"></a>多重条件查询</h5><h6 id="查新CS系年龄在20岁以下的学生姓名"><a href="#查新CS系年龄在20岁以下的学生姓名" class="headerlink" title="查新CS系年龄在20岁以下的学生姓名"></a>查新CS系年龄在20岁以下的学生姓名</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNAME </div><div class="line"><span class="keyword">from</span> SC</div><div class="line"><span class="keyword">where</span> SAGE&lt;<span class="number">20</span> <span class="keyword">and</span> SDEPT=<span class="string">'CS'</span>;</div></pre></td></tr></table></figure>
@@ -1063,6 +1117,128 @@
   </entry>
   
   <entry>
+    <title>C++ string 字符串函数详解</title>
+    <link href="http://yoursite.com/2017/03/17/The%20details%20of%20string%20function%20of%20Cpp/"/>
+    <id>http://yoursite.com/2017/03/17/The details of string function of Cpp/</id>
+    <published>2017-03-17T06:07:34.000Z</published>
+    <updated>2017-10-12T08:08:12.306Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<h2 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h2></blockquote>
+<ol>
+<li><p>+ 和 +=：连接字符串</p>
+</li>
+<li><p>=：字符串赋值</p>
+</li>
+<li><p>>、&gt;=、&lt; 和 &lt;=：字符串比较（例如a &lt; b, aa &lt; ab）</p>
+</li>
+<li><p>==、!=：比较字符串</p>
+</li>
+<li><p>&lt;&lt;、&gt;&gt;：输出、输入字符串</p>
+<a id="more"></a>
+</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="built_in">string</span> str = <span class="string">"cat"</span>;</div><div class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"apple"</span> + <span class="string">"boy"</span> + str; <span class="comment">// illegal!</span></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> str;</div><div class="line"><span class="built_in">cin</span> &gt;&gt; str;</div><div class="line"></div><div class="line">str.find(<span class="string">"ab"</span>);<span class="comment">//返回字符串 ab 在 str 的位置</span></div><div class="line">str.find(<span class="string">"ab"</span>, <span class="number">2</span>);<span class="comment">//在 str[2]~str[n-1] 范围内查找并返回字符串 ab 在 str 的位置</span></div><div class="line">str.rfind(<span class="string">"ab"</span>, <span class="number">2</span>);<span class="comment">//在 str[0]~str[2] 范围内查找并返回字符串 ab 在 str 的位置</span></div><div class="line"></div><div class="line"><span class="comment">//first 系列函数</span></div><div class="line">str.find_first_of(<span class="string">"apple"</span>);<span class="comment">//返回 apple 中任何一个字符首次在 str 中出现的位置</span></div><div class="line">str.find_first_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回 apple 中任何一个字符首次在 str[2]~str[n-1] 范围中出现的位置</span></div><div class="line">str.find_first_not_of(<span class="string">"apple"</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str 中首次出现的位置</span></div><div class="line">str.find_first_not_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str[2]~str[n-1] 范围中首次出现的位置</span></div><div class="line"></div><div class="line"><span class="comment">//last 系列函数</span></div><div class="line">str.find_last_of(<span class="string">"apple"</span>);<span class="comment">//返回 apple 中任何一个字符最后一次在 str 中出现的位置</span></div><div class="line">str.find_last_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回 apple 中任何一个字符最后一次在 str[0]~str[2] 范围中出现的位置</span></div><div class="line">str.find_last_not_of(<span class="string">"apple"</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str 中最后一次出现的位置</span></div><div class="line">str.find_last_not_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str[0]~str[2] 范围中最后一次出现的位置</span></div><div class="line"></div><div class="line"><span class="comment">//以上函数如果没有找到，均返回string::npos</span></div><div class="line"><span class="built_in">cout</span> &lt;&lt; <span class="built_in">string</span>::npos;</div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="子串"><a href="#子串" class="headerlink" title="子串"></a>子串</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.substr(<span class="number">3</span>); <span class="comment">//返回 [3] 及以后的子串</span></div><div class="line">str.substr(<span class="number">2</span>, <span class="number">4</span>); <span class="comment">//返回 str[2]~str[2+(4-1)] 子串(即从[2]开始4个字符组成的字符串)</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.replace(<span class="number">2</span>, <span class="number">4</span>, <span class="string">"sz"</span>);<span class="comment">//返回把 [2]~[2+(4-1)] 的内容替换为 "sz" 后的新字符串</span></div><div class="line">str.replace(<span class="number">2</span>, <span class="number">4</span>, <span class="string">"abcd"</span>, <span class="number">3</span>);<span class="comment">//返回把 [2]~[2+(4-1)] 的内容替换为 "abcd" 的前3个字符后的新字符串</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">str.insert(<span class="number">2</span>, <span class="string">"sz"</span>);<span class="comment">//从 [2] 位置开始添加字符串 "sz"，并返回形成的新字符串</span></div><div class="line">str.insert(<span class="number">2</span>, <span class="string">"abcd"</span>, <span class="number">3</span>);<span class="comment">//从 [2] 位置开始添加字符串 "abcd" 的前 3 个字符，并返回形成的新字符串</span></div><div class="line">str.insert(<span class="number">2</span>, <span class="string">"abcd"</span>, <span class="number">1</span>, <span class="number">3</span>);<span class="comment">//从 [2] 位置开始添加字符串 "abcd" 的前 [2]~[2+(3-1)] 个字符，并返回形成的新字符串</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="追加"><a href="#追加" class="headerlink" title="追加"></a>追加</h2></blockquote>
+<p>除了用重载的 <code>+</code> 操作符，还可以使用函数来完成。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.push_back(<span class="string">'a'</span>);<span class="comment">//在 str 末尾添加字符'a'</span></div><div class="line">str.append(<span class="string">"abc"</span>);<span class="comment">//在 str 末尾添加字符串"abc"</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.erase(<span class="number">3</span>);<span class="comment">//删除 [3] 及以后的字符，并返回新字符串</span></div><div class="line">str.erase(<span class="number">3</span>, <span class="number">5</span>);<span class="comment">//删除从 [3] 开始的 5 个字符，并返回新字符串</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="交换"><a href="#交换" class="headerlink" title="交换"></a>交换</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">str1.swap(str2);<span class="comment">//把 str1 与 str2 交换</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">str.size();<span class="comment">//返回字符串长度</span></div><div class="line">str.length();<span class="comment">//返回字符串长度</span></div><div class="line">str.empty();<span class="comment">//检查 str 是否为空，为空返回 1，否则返回 0</span></div><div class="line">str[n];<span class="comment">//存取 str 第 n + 1 个字符</span></div><div class="line">str.at(n);<span class="comment">//存取 str 第 n + 1 个字符（如果溢出会抛出异常）</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2></blockquote>
+<h3 id="查找给定字符串并把相应子串替换为另一给定字符串"><a href="#查找给定字符串并把相应子串替换为另一给定字符串" class="headerlink" title="查找给定字符串并把相应子串替换为另一给定字符串"></a>查找给定字符串并把相应子串替换为另一给定字符串</h3><p>string 并没有提供这样的函数，所以我们自己来实现。由于给定字符串可能出现多次，所以需要用到 <code>find()</code> 成员函数的第二个参数，每次查找之后，从找到位置往后继续搜索。直接看代码（这个函数返回替换的次数，如果返回值是 0 说明没有替换）：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_replace</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> &amp;src, <span class="keyword">const</span> <span class="built_in">string</span> &amp;dest)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</div><div class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> ((pos = str.find(src, pos)) != <span class="built_in">string</span>::npos) &#123;</div><div class="line">        str.replace(pos, src.size(), dest);</div><div class="line">        ++counter;</div><div class="line">        pos += dest.size();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> counter;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="从给定字符串中删除一给定字串"><a href="#从给定字符串中删除一给定字串" class="headerlink" title="从给定字符串中删除一给定字串"></a>从给定字符串中删除一给定字串</h3><p>方法和上面相似，内部使用 <code>erase()</code> 完成。代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_erase</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> src)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</div><div class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> ((pos = str.find(src, pos)) != <span class="built_in">string</span>::npos) &#123;</div><div class="line">        str.erase(pos, src.size());</div><div class="line">        ++counter;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> counter;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="给定一字符串和一字符集，从字符串剔除字符集中的任意字符"><a href="#给定一字符串和一字符集，从字符串剔除字符集中的任意字符" class="headerlink" title="给定一字符串和一字符集，从字符串剔除字符集中的任意字符"></a>给定一字符串和一字符集，从字符串剔除字符集中的任意字符</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_wash</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> src)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</div><div class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> ((pos = str.find_first_of(src, pos)) != <span class="built_in">string</span>::npos) &#123;</div><div class="line">        str.erase(pos, <span class="number">1</span>);</div><div class="line">        ++counter;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> counter;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;h2 id=&quot;运算符重载&quot;&gt;&lt;a href=&quot;#运算符重载&quot; class=&quot;headerlink&quot; title=&quot;运算符重载&quot;&gt;&lt;/a&gt;运算符重载&lt;/h2&gt;&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;+ 和 +=：连接字符串&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;=：字符串赋值&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&gt;、&amp;gt;=、&amp;lt; 和 &amp;lt;=：字符串比较（例如a &amp;lt; b, aa &amp;lt; ab）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;==、!=：比较字符串&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt;、&amp;gt;&amp;gt;：输出、输入字符串&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+    
+      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用纯 CSS 为 HTML checkbox 添加自定义样式及动画效果</title>
+    <link href="http://yoursite.com/2017/03/17/Add%20custom%20style%20and%20animation%20effects%20to%20HTML%20checkbox%20with%20CSS/"/>
+    <id>http://yoursite.com/2017/03/17/Add custom style and animation effects to HTML checkbox with CSS/</id>
+    <published>2017-03-17T06:07:34.000Z</published>
+    <updated>2017-09-08T12:18:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>一般情况下，<code>`元素（也包括一部分其他</code>input<code>元素）是由操作系统（而非浏览器）进行渲染的。在不同操作系统下，这类特殊元素的样式往往和系统本身的风格一致，和浏览器无关。也正是由于这种机制，开发者无法像一般元素那样使用 CSS 来修饰这类元素。这里介绍一种利用纯 CSS 实现自定义 checkbox 样式的方法。思路很简单：由于控件所对应的</code>label<code>元素是可以点击并切换控件状态的，而</code>label<code>元素的样式又可以自由设定，因此我们可将</code>input<code>元素隐藏，通过</code>label`元素实现交互。</p>
+<a id="more"></a>
+<p>HTML 代码如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;input type="checkbox" id="checkbox" class="checkbox"/&gt;</div><div class="line">&lt;div class="checkbox-wrapper"&gt;</div><div class="line">    &lt;label for="checkbox" class="checkbox-label"&gt;&lt;/label&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="样式一：Metro-UI-风格"><a href="#样式一：Metro-UI-风格" class="headerlink" title="样式一：Metro UI 风格"></a>样式一：Metro UI 风格</h2></blockquote>
+<p>效果：</p>
+<p>CSS 代码如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">80px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span> &#123;</div><div class="line">    <span class="attribute">display</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::before</span>,</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">    <span class="attribute">font-family</span>: sans-serif;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">13px</span>;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">font-weight</span>: bold;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::before</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">'ON'</span>;</div><div class="line">    <span class="attribute">left</span>: -<span class="number">40px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#45b6af</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">'OFF'</span>;</div><div class="line">    <span class="attribute">right</span>: -<span class="number">40px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#f3565d</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">4s</span> ease;</div><div class="line">    <span class="attribute">cursor</span>: pointer;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#dddddd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> <span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">left</span>: <span class="number">40px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="样式二：iOS-7-风格"><a href="#样式二：iOS-7-风格" class="headerlink" title="样式二：iOS 7 风格"></a>样式二：iOS 7 风格</h2></blockquote>
+<p>效果：</p>
+<p>CSS代码如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">58px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">16px</span>;</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">3s</span> ease-out;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">2px</span> <span class="number">#ddd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span> &#123;</div><div class="line">    <span class="attribute">display</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0px</span>;</div><div class="line">    <span class="attribute">top</span>: <span class="number">0px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">cursor</span>: pointer;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">16px</span>;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">2px</span> <span class="number">3px</span> <span class="built_in">rgba</span>(0,0,0,0.2);</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">3s</span> ease-out;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#0bd318</span>;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">2px</span> <span class="number">#0bd318</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> <span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">left</span>: <span class="number">26px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>值得一提的是，这个例子虽然比较完美的还原了 iOS 7 中 UISwitch 控件的外观，但是动画曲线却还有些差距。iOS 7 中使用的是一种名为 String Animation 的动画（该 API 在 iOS 8 中已经公开），仔细看的话可以发现开始滑块移动很快，到后面逐渐变慢，并且结束时还有小幅度的「反弹」效果。这里我们为了方便，使用 ease-out 来模拟。</p>
+<blockquote>
+<h2 id="JSFiddle"><a href="#JSFiddle" class="headerlink" title="JSFiddle"></a>JSFiddle</h2></blockquote>
+<p>点击<a href="http://jsfiddle.net/gnu1qqnq/" target="_blank" rel="external">此处</a>查看本教程在 JSFiddle 的示范代码。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一般情况下，&lt;code&gt;`元素（也包括一部分其他&lt;/code&gt;input&lt;code&gt;元素）是由操作系统（而非浏览器）进行渲染的。在不同操作系统下，这类特殊元素的样式往往和系统本身的风格一致，和浏览器无关。也正是由于这种机制，开发者无法像一般元素那样使用 CSS 来修饰这类元素。这里介绍一种利用纯 CSS 实现自定义 checkbox 样式的方法。思路很简单：由于控件所对应的&lt;/code&gt;label&lt;code&gt;元素是可以点击并切换控件状态的，而&lt;/code&gt;label&lt;code&gt;元素的样式又可以自由设定，因此我们可将&lt;/code&gt;input&lt;code&gt;元素隐藏，通过&lt;/code&gt;label`元素实现交互。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+    
+      <category term="HTML" scheme="http://yoursite.com/tags/HTML/"/>
+    
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Mac OS X Terminal 101：终端使用初级教程</title>
     <link href="http://yoursite.com/2017/03/17/The%20introductory%20of%20macOS%20Terminal/"/>
     <id>http://yoursite.com/2017/03/17/The introductory of macOS Terminal/</id>
@@ -1193,128 +1369,6 @@
     
     
       <category term="Terminal" scheme="http://yoursite.com/tags/Terminal/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用纯 CSS 为 HTML checkbox 添加自定义样式及动画效果</title>
-    <link href="http://yoursite.com/2017/03/17/Add%20custom%20style%20and%20animation%20effects%20to%20HTML%20checkbox%20with%20CSS/"/>
-    <id>http://yoursite.com/2017/03/17/Add custom style and animation effects to HTML checkbox with CSS/</id>
-    <published>2017-03-17T06:07:34.000Z</published>
-    <updated>2017-09-08T12:18:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>一般情况下，<code>`元素（也包括一部分其他</code>input<code>元素）是由操作系统（而非浏览器）进行渲染的。在不同操作系统下，这类特殊元素的样式往往和系统本身的风格一致，和浏览器无关。也正是由于这种机制，开发者无法像一般元素那样使用 CSS 来修饰这类元素。这里介绍一种利用纯 CSS 实现自定义 checkbox 样式的方法。思路很简单：由于控件所对应的</code>label<code>元素是可以点击并切换控件状态的，而</code>label<code>元素的样式又可以自由设定，因此我们可将</code>input<code>元素隐藏，通过</code>label`元素实现交互。</p>
-<a id="more"></a>
-<p>HTML 代码如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;input type="checkbox" id="checkbox" class="checkbox"/&gt;</div><div class="line">&lt;div class="checkbox-wrapper"&gt;</div><div class="line">    &lt;label for="checkbox" class="checkbox-label"&gt;&lt;/label&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="样式一：Metro-UI-风格"><a href="#样式一：Metro-UI-风格" class="headerlink" title="样式一：Metro UI 风格"></a>样式一：Metro UI 风格</h2></blockquote>
-<p>效果：</p>
-<p>CSS 代码如下：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">80px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span> &#123;</div><div class="line">    <span class="attribute">display</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::before</span>,</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">    <span class="attribute">font-family</span>: sans-serif;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">13px</span>;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">font-weight</span>: bold;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::before</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">'ON'</span>;</div><div class="line">    <span class="attribute">left</span>: -<span class="number">40px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#45b6af</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">'OFF'</span>;</div><div class="line">    <span class="attribute">right</span>: -<span class="number">40px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#f3565d</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">4s</span> ease;</div><div class="line">    <span class="attribute">cursor</span>: pointer;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#dddddd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> <span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">left</span>: <span class="number">40px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="样式二：iOS-7-风格"><a href="#样式二：iOS-7-风格" class="headerlink" title="样式二：iOS 7 风格"></a>样式二：iOS 7 风格</h2></blockquote>
-<p>效果：</p>
-<p>CSS代码如下：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">58px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">16px</span>;</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">3s</span> ease-out;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">2px</span> <span class="number">#ddd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span> &#123;</div><div class="line">    <span class="attribute">display</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0px</span>;</div><div class="line">    <span class="attribute">top</span>: <span class="number">0px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">cursor</span>: pointer;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">16px</span>;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">2px</span> <span class="number">3px</span> <span class="built_in">rgba</span>(0,0,0,0.2);</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">3s</span> ease-out;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#0bd318</span>;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">2px</span> <span class="number">#0bd318</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> <span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">left</span>: <span class="number">26px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>值得一提的是，这个例子虽然比较完美的还原了 iOS 7 中 UISwitch 控件的外观，但是动画曲线却还有些差距。iOS 7 中使用的是一种名为 String Animation 的动画（该 API 在 iOS 8 中已经公开），仔细看的话可以发现开始滑块移动很快，到后面逐渐变慢，并且结束时还有小幅度的「反弹」效果。这里我们为了方便，使用 ease-out 来模拟。</p>
-<blockquote>
-<h2 id="JSFiddle"><a href="#JSFiddle" class="headerlink" title="JSFiddle"></a>JSFiddle</h2></blockquote>
-<p>点击<a href="http://jsfiddle.net/gnu1qqnq/" target="_blank" rel="external">此处</a>查看本教程在 JSFiddle 的示范代码。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一般情况下，&lt;code&gt;`元素（也包括一部分其他&lt;/code&gt;input&lt;code&gt;元素）是由操作系统（而非浏览器）进行渲染的。在不同操作系统下，这类特殊元素的样式往往和系统本身的风格一致，和浏览器无关。也正是由于这种机制，开发者无法像一般元素那样使用 CSS 来修饰这类元素。这里介绍一种利用纯 CSS 实现自定义 checkbox 样式的方法。思路很简单：由于控件所对应的&lt;/code&gt;label&lt;code&gt;元素是可以点击并切换控件状态的，而&lt;/code&gt;label&lt;code&gt;元素的样式又可以自由设定，因此我们可将&lt;/code&gt;input&lt;code&gt;元素隐藏，通过&lt;/code&gt;label`元素实现交互。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
-    
-    
-      <category term="HTML" scheme="http://yoursite.com/tags/HTML/"/>
-    
-      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++ string 字符串函数详解</title>
-    <link href="http://yoursite.com/2017/03/17/The%20details%20of%20string%20function%20of%20Cpp/"/>
-    <id>http://yoursite.com/2017/03/17/The details of string function of Cpp/</id>
-    <published>2017-03-17T06:07:34.000Z</published>
-    <updated>2017-10-12T08:08:12.306Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<h2 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h2></blockquote>
-<ol>
-<li><p>+ 和 +=：连接字符串</p>
-</li>
-<li><p>=：字符串赋值</p>
-</li>
-<li><p>>、&gt;=、&lt; 和 &lt;=：字符串比较（例如a &lt; b, aa &lt; ab）</p>
-</li>
-<li><p>==、!=：比较字符串</p>
-</li>
-<li><p>&lt;&lt;、&gt;&gt;：输出、输入字符串</p>
-<a id="more"></a>
-</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="built_in">string</span> str = <span class="string">"cat"</span>;</div><div class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"apple"</span> + <span class="string">"boy"</span> + str; <span class="comment">// illegal!</span></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> str;</div><div class="line"><span class="built_in">cin</span> &gt;&gt; str;</div><div class="line"></div><div class="line">str.find(<span class="string">"ab"</span>);<span class="comment">//返回字符串 ab 在 str 的位置</span></div><div class="line">str.find(<span class="string">"ab"</span>, <span class="number">2</span>);<span class="comment">//在 str[2]~str[n-1] 范围内查找并返回字符串 ab 在 str 的位置</span></div><div class="line">str.rfind(<span class="string">"ab"</span>, <span class="number">2</span>);<span class="comment">//在 str[0]~str[2] 范围内查找并返回字符串 ab 在 str 的位置</span></div><div class="line"></div><div class="line"><span class="comment">//first 系列函数</span></div><div class="line">str.find_first_of(<span class="string">"apple"</span>);<span class="comment">//返回 apple 中任何一个字符首次在 str 中出现的位置</span></div><div class="line">str.find_first_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回 apple 中任何一个字符首次在 str[2]~str[n-1] 范围中出现的位置</span></div><div class="line">str.find_first_not_of(<span class="string">"apple"</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str 中首次出现的位置</span></div><div class="line">str.find_first_not_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str[2]~str[n-1] 范围中首次出现的位置</span></div><div class="line"></div><div class="line"><span class="comment">//last 系列函数</span></div><div class="line">str.find_last_of(<span class="string">"apple"</span>);<span class="comment">//返回 apple 中任何一个字符最后一次在 str 中出现的位置</span></div><div class="line">str.find_last_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回 apple 中任何一个字符最后一次在 str[0]~str[2] 范围中出现的位置</span></div><div class="line">str.find_last_not_of(<span class="string">"apple"</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str 中最后一次出现的位置</span></div><div class="line">str.find_last_not_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str[0]~str[2] 范围中最后一次出现的位置</span></div><div class="line"></div><div class="line"><span class="comment">//以上函数如果没有找到，均返回string::npos</span></div><div class="line"><span class="built_in">cout</span> &lt;&lt; <span class="built_in">string</span>::npos;</div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="子串"><a href="#子串" class="headerlink" title="子串"></a>子串</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.substr(<span class="number">3</span>); <span class="comment">//返回 [3] 及以后的子串</span></div><div class="line">str.substr(<span class="number">2</span>, <span class="number">4</span>); <span class="comment">//返回 str[2]~str[2+(4-1)] 子串(即从[2]开始4个字符组成的字符串)</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.replace(<span class="number">2</span>, <span class="number">4</span>, <span class="string">"sz"</span>);<span class="comment">//返回把 [2]~[2+(4-1)] 的内容替换为 "sz" 后的新字符串</span></div><div class="line">str.replace(<span class="number">2</span>, <span class="number">4</span>, <span class="string">"abcd"</span>, <span class="number">3</span>);<span class="comment">//返回把 [2]~[2+(4-1)] 的内容替换为 "abcd" 的前3个字符后的新字符串</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">str.insert(<span class="number">2</span>, <span class="string">"sz"</span>);<span class="comment">//从 [2] 位置开始添加字符串 "sz"，并返回形成的新字符串</span></div><div class="line">str.insert(<span class="number">2</span>, <span class="string">"abcd"</span>, <span class="number">3</span>);<span class="comment">//从 [2] 位置开始添加字符串 "abcd" 的前 3 个字符，并返回形成的新字符串</span></div><div class="line">str.insert(<span class="number">2</span>, <span class="string">"abcd"</span>, <span class="number">1</span>, <span class="number">3</span>);<span class="comment">//从 [2] 位置开始添加字符串 "abcd" 的前 [2]~[2+(3-1)] 个字符，并返回形成的新字符串</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="追加"><a href="#追加" class="headerlink" title="追加"></a>追加</h2></blockquote>
-<p>除了用重载的 <code>+</code> 操作符，还可以使用函数来完成。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.push_back(<span class="string">'a'</span>);<span class="comment">//在 str 末尾添加字符'a'</span></div><div class="line">str.append(<span class="string">"abc"</span>);<span class="comment">//在 str 末尾添加字符串"abc"</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.erase(<span class="number">3</span>);<span class="comment">//删除 [3] 及以后的字符，并返回新字符串</span></div><div class="line">str.erase(<span class="number">3</span>, <span class="number">5</span>);<span class="comment">//删除从 [3] 开始的 5 个字符，并返回新字符串</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="交换"><a href="#交换" class="headerlink" title="交换"></a>交换</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">str1.swap(str2);<span class="comment">//把 str1 与 str2 交换</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">str.size();<span class="comment">//返回字符串长度</span></div><div class="line">str.length();<span class="comment">//返回字符串长度</span></div><div class="line">str.empty();<span class="comment">//检查 str 是否为空，为空返回 1，否则返回 0</span></div><div class="line">str[n];<span class="comment">//存取 str 第 n + 1 个字符</span></div><div class="line">str.at(n);<span class="comment">//存取 str 第 n + 1 个字符（如果溢出会抛出异常）</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2></blockquote>
-<h3 id="查找给定字符串并把相应子串替换为另一给定字符串"><a href="#查找给定字符串并把相应子串替换为另一给定字符串" class="headerlink" title="查找给定字符串并把相应子串替换为另一给定字符串"></a>查找给定字符串并把相应子串替换为另一给定字符串</h3><p>string 并没有提供这样的函数，所以我们自己来实现。由于给定字符串可能出现多次，所以需要用到 <code>find()</code> 成员函数的第二个参数，每次查找之后，从找到位置往后继续搜索。直接看代码（这个函数返回替换的次数，如果返回值是 0 说明没有替换）：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_replace</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> &amp;src, <span class="keyword">const</span> <span class="built_in">string</span> &amp;dest)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</div><div class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> ((pos = str.find(src, pos)) != <span class="built_in">string</span>::npos) &#123;</div><div class="line">        str.replace(pos, src.size(), dest);</div><div class="line">        ++counter;</div><div class="line">        pos += dest.size();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> counter;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="从给定字符串中删除一给定字串"><a href="#从给定字符串中删除一给定字串" class="headerlink" title="从给定字符串中删除一给定字串"></a>从给定字符串中删除一给定字串</h3><p>方法和上面相似，内部使用 <code>erase()</code> 完成。代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_erase</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> src)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</div><div class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> ((pos = str.find(src, pos)) != <span class="built_in">string</span>::npos) &#123;</div><div class="line">        str.erase(pos, src.size());</div><div class="line">        ++counter;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> counter;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="给定一字符串和一字符集，从字符串剔除字符集中的任意字符"><a href="#给定一字符串和一字符集，从字符串剔除字符集中的任意字符" class="headerlink" title="给定一字符串和一字符集，从字符串剔除字符集中的任意字符"></a>给定一字符串和一字符集，从字符串剔除字符集中的任意字符</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_wash</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> src)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</div><div class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> ((pos = str.find_first_of(src, pos)) != <span class="built_in">string</span>::npos) &#123;</div><div class="line">        str.erase(pos, <span class="number">1</span>);</div><div class="line">        ++counter;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> counter;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;h2 id=&quot;运算符重载&quot;&gt;&lt;a href=&quot;#运算符重载&quot; class=&quot;headerlink&quot; title=&quot;运算符重载&quot;&gt;&lt;/a&gt;运算符重载&lt;/h2&gt;&lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;+ 和 +=：连接字符串&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;=：字符串赋值&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&gt;、&amp;gt;=、&amp;lt; 和 &amp;lt;=：字符串比较（例如a &amp;lt; b, aa &amp;lt; ab）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;==、!=：比较字符串&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt;、&amp;gt;&amp;gt;：输出、输入字符串&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
-    
-    
-      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
     
   </entry>
   
