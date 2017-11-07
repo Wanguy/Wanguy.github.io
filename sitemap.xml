@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/11/07/Delegates%20and%20events%20in%20Csharp/</loc>
+    
+    <lastmod>2017-11-07T07:34:50.557Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/10/31/Proxy%20setting%20of%20CMD:Terminal/</loc>
     
     <lastmod>2017-10-31T08:19:58.131Z</lastmod>
@@ -30,7 +37,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/10/12/The%20abstract%20and%20virtual%20in%20C%20Sharp/</loc>
+    <loc>http://yoursite.com/2017/10/12/The%20abstract%20and%20virtual%20in%20CSharp/</loc>
     
     <lastmod>2017-10-12T15:01:48.390Z</lastmod>
     
