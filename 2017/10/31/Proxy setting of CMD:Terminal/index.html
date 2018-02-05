@@ -464,19 +464,19 @@
 <p>取消代理设置：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">set http_proxy=</div><div class="line">set https_proxy=</div></pre></td></tr></table></figure>
 <h2 id="Linux-终端代理设置"><a href="#Linux-终端代理设置" class="headerlink" title="Linux 终端代理设置"></a>Linux 终端代理设置</h2><h3 id="临时代理设置"><a href="#临时代理设置" class="headerlink" title="临时代理设置"></a>临时代理设置</h3><p>Linux 终端设置 HTTP 代理（只对当前终端有效）：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> export http_proxy=http://127.0.0.1:8118</div><div class="line"><span class="meta">$</span> export https_proxy=http://127.0.0.1:8118</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> http_proxy=http://127.0.0.1:8118</span></div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> https_proxy=http://127.0.0.1:8118</span></div></pre></td></tr></table></figure>
 <p>Linux 中设置 SOCKS5 代理（只对当前终端有效）：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> export http_proxy=socks5://127.0.0.1:1080</div><div class="line"><span class="meta">$</span> export https_proxy=socks5://127.0.0.1:1080</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> http_proxy=socks5://127.0.0.1:1080</span></div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> https_proxy=socks5://127.0.0.1:1080</span></div></pre></td></tr></table></figure>
 <p>设置终端中的 wget、curl 等都走 SOCKS5 代理（只对当前终端有效）：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> export ALL_PROXY=socks5://127.0.0.1:1080</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> ALL_PROXY=socks5://127.0.0.1:1080</span></div></pre></td></tr></table></figure>
 <p>Linux 终端中取消代理设置：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> unset http_proxy</div><div class="line"><span class="meta">$</span> unset https_proxy</div><div class="line"><span class="meta">$</span> unset ALL_RPOXY</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">unset</span> http_proxy</span></div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">unset</span> https_proxy</span></div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">unset</span> ALL_RPOXY</span></div></pre></td></tr></table></figure>
 <h3 id="永久代理设置"><a href="#永久代理设置" class="headerlink" title="永久代理设置"></a>永久代理设置</h3><p>将代理命令写入配置文件 <code>~/.profile</code> 或 <code>~/.bashrc</code> 或 <code>~/.zshrc</code> 中：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> HTTP 代理设置</div><div class="line">export http_proxy=http://127.0.0.1:8118</div><div class="line">export https_proxy=http://127.0.0.1:8118</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"> HTTP 代理设置</span></div><div class="line">export http_proxy=http://127.0.0.1:8118</div><div class="line">export https_proxy=http://127.0.0.1:8118</div></pre></td></tr></table></figure>
 <p>或</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> SOCKS5 代理设置</div><div class="line">export http_proxy=socks5://127.0.0.1:1080</div><div class="line">export https_proxy=socks5://127.0.0.1:1080</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"> SOCKS5 代理设置</span></div><div class="line">export http_proxy=socks5://127.0.0.1:1080</div><div class="line">export https_proxy=socks5://127.0.0.1:1080</div></pre></td></tr></table></figure>
 <p>或</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 强制终端中的 wget、curl 等都走 SOCKS5 代理</div><div class="line">export ALL_PROXY=socks5://127.0.0.1:1080</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"> 强制终端中的 wget、curl 等都走 SOCKS5 代理</span></div><div class="line">export ALL_PROXY=socks5://127.0.0.1:1080</div></pre></td></tr></table></figure>
 <p>或简化操作</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alias pc="export ALL_PROXY=socks5://127.0.0.1:1080; echo 'Proxy on';"</div></pre></td></tr></table></figure>
 <h2 id="Git-设置代理"><a href="#Git-设置代理" class="headerlink" title="Git 设置代理"></a>Git 设置代理</h2><p>代理格式 <code>[protocol://][user[:password]@]proxyhost[:port]</code><br>参考 <a href="https://git-scm.com/docs/git-config" target="_blank" rel="external">https://git-scm.com/docs/git-config</a></p>
@@ -648,7 +648,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -659,7 +659,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -670,7 +670,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -754,7 +754,7 @@
         <div class="copyright" >
   
   &copy;  2015 &mdash; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

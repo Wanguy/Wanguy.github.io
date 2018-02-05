@@ -516,7 +516,7 @@
 <p>Tab Complete 是 command line 中最能给你节省时间的特性之一，利用它的自动完成文件、目录名称功能还可以防止你输入错误。使用<code>cd</code>进入你的 home folder，使用<code>cd P</code>命令，然后按下tab按键。你可能会听到错误音，因为你的 home folder 内有多个 P 开头的文件夹。再按一次tab，Terminal 将会为你列出 P 开头的两个文件夹：Public 和 Pictures。按U，再按tab，Terminal 则会自动为你补全<code>Public/</code>。Tab complete 同样会处理那些特殊字符。注意，这会在末尾保留<code>/</code>符号，大部分时候这没问题，但如果出错，移除多余的<code>/</code>试一试。</p>
 <p>另外，鄂化符<code>~</code>（tilde）在command line 中可以代表当前用户的 home folder。例如<code>~/Public/Drop\ Box/</code>是合法的。</p>
 <h3 id="查看隐藏文件"><a href="#查看隐藏文件" class="headerlink" title="查看隐藏文件"></a>查看隐藏文件</h3><p>为了简化工作，command line 和 Finder 都会隐藏许多文件和文件夹，这些内容通常是系统需要的。不借助第三方工具让 Finder 显示隐藏文件比较困难，但是在 command line 中却非常简单。首先，许多隐藏文件的隐藏是通过隐藏属性在 Finder 中隐藏的，而 command line 会忽略这些属性，所以这些文件会在 command line 中显示。另外，<code>ls</code>命令会隐藏文件名以<code>.</code>开头的文件，但是这些文件却可以被显示出来，方法是利用<code>-a</code>选项。例如：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">michelle$</span> ls -la</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">michelle$</span><span class="bash"> ls -la</span></div></pre></td></tr></table></figure>
 <p>我们还添加了<code>-l</code>选项，目的是控制输出格式。如果你注意输出内容的话，会发现还包括<code>.</code>和<code>..</code>两项，它们分别表示当前文件夹和父文件夹（如图）。如果你不想显示这两项，只需要把<code>-a</code>改成<code>-A</code>即可。</p>
 <p><img src="/2017/03/17/The introductory of macOS Terminal/Users/sephiroth/Downloads/terminal729.png" alt="terminal729"></p>
 <h3 id="前往其他卷"><a href="#前往其他卷" class="headerlink" title="前往其他卷"></a>前往其他卷</h3><p>在 command line 中，系统卷（也称为 root volume）是由开始的一个正斜杠表示的。然而也许听起来不可思议，在 command line 中其他卷看起来就在文件系统中一个叫做 Volumes 的文件夹中。下面的命令清晰地显示出这种逻辑关系：我从我的 home folder 出发，最终前往一个叫 Time Machine 的卷，该卷是外接在 Mac 上的。</p>
@@ -634,8 +634,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/17/The details of string function of Cpp/" rel="next" title="C++ string 字符串函数详解">
-                <i class="fa fa-chevron-left"></i> C++ string 字符串函数详解
+              <a href="/2017/03/17/Add custom style and animation effects to HTML checkbox with CSS/" rel="next" title="用纯 CSS 为 HTML checkbox 添加自定义样式及动画效果">
+                <i class="fa fa-chevron-left"></i> 用纯 CSS 为 HTML checkbox 添加自定义样式及动画效果
               </a>
             
           </div>
@@ -644,8 +644,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/17/Add custom style and animation effects to HTML checkbox with CSS/" rel="prev" title="用纯 CSS 为 HTML checkbox 添加自定义样式及动画效果">
-                用纯 CSS 为 HTML checkbox 添加自定义样式及动画效果 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/17/The details of string function of Cpp/" rel="prev" title="C++ string 字符串函数详解">
+                C++ string 字符串函数详解 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -733,7 +733,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -744,7 +744,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -755,7 +755,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -839,7 +839,7 @@
         <div class="copyright" >
   
   &copy;  2015 &mdash; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

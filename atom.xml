@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-07T07:34:50.557Z</updated>
+  <updated>2018-02-05T10:03:31.863Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,181 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Mac 局域网共享 ShadowSocks</title>
+    <link href="http://yoursite.com/2018/02/05/Mac%E5%B1%80%E5%9F%9F%E7%BD%91%E5%85%B1%E4%BA%ABss/"/>
+    <id>http://yoursite.com/2018/02/05/Mac局域网共享ss/</id>
+    <published>2018-02-05T08:35:20.309Z</published>
+    <updated>2018-02-05T10:03:31.863Z</updated>
+    
+    <content type="html"><![CDATA[<p>新买了 NS，却发现下载速度慢，切自身无法连接 ss，于是找到了将 macOS 的全局网络在局域网下分享给其他设备的方法。</p>
+<a id="more"></a>
+<h2 id="安装-ShadowSocks"><a href="#安装-ShadowSocks" class="headerlink" title="安装 ShadowSocks"></a>安装 ShadowSocks</h2><p>安装<strong>ShadowSocks</strong>略过，无论是GUI版还是命令行版都可以，可以参考<a href="http://salogs.com/news/2016/11/02/mac-shadowsocks/" target="_blank" rel="external">这里</a>。</p>
+<h2 id="配置-ShadowSocks"><a href="#配置-ShadowSocks" class="headerlink" title="配置 ShadowSocks"></a>配置 ShadowSocks</h2><p>地址端口自行配置，这里要记住的两个地方：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">"local_address":"0.0.0.0",</div><div class="line">"local_port":1080,</div></pre></td></tr></table></figure>
+<ul>
+<li><code>local_address</code> 这里填写 <code>0.0.0.0</code> 表示局域网点的所有机子都可以通过 <code>1080</code> 这个端口代理，也可以就用主机地址 <code>127.0.0.1</code></li>
+<li><code>local_port</code> 端口号不要重复，如果有 <code>HTTPS</code> 代理时尤为注意，同时这个需要记住，之后用到</li>
+</ul>
+<h2 id="Privoxy"><a href="#Privoxy" class="headerlink" title="Privoxy"></a>Privoxy</h2><p>Windows 系统可以通过几个命令，甚至是客户端的选项就可以完成代理<br><img src="https://lh3.googleusercontent.com/-wAiXakN3028/WngrqgUkMOI/AAAAAAAAAc4/cEjbWN4WqAswvggvNXrU55HYK047Q6JbQCHMYCw/I/a75c3e80gw1f4urdcywyqj206506imxj.jpg" alt="a75c3e80gw1f4urdcywyqj206506imxj"></p>
+<p>可惜的是，macOS 没有提供这样的功能，所以我们需要借助像 <a href="http://www.privoxy.org/" target="_blank" rel="external">Privoxy</a> 这样的工具来实现Sock5共享。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>这里分享的是使用 <strong>Homebrew</strong> 安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install privoxy</div></pre></td></tr></table></figure>
+<p><strong>homebrew </strong>会报错 <code>/usr/local/sbin is not writable</code>，这是因为 <code>/usr/local/</code> 这个目录不属于当前用户，所以 <strong>homebrew</strong> 无法访问。解决方法为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo mkdir /usr/<span class="built_in">local</span>/sbin</div><div class="line">sudo chown -R `whoami`:admin /usr/<span class="built_in">local</span>/sbin</div></pre></td></tr></table></figure>
+<p>之后运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew link privoxy</div></pre></td></tr></table></figure>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /usr/<span class="built_in">local</span>/etc/privoxy/config</div></pre></td></tr></table></figure>
+<ol>
+<li><p>在 vim 中搜索 <code>forward-socks5t  /</code> ，去掉注释，将端口改为 <code>local_port</code> 号</p>
+<blockquote>
+<p><code>forward-socks5t / 127.0.0.1:1080</code></p>
+</blockquote>
+</li>
+<li><p>搜索 <code>listen-address 127.0.0.1:8118</code> ，去掉注释，把 <code>127.0.0.1</code> 改为 <code>0.0.0.0</code>，端口号默认或选择一个未占用的端口 </p>
+<blockquote>
+<p><code>listen-address 0.0.0.0:6666</code> </p>
+</blockquote>
+</li>
+<li><p>修改这两处后，保存并退出即可</p>
+</li>
+</ol>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /usr/<span class="built_in">local</span>/sbin/privoxy /usr/<span class="built_in">local</span>/etc/privoxy/config &amp;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>最后的 <code>&amp;</code> 是为了让 privoxy 在后台运行</p>
+<p>参见：</p>
+<p><a href="http://ju.outofmemory.cn/entry/251730" target="_blank" rel="external">http://ju.outofmemory.cn/entry/251730</a></p>
+<p><a href="http://my.oschina.net/u/994235/blog/296702" target="_blank" rel="external">http://my.oschina.net/u/994235/blog/296702</a></p>
+</blockquote>
+<h3 id="获取本机-IP"><a href="#获取本机-IP" class="headerlink" title="获取本机 IP"></a>获取本机 <code>IP</code></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ifconfig | grep <span class="string">'inet'</span></div></pre></td></tr></table></figure>
+<p>其中 <code>inet</code> 后即为本机 <code>IP</code></p>
+<h3 id="将-Privoxy-添加到开机启动中"><a href="#将-Privoxy-添加到开机启动中" class="headerlink" title="将 Privoxy 添加到开机启动中"></a>将 Privoxy 添加到开机启动中</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 添加开机启动:</span></div><div class="line">ln -sfv /usr/<span class="built_in">local</span>/opt/privoxy/*.plist ~/Library/LaunchAgents  </div><div class="line"><span class="comment"># 启动 Privoxy:</span></div><div class="line">launchctl load ~/Library/LaunchAgents/homebrew.mxcl.privoxy.plist  </div><div class="line"><span class="comment"># 如果不需要用 launchctl 就直接运行:</span></div><div class="line">privoxy /usr/<span class="built_in">local</span>/etc/privoxy/config</div></pre></td></tr></table></figure>
+<h3 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h3><h4 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ps aux | grep privoxy</div><div class="line"><span class="comment"># 如果返回如下则说明启动成功</span></div><div class="line">root             34090   0.0  0.0  4278700   1196   ??  Ss    5:39PM   0:00.01 /usr/<span class="built_in">local</span>/sbin/privoxy /usr/<span class="built_in">local</span>/etc/privoxy/config</div></pre></td></tr></table></figure>
+<h4 id="查看端口监听"><a href="#查看端口监听" class="headerlink" title="查看端口监听"></a>查看端口监听</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">netstat -an | grep 6666</div><div class="line"><span class="comment"># 如果返回如下则说明启动成功</span></div><div class="line">tcp4       0      0  *.6666                 *.*                    LISTEN</div></pre></td></tr></table></figure>
+<h3 id="结束进程"><a href="#结束进程" class="headerlink" title="结束进程"></a>结束进程</h3><p>先查看进程ID：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ps aux | grep privoxy</div><div class="line"><span class="comment"># 返回 id 为 34090</span></div><div class="line">root             34090   0.0  0.0  4278700   1196   ??  Ss    5:39PM   0:00.01 /usr/<span class="built_in">local</span>/sbin/privoxy /usr/<span class="built_in">local</span>/etc/privoxy/config</div></pre></td></tr></table></figure>
+<p>然后：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo <span class="built_in">kill</span> 34090</div></pre></td></tr></table></figure>
+<p>当然，也可以直接根据<code>privoxy</code>进程名来关闭Privoxy：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo killall privoxy</div></pre></td></tr></table></figure>
+<h3 id="使用快捷短语"><a href="#使用快捷短语" class="headerlink" title="使用快捷短语"></a>使用快捷短语</h3><p>通过给以上命令别名（alias）来快速操作和查看</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim ./.bashrc</div></pre></td></tr></table></figure>
+<p>如果使用的是 <strong>zsh</strong>，则</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim ./.zshrc</div></pre></td></tr></table></figure>
+<p>在底部插入如下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># privoxy</span></div><div class="line"><span class="built_in">alias</span> privoxy=<span class="string">"sudo /usr/local/sbin/privoxy /usr/local/etc/privoxy/config;"</span></div><div class="line"><span class="built_in">alias</span> privoxy_status=<span class="string">"ps aux | grep privoxy;"</span></div><div class="line"><span class="built_in">alias</span> privoxy_port=<span class="string">"netstat -an | grep 6666;"</span></div><div class="line"><span class="built_in">alias</span> privoxy_quit=<span class="string">"sudo killall privoxy;"</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里为 <code>alias 别名=&quot;命令;&quot;</code> ，别名可以填自己喜欢的，命令需要和之前的一致</p>
+</blockquote>
+<p>之后重启 <strong>Terminal</strong> 就可以通过别名来快速操作了</p>
+<h2 id="在其他设备使用"><a href="#在其他设备使用" class="headerlink" title="在其他设备使用"></a>在其他设备使用</h2><p>支持手动配置代理的设备，在同一个WiFi下，即可手动配置，以NS为例：</p>
+<p><img src="https://lh3.googleusercontent.com/-EY2wdqh7lOQ/Wngr3VXdGHI/AAAAAAAAAc8/rUKmtLmMraAVK6rVgQxJyJwWiott_2QigCHMYCw/I/DVQw1YoVQAEq-Ez.jpg" alt="DVQw1YoVQAEq-Ez"></p>
+<p><strong>Proxy Setting</strong> 下，<code>Server</code> 为主机 <code>IP</code>，<code>Port</code> 为 <code>listen-address</code> 的端口号。同理iPhone，PS4等设备也就可以通过这些配置来实现科学上网了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;新买了 NS，却发现下载速度慢，切自身无法连接 ss，于是找到了将 macOS 的全局网络在局域网下分享给其他设备的方法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Tutorial" scheme="http://yoursite.com/categories/Tutorial/"/>
+    
+    
+      <category term="ShadowSocks" scheme="http://yoursite.com/tags/ShadowSocks/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用Google Drive作为Blog的图床</title>
+    <link href="http://yoursite.com/2017/12/10/%E4%BD%BF%E7%94%A8Google%20Drive%E4%BD%9C%E4%B8%BABlog%E7%9A%84%E5%9B%BE%E5%BA%8A/"/>
+    <id>http://yoursite.com/2017/12/10/使用Google Drive作为Blog的图床/</id>
+    <published>2017-12-10T13:36:30.436Z</published>
+    <updated>2018-02-05T10:10:43.053Z</updated>
+    
+    <content type="html"><![CDATA[<p>有时候会碰到需要在blog或者GitHub写一些东西的时候需要用到图片，微博图床总是失效，于是想到可以使用Google Drive作为图床使用。</p>
+<a id="more"></a>
+<p>登陆Google Drive上传图片之后点击获取链接，我们会得到一个如下的URL地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://drive.google.com/open?id=YOUR_FILE_ID&amp;authuser=0</div></pre></td></tr></table></figure>
+<p>但是这个地址是无法直接作为image的src值的，我们需要稍微做一点修改(你必须设置一下google的共享属性<strong>知道此链接的任何人都可以查看</strong>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://drive.google.com/uc?export=view&amp;id=YOUR_FILE_ID</div></pre></td></tr></table></figure>
+<p>如果需要让这个文件直接支持下载的话，请使用如下地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://drive.google.com/uc?export=download&amp;id=YOUR_FILE_ID</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有时候会碰到需要在blog或者GitHub写一些东西的时候需要用到图片，微博图床总是失效，于是想到可以使用Google Drive作为图床使用。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+    
+      <category term="MarkDown" scheme="http://yoursite.com/tags/MarkDown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Swift UILabel 属性</title>
+    <link href="http://yoursite.com/2017/12/10/Swift-UILabel-%E5%B1%9E%E6%80%A7/"/>
+    <id>http://yoursite.com/2017/12/10/Swift-UILabel-属性/</id>
+    <published>2017-12-09T16:04:19.261Z</published>
+    <updated>2018-02-05T10:11:09.591Z</updated>
+    
+    <content type="html"><![CDATA[<p>Swift 中的 UILabel 属性</p>
+<a id="more"></a>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> UIKit</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</div><div class="line">       <span class="keyword">super</span>.viewDidLoad()</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">//设置标签x坐标：10，y坐标：20，长：300，宽：100</span></div><div class="line">        <span class="keyword">let</span> label = <span class="type">UILabel</span>(frame:<span class="type">CGRectMake</span>(<span class="number">10</span>,<span class="number">20</span>, <span class="number">300</span>, <span class="number">100</span>))</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">//    显示文本【需要显示什么就设置这个 text 的属性即可】</span></div><div class="line">      label.text=<span class="string">" Welcome to study Swift ！"</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">// label的字体颜色</span></div><div class="line">        label.textColor=<span class="type">UIColor</span>.redColor() <span class="comment">//红色文字</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">// label的背景颜色</span></div><div class="line">        label.backgroundColor=<span class="type">UIColor</span>.blackColor() <span class="comment">//黑色背景</span></div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">        <span class="comment">// label的文字对齐方式</span></div><div class="line"></div><div class="line">        <span class="comment">/**</span></div><div class="line"><span class="comment">          case Left（左对齐）</span></div><div class="line"><span class="comment">          case Center（居中）</span></div><div class="line"><span class="comment">          case Right（右对齐）</span></div><div class="line"><span class="comment">         */</span></div><div class="line">         </div><div class="line">        label.textAlignment=<span class="type">NSTextAlignment</span>.<span class="type">Right</span> <span class="comment">//文字右对齐</span></div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">//    label阴影颜色【要设置偏移位置】(字体的阴影颜色)</span></div><div class="line">        label.shadowColor=<span class="type">UIColor</span>.grayColor()  <span class="comment">//灰色阴影</span></div><div class="line"></div><div class="line"> </div><div class="line"> </div><div class="line"></div><div class="line">        <span class="comment">//    label阴影偏移位置</span></div><div class="line">        label.shadowOffset=<span class="type">CGSizeMake</span>(-<span class="number">5</span>,<span class="number">5</span>)   <span class="comment">//阴影的偏移量</span></div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">//    多行显示，默认是一行的,0表示的多行显示（与高度有关）Label自适应自动换行</span></div><div class="line">        label.numberOfLines=<span class="number">0</span>   <span class="comment">//显示两行文字（默认只显示一行，设为0表示没有行数限制）</span></div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">        <span class="comment">//    自适应（不建议使用）</span></div><div class="line"></div><div class="line">            <span class="comment">/**</span></div><div class="line"><span class="comment">              1、没有设置多行显示：宽度自适应</span></div><div class="line"><span class="comment">              2、设置有多行显示：高度使用</span></div><div class="line"><span class="comment">              */</span></div><div class="line"></div><div class="line">        <span class="comment">// 文本有多大,窗口有多大</span></div><div class="line"></div><div class="line">        <span class="comment">// 细节: 不管高度宽度是否足够，都显示相应的高度</span></div><div class="line"></div><div class="line">        <span class="comment">// 细节: numberOfLines为1,那么就是单行显示</span></div><div class="line"></div><div class="line">        label.adjustsFontSizeToFitWidth=<span class="literal">true</span> <span class="comment">//当文字超出标签宽度时，自动调整文字大小，使其不被截断</span></div><div class="line"></div><div class="line"> </div><div class="line"> </div><div class="line"></div><div class="line">        <span class="comment">// 设置label文本高亮</span></div><div class="line">        label.highlighted = <span class="literal">true</span></div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">        <span class="comment">// 设置label文本高亮颜色</span></div><div class="line">        label.highlightedTextColor = <span class="type">UIColor</span>.greenColor()</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">// label圆角属性</span></div><div class="line">        label.layer.masksToBounds = <span class="literal">true</span>;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">        <span class="comment">// label圆角半径</span></div><div class="line">        label.layer.cornerRadius = <span class="number">10</span>;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">        <span class="comment">// label圆角边框颜色</span></div><div class="line">        label.layer.borderColor = <span class="type">UIColor</span>.blueColor().<span class="type">CGColor</span>;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">        <span class="comment">// label圆角边框宽度</span></div><div class="line">        label.layer.borderWidth = <span class="number">1</span>;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">        <span class="comment">//  label的字体大小</span></div><div class="line"></div><div class="line">        <span class="comment">/**</span></div><div class="line"><span class="comment">         systemFontOfSize(20) -&gt; UIFont         (文字大小)</span></div><div class="line"><span class="comment">         boldSystemFontOfSize(20) -&gt; UIFont     (加粗类型)</span></div><div class="line"><span class="comment">         italicSystemFontOfSize(20) -&gt; UIFont    (斜体类型)</span></div><div class="line"><span class="comment">         */</span></div><div class="line"></div><div class="line">        label.font = <span class="type">UIFont</span>.systemFontOfSize(<span class="number">50</span>)</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">        <span class="comment">// 设置字体时，同时设置大小</span></div><div class="line">        label.font = <span class="type">UIFont</span>(name:<span class="string">"您好！"</span>, size:<span class="number">50</span>)</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">   </div><div class="line">        <span class="comment">// label的特殊属性</span></div><div class="line"></div><div class="line">        <span class="comment">/**</span></div><div class="line"><span class="comment">         case ByWordWrapping // Wrap at word boundaries, default</span></div><div class="line"><span class="comment">         case ByCharWrapping // Wrap at character boundaries</span></div><div class="line"><span class="comment">         case ByClipping // Simply clip</span></div><div class="line"><span class="comment">         case ByTruncatingHead // Truncate at head of line: "...wxyz"</span></div><div class="line"><span class="comment">         case ByTruncatingTail // Truncate at tail of line: "abcd..."</span></div><div class="line"><span class="comment">         case ByTruncatingMiddle // Truncate middle of line:  "ab...yz"</span></div><div class="line"><span class="comment">         */</span></div><div class="line"></div><div class="line">label.lineBreakMode=<span class="type">NSLineBreakMode</span>.<span class="type">ByTruncatingTail</span>  <span class="comment">//隐藏尾部并显示省略号</span></div><div class="line">       label.lineBreakMode=<span class="type">NSLineBreakMode</span>.<span class="type">ByTruncatingMiddle</span>  <span class="comment">//隐藏中间部分并显示省略号</span></div><div class="line"></div><div class="line">   label.lineBreakMode=<span class="type">NSLineBreakMode</span>.<span class="type">ByTruncatingHead</span>  <span class="comment">//隐藏头部并显示省略号</span></div><div class="line"></div><div class="line">        label.lineBreakMode=<span class="type">NSLineBreakMode</span>.<span class="type">ByClipping</span> <span class="comment">//截去多余部分也不显示省略号</span></div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line"></div><div class="line">　　 <span class="comment">// 将视图添加到(self.view--&gt;父视图)界面中;  </span></div><div class="line">        <span class="keyword">self</span>.view.addSubview(label);</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">     <span class="comment">// 富文本设置</span></div><div class="line">        <span class="keyword">let</span> attributeString = <span class="type">NSMutableAttributedString</span>(string:<span class="string">"Welcome to study Swift ！"</span>)</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">     </div><div class="line">     </div><div class="line">     <span class="comment">// 从文本0开始6个字符字体HelveticaNeue-Bold,16号字体大小</span></div><div class="line">        attributeString.addAttribute(<span class="type">NSFontAttributeName</span>, value: <span class="type">UIFont</span>(name: <span class="string">"HelveticaNeue-Bold"</span>, size: <span class="number">16</span>)!,range: <span class="type">NSMakeRange</span>(<span class="number">0</span>,<span class="number">6</span>))</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">        </div><div class="line">        </div><div class="line">     <span class="comment">// 设置字体颜色       </span></div><div class="line">    attributeString.addAttribute(<span class="type">NSForegroundColorAttributeName</span>, value: <span class="type">UIColor</span>.blueColor(),range: <span class="type">NSMakeRange</span>(<span class="number">0</span>, <span class="number">3</span>))</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">     </div><div class="line">     <span class="comment">// 设置文字背景颜色       attributeString.addAttribute(NSBackgroundColorAttributeName, value: UIColor.greenColor(),range: NSMakeRange(3,3))</span></div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">        label.attributedText = attributeString</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">didReceiveMemoryWarning</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="keyword">super</span>.didReceiveMemoryWarning()</div><div class="line">        <span class="comment">// Dispose of any resources that can be recreated.</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Swift 中的 UILabel 属性&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+    
+      <category term="Swift" scheme="http://yoursite.com/tags/Swift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>全局.gitignore</title>
+    <link href="http://yoursite.com/2017/11/23/gitignore%20global/"/>
+    <id>http://yoursite.com/2017/11/23/gitignore global/</id>
+    <published>2017-11-23T08:10:01.054Z</published>
+    <updated>2017-11-23T08:10:01.054Z</updated>
+    
+    <content type="html"><![CDATA[<p>以<code>.DS_Store</code>文件为例：</p>
+<h3 id="创建-gitignore-global-文件，将需要忽略的文件类型写入文件"><a href="#创建-gitignore-global-文件，将需要忽略的文件类型写入文件" class="headerlink" title="创建 ~/.gitignore_global 文件，将需要忽略的文件类型写入文件"></a>创建 <code>~/.gitignore_global</code> 文件，将需要忽略的文件类型写入文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">touch .gitignore_global</div></pre></td></tr></table></figure>
+<h3 id="在-gitconfig-中引用"><a href="#在-gitconfig-中引用" class="headerlink" title="在.gitconfig 中引用"></a>在<code>.gitconfig</code> 中引用</h3><p>打开<code>~/.gitconfig</code>，输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[core] </div><div class="line">	excludesfile = /Users/reon/.gitignore_global</div></pre></td></tr></table></figure>
+<p>或是通过：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --global core.excludesfile/Users/reon/.gitignore_global</div></pre></td></tr></table></figure>
+<p>命令来实现。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;以&lt;code&gt;.DS_Store&lt;/code&gt;文件为例：&lt;/p&gt;
+&lt;h3 id=&quot;创建-gitignore-global-文件，将需要忽略的文件类型写入文件&quot;&gt;&lt;a href=&quot;#创建-gitignore-global-文件，将需要忽略的文件类型写入文件&quot; class=&quot;h
+    
+    </summary>
+    
+      <category term="Tutorial" scheme="http://yoursite.com/categories/Tutorial/"/>
+    
+    
+      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>C# 中的委托和事件</title>
     <link href="http://yoursite.com/2017/11/07/Delegates%20and%20events%20in%20Csharp/"/>
     <id>http://yoursite.com/2017/11/07/Delegates and events in Csharp/</id>
     <published>2017-11-07T07:04:49.134Z</published>
-    <updated>2017-11-07T07:34:50.557Z</updated>
+    <updated>2017-12-12T00:45:56.289Z</updated>
     
     <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p><code>delegate</code> 和 <code>event</code>在 .Net Framework中的应用非常广泛，然而，较好地理解委托和事件对很多接触C#时间不长的人来说并不容易。本文中，我将通过两个范例由浅入深地讲述什么是委托、为什么要使用委托、事件的由来、.Net Framework中的委托和事件、委托和事件对Observer设计模式的意义，对它们的中间代码也做了讨论。</p>
 <a id="more"></a>
@@ -145,7 +315,7 @@
 <li>液晶屏也会改变水温的显示，来提示水已经快烧开了。</li>
 </ol>
 <p>现在我们需要写个程序来模拟这个烧水的过程，我们将定义一个类来代表热水器，我们管它叫：<code>Heater</code>，它有代表水温的字段，叫做<code>temperature</code>；当然，还有必不可少的给水加热方法<code>BoilWater()</code>，一个发出语音警报的方法<code>MakeAlert()</code>，一个显示水温的方法，<code>ShowMsg()</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">namespace Delegate &#123;</div><div class="line">    class Heater &#123;</div><div class="line">    private int temperature; // 水温</div><div class="line">    // 烧水</div><div class="line">    public void BoilWater() &#123;</div><div class="line">        for (int i = 0; i &lt;= 100; i++) &#123;</div><div class="line">           temperature = i;</div><div class="line">           if (temperature &gt; 95) &#123;</div><div class="line">               MakeAlert(temperature);</div><div class="line">               ShowMsg(temperature);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    // 发出语音警报</div><div class="line">    private void MakeAlert(int param) &#123;</div><div class="line">       Console.WriteLine(&quot;Alarm：嘀嘀嘀，水已经 &#123;0&#125; 度了：&quot; , param);</div><div class="line">    &#125;</div><div class="line">    // 显示水温</div><div class="line">    private void ShowMsg(int param) &#123;</div><div class="line">       Console.WriteLine(&quot;Display：水快开了，当前温度：&#123;0&#125;度。&quot; , param);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">    class Program &#123;</div><div class="line">        static void Main() &#123;</div><div class="line">           Heater ht = new Heater();</div><div class="line">           ht.BoilWater();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">namespace Delegate &#123;</div><div class="line">    class Heater &#123;</div><div class="line">        private int temperature; // 水温</div><div class="line">        // 烧水</div><div class="line">        public void BoilWater() &#123;</div><div class="line">            for (int i = 0; i &lt;= 100; i++) &#123;</div><div class="line">               temperature = i;</div><div class="line">               if (temperature &gt; 95) &#123;</div><div class="line">                   MakeAlert(temperature);</div><div class="line">                   ShowMsg(temperature);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    // 发出语音警报</div><div class="line">    private void MakeAlert(int param) &#123;</div><div class="line">       Console.WriteLine(&quot;Alarm：嘀嘀嘀，水已经 &#123;0&#125; 度了：&quot; , param);</div><div class="line">    &#125;</div><div class="line">    // 显示水温</div><div class="line">    private void ShowMsg(int param) &#123;</div><div class="line">       Console.WriteLine(&quot;Display：水快开了，当前温度：&#123;0&#125;度。&quot; , param);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">    class Program &#123;</div><div class="line">        static void Main() &#123;</div><div class="line">           Heater ht = new Heater();</div><div class="line">           ht.BoilWater();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="Observer设计模式简介"><a href="#Observer设计模式简介" class="headerlink" title="Observer设计模式简介"></a>Observer设计模式简介</h3><p>上面的例子显然能完成我们之前描述的工作，但是却并不够好。现在假设热水器由三部分组成：热水器、警报器、显示器，它们来自于不同厂商并进行了组装。那么，应该是<strong>热水器</strong>仅仅负责烧水，它不能发出警报也不能显示水温；在水烧开时由<strong>警报器</strong>发出警报、<strong>显示器</strong>显示提示和水温。</p>
 <p>这时候，上面的例子就应该变成这个样子：    </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">// 热水器</div><div class="line">public class Heater &#123; </div><div class="line">    private int temperature;</div><div class="line">    // 烧水</div><div class="line">    private void BoilWater() &#123;</div><div class="line">       for (int i = 0; i &lt;= 100; i++) &#123;</div><div class="line">           temperature = i;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">// 警报器</div><div class="line">public class Alarm&#123;</div><div class="line">    private void MakeAlert(int param) &#123;</div><div class="line">       Console.WriteLine(&quot;Alarm：嘀嘀嘀，水已经 &#123;0&#125; 度了：&quot; , param);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">// 显示器</div><div class="line">public class Display&#123;</div><div class="line">    private void ShowMsg(int param) &#123;</div><div class="line">       Console.WriteLine(&quot;Display：水已烧开，当前温度：&#123;0&#125;度。&quot; , param);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -218,19 +388,19 @@
 <p>取消代理设置：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">set http_proxy=</div><div class="line">set https_proxy=</div></pre></td></tr></table></figure>
 <h2 id="Linux-终端代理设置"><a href="#Linux-终端代理设置" class="headerlink" title="Linux 终端代理设置"></a>Linux 终端代理设置</h2><h3 id="临时代理设置"><a href="#临时代理设置" class="headerlink" title="临时代理设置"></a>临时代理设置</h3><p>Linux 终端设置 HTTP 代理（只对当前终端有效）：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> export http_proxy=http://127.0.0.1:8118</div><div class="line"><span class="meta">$</span> export https_proxy=http://127.0.0.1:8118</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> http_proxy=http://127.0.0.1:8118</span></div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> https_proxy=http://127.0.0.1:8118</span></div></pre></td></tr></table></figure>
 <p>Linux 中设置 SOCKS5 代理（只对当前终端有效）：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> export http_proxy=socks5://127.0.0.1:1080</div><div class="line"><span class="meta">$</span> export https_proxy=socks5://127.0.0.1:1080</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> http_proxy=socks5://127.0.0.1:1080</span></div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> https_proxy=socks5://127.0.0.1:1080</span></div></pre></td></tr></table></figure>
 <p>设置终端中的 wget、curl 等都走 SOCKS5 代理（只对当前终端有效）：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> export ALL_PROXY=socks5://127.0.0.1:1080</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> ALL_PROXY=socks5://127.0.0.1:1080</span></div></pre></td></tr></table></figure>
 <p>Linux 终端中取消代理设置：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> unset http_proxy</div><div class="line"><span class="meta">$</span> unset https_proxy</div><div class="line"><span class="meta">$</span> unset ALL_RPOXY</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">unset</span> http_proxy</span></div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">unset</span> https_proxy</span></div><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">unset</span> ALL_RPOXY</span></div></pre></td></tr></table></figure>
 <h3 id="永久代理设置"><a href="#永久代理设置" class="headerlink" title="永久代理设置"></a>永久代理设置</h3><p>将代理命令写入配置文件 <code>~/.profile</code> 或 <code>~/.bashrc</code> 或 <code>~/.zshrc</code> 中：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> HTTP 代理设置</div><div class="line">export http_proxy=http://127.0.0.1:8118</div><div class="line">export https_proxy=http://127.0.0.1:8118</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"> HTTP 代理设置</span></div><div class="line">export http_proxy=http://127.0.0.1:8118</div><div class="line">export https_proxy=http://127.0.0.1:8118</div></pre></td></tr></table></figure>
 <p>或</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> SOCKS5 代理设置</div><div class="line">export http_proxy=socks5://127.0.0.1:1080</div><div class="line">export https_proxy=socks5://127.0.0.1:1080</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"> SOCKS5 代理设置</span></div><div class="line">export http_proxy=socks5://127.0.0.1:1080</div><div class="line">export https_proxy=socks5://127.0.0.1:1080</div></pre></td></tr></table></figure>
 <p>或</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 强制终端中的 wget、curl 等都走 SOCKS5 代理</div><div class="line">export ALL_PROXY=socks5://127.0.0.1:1080</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash"> 强制终端中的 wget、curl 等都走 SOCKS5 代理</span></div><div class="line">export ALL_PROXY=socks5://127.0.0.1:1080</div></pre></td></tr></table></figure>
 <p>或简化操作</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">alias pc="export ALL_PROXY=socks5://127.0.0.1:1080; echo 'Proxy on';"</div></pre></td></tr></table></figure>
 <h2 id="Git-设置代理"><a href="#Git-设置代理" class="headerlink" title="Git 设置代理"></a>Git 设置代理</h2><p>代理格式 <code>[protocol://][user[:password]@]proxyhost[:port]</code><br>参考 <a href="https://git-scm.com/docs/git-config" target="_blank" rel="external">https://git-scm.com/docs/git-config</a></p>
@@ -1226,44 +1396,44 @@
     <published>2017-03-17T06:14:49.000Z</published>
     <updated>2017-09-08T12:14:02.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo apt-get install apache2</div></pre></td></tr></table></figure>
+    <content type="html"><![CDATA[<h2 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install apache2</span></div></pre></td></tr></table></figure>
 <p>装好后，配置文件应该位于<code>/etc/apache2</code>中，默认情况下无需修改即可使用。默认的网站目录为<code>/var/www/</code>。</p>
 <a id="more"></a>
 <p>启动 Apache 的方法：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo /etc/init.d/apache2 start</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo /etc/init.d/apache2 start</span></div></pre></td></tr></table></figure>
 <p>重启 Apache：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo /etc/init.d/apache2 restart</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo /etc/init.d/apache2 restart</span></div></pre></td></tr></table></figure>
 <p>停止 Apache：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo /etc/init.d/apache2 stop</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo /etc/init.d/apache2 stop</span></div></pre></td></tr></table></figure>
 <p>上述命令也可以写成这种形式（以启动为例）：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo service apache2 start</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo service apache2 start</span></div></pre></td></tr></table></figure>
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>装好并启动 Apache 服务后，本地服务器应该就可以用了。可以利用<code>curl</code>访问 localhost 来测试：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> curl localhost</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> curl localhost</span></div></pre></td></tr></table></figure>
 <p>Apache 的错误日志文件默认为<code>/var/log/apache2/error.log</code>。</p>
 <h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>启动的时候可能会出现如下警告：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apache2: Could not determine the server's fully qualified domain name, using 127.0.0.1 for ServerName</div></pre></td></tr></table></figure>
 <p>说明你没有指定<code>ServerName</code>。如果想去掉这个错误，可以修改<code>/etc/apache2/apache2.conf</code>文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo vi /etc/apache2/apache2.conf</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo vi /etc/apache2/apache2.conf</span></div></pre></td></tr></table></figure>
 <p>添加如下行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ServerName localhost</div></pre></td></tr></table></figure>
 <blockquote>
 <h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2></blockquote>
 <h3 id="安装-PHP"><a href="#安装-PHP" class="headerlink" title="安装 PHP"></a>安装 PHP</h3><p>同样使用<code>apt-get</code>命令安装 PHP：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo apt-get install php5</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install php5</span></div></pre></td></tr></table></figure>
 <p>执行之后，PHP 应该就已经部署完毕了。可以使用<code>phpinfo()</code>函数来测试 PHP 是否已经就绪：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo vi /var/www/phpinfo.php</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo vi /var/www/phpinfo.php</span></div></pre></td></tr></table></figure>
 <p>在文件里输入：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;?php phpinfo(); ?&gt;</div></pre></td></tr></table></figure>
 <p>然后<code>curl localhost/phpinfo.php</code>来查看。</p>
-<h3 id="安装其他-PHP-模块"><a href="#安装其他-PHP-模块" class="headerlink" title="安装其他 PHP 模块"></a>安装其他 PHP 模块</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo apt-get install php5-mysql php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-mcrypt php5-memcache php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl</div></pre></td></tr></table></figure>
+<h3 id="安装其他-PHP-模块"><a href="#安装其他-PHP-模块" class="headerlink" title="安装其他 PHP 模块"></a>安装其他 PHP 模块</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install php5-mysql php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-mcrypt php5-memcache php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl</span></div></pre></td></tr></table></figure>
 <blockquote>
 <h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2></blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo apt-get install mysql-server</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install mysql-server</span></div></pre></td></tr></table></figure>
 <p>安装过程中需要设定 root 账户的密码。至此，LAMP 环境已经配好。</p>
 <blockquote>
 <h2 id="phpMyAdmin"><a href="#phpMyAdmin" class="headerlink" title="phpMyAdmin"></a>phpMyAdmin</h2></blockquote>
 <h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><p>首先执行：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo apt-get install phpmyadmin</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install phpmyadmin</span></div></pre></td></tr></table></figure>
 <p>安装过程比较长，会有几个选项，依次如下：</p>
 <p>（1）选择服务器软件。这里选择刚刚安装的 Apache2。</p>
 <p>（2）选择手动设定。</p>
@@ -1271,24 +1441,24 @@
 <p>（4）设定 phpMyAdmin 的登录密码。</p>
 <p>注意，phpMyAdmin 的配置文件为：<code>/etc/phpmyadmin/config.inc.php</code>。</p>
 <h3 id="包含-pma-的配置文件到-Apache"><a href="#包含-pma-的配置文件到-Apache" class="headerlink" title="包含 pma 的配置文件到 Apache"></a>包含 pma 的配置文件到 Apache</h3><p>安装后，还不能立即使用 phpMyAdmin，因为它不在网站目录下。为了正常使用，只需把 phpMyAdmin 的配置文件包含到 Apache 的配置中。编辑<code>apache2.conf</code>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo vi /etc/apache2/apache2.conf</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo vi /etc/apache2/apache2.conf</span></div></pre></td></tr></table></figure>
 <p>在文件中添加如下行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Include /etc/phpmyadmin/apache.conf</div></pre></td></tr></table></figure>
 <p>重启服务器：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo service apache2 restart</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo service apache2 restart</span></div></pre></td></tr></table></figure>
 <p>至此，你就可以通过<code>yourdomain/phpmyadmin</code>来访问 phpMyAdmin 了。</p>
 <h3 id="mcrypt-模块丢失的错误"><a href="#mcrypt-模块丢失的错误" class="headerlink" title="mcrypt 模块丢失的错误"></a>mcrypt 模块丢失的错误</h3><p>一个 bug 可能导致访问 phpMyAdmin 时出现 mcrypt 模块丢失的错误。如果遇到，则可以采用下面的办法修复：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo ln -s /etc/php5/conf.d/mcrypt.ini /etc/php5/mods-available/</div><div class="line"><span class="meta">$</span> sudo php5enmod mcrypt</div><div class="line"><span class="meta">$</span> sudo service apache2 restart</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo ln -s /etc/php5/conf.d/mcrypt.ini /etc/php5/mods-available/</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo php5enmod mcrypt</span></div><div class="line"><span class="meta">$</span><span class="bash"> sudo service apache2 restart</span></div></pre></td></tr></table></figure>
 <blockquote>
 <h2 id="全局禁用-Index"><a href="#全局禁用-Index" class="headerlink" title="全局禁用 Index"></a>全局禁用 Index</h2></blockquote>
 <p>Index 就是访问一个不存在 index.html、index.php 等文件的目录时服务器列出的文件列表，这样会对用户展示文件结构，如果想禁用，可以修改 Apache 的配置文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo vi /etc/apache2/apache2.conf</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> sudo vi /etc/apache2/apache2.conf</span></div></pre></td></tr></table></figure>
 <p>找到并修改为</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;Directory /var/www/&gt;</div><div class="line">        Options -Indexes</div><div class="line">        Options FollowSymLinks</div><div class="line">        AllowOverride None</div><div class="line">        Require all granted</div><div class="line">&lt;/Directory&gt;</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Apache&quot;&gt;&lt;a href=&quot;#Apache&quot; class=&quot;headerlink&quot; title=&quot;Apache&quot;&gt;&lt;/a&gt;Apache&lt;/h2&gt;&lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;$&lt;/span&gt; sudo apt-get install apache2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;h2 id=&quot;Apache&quot;&gt;&lt;a href=&quot;#Apache&quot; class=&quot;headerlink&quot; title=&quot;Apache&quot;&gt;&lt;/a&gt;Apache&lt;/h2&gt;&lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt; sudo apt-get install apache2&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;装好后，配置文件应该位于&lt;code&gt;/etc/apache2&lt;/code&gt;中，默认情况下无需修改即可使用。默认的网站目录为&lt;code&gt;/var/www/&lt;/code&gt;。&lt;/p&gt;
     
     </summary>
@@ -1299,182 +1469,6 @@
       <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
     
       <category term="Ubuntu" scheme="http://yoursite.com/tags/Ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用纯 CSS 为 HTML checkbox 添加自定义样式及动画效果</title>
-    <link href="http://yoursite.com/2017/03/17/Add%20custom%20style%20and%20animation%20effects%20to%20HTML%20checkbox%20with%20CSS/"/>
-    <id>http://yoursite.com/2017/03/17/Add custom style and animation effects to HTML checkbox with CSS/</id>
-    <published>2017-03-17T06:07:34.000Z</published>
-    <updated>2017-09-08T12:18:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>一般情况下，<code>`元素（也包括一部分其他</code>input<code>元素）是由操作系统（而非浏览器）进行渲染的。在不同操作系统下，这类特殊元素的样式往往和系统本身的风格一致，和浏览器无关。也正是由于这种机制，开发者无法像一般元素那样使用 CSS 来修饰这类元素。这里介绍一种利用纯 CSS 实现自定义 checkbox 样式的方法。思路很简单：由于控件所对应的</code>label<code>元素是可以点击并切换控件状态的，而</code>label<code>元素的样式又可以自由设定，因此我们可将</code>input<code>元素隐藏，通过</code>label`元素实现交互。</p>
-<a id="more"></a>
-<p>HTML 代码如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;input type="checkbox" id="checkbox" class="checkbox"/&gt;</div><div class="line">&lt;div class="checkbox-wrapper"&gt;</div><div class="line">    &lt;label for="checkbox" class="checkbox-label"&gt;&lt;/label&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="样式一：Metro-UI-风格"><a href="#样式一：Metro-UI-风格" class="headerlink" title="样式一：Metro UI 风格"></a>样式一：Metro UI 风格</h2></blockquote>
-<p>效果：</p>
-<p>CSS 代码如下：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">80px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span> &#123;</div><div class="line">    <span class="attribute">display</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::before</span>,</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">    <span class="attribute">font-family</span>: sans-serif;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">13px</span>;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">font-weight</span>: bold;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::before</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">'ON'</span>;</div><div class="line">    <span class="attribute">left</span>: -<span class="number">40px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#45b6af</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">'OFF'</span>;</div><div class="line">    <span class="attribute">right</span>: -<span class="number">40px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#f3565d</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">4s</span> ease;</div><div class="line">    <span class="attribute">cursor</span>: pointer;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#dddddd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> <span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">left</span>: <span class="number">40px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="样式二：iOS-7-风格"><a href="#样式二：iOS-7-风格" class="headerlink" title="样式二：iOS 7 风格"></a>样式二：iOS 7 风格</h2></blockquote>
-<p>效果：</p>
-<p>CSS代码如下：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">58px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">16px</span>;</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">3s</span> ease-out;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">2px</span> <span class="number">#ddd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span> &#123;</div><div class="line">    <span class="attribute">display</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0px</span>;</div><div class="line">    <span class="attribute">top</span>: <span class="number">0px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">cursor</span>: pointer;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">16px</span>;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">2px</span> <span class="number">3px</span> <span class="built_in">rgba</span>(0,0,0,0.2);</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">3s</span> ease-out;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#0bd318</span>;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">2px</span> <span class="number">#0bd318</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> <span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">left</span>: <span class="number">26px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>值得一提的是，这个例子虽然比较完美的还原了 iOS 7 中 UISwitch 控件的外观，但是动画曲线却还有些差距。iOS 7 中使用的是一种名为 String Animation 的动画（该 API 在 iOS 8 中已经公开），仔细看的话可以发现开始滑块移动很快，到后面逐渐变慢，并且结束时还有小幅度的「反弹」效果。这里我们为了方便，使用 ease-out 来模拟。</p>
-<blockquote>
-<h2 id="JSFiddle"><a href="#JSFiddle" class="headerlink" title="JSFiddle"></a>JSFiddle</h2></blockquote>
-<p>点击<a href="http://jsfiddle.net/gnu1qqnq/" target="_blank" rel="external">此处</a>查看本教程在 JSFiddle 的示范代码。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一般情况下，&lt;code&gt;`元素（也包括一部分其他&lt;/code&gt;input&lt;code&gt;元素）是由操作系统（而非浏览器）进行渲染的。在不同操作系统下，这类特殊元素的样式往往和系统本身的风格一致，和浏览器无关。也正是由于这种机制，开发者无法像一般元素那样使用 CSS 来修饰这类元素。这里介绍一种利用纯 CSS 实现自定义 checkbox 样式的方法。思路很简单：由于控件所对应的&lt;/code&gt;label&lt;code&gt;元素是可以点击并切换控件状态的，而&lt;/code&gt;label&lt;code&gt;元素的样式又可以自由设定，因此我们可将&lt;/code&gt;input&lt;code&gt;元素隐藏，通过&lt;/code&gt;label`元素实现交互。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
-    
-    
-      <category term="HTML" scheme="http://yoursite.com/tags/HTML/"/>
-    
-      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac OS X Terminal 101：终端使用初级教程</title>
-    <link href="http://yoursite.com/2017/03/17/The%20introductory%20of%20macOS%20Terminal/"/>
-    <id>http://yoursite.com/2017/03/17/The introductory of macOS Terminal/</id>
-    <published>2017-03-17T06:07:34.000Z</published>
-    <updated>2017-09-08T12:17:34.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近学习苹果认证的《Mac OS X Support Essentials》教程，看到 Command Line 一节有很多实用的知识，下面选取一部分翻译 + 笔记，整理成此文。</p>
-<a id="more"></a>
-<blockquote>
-<p>你可以整天驾驶汽车而不用知道如何修理它们，但是如果你希望当一个维护员，你就需要知道事情是如何运作的。同样的事情也发生在了 Mac OS X 上；你可以一直使用 Mac 而不用知道如何修理它，但是如果你想对系统做一些维护或解决一些问题，那么你需要知道如何使用 command-line。</p>
-<h2 id="为什么要使用命令行-如何开启命令行？"><a href="#为什么要使用命令行-如何开启命令行？" class="headerlink" title="为什么要使用命令行/如何开启命令行？"></a>为什么要使用命令行/如何开启命令行？</h2></blockquote>
-<ul>
-<li>许多功能在图形界面不提供，只有通过命令行来实现。</li>
-<li>Finder会隐藏许多你不太会需要的文件，然而 command line 会允许你访问所有文件。</li>
-<li>通过 command line 可以远程访问你的 Mac（利用 SSH）。</li>
-<li>administrators 用户可以通过 <code>sudo</code> 命令获得 root 用户权限。</li>
-<li>通过 command-line script 可以使工作更高效。</li>
-<li>Terminal（终端）程序可以在“实用工具”里找到。</li>
-<li>如果你开启手动输入用户名登陆模式，登陆时在用户名处输入 <code>&gt;console</code> 可以直接进入命令行界面。随后你仍然需要登录到一个账户。</li>
-</ul>
-<blockquote>
-<h2 id="初识Command-Line"><a href="#初识Command-Line" class="headerlink" title="初识Command Line"></a>初识Command Line</h2></blockquote>
-<ul>
-<li><p>许多命令会花费一些时间来执行，然而这中间不会给出任何提示或者进度条。一般结束后会出现一个“用户名$”的标记。如果没有出现，那么说明最后一条命令正在执行。</p>
-</li>
-<li><p>一条命令包括 Command Name、Options、Arguments、Extras 四个部分，但是后三个部分有时是可选的。Options 部分用<code>-</code>作为前导符。其中许多命令的 Options 部分只包含单个字母，这时可以合并。例如，<code>ls -lA</code>和<code>ls -l -A</code>是等效的。Arguments 部分用来细化这个命令或指定这个命令具体的实施对象，Extras 部分则用来进一步实现其他功能。</p>
-</li>
-<li><p>举例：下列命令包含前三个部分，用于删除 Junk 这个程序。</p>
-<p><code>michelle$ rm -R /Applications/Junk.app</code></p>
-</li>
-<li><p>如果你输入了一些错误的命令，系统会返回一些错误信息。但是系统却不会阻止你做傻事（例如删除整个用户文件夹）。</p>
-</li>
-</ul>
-<blockquote>
-<h2 id="关于-man-命令"><a href="#关于-man-命令" class="headerlink" title="关于 man 命令"></a>关于 man 命令</h2></blockquote>
-<p>虽然有上千条命令，每条命令还有许多可选参数和具体的使用方式，但是你却不需要记住这些命令。你只需要记住一个：<code>man</code></p>
-<p>大多数命令都会包含一个使用指南，会告诉你任何你需要知道的关于这个命令的所有细节，在命令行中输入 <code>man command-name</code> 即可获取。例如，你想知道<code>ls</code>这个命令怎么使用，输入<code>man ls</code>即可进入使用指南页面。</p>
-<p>使用指南往往很长，所以你可以使用▲（上箭头）或▼（下箭头）来上下移动，使用 Speace 来翻页，输入<code>/</code>和关键字来按照关键字搜索，按Q来退出使用指南页面。</p>
-<p>那么——如果你连命令名称都不知道怎么办呢？输入<code>man -k</code>和关键字来对整个使用指南数据库进行搜索。</p>
-<blockquote>
-<h2 id="命令行，文件和路径"><a href="#命令行，文件和路径" class="headerlink" title="命令行，文件和路径"></a>命令行，文件和路径</h2><p>如果知道如何使用命令是掌握 command line 的第一步，那么第二步就是学习如何在 command line 中使用文件路径。如果你掌握了文件路径，你将会发现这比使用 Finder 更加快捷。</p>
-</blockquote>
-<p><strong>注意</strong></p>
-<ul>
-<li>command line 工具是大小写敏感的，并且对于文件名，必须包括扩展名。例如，你想找iTunes这个程序，输入<code>itunes</code>是无效的，必须输入<code>iTunes.app</code>。</li>
-<li>Mac OS传统上喜欢使用“文件夹”（folders）这个名称，但是在 command line 中，主要使用“目录”（directory）这个词。这和 UNIX 是一致的。</li>
-</ul>
-<h3 id="两种路径：绝对路径和相对路径"><a href="#两种路径：绝对路径和相对路径" class="headerlink" title="两种路径：绝对路径和相对路径"></a>两种路径：绝对路径和相对路径</h3><ul>
-<li>绝对路径：完整描述一个文件的位置，总是以斜杠（<code>/</code>）（forward slash）开头。例如<code>/Users/michelle/Public/Drop Box</code>。</li>
-<li>相对路径：只描述一部分位置信息，它和你在 command line 目前的目录有关。当你打开新的 Terminal 程序时，command line 会话的目录应该是你的 home folder。这时上面例子文件夹的相对路径写作<code>Public/Drop Box</code>。显然它从当前目录开始。和html类似，你也可以使用两个点（“<code>..</code>”）来代表父目录，这样你就可以用相对路径表示上级或同级目录了。例如你可以输入<code>cd ..</code>甚至<code>cd ../..</code></li>
-</ul>
-<h3 id="切换到其他路径和目录"><a href="#切换到其他路径和目录" class="headerlink" title="切换到其他路径和目录"></a>切换到其他路径和目录</h3><p>如果你想将当前 command line 会话切换到其他目录，需要用到三个命令：<code>pwd</code>，<code>ls</code>和<code>cd</code>。</p>
-<ol>
-<li><code>pwd</code>的含义是“print working directory”，会显示当前目录的绝对路径。</li>
-<li><code>ls</code>的含义是“list directory contents”，它会列出当前目录的内容。这个命令还有其他参数可选。</li>
-<li><code>cd</code>的含义是“change directory”，它会改变当前目录到你指定的目录。如果你不指定，则会返回你的 home folder。</li>
-</ol>
-<h3 id="处理特殊字符"><a href="#处理特殊字符" class="headerlink" title="处理特殊字符"></a>处理特殊字符</h3><p>如果目录中有特殊字符（空格，括号，引号，<code>[]</code>，<code>!</code>，<code>$</code>，<code>&amp;</code>，<code>*</code>，<code>;</code>，<code>|</code>，<code>\</code>），那么直接输入空格会造成系统识别困难，必须使用特殊的语法来表示这些字符。例如上例中，空格前添加反斜杠“<code>\</code>”（back slash）即可：<code>cd Punlic/Drop\ Box/</code>。除了反斜杠，也可以用引号的方法：<code>cd &quot;Public/Drop Box&quot;。</code></p>
-<p>——如果不想手动输入，也可以把文件从 Finder 拖到 Terminal 窗口来创建绝对路径，这会方便一些，因为上面提到的所有特殊字符在拖动后都会自动变成系统可识别的表示方法。其实，更有效率的解决方案是使用 Tab Complete 功能。</p>
-<p>Tab Complete 是 command line 中最能给你节省时间的特性之一，利用它的自动完成文件、目录名称功能还可以防止你输入错误。使用<code>cd</code>进入你的 home folder，使用<code>cd P</code>命令，然后按下tab按键。你可能会听到错误音，因为你的 home folder 内有多个 P 开头的文件夹。再按一次tab，Terminal 将会为你列出 P 开头的两个文件夹：Public 和 Pictures。按U，再按tab，Terminal 则会自动为你补全<code>Public/</code>。Tab complete 同样会处理那些特殊字符。注意，这会在末尾保留<code>/</code>符号，大部分时候这没问题，但如果出错，移除多余的<code>/</code>试一试。</p>
-<p>另外，鄂化符<code>~</code>（tilde）在command line 中可以代表当前用户的 home folder。例如<code>~/Public/Drop\ Box/</code>是合法的。</p>
-<h3 id="查看隐藏文件"><a href="#查看隐藏文件" class="headerlink" title="查看隐藏文件"></a>查看隐藏文件</h3><p>为了简化工作，command line 和 Finder 都会隐藏许多文件和文件夹，这些内容通常是系统需要的。不借助第三方工具让 Finder 显示隐藏文件比较困难，但是在 command line 中却非常简单。首先，许多隐藏文件的隐藏是通过隐藏属性在 Finder 中隐藏的，而 command line 会忽略这些属性，所以这些文件会在 command line 中显示。另外，<code>ls</code>命令会隐藏文件名以<code>.</code>开头的文件，但是这些文件却可以被显示出来，方法是利用<code>-a</code>选项。例如：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">michelle$</span> ls -la</div></pre></td></tr></table></figure>
-<p>我们还添加了<code>-l</code>选项，目的是控制输出格式。如果你注意输出内容的话，会发现还包括<code>.</code>和<code>..</code>两项，它们分别表示当前文件夹和父文件夹（如图）。如果你不想显示这两项，只需要把<code>-a</code>改成<code>-A</code>即可。</p>
-<p><img src="/2017/03/17/The introductory of macOS Terminal/Users/sephiroth/Downloads/terminal729.png" alt="terminal729"></p>
-<h3 id="前往其他卷"><a href="#前往其他卷" class="headerlink" title="前往其他卷"></a>前往其他卷</h3><p>在 command line 中，系统卷（也称为 root volume）是由开始的一个正斜杠表示的。然而也许听起来不可思议，在 command line 中其他卷看起来就在文件系统中一个叫做 Volumes 的文件夹中。下面的命令清晰地显示出这种逻辑关系：我从我的 home folder 出发，最终前往一个叫 Time Machine 的卷，该卷是外接在 Mac 上的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">bogon:~ renfei$ pwd</div><div class="line">/Users/renfei</div><div class="line">bogon:~ renfei$ cd /Volumes/</div><div class="line">bogon:Volumes renfei$ pwd</div><div class="line">/Volumes</div><div class="line">bogon:Volumes renfei$ ls</div><div class="line">Macintosh SSD &amp;nbsp; &amp;nbsp; &amp;nbsp;Time Machine</div><div class="line">bogon:Volumes renfei$ cd Time\ Machine/</div><div class="line">bogon:Time Machine renfei$ pwd</div><div class="line">/Volumes/Time Machine</div></pre></td></tr></table></figure>
-<h2 id="用Command-Line管理文件"><a href="#用Command-Line管理文件" class="headerlink" title="用Command-Line管理文件"></a>用Command-Line管理文件</h2><h3 id="检视文件"><a href="#检视文件" class="headerlink" title="检视文件"></a>检视文件</h3><p>有许多基础命令用来定位、检视文件和文件夹，包括<code>cat</code>, <code>less</code>, <code>which</code>, <code>file</code>以及<code>find</code>。别忘了，你可以利用<code>man</code>命令来查阅每个命令的使用指南。</p>
-<h4 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h4><p><code>cat</code>是“concatenate”的意思，会按顺序读取文件并输出到 Terminal 窗口，语法为<code>cat</code>后接你需要查看的文件的路径。<code>cat</code>命令也可以用<code>&gt;&gt;</code>来增加文本文件的内容，例如命令<code>cat ../textOne.txt &gt;&gt; textTwo.txt</code>会把 textOne.txt 的内容添加到 textTwo.txt 的结尾。这个<code>&gt;&gt;</code>就属于上一篇提到的“Extras”。</p>
-<h4 id="less"><a href="#less" class="headerlink" title="less"></a>less</h4><p>这个命令更适合用来查看长文本文件，因为它会允许你查找文本。语法为 <code>less</code>后接文件路径，和<code>cat</code>一样。用<code>less</code>命令打开的文件其实和你查看命令使用指南的时候使用的是一个查看器，所以操作是相同的，同样可以使用▲（上箭头）或▼（下箭头）来上下移动文本，使用 空格 来翻页，输入<code>/</code>和关键字来按照关键字搜索，按Q来退出使用指南页面。除此之外，按V键来使用<code>vi</code>文本编辑器。</p>
-<h4 id="which"><a href="#which" class="headerlink" title="which"></a>which</h4><p>这个命令会定位某个命令的文件路径。换言之，它会告诉你你执行某个具体命令的时候，在使用哪个文件。语法为<code>which</code>后接某个命令。如图：</p>
-<p><img src="/2017/03/17/The introductory of macOS Terminal/Users/sephiroth/Downloads/屏幕快照-2012-07-29-13.53.59.png" alt="屏幕快照-2012-07-29-13.53.59"></p>
-<h4 id="file"><a href="#file" class="headerlink" title="file"></a>file</h4><p>这个命令会尝试根据文件的内容输出文件类型。如果一个文件缺失了扩展名，那么这个命令可能会非常有用。语法为<code>file</code>后接文件路径。如图，此例为一个 PNG 文件，还给出了它的尺寸、颜色数等信息。</p>
-<p><img src="/2017/03/17/The introductory of macOS Terminal/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.04.51.png" alt="屏幕快照-2012-07-29-14.04.51"></p>
-<h4 id="find"><a href="#find" class="headerlink" title="find"></a>find</h4><p>这个命令用来根据搜索关键词定位文件路径。 <code>find</code>命令不使用 Spotlight 搜索服务，但是它允许你设置非常具体的搜索条件，以及通配符（稍后介绍）。语法为<code>find</code>后接搜索的起始路径，后接定义搜索的选项，后接搜索内容（包含在引号里）。例如：</p>
-<p><img src="/2017/03/17/The introductory of macOS Terminal/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.12.49.png" alt="屏幕快照-2012-07-29-14.12.49"></p>
-<p><strong>注意</strong></p>
-<ol>
-<li>如果你要搜索根目录，也许你想使用<code>-x</code>选项来避免搜索 /Volumes 文件夹。</li>
-<li>如果想使用 Soptlight 搜索服务，使用<code>mdfind</code>命令后接搜索关键词即可。</li>
-</ol>
-<h3 id="使用通配符（Wildcard-Characters）"><a href="#使用通配符（Wildcard-Characters）" class="headerlink" title="使用通配符（Wildcard Characters）"></a>使用通配符（Wildcard Characters）</h3><p>下面是常用的通配符：</p>
-<ul>
-<li>星号（＊，Asterisk）——代表任何长度的任何字符。例如<code>*.tiff</code>代表所有格式为tiff的文件。</li>
-<li>问号（?，Question mark）——代表任何单个字符。例如<code>b?ok</code>匹配 book 但是不匹配 brook。</li>
-<li>方括号（[]，Square brackets）——定义一定范围的字符，例如<code>[Dd]ocument</code>匹配 Document 以及 document；<code>doc[1-9]</code>匹配doc1, doc2, …, doc9。</li>
-</ul>
-<p>配合使用上面三种通配符可以大大提高效率。</p>
-<h3 id="使用递归命令"><a href="#使用递归命令" class="headerlink" title="使用递归命令"></a>使用递归命令</h3><p>简单来说，递归命令可以允许命令不执行于一个特定文件，而是指定的路径下的所有文件。大多数命令包含一个<code>-r</code>或者<code>-R</code>选项，来设定你想递归地执行这个命令。例如下面的例子，展示了添加<code>-R</code>后<code>ls</code>命令的执行方式：</p>
-<p><img src="/2017/03/17/The introductory of macOS Terminal/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.39.00.png" alt="屏幕快照-2012-07-29-14.39.00"></p>
-<h3 id="编辑文件和文件夹"><a href="#编辑文件和文件夹" class="headerlink" title="编辑文件和文件夹"></a>编辑文件和文件夹</h3><p>有许多基础的命令用来编辑文件和文件夹，包括<code>mkdir</code>, <code>cp</code>, <code>mv</code>, <code>rm</code>, <code>rmdir</code>以及<code>vi</code>。下面我们来简要地介绍一下这些命令。</p>
-<h4 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h4><p>“make diretory”的缩写，用来创建文件夹，语法为<code>mkdir</code>后接新文件夹的目录。可以用<code>-p</code>选项，来一起创建路径中不存在的文件夹（这样你就不用挨层创建了）。</p>
-<h4 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h4><p>“copy”的缩写，用来把文件从一处复制到另一处。语法为<code>cp</code>后接原始路径，后接目标路径。如果你想复制整个文件夹和所有内容，需要添加<code>-R</code>选项。如果指定的目标路径不含文件名，则 cp 命令会按原名复制。如果指定的目标路径包括文件名，则会复制为你指定的文件名。如果仅指定新文件名，则会在原处以新名称创建文件副本。注意，系统会自动替换同名文件而不出现提示。</p>
-<h4 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h4><p>“move”的缩写，用来移动文件。语法为<code>mv</code>后接原路径，后接新路径。mv 的指定路径规则和 cp 是一样的（没错，如果仅指定新文件名，它就成了重命名命令）。</p>
-<h4 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h4><p>“remove”的缩写，会永久删除文件。注意，command-line中没有废纸篓。语法为<code>rm</code>后接文件路径。然而，使用 rm 命令删除的文件有可能可以通过数据恢复工具恢复。如果希望安全删除文件，可以使用<code>srm</code>命令。</p>
-<h4 id="rmdir和rm-R"><a href="#rmdir和rm-R" class="headerlink" title="rmdir和rm -R"></a>rmdir和rm -R</h4><p>rmdir是“remove directory”的缩写，这个命令会永久删除文件夹。再强调一遍，CLI 中木有废纸篓。语法为<code>rmdir</code>后接希望删除目录的路径。然而，rmdir 命令无法删除含有任何其他文件的文件夹，所以大多数情形下<code>rmdir</code>命令是不适用的。不过，你可以利用<code>rm</code>添加<code>-R</code>选项来删除文件夹及包含的所有文件。</p>
-<h4 id="vi"><a href="#vi" class="headerlink" title="vi"></a>vi</h4><p>代表“visual”（视觉的），然而这个名称相当具有讽刺意味：vi可能是可视化效果最差的文本编辑器了。然而，vi 是 command line 中最常见的文本编辑器。用vi打开文本文件，只需要输入<code>vi</code>后接文件路径即可。Mac OS X 还提供了<code>nano</code>，一个更加现代的文本编辑器。它也更加方便，例如在底部包含了一个作弊小条（=_=），上面有常用的快捷键列表（你就不用背下来它们了）。然而，vi却有时是默认的文本编辑器，所以掌握vi是很有用的。</p>
-<p>和<code>less</code>命令类似，<code>vi</code>命令会占用整个 Terminal 空间来显示文件内容。打开后，在“command模式”，vi 会等你输入一些预定义字符来告诉 vi 你想做什么。你也可以使用键盘上的箭头键单纯地浏览文件。你想编辑时，按A开始（会进入编辑模式）。文字会插入到光标处。如果你想保存，需要先退出编辑模式进入 command 模式。方法是按下esc键。回到 command 模式后，按住shift同时按两次Z来保存并退出。如果你不想保存，在 command 模式输入<code>:quit!</code>并按 enter/return 直接退出。</p>
-<blockquote>
-<h2 id="用Command-Line管理系统"><a href="#用Command-Line管理系统" class="headerlink" title="用Command-Line管理系统"></a>用Command-Line管理系统</h2></blockquote>
-<h3 id="使用su来切换用户"><a href="#使用su来切换用户" class="headerlink" title="使用su来切换用户"></a>使用su来切换用户</h3><p><code>su</code>命令代表“substitute user identity”，允许你在命令行中轻松切换到另一个用户账户。语法为<code>su</code>后接用户的短名称。然后会要求你输入密码（但是输入的时候不会显示）。执行完毕后，命令的前缀会改变，表示你拥有其他用户的权利。你可以利用<code>who -m</code>命令来验证当前登陆的身份。切换后，你会一直保持该用户身份，直至退出 Terminal 或者输入<code>exit</code>命令。</p>
-<h3 id="关于sudo的使用"><a href="#关于sudo的使用" class="headerlink" title="关于sudo的使用"></a>关于sudo的使用</h3><h4 id="sudo概述"><a href="#sudo概述" class="headerlink" title="sudo概述"></a>sudo概述</h4><p>更强大的命令就是<code>sudo</code>，代表“substitute user do”，或者，更恰当地，“super user do”。用<code>sudo</code>执行一个命令会使用 root 账户权限。当然，使用之前需要 administrator 账户（管理员账户）的授权（如输入密码）。</p>
-<p>默认情况下，任何管理员账户都可以使用<code>sudo</code>来获取 root 权限，甚至当 root 账户在图形界面被禁用的情况下，<code>sudo</code>依然有效。这个命令是很多情况下我们不得不使用 Terminal 的原因，——同样也是给每个用户管理员身份的危险所在。不过，你可以调整<code>sudo</code>的配置文件，来限制它的使用。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">bogon:~ renfei$ cat secret.txt</div><div class="line">cat: secret.txt: Permission denied</div><div class="line">bogon:~ renfei$ sudo cat secret.txt</div><div class="line">Password:</div><div class="line">This is the contents of the secret.txt text file that the user account renfei does not normally have access permissions to read. However, because he is an administrative user, she can use the sudo command to envoke root user access and read the contents of this file.</div></pre></td></tr></table></figure>
-<p><strong>提示</strong>：如果由于你忘了使用<code>sudo</code>而导致命令行返回一个错误，只需输入<code>sudo !!</code>就可以用<code>sudo</code>来执行上一条指令。</p>
-<p>记住，权力越大责任越大。不恰当地使用<code>sudo</code>可以轻易破坏你的系统设置。命令行只会在你第一次执行严重破坏性行为之前提示你，之后，它就会假设你清楚自己正在干什么。如果你只掌握三条使用命令行的准则，那将是：总是仔细检查你的命令；总是使用Tab completion来帮助你避免拼写错误；使用<code>sudo</code>之前，总是仔仔细细检查你的命令。</p>
-<h4 id="使用-sudo-切换-Shell"><a href="#使用-sudo-切换-Shell" class="headerlink" title="使用 sudo 切换 Shell"></a>使用 sudo 切换 Shell</h4><p>如果你是一个管理员用户，你需要执行很多条需要 root 权限的命令，你可以临时切换整个命令行 shell 来取得 root 级别的访问权限。方法就是先输入<code>sudo -s</code>，回车后再键入你的密码。</p>
-<blockquote>
-<h2 id="其他Command-Line技巧提示"><a href="#其他Command-Line技巧提示" class="headerlink" title="其他Command-Line技巧提示"></a>其他Command-Line技巧提示</h2></blockquote>
-<ul>
-<li>输入命令<code>open .</code>可以用 Finder 打开当前的位置。</li>
-<li>在 Terminal 的偏好里面可以设定它的外观和风格。</li>
-<li>中止一个错误的或者发疯的命令，可以使用组合键control + C。</li>
-<li>你可以在执行前编辑命令，只需要使用箭头和键盘上的其他字母。</li>
-<li>没有输入任何命令时，你可以用▲和▼来浏览历史命令。同样可以编辑和再次执行。</li>
-<li>你也可以使用<code>history</code>命令查看历史记录。</li>
-<li>你可以使用组合键control + L清屏。</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近学习苹果认证的《Mac OS X Support Essentials》教程，看到 Command Line 一节有很多实用的知识，下面选取一部分翻译 + 笔记，整理成此文。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Tutorial" scheme="http://yoursite.com/categories/Tutorial/"/>
-    
-    
-      <category term="Terminal" scheme="http://yoursite.com/tags/Terminal/"/>
     
   </entry>
   
@@ -1555,6 +1549,182 @@
     
     
       <category term="C++" scheme="http://yoursite.com/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac OS X Terminal 101：终端使用初级教程</title>
+    <link href="http://yoursite.com/2017/03/17/The%20introductory%20of%20macOS%20Terminal/"/>
+    <id>http://yoursite.com/2017/03/17/The introductory of macOS Terminal/</id>
+    <published>2017-03-17T06:07:34.000Z</published>
+    <updated>2017-09-08T12:17:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近学习苹果认证的《Mac OS X Support Essentials》教程，看到 Command Line 一节有很多实用的知识，下面选取一部分翻译 + 笔记，整理成此文。</p>
+<a id="more"></a>
+<blockquote>
+<p>你可以整天驾驶汽车而不用知道如何修理它们，但是如果你希望当一个维护员，你就需要知道事情是如何运作的。同样的事情也发生在了 Mac OS X 上；你可以一直使用 Mac 而不用知道如何修理它，但是如果你想对系统做一些维护或解决一些问题，那么你需要知道如何使用 command-line。</p>
+<h2 id="为什么要使用命令行-如何开启命令行？"><a href="#为什么要使用命令行-如何开启命令行？" class="headerlink" title="为什么要使用命令行/如何开启命令行？"></a>为什么要使用命令行/如何开启命令行？</h2></blockquote>
+<ul>
+<li>许多功能在图形界面不提供，只有通过命令行来实现。</li>
+<li>Finder会隐藏许多你不太会需要的文件，然而 command line 会允许你访问所有文件。</li>
+<li>通过 command line 可以远程访问你的 Mac（利用 SSH）。</li>
+<li>administrators 用户可以通过 <code>sudo</code> 命令获得 root 用户权限。</li>
+<li>通过 command-line script 可以使工作更高效。</li>
+<li>Terminal（终端）程序可以在“实用工具”里找到。</li>
+<li>如果你开启手动输入用户名登陆模式，登陆时在用户名处输入 <code>&gt;console</code> 可以直接进入命令行界面。随后你仍然需要登录到一个账户。</li>
+</ul>
+<blockquote>
+<h2 id="初识Command-Line"><a href="#初识Command-Line" class="headerlink" title="初识Command Line"></a>初识Command Line</h2></blockquote>
+<ul>
+<li><p>许多命令会花费一些时间来执行，然而这中间不会给出任何提示或者进度条。一般结束后会出现一个“用户名$”的标记。如果没有出现，那么说明最后一条命令正在执行。</p>
+</li>
+<li><p>一条命令包括 Command Name、Options、Arguments、Extras 四个部分，但是后三个部分有时是可选的。Options 部分用<code>-</code>作为前导符。其中许多命令的 Options 部分只包含单个字母，这时可以合并。例如，<code>ls -lA</code>和<code>ls -l -A</code>是等效的。Arguments 部分用来细化这个命令或指定这个命令具体的实施对象，Extras 部分则用来进一步实现其他功能。</p>
+</li>
+<li><p>举例：下列命令包含前三个部分，用于删除 Junk 这个程序。</p>
+<p><code>michelle$ rm -R /Applications/Junk.app</code></p>
+</li>
+<li><p>如果你输入了一些错误的命令，系统会返回一些错误信息。但是系统却不会阻止你做傻事（例如删除整个用户文件夹）。</p>
+</li>
+</ul>
+<blockquote>
+<h2 id="关于-man-命令"><a href="#关于-man-命令" class="headerlink" title="关于 man 命令"></a>关于 man 命令</h2></blockquote>
+<p>虽然有上千条命令，每条命令还有许多可选参数和具体的使用方式，但是你却不需要记住这些命令。你只需要记住一个：<code>man</code></p>
+<p>大多数命令都会包含一个使用指南，会告诉你任何你需要知道的关于这个命令的所有细节，在命令行中输入 <code>man command-name</code> 即可获取。例如，你想知道<code>ls</code>这个命令怎么使用，输入<code>man ls</code>即可进入使用指南页面。</p>
+<p>使用指南往往很长，所以你可以使用▲（上箭头）或▼（下箭头）来上下移动，使用 Speace 来翻页，输入<code>/</code>和关键字来按照关键字搜索，按Q来退出使用指南页面。</p>
+<p>那么——如果你连命令名称都不知道怎么办呢？输入<code>man -k</code>和关键字来对整个使用指南数据库进行搜索。</p>
+<blockquote>
+<h2 id="命令行，文件和路径"><a href="#命令行，文件和路径" class="headerlink" title="命令行，文件和路径"></a>命令行，文件和路径</h2><p>如果知道如何使用命令是掌握 command line 的第一步，那么第二步就是学习如何在 command line 中使用文件路径。如果你掌握了文件路径，你将会发现这比使用 Finder 更加快捷。</p>
+</blockquote>
+<p><strong>注意</strong></p>
+<ul>
+<li>command line 工具是大小写敏感的，并且对于文件名，必须包括扩展名。例如，你想找iTunes这个程序，输入<code>itunes</code>是无效的，必须输入<code>iTunes.app</code>。</li>
+<li>Mac OS传统上喜欢使用“文件夹”（folders）这个名称，但是在 command line 中，主要使用“目录”（directory）这个词。这和 UNIX 是一致的。</li>
+</ul>
+<h3 id="两种路径：绝对路径和相对路径"><a href="#两种路径：绝对路径和相对路径" class="headerlink" title="两种路径：绝对路径和相对路径"></a>两种路径：绝对路径和相对路径</h3><ul>
+<li>绝对路径：完整描述一个文件的位置，总是以斜杠（<code>/</code>）（forward slash）开头。例如<code>/Users/michelle/Public/Drop Box</code>。</li>
+<li>相对路径：只描述一部分位置信息，它和你在 command line 目前的目录有关。当你打开新的 Terminal 程序时，command line 会话的目录应该是你的 home folder。这时上面例子文件夹的相对路径写作<code>Public/Drop Box</code>。显然它从当前目录开始。和html类似，你也可以使用两个点（“<code>..</code>”）来代表父目录，这样你就可以用相对路径表示上级或同级目录了。例如你可以输入<code>cd ..</code>甚至<code>cd ../..</code></li>
+</ul>
+<h3 id="切换到其他路径和目录"><a href="#切换到其他路径和目录" class="headerlink" title="切换到其他路径和目录"></a>切换到其他路径和目录</h3><p>如果你想将当前 command line 会话切换到其他目录，需要用到三个命令：<code>pwd</code>，<code>ls</code>和<code>cd</code>。</p>
+<ol>
+<li><code>pwd</code>的含义是“print working directory”，会显示当前目录的绝对路径。</li>
+<li><code>ls</code>的含义是“list directory contents”，它会列出当前目录的内容。这个命令还有其他参数可选。</li>
+<li><code>cd</code>的含义是“change directory”，它会改变当前目录到你指定的目录。如果你不指定，则会返回你的 home folder。</li>
+</ol>
+<h3 id="处理特殊字符"><a href="#处理特殊字符" class="headerlink" title="处理特殊字符"></a>处理特殊字符</h3><p>如果目录中有特殊字符（空格，括号，引号，<code>[]</code>，<code>!</code>，<code>$</code>，<code>&amp;</code>，<code>*</code>，<code>;</code>，<code>|</code>，<code>\</code>），那么直接输入空格会造成系统识别困难，必须使用特殊的语法来表示这些字符。例如上例中，空格前添加反斜杠“<code>\</code>”（back slash）即可：<code>cd Punlic/Drop\ Box/</code>。除了反斜杠，也可以用引号的方法：<code>cd &quot;Public/Drop Box&quot;。</code></p>
+<p>——如果不想手动输入，也可以把文件从 Finder 拖到 Terminal 窗口来创建绝对路径，这会方便一些，因为上面提到的所有特殊字符在拖动后都会自动变成系统可识别的表示方法。其实，更有效率的解决方案是使用 Tab Complete 功能。</p>
+<p>Tab Complete 是 command line 中最能给你节省时间的特性之一，利用它的自动完成文件、目录名称功能还可以防止你输入错误。使用<code>cd</code>进入你的 home folder，使用<code>cd P</code>命令，然后按下tab按键。你可能会听到错误音，因为你的 home folder 内有多个 P 开头的文件夹。再按一次tab，Terminal 将会为你列出 P 开头的两个文件夹：Public 和 Pictures。按U，再按tab，Terminal 则会自动为你补全<code>Public/</code>。Tab complete 同样会处理那些特殊字符。注意，这会在末尾保留<code>/</code>符号，大部分时候这没问题，但如果出错，移除多余的<code>/</code>试一试。</p>
+<p>另外，鄂化符<code>~</code>（tilde）在command line 中可以代表当前用户的 home folder。例如<code>~/Public/Drop\ Box/</code>是合法的。</p>
+<h3 id="查看隐藏文件"><a href="#查看隐藏文件" class="headerlink" title="查看隐藏文件"></a>查看隐藏文件</h3><p>为了简化工作，command line 和 Finder 都会隐藏许多文件和文件夹，这些内容通常是系统需要的。不借助第三方工具让 Finder 显示隐藏文件比较困难，但是在 command line 中却非常简单。首先，许多隐藏文件的隐藏是通过隐藏属性在 Finder 中隐藏的，而 command line 会忽略这些属性，所以这些文件会在 command line 中显示。另外，<code>ls</code>命令会隐藏文件名以<code>.</code>开头的文件，但是这些文件却可以被显示出来，方法是利用<code>-a</code>选项。例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">michelle$</span><span class="bash"> ls -la</span></div></pre></td></tr></table></figure>
+<p>我们还添加了<code>-l</code>选项，目的是控制输出格式。如果你注意输出内容的话，会发现还包括<code>.</code>和<code>..</code>两项，它们分别表示当前文件夹和父文件夹（如图）。如果你不想显示这两项，只需要把<code>-a</code>改成<code>-A</code>即可。</p>
+<p><img src="/2017/03/17/The introductory of macOS Terminal/Users/sephiroth/Downloads/terminal729.png" alt="terminal729"></p>
+<h3 id="前往其他卷"><a href="#前往其他卷" class="headerlink" title="前往其他卷"></a>前往其他卷</h3><p>在 command line 中，系统卷（也称为 root volume）是由开始的一个正斜杠表示的。然而也许听起来不可思议，在 command line 中其他卷看起来就在文件系统中一个叫做 Volumes 的文件夹中。下面的命令清晰地显示出这种逻辑关系：我从我的 home folder 出发，最终前往一个叫 Time Machine 的卷，该卷是外接在 Mac 上的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">bogon:~ renfei$ pwd</div><div class="line">/Users/renfei</div><div class="line">bogon:~ renfei$ cd /Volumes/</div><div class="line">bogon:Volumes renfei$ pwd</div><div class="line">/Volumes</div><div class="line">bogon:Volumes renfei$ ls</div><div class="line">Macintosh SSD &amp;nbsp; &amp;nbsp; &amp;nbsp;Time Machine</div><div class="line">bogon:Volumes renfei$ cd Time\ Machine/</div><div class="line">bogon:Time Machine renfei$ pwd</div><div class="line">/Volumes/Time Machine</div></pre></td></tr></table></figure>
+<h2 id="用Command-Line管理文件"><a href="#用Command-Line管理文件" class="headerlink" title="用Command-Line管理文件"></a>用Command-Line管理文件</h2><h3 id="检视文件"><a href="#检视文件" class="headerlink" title="检视文件"></a>检视文件</h3><p>有许多基础命令用来定位、检视文件和文件夹，包括<code>cat</code>, <code>less</code>, <code>which</code>, <code>file</code>以及<code>find</code>。别忘了，你可以利用<code>man</code>命令来查阅每个命令的使用指南。</p>
+<h4 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h4><p><code>cat</code>是“concatenate”的意思，会按顺序读取文件并输出到 Terminal 窗口，语法为<code>cat</code>后接你需要查看的文件的路径。<code>cat</code>命令也可以用<code>&gt;&gt;</code>来增加文本文件的内容，例如命令<code>cat ../textOne.txt &gt;&gt; textTwo.txt</code>会把 textOne.txt 的内容添加到 textTwo.txt 的结尾。这个<code>&gt;&gt;</code>就属于上一篇提到的“Extras”。</p>
+<h4 id="less"><a href="#less" class="headerlink" title="less"></a>less</h4><p>这个命令更适合用来查看长文本文件，因为它会允许你查找文本。语法为 <code>less</code>后接文件路径，和<code>cat</code>一样。用<code>less</code>命令打开的文件其实和你查看命令使用指南的时候使用的是一个查看器，所以操作是相同的，同样可以使用▲（上箭头）或▼（下箭头）来上下移动文本，使用 空格 来翻页，输入<code>/</code>和关键字来按照关键字搜索，按Q来退出使用指南页面。除此之外，按V键来使用<code>vi</code>文本编辑器。</p>
+<h4 id="which"><a href="#which" class="headerlink" title="which"></a>which</h4><p>这个命令会定位某个命令的文件路径。换言之，它会告诉你你执行某个具体命令的时候，在使用哪个文件。语法为<code>which</code>后接某个命令。如图：</p>
+<p><img src="/2017/03/17/The introductory of macOS Terminal/Users/sephiroth/Downloads/屏幕快照-2012-07-29-13.53.59.png" alt="屏幕快照-2012-07-29-13.53.59"></p>
+<h4 id="file"><a href="#file" class="headerlink" title="file"></a>file</h4><p>这个命令会尝试根据文件的内容输出文件类型。如果一个文件缺失了扩展名，那么这个命令可能会非常有用。语法为<code>file</code>后接文件路径。如图，此例为一个 PNG 文件，还给出了它的尺寸、颜色数等信息。</p>
+<p><img src="/2017/03/17/The introductory of macOS Terminal/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.04.51.png" alt="屏幕快照-2012-07-29-14.04.51"></p>
+<h4 id="find"><a href="#find" class="headerlink" title="find"></a>find</h4><p>这个命令用来根据搜索关键词定位文件路径。 <code>find</code>命令不使用 Spotlight 搜索服务，但是它允许你设置非常具体的搜索条件，以及通配符（稍后介绍）。语法为<code>find</code>后接搜索的起始路径，后接定义搜索的选项，后接搜索内容（包含在引号里）。例如：</p>
+<p><img src="/2017/03/17/The introductory of macOS Terminal/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.12.49.png" alt="屏幕快照-2012-07-29-14.12.49"></p>
+<p><strong>注意</strong></p>
+<ol>
+<li>如果你要搜索根目录，也许你想使用<code>-x</code>选项来避免搜索 /Volumes 文件夹。</li>
+<li>如果想使用 Soptlight 搜索服务，使用<code>mdfind</code>命令后接搜索关键词即可。</li>
+</ol>
+<h3 id="使用通配符（Wildcard-Characters）"><a href="#使用通配符（Wildcard-Characters）" class="headerlink" title="使用通配符（Wildcard Characters）"></a>使用通配符（Wildcard Characters）</h3><p>下面是常用的通配符：</p>
+<ul>
+<li>星号（＊，Asterisk）——代表任何长度的任何字符。例如<code>*.tiff</code>代表所有格式为tiff的文件。</li>
+<li>问号（?，Question mark）——代表任何单个字符。例如<code>b?ok</code>匹配 book 但是不匹配 brook。</li>
+<li>方括号（[]，Square brackets）——定义一定范围的字符，例如<code>[Dd]ocument</code>匹配 Document 以及 document；<code>doc[1-9]</code>匹配doc1, doc2, …, doc9。</li>
+</ul>
+<p>配合使用上面三种通配符可以大大提高效率。</p>
+<h3 id="使用递归命令"><a href="#使用递归命令" class="headerlink" title="使用递归命令"></a>使用递归命令</h3><p>简单来说，递归命令可以允许命令不执行于一个特定文件，而是指定的路径下的所有文件。大多数命令包含一个<code>-r</code>或者<code>-R</code>选项，来设定你想递归地执行这个命令。例如下面的例子，展示了添加<code>-R</code>后<code>ls</code>命令的执行方式：</p>
+<p><img src="/2017/03/17/The introductory of macOS Terminal/Users/sephiroth/Downloads/屏幕快照-2012-07-29-14.39.00.png" alt="屏幕快照-2012-07-29-14.39.00"></p>
+<h3 id="编辑文件和文件夹"><a href="#编辑文件和文件夹" class="headerlink" title="编辑文件和文件夹"></a>编辑文件和文件夹</h3><p>有许多基础的命令用来编辑文件和文件夹，包括<code>mkdir</code>, <code>cp</code>, <code>mv</code>, <code>rm</code>, <code>rmdir</code>以及<code>vi</code>。下面我们来简要地介绍一下这些命令。</p>
+<h4 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h4><p>“make diretory”的缩写，用来创建文件夹，语法为<code>mkdir</code>后接新文件夹的目录。可以用<code>-p</code>选项，来一起创建路径中不存在的文件夹（这样你就不用挨层创建了）。</p>
+<h4 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h4><p>“copy”的缩写，用来把文件从一处复制到另一处。语法为<code>cp</code>后接原始路径，后接目标路径。如果你想复制整个文件夹和所有内容，需要添加<code>-R</code>选项。如果指定的目标路径不含文件名，则 cp 命令会按原名复制。如果指定的目标路径包括文件名，则会复制为你指定的文件名。如果仅指定新文件名，则会在原处以新名称创建文件副本。注意，系统会自动替换同名文件而不出现提示。</p>
+<h4 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h4><p>“move”的缩写，用来移动文件。语法为<code>mv</code>后接原路径，后接新路径。mv 的指定路径规则和 cp 是一样的（没错，如果仅指定新文件名，它就成了重命名命令）。</p>
+<h4 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h4><p>“remove”的缩写，会永久删除文件。注意，command-line中没有废纸篓。语法为<code>rm</code>后接文件路径。然而，使用 rm 命令删除的文件有可能可以通过数据恢复工具恢复。如果希望安全删除文件，可以使用<code>srm</code>命令。</p>
+<h4 id="rmdir和rm-R"><a href="#rmdir和rm-R" class="headerlink" title="rmdir和rm -R"></a>rmdir和rm -R</h4><p>rmdir是“remove directory”的缩写，这个命令会永久删除文件夹。再强调一遍，CLI 中木有废纸篓。语法为<code>rmdir</code>后接希望删除目录的路径。然而，rmdir 命令无法删除含有任何其他文件的文件夹，所以大多数情形下<code>rmdir</code>命令是不适用的。不过，你可以利用<code>rm</code>添加<code>-R</code>选项来删除文件夹及包含的所有文件。</p>
+<h4 id="vi"><a href="#vi" class="headerlink" title="vi"></a>vi</h4><p>代表“visual”（视觉的），然而这个名称相当具有讽刺意味：vi可能是可视化效果最差的文本编辑器了。然而，vi 是 command line 中最常见的文本编辑器。用vi打开文本文件，只需要输入<code>vi</code>后接文件路径即可。Mac OS X 还提供了<code>nano</code>，一个更加现代的文本编辑器。它也更加方便，例如在底部包含了一个作弊小条（=_=），上面有常用的快捷键列表（你就不用背下来它们了）。然而，vi却有时是默认的文本编辑器，所以掌握vi是很有用的。</p>
+<p>和<code>less</code>命令类似，<code>vi</code>命令会占用整个 Terminal 空间来显示文件内容。打开后，在“command模式”，vi 会等你输入一些预定义字符来告诉 vi 你想做什么。你也可以使用键盘上的箭头键单纯地浏览文件。你想编辑时，按A开始（会进入编辑模式）。文字会插入到光标处。如果你想保存，需要先退出编辑模式进入 command 模式。方法是按下esc键。回到 command 模式后，按住shift同时按两次Z来保存并退出。如果你不想保存，在 command 模式输入<code>:quit!</code>并按 enter/return 直接退出。</p>
+<blockquote>
+<h2 id="用Command-Line管理系统"><a href="#用Command-Line管理系统" class="headerlink" title="用Command-Line管理系统"></a>用Command-Line管理系统</h2></blockquote>
+<h3 id="使用su来切换用户"><a href="#使用su来切换用户" class="headerlink" title="使用su来切换用户"></a>使用su来切换用户</h3><p><code>su</code>命令代表“substitute user identity”，允许你在命令行中轻松切换到另一个用户账户。语法为<code>su</code>后接用户的短名称。然后会要求你输入密码（但是输入的时候不会显示）。执行完毕后，命令的前缀会改变，表示你拥有其他用户的权利。你可以利用<code>who -m</code>命令来验证当前登陆的身份。切换后，你会一直保持该用户身份，直至退出 Terminal 或者输入<code>exit</code>命令。</p>
+<h3 id="关于sudo的使用"><a href="#关于sudo的使用" class="headerlink" title="关于sudo的使用"></a>关于sudo的使用</h3><h4 id="sudo概述"><a href="#sudo概述" class="headerlink" title="sudo概述"></a>sudo概述</h4><p>更强大的命令就是<code>sudo</code>，代表“substitute user do”，或者，更恰当地，“super user do”。用<code>sudo</code>执行一个命令会使用 root 账户权限。当然，使用之前需要 administrator 账户（管理员账户）的授权（如输入密码）。</p>
+<p>默认情况下，任何管理员账户都可以使用<code>sudo</code>来获取 root 权限，甚至当 root 账户在图形界面被禁用的情况下，<code>sudo</code>依然有效。这个命令是很多情况下我们不得不使用 Terminal 的原因，——同样也是给每个用户管理员身份的危险所在。不过，你可以调整<code>sudo</code>的配置文件，来限制它的使用。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">bogon:~ renfei$ cat secret.txt</div><div class="line">cat: secret.txt: Permission denied</div><div class="line">bogon:~ renfei$ sudo cat secret.txt</div><div class="line">Password:</div><div class="line">This is the contents of the secret.txt text file that the user account renfei does not normally have access permissions to read. However, because he is an administrative user, she can use the sudo command to envoke root user access and read the contents of this file.</div></pre></td></tr></table></figure>
+<p><strong>提示</strong>：如果由于你忘了使用<code>sudo</code>而导致命令行返回一个错误，只需输入<code>sudo !!</code>就可以用<code>sudo</code>来执行上一条指令。</p>
+<p>记住，权力越大责任越大。不恰当地使用<code>sudo</code>可以轻易破坏你的系统设置。命令行只会在你第一次执行严重破坏性行为之前提示你，之后，它就会假设你清楚自己正在干什么。如果你只掌握三条使用命令行的准则，那将是：总是仔细检查你的命令；总是使用Tab completion来帮助你避免拼写错误；使用<code>sudo</code>之前，总是仔仔细细检查你的命令。</p>
+<h4 id="使用-sudo-切换-Shell"><a href="#使用-sudo-切换-Shell" class="headerlink" title="使用 sudo 切换 Shell"></a>使用 sudo 切换 Shell</h4><p>如果你是一个管理员用户，你需要执行很多条需要 root 权限的命令，你可以临时切换整个命令行 shell 来取得 root 级别的访问权限。方法就是先输入<code>sudo -s</code>，回车后再键入你的密码。</p>
+<blockquote>
+<h2 id="其他Command-Line技巧提示"><a href="#其他Command-Line技巧提示" class="headerlink" title="其他Command-Line技巧提示"></a>其他Command-Line技巧提示</h2></blockquote>
+<ul>
+<li>输入命令<code>open .</code>可以用 Finder 打开当前的位置。</li>
+<li>在 Terminal 的偏好里面可以设定它的外观和风格。</li>
+<li>中止一个错误的或者发疯的命令，可以使用组合键control + C。</li>
+<li>你可以在执行前编辑命令，只需要使用箭头和键盘上的其他字母。</li>
+<li>没有输入任何命令时，你可以用▲和▼来浏览历史命令。同样可以编辑和再次执行。</li>
+<li>你也可以使用<code>history</code>命令查看历史记录。</li>
+<li>你可以使用组合键control + L清屏。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近学习苹果认证的《Mac OS X Support Essentials》教程，看到 Command Line 一节有很多实用的知识，下面选取一部分翻译 + 笔记，整理成此文。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Tutorial" scheme="http://yoursite.com/categories/Tutorial/"/>
+    
+    
+      <category term="Terminal" scheme="http://yoursite.com/tags/Terminal/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用纯 CSS 为 HTML checkbox 添加自定义样式及动画效果</title>
+    <link href="http://yoursite.com/2017/03/17/Add%20custom%20style%20and%20animation%20effects%20to%20HTML%20checkbox%20with%20CSS/"/>
+    <id>http://yoursite.com/2017/03/17/Add custom style and animation effects to HTML checkbox with CSS/</id>
+    <published>2017-03-17T06:07:34.000Z</published>
+    <updated>2017-09-08T12:18:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>一般情况下，<code>`元素（也包括一部分其他</code>input<code>元素）是由操作系统（而非浏览器）进行渲染的。在不同操作系统下，这类特殊元素的样式往往和系统本身的风格一致，和浏览器无关。也正是由于这种机制，开发者无法像一般元素那样使用 CSS 来修饰这类元素。这里介绍一种利用纯 CSS 实现自定义 checkbox 样式的方法。思路很简单：由于控件所对应的</code>label<code>元素是可以点击并切换控件状态的，而</code>label<code>元素的样式又可以自由设定，因此我们可将</code>input<code>元素隐藏，通过</code>label`元素实现交互。</p>
+<a id="more"></a>
+<p>HTML 代码如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;input type="checkbox" id="checkbox" class="checkbox"/&gt;</div><div class="line">&lt;div class="checkbox-wrapper"&gt;</div><div class="line">    &lt;label for="checkbox" class="checkbox-label"&gt;&lt;/label&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="样式一：Metro-UI-风格"><a href="#样式一：Metro-UI-风格" class="headerlink" title="样式一：Metro UI 风格"></a>样式一：Metro UI 风格</h2></blockquote>
+<p>效果：</p>
+<p>CSS 代码如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">80px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span> &#123;</div><div class="line">    <span class="attribute">display</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::before</span>,</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">    <span class="attribute">font-family</span>: sans-serif;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">13px</span>;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">font-weight</span>: bold;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::before</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">'ON'</span>;</div><div class="line">    <span class="attribute">left</span>: -<span class="number">40px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#45b6af</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">'OFF'</span>;</div><div class="line">    <span class="attribute">right</span>: -<span class="number">40px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#f3565d</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">4s</span> ease;</div><div class="line">    <span class="attribute">cursor</span>: pointer;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#dddddd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> <span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">left</span>: <span class="number">40px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="样式二：iOS-7-风格"><a href="#样式二：iOS-7-风格" class="headerlink" title="样式二：iOS 7 风格"></a>样式二：iOS 7 风格</h2></blockquote>
+<p>效果：</p>
+<p>CSS代码如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">58px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">16px</span>;</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">3s</span> ease-out;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">2px</span> <span class="number">#ddd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span> &#123;</div><div class="line">    <span class="attribute">display</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0px</span>;</div><div class="line">    <span class="attribute">top</span>: <span class="number">0px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">cursor</span>: pointer;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">16px</span>;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">2px</span> <span class="number">3px</span> <span class="built_in">rgba</span>(0,0,0,0.2);</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">3s</span> ease-out;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#0bd318</span>;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">2px</span> <span class="number">#0bd318</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> <span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">left</span>: <span class="number">26px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>值得一提的是，这个例子虽然比较完美的还原了 iOS 7 中 UISwitch 控件的外观，但是动画曲线却还有些差距。iOS 7 中使用的是一种名为 String Animation 的动画（该 API 在 iOS 8 中已经公开），仔细看的话可以发现开始滑块移动很快，到后面逐渐变慢，并且结束时还有小幅度的「反弹」效果。这里我们为了方便，使用 ease-out 来模拟。</p>
+<blockquote>
+<h2 id="JSFiddle"><a href="#JSFiddle" class="headerlink" title="JSFiddle"></a>JSFiddle</h2></blockquote>
+<p>点击<a href="http://jsfiddle.net/gnu1qqnq/" target="_blank" rel="external">此处</a>查看本教程在 JSFiddle 的示范代码。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一般情况下，&lt;code&gt;`元素（也包括一部分其他&lt;/code&gt;input&lt;code&gt;元素）是由操作系统（而非浏览器）进行渲染的。在不同操作系统下，这类特殊元素的样式往往和系统本身的风格一致，和浏览器无关。也正是由于这种机制，开发者无法像一般元素那样使用 CSS 来修饰这类元素。这里介绍一种利用纯 CSS 实现自定义 checkbox 样式的方法。思路很简单：由于控件所对应的&lt;/code&gt;label&lt;code&gt;元素是可以点击并切换控件状态的，而&lt;/code&gt;label&lt;code&gt;元素的样式又可以自由设定，因此我们可将&lt;/code&gt;input&lt;code&gt;元素隐藏，通过&lt;/code&gt;label`元素实现交互。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+    
+      <category term="HTML" scheme="http://yoursite.com/tags/HTML/"/>
+    
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
     
   </entry>
   
