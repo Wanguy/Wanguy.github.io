@@ -1292,7 +1292,7 @@
 <p>① 通过DMG安装的MySQL通过’<code>&#39;System Prefrences&#39; &gt; MySQL &gt; &#39;Stop MySQL Server&#39;</code>来结束MySQL服务。</p>
 <p>如果报错：ERROR! MySQL server PID file could not be found! 则直接用 ① 的方法关闭即可。</p>
 <p>同理打开服务为：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span> sudo /usr/local/mysql/support-files/mysql.server start</div><div class="line"><span class="meta">&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> sudo /usr/<span class="built_in">local</span>/mysql/support-files/mysql.server start</span></div><div class="line"><span class="meta">&gt;</span><span class="bash"></span></div></pre></td></tr></table></figure>
 </blockquote>
 <h3 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h3><p>使用安全模式启动MySQL</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /usr/local/mysql/bin/mysqld_safe --skip-grant-tables</div></pre></td></tr></table></figure>
