@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-18T17:09:19.219Z</updated>
+  <updated>2018-06-18T17:17:11.541Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,14 +20,15 @@
     <link href="http://yoursite.com/2018/06/18/%E4%BB%8E%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E5%88%B0%E7%BD%AE%E4%BF%A1%E5%8C%BA%E9%97%B4/"/>
     <id>http://yoursite.com/2018/06/18/从正态分布到置信区间/</id>
     <published>2018-06-18T14:16:25.971Z</published>
-    <updated>2018-06-18T17:09:19.219Z</updated>
+    <updated>2018-06-18T17:17:11.541Z</updated>
     
     <content type="html"><![CDATA[<h2 id="先从人均收入说起"><a href="#先从人均收入说起" class="headerlink" title="先从人均收入说起"></a>先从人均收入说起</h2><p>我们通常会统计一个地区的人均收入水平，以此来反应这个地区的经济发展水平。假设现在从一个地区，随机抽取1000人，统计他们的年收入，求和后除以1000，得到一个平均年收入：<br>$$<br>\overline{X}=\frac{1}{1000}\sum_{i=1}^{1000}X_i \qquad（X_i为第i个人的年收入）<br>$$<br>但是这里有一个显而易见的问题，由于每次随机抽取的样本不尽相同，导致算出的算术平均值每次都可能不同。例如第一次$\overline{X_1}=6200$，第二次$\overline{X_2}=6000$，第三次$\overline{X_3}=6100$……，这样得到的数据，让人不知道该相信哪个。</p>
 <a id="more"></a>
 <h2 id="从抽样到客观"><a href="#从抽样到客观" class="headerlink" title="从抽样到客观"></a>从抽样到客观</h2><p>通过以上的例子，我们得出了一个结论：以点估点是靠不住的，更何况在连续型随机变量中，取一个点的概率是测不到的。但是，这并不意味着平均收入值是不存在的。即一定有那么一个客观存在的值，不因抽样的不同而改变，我们不妨记这个数为 $\mu$ 。</p>
 <p>我们回到统计中，假设现在有一组灯泡，我们该如何去估计平均寿命呢？我们同样去抽取一组样本，测量它们的平均寿命 $\overline{X}$ ，虽然这个 $\overline{X}$ 不会正好就是 $\mu$ ，但是我们从常理可知，这个值应该与真实存在的 $\mu$ 相去不远。也就是说，在如果一组灯泡的真实平均寿命是1800小时，我们测得的平均值应该在1800左右，而不会出现例如20，100这样明显偏离的值。那么计算我们测得的 $\overline{X}$ 与 $\mu$ 的距离：<br>$$<br>|\overline{X}-\mu|<br>$$<br>然后计算这个距离小于某个值得概率：<br>$$<br>P(|\overline{X}-\mu|&lt;\Delta)=1-\alpha<br>$$<br>这里，我们便称 $1-\alpha$ 为<strong>置信度</strong>。通俗的解释就是可以相信你给出的这个数据的程度。假设取 $\alpha=0.01$ ，那么就表示为：有90%的把握相信这个概率会发生。在不同的行业，对置信度的精度要求不同。例如航空器材中，对每个零件的精度要求都很高，而相对于普通制衣工厂，对于布料尺寸的把控就没有那么严格。</p>
 <h2 id="正态分布和标准化"><a href="#正态分布和标准化" class="headerlink" title="正态分布和标准化"></a>正态分布和标准化</h2><p>普天之下，所有的分布，最终都会归于正态分布：</p>
-<p>如果 $X$ 的概率密度为：<br>$$<br>f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \qquad (-\infty<x<+\infty) $$="" 其中="" $-\infty<\mu<+\infty$="" ，$\sigma="">0$ ，则称 $X$ 服从参数为 $(\mu,\sigma^2)$ 的<strong>正态分布</strong>，或称 $X$ 为<strong>正态变量</strong>，记 $X\sim N (\mu,\sigma^2)$ 。</x<+\infty)></p>
+<p>如果 $X$ 的概率密度为：<br>$$<br>f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \qquad (-\infty&lt;x&lt;+\infty)<br>$$</p>
+<p>其中 $-\infty&lt;\mu&lt;+\infty$ ，$\sigma&gt;0$ ，则称 $X$ 服从参数为 $(\mu,\sigma^2)$ 的<strong>正态分布</strong>，或称 $X$ 为<strong>正态变量</strong>，记 $X\sim N (\mu,\sigma^2)$ 。</p>
 <p>由于 $(\mu,\sigma^2)$ 的不同，所画出的函数图像也就不同，于是我们希望构造出一个标准化的形式，来研究他的属性。那么用 $X$ 减去自己的期望并除以标准差后，我们能得到 $X$ 的标准化形式，即：<br>$$<br>\frac{X-EX}{\sqrt{DX}}<br>$$<br>对于正态分布来说即为：<br>$$<br>\frac{X-\mu}{\sigma} \sim N(0,1)<br>$$<br><img src="https://lh3.googleusercontent.com/-oie8_LXV_5w/WyfmW2fLN8I/AAAAAAAABTE/Iqh_m3FLJmo6FhlXaCkzPUU41C9daTtzgCHMYCw/I/geogebra-export.png" alt="geogebra-export"><br>现在假设有一组数据：<br>$$<br>(x_1,x_2…x_n) \overset{iid}{\sim}N(\mu,\sigma^2)<br>$$<br>它的<br>$$<br>E\overline{X}=E\frac{(x_1+x_2+…+x_n)}{n}=\frac{1}{n}\cdot n\mu=\mu<br>$$</p>
 <p>$$<br>D\overline{X}=D\frac{(x_1+x_2+…+x_n)}{n}=\frac{1}{n^2}\cdot n\sigma^2=\frac{\sigma^2}{n}<br>$$</p>
 <p>平均值波动为原样本的 $\frac{1}{n}$ ，波动程度缩小，则 $\overline{X} \sim N(\mu, \frac{\sigma^2}{n})$ 。</p>
@@ -1510,86 +1511,6 @@
   </entry>
   
   <entry>
-    <title>C++ string 字符串函数详解</title>
-    <link href="http://yoursite.com/2017/03/17/The%20details%20of%20string%20function%20of%20Cpp/"/>
-    <id>http://yoursite.com/2017/03/17/The details of string function of Cpp/</id>
-    <published>2017-03-17T06:07:34.000Z</published>
-    <updated>2017-10-12T08:08:12.306Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<h2 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h2></blockquote>
-<ol>
-<li><p>+ 和 +=：连接字符串</p>
-</li>
-<li><p>=：字符串赋值</p>
-</li>
-<li><p>>、&gt;=、&lt; 和 &lt;=：字符串比较（例如a &lt; b, aa &lt; ab）</p>
-</li>
-<li><p>==、!=：比较字符串</p>
-</li>
-<li><p>&lt;&lt;、&gt;&gt;：输出、输入字符串</p>
-<a id="more"></a>
-</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="built_in">string</span> str = <span class="string">"cat"</span>;</div><div class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"apple"</span> + <span class="string">"boy"</span> + str; <span class="comment">// illegal!</span></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> str;</div><div class="line"><span class="built_in">cin</span> &gt;&gt; str;</div><div class="line"></div><div class="line">str.find(<span class="string">"ab"</span>);<span class="comment">//返回字符串 ab 在 str 的位置</span></div><div class="line">str.find(<span class="string">"ab"</span>, <span class="number">2</span>);<span class="comment">//在 str[2]~str[n-1] 范围内查找并返回字符串 ab 在 str 的位置</span></div><div class="line">str.rfind(<span class="string">"ab"</span>, <span class="number">2</span>);<span class="comment">//在 str[0]~str[2] 范围内查找并返回字符串 ab 在 str 的位置</span></div><div class="line"></div><div class="line"><span class="comment">//first 系列函数</span></div><div class="line">str.find_first_of(<span class="string">"apple"</span>);<span class="comment">//返回 apple 中任何一个字符首次在 str 中出现的位置</span></div><div class="line">str.find_first_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回 apple 中任何一个字符首次在 str[2]~str[n-1] 范围中出现的位置</span></div><div class="line">str.find_first_not_of(<span class="string">"apple"</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str 中首次出现的位置</span></div><div class="line">str.find_first_not_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str[2]~str[n-1] 范围中首次出现的位置</span></div><div class="line"></div><div class="line"><span class="comment">//last 系列函数</span></div><div class="line">str.find_last_of(<span class="string">"apple"</span>);<span class="comment">//返回 apple 中任何一个字符最后一次在 str 中出现的位置</span></div><div class="line">str.find_last_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回 apple 中任何一个字符最后一次在 str[0]~str[2] 范围中出现的位置</span></div><div class="line">str.find_last_not_of(<span class="string">"apple"</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str 中最后一次出现的位置</span></div><div class="line">str.find_last_not_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str[0]~str[2] 范围中最后一次出现的位置</span></div><div class="line"></div><div class="line"><span class="comment">//以上函数如果没有找到，均返回string::npos</span></div><div class="line"><span class="built_in">cout</span> &lt;&lt; <span class="built_in">string</span>::npos;</div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="子串"><a href="#子串" class="headerlink" title="子串"></a>子串</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.substr(<span class="number">3</span>); <span class="comment">//返回 [3] 及以后的子串</span></div><div class="line">str.substr(<span class="number">2</span>, <span class="number">4</span>); <span class="comment">//返回 str[2]~str[2+(4-1)] 子串(即从[2]开始4个字符组成的字符串)</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.replace(<span class="number">2</span>, <span class="number">4</span>, <span class="string">"sz"</span>);<span class="comment">//返回把 [2]~[2+(4-1)] 的内容替换为 "sz" 后的新字符串</span></div><div class="line">str.replace(<span class="number">2</span>, <span class="number">4</span>, <span class="string">"abcd"</span>, <span class="number">3</span>);<span class="comment">//返回把 [2]~[2+(4-1)] 的内容替换为 "abcd" 的前3个字符后的新字符串</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">str.insert(<span class="number">2</span>, <span class="string">"sz"</span>);<span class="comment">//从 [2] 位置开始添加字符串 "sz"，并返回形成的新字符串</span></div><div class="line">str.insert(<span class="number">2</span>, <span class="string">"abcd"</span>, <span class="number">3</span>);<span class="comment">//从 [2] 位置开始添加字符串 "abcd" 的前 3 个字符，并返回形成的新字符串</span></div><div class="line">str.insert(<span class="number">2</span>, <span class="string">"abcd"</span>, <span class="number">1</span>, <span class="number">3</span>);<span class="comment">//从 [2] 位置开始添加字符串 "abcd" 的前 [2]~[2+(3-1)] 个字符，并返回形成的新字符串</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="追加"><a href="#追加" class="headerlink" title="追加"></a>追加</h2></blockquote>
-<p>除了用重载的 <code>+</code> 操作符，还可以使用函数来完成。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.push_back(<span class="string">'a'</span>);<span class="comment">//在 str 末尾添加字符'a'</span></div><div class="line">str.append(<span class="string">"abc"</span>);<span class="comment">//在 str 末尾添加字符串"abc"</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.erase(<span class="number">3</span>);<span class="comment">//删除 [3] 及以后的字符，并返回新字符串</span></div><div class="line">str.erase(<span class="number">3</span>, <span class="number">5</span>);<span class="comment">//删除从 [3] 开始的 5 个字符，并返回新字符串</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="交换"><a href="#交换" class="headerlink" title="交换"></a>交换</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">str1.swap(str2);<span class="comment">//把 str1 与 str2 交换</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">str.size();<span class="comment">//返回字符串长度</span></div><div class="line">str.length();<span class="comment">//返回字符串长度</span></div><div class="line">str.empty();<span class="comment">//检查 str 是否为空，为空返回 1，否则返回 0</span></div><div class="line">str[n];<span class="comment">//存取 str 第 n + 1 个字符</span></div><div class="line">str.at(n);<span class="comment">//存取 str 第 n + 1 个字符（如果溢出会抛出异常）</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2></blockquote>
-<h3 id="查找给定字符串并把相应子串替换为另一给定字符串"><a href="#查找给定字符串并把相应子串替换为另一给定字符串" class="headerlink" title="查找给定字符串并把相应子串替换为另一给定字符串"></a>查找给定字符串并把相应子串替换为另一给定字符串</h3><p>string 并没有提供这样的函数，所以我们自己来实现。由于给定字符串可能出现多次，所以需要用到 <code>find()</code> 成员函数的第二个参数，每次查找之后，从找到位置往后继续搜索。直接看代码（这个函数返回替换的次数，如果返回值是 0 说明没有替换）：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_replace</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> &amp;src, <span class="keyword">const</span> <span class="built_in">string</span> &amp;dest)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</div><div class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> ((pos = str.find(src, pos)) != <span class="built_in">string</span>::npos) &#123;</div><div class="line">        str.replace(pos, src.size(), dest);</div><div class="line">        ++counter;</div><div class="line">        pos += dest.size();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> counter;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="从给定字符串中删除一给定字串"><a href="#从给定字符串中删除一给定字串" class="headerlink" title="从给定字符串中删除一给定字串"></a>从给定字符串中删除一给定字串</h3><p>方法和上面相似，内部使用 <code>erase()</code> 完成。代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_erase</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> src)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</div><div class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> ((pos = str.find(src, pos)) != <span class="built_in">string</span>::npos) &#123;</div><div class="line">        str.erase(pos, src.size());</div><div class="line">        ++counter;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> counter;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="给定一字符串和一字符集，从字符串剔除字符集中的任意字符"><a href="#给定一字符串和一字符集，从字符串剔除字符集中的任意字符" class="headerlink" title="给定一字符串和一字符集，从字符串剔除字符集中的任意字符"></a>给定一字符串和一字符集，从字符串剔除字符集中的任意字符</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_wash</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> src)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</div><div class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> ((pos = str.find_first_of(src, pos)) != <span class="built_in">string</span>::npos) &#123;</div><div class="line">        str.erase(pos, <span class="number">1</span>);</div><div class="line">        ++counter;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> counter;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;h2 id=&quot;运算符重载&quot;&gt;&lt;a href=&quot;#运算符重载&quot; class=&quot;headerlink&quot; title=&quot;运算符重载&quot;&gt;&lt;/a&gt;运算符重载&lt;/h2&gt;&lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;+ 和 +=：连接字符串&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;=：字符串赋值&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&gt;、&amp;gt;=、&amp;lt; 和 &amp;lt;=：字符串比较（例如a &amp;lt; b, aa &amp;lt; ab）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;==、!=：比较字符串&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt;、&amp;gt;&amp;gt;：输出、输入字符串&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
-    
-    
-      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Mac OS X Terminal 101：终端使用初级教程</title>
     <link href="http://yoursite.com/2017/03/17/The%20introductory%20of%20macOS%20Terminal/"/>
     <id>http://yoursite.com/2017/03/17/The introductory of macOS Terminal/</id>
@@ -1720,6 +1641,86 @@
     
     
       <category term="Terminal" scheme="http://yoursite.com/tags/Terminal/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++ string 字符串函数详解</title>
+    <link href="http://yoursite.com/2017/03/17/The%20details%20of%20string%20function%20of%20Cpp/"/>
+    <id>http://yoursite.com/2017/03/17/The details of string function of Cpp/</id>
+    <published>2017-03-17T06:07:34.000Z</published>
+    <updated>2017-10-12T08:08:12.306Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<h2 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h2></blockquote>
+<ol>
+<li><p>+ 和 +=：连接字符串</p>
+</li>
+<li><p>=：字符串赋值</p>
+</li>
+<li><p>>、&gt;=、&lt; 和 &lt;=：字符串比较（例如a &lt; b, aa &lt; ab）</p>
+</li>
+<li><p>==、!=：比较字符串</p>
+</li>
+<li><p>&lt;&lt;、&gt;&gt;：输出、输入字符串</p>
+<a id="more"></a>
+</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="built_in">string</span> str = <span class="string">"cat"</span>;</div><div class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"apple"</span> + <span class="string">"boy"</span> + str; <span class="comment">// illegal!</span></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> str;</div><div class="line"><span class="built_in">cin</span> &gt;&gt; str;</div><div class="line"></div><div class="line">str.find(<span class="string">"ab"</span>);<span class="comment">//返回字符串 ab 在 str 的位置</span></div><div class="line">str.find(<span class="string">"ab"</span>, <span class="number">2</span>);<span class="comment">//在 str[2]~str[n-1] 范围内查找并返回字符串 ab 在 str 的位置</span></div><div class="line">str.rfind(<span class="string">"ab"</span>, <span class="number">2</span>);<span class="comment">//在 str[0]~str[2] 范围内查找并返回字符串 ab 在 str 的位置</span></div><div class="line"></div><div class="line"><span class="comment">//first 系列函数</span></div><div class="line">str.find_first_of(<span class="string">"apple"</span>);<span class="comment">//返回 apple 中任何一个字符首次在 str 中出现的位置</span></div><div class="line">str.find_first_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回 apple 中任何一个字符首次在 str[2]~str[n-1] 范围中出现的位置</span></div><div class="line">str.find_first_not_of(<span class="string">"apple"</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str 中首次出现的位置</span></div><div class="line">str.find_first_not_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str[2]~str[n-1] 范围中首次出现的位置</span></div><div class="line"></div><div class="line"><span class="comment">//last 系列函数</span></div><div class="line">str.find_last_of(<span class="string">"apple"</span>);<span class="comment">//返回 apple 中任何一个字符最后一次在 str 中出现的位置</span></div><div class="line">str.find_last_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回 apple 中任何一个字符最后一次在 str[0]~str[2] 范围中出现的位置</span></div><div class="line">str.find_last_not_of(<span class="string">"apple"</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str 中最后一次出现的位置</span></div><div class="line">str.find_last_not_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str[0]~str[2] 范围中最后一次出现的位置</span></div><div class="line"></div><div class="line"><span class="comment">//以上函数如果没有找到，均返回string::npos</span></div><div class="line"><span class="built_in">cout</span> &lt;&lt; <span class="built_in">string</span>::npos;</div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="子串"><a href="#子串" class="headerlink" title="子串"></a>子串</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.substr(<span class="number">3</span>); <span class="comment">//返回 [3] 及以后的子串</span></div><div class="line">str.substr(<span class="number">2</span>, <span class="number">4</span>); <span class="comment">//返回 str[2]~str[2+(4-1)] 子串(即从[2]开始4个字符组成的字符串)</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.replace(<span class="number">2</span>, <span class="number">4</span>, <span class="string">"sz"</span>);<span class="comment">//返回把 [2]~[2+(4-1)] 的内容替换为 "sz" 后的新字符串</span></div><div class="line">str.replace(<span class="number">2</span>, <span class="number">4</span>, <span class="string">"abcd"</span>, <span class="number">3</span>);<span class="comment">//返回把 [2]~[2+(4-1)] 的内容替换为 "abcd" 的前3个字符后的新字符串</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">str.insert(<span class="number">2</span>, <span class="string">"sz"</span>);<span class="comment">//从 [2] 位置开始添加字符串 "sz"，并返回形成的新字符串</span></div><div class="line">str.insert(<span class="number">2</span>, <span class="string">"abcd"</span>, <span class="number">3</span>);<span class="comment">//从 [2] 位置开始添加字符串 "abcd" 的前 3 个字符，并返回形成的新字符串</span></div><div class="line">str.insert(<span class="number">2</span>, <span class="string">"abcd"</span>, <span class="number">1</span>, <span class="number">3</span>);<span class="comment">//从 [2] 位置开始添加字符串 "abcd" 的前 [2]~[2+(3-1)] 个字符，并返回形成的新字符串</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="追加"><a href="#追加" class="headerlink" title="追加"></a>追加</h2></blockquote>
+<p>除了用重载的 <code>+</code> 操作符，还可以使用函数来完成。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.push_back(<span class="string">'a'</span>);<span class="comment">//在 str 末尾添加字符'a'</span></div><div class="line">str.append(<span class="string">"abc"</span>);<span class="comment">//在 str 末尾添加字符串"abc"</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.erase(<span class="number">3</span>);<span class="comment">//删除 [3] 及以后的字符，并返回新字符串</span></div><div class="line">str.erase(<span class="number">3</span>, <span class="number">5</span>);<span class="comment">//删除从 [3] 开始的 5 个字符，并返回新字符串</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="交换"><a href="#交换" class="headerlink" title="交换"></a>交换</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">str1.swap(str2);<span class="comment">//把 str1 与 str2 交换</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">str.size();<span class="comment">//返回字符串长度</span></div><div class="line">str.length();<span class="comment">//返回字符串长度</span></div><div class="line">str.empty();<span class="comment">//检查 str 是否为空，为空返回 1，否则返回 0</span></div><div class="line">str[n];<span class="comment">//存取 str 第 n + 1 个字符</span></div><div class="line">str.at(n);<span class="comment">//存取 str 第 n + 1 个字符（如果溢出会抛出异常）</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2></blockquote>
+<h3 id="查找给定字符串并把相应子串替换为另一给定字符串"><a href="#查找给定字符串并把相应子串替换为另一给定字符串" class="headerlink" title="查找给定字符串并把相应子串替换为另一给定字符串"></a>查找给定字符串并把相应子串替换为另一给定字符串</h3><p>string 并没有提供这样的函数，所以我们自己来实现。由于给定字符串可能出现多次，所以需要用到 <code>find()</code> 成员函数的第二个参数，每次查找之后，从找到位置往后继续搜索。直接看代码（这个函数返回替换的次数，如果返回值是 0 说明没有替换）：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_replace</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> &amp;src, <span class="keyword">const</span> <span class="built_in">string</span> &amp;dest)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</div><div class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> ((pos = str.find(src, pos)) != <span class="built_in">string</span>::npos) &#123;</div><div class="line">        str.replace(pos, src.size(), dest);</div><div class="line">        ++counter;</div><div class="line">        pos += dest.size();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> counter;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="从给定字符串中删除一给定字串"><a href="#从给定字符串中删除一给定字串" class="headerlink" title="从给定字符串中删除一给定字串"></a>从给定字符串中删除一给定字串</h3><p>方法和上面相似，内部使用 <code>erase()</code> 完成。代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_erase</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> src)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</div><div class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> ((pos = str.find(src, pos)) != <span class="built_in">string</span>::npos) &#123;</div><div class="line">        str.erase(pos, src.size());</div><div class="line">        ++counter;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> counter;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="给定一字符串和一字符集，从字符串剔除字符集中的任意字符"><a href="#给定一字符串和一字符集，从字符串剔除字符集中的任意字符" class="headerlink" title="给定一字符串和一字符集，从字符串剔除字符集中的任意字符"></a>给定一字符串和一字符集，从字符串剔除字符集中的任意字符</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_wash</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> src)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</div><div class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> ((pos = str.find_first_of(src, pos)) != <span class="built_in">string</span>::npos) &#123;</div><div class="line">        str.erase(pos, <span class="number">1</span>);</div><div class="line">        ++counter;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> counter;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;h2 id=&quot;运算符重载&quot;&gt;&lt;a href=&quot;#运算符重载&quot; class=&quot;headerlink&quot; title=&quot;运算符重载&quot;&gt;&lt;/a&gt;运算符重载&lt;/h2&gt;&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;+ 和 +=：连接字符串&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;=：字符串赋值&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&gt;、&amp;gt;=、&amp;lt; 和 &amp;lt;=：字符串比较（例如a &amp;lt; b, aa &amp;lt; ab）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;==、!=：比较字符串&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt;、&amp;gt;&amp;gt;：输出、输入字符串&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+    
+      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
     
   </entry>
   

@@ -130,7 +130,7 @@
 <meta property="og:image" content="https://lh3.googleusercontent.com/-oie8_LXV_5w/WyfmW2fLN8I/AAAAAAAABTE/Iqh_m3FLJmo6FhlXaCkzPUU41C9daTtzgCHMYCw/I/geogebra-export.png">
 <meta property="og:image" content="https://lh3.googleusercontent.com/-BqUKrbsLS9s/WyfmQOvYCYI/AAAAAAAABS8/Q-00W59fTEo_JbbultPoksKdKklHG4gfQCHMYCw/I/geogebra-export%2B%25281%2529.png">
 <meta property="og:image" content="https://lh3.googleusercontent.com/-ZufUIaMhHWk/WyfmDyhdkKI/AAAAAAAABS4/cR9MyQNMULkFJQteGuZnlxj5UpA-T6FlgCHMYCw/I/geogebra-export%2B%25282%2529.png">
-<meta property="og:updated_time" content="2018-06-18T17:09:19.219Z">
+<meta property="og:updated_time" content="2018-06-18T17:17:11.541Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从正态分布到置信区间">
 <meta name="twitter:description" content="先从人均收入说起我们通常会统计一个地区的人均收入水平，以此来反应这个地区的经济发展水平。假设现在从一个地区，随机抽取1000人，统计他们的年收入，求和后除以1000，得到一个平均年收入：$$\overline{X}=\frac{1}{1000}\sum_{i=1}^{1000}X_i \qquad（X_i为第i个人的年收入）$$但是这里有一个显而易见的问题，由于每次随机抽取的样本不尽相同，导致算出">
@@ -463,7 +463,8 @@
 <h2 id="从抽样到客观"><a href="#从抽样到客观" class="headerlink" title="从抽样到客观"></a>从抽样到客观</h2><p>通过以上的例子，我们得出了一个结论：以点估点是靠不住的，更何况在连续型随机变量中，取一个点的概率是测不到的。但是，这并不意味着平均收入值是不存在的。即一定有那么一个客观存在的值，不因抽样的不同而改变，我们不妨记这个数为 $\mu$ 。</p>
 <p>我们回到统计中，假设现在有一组灯泡，我们该如何去估计平均寿命呢？我们同样去抽取一组样本，测量它们的平均寿命 $\overline{X}$ ，虽然这个 $\overline{X}$ 不会正好就是 $\mu$ ，但是我们从常理可知，这个值应该与真实存在的 $\mu$ 相去不远。也就是说，在如果一组灯泡的真实平均寿命是1800小时，我们测得的平均值应该在1800左右，而不会出现例如20，100这样明显偏离的值。那么计算我们测得的 $\overline{X}$ 与 $\mu$ 的距离：<br>$$<br>|\overline{X}-\mu|<br>$$<br>然后计算这个距离小于某个值得概率：<br>$$<br>P(|\overline{X}-\mu|&lt;\Delta)=1-\alpha<br>$$<br>这里，我们便称 $1-\alpha$ 为<strong>置信度</strong>。通俗的解释就是可以相信你给出的这个数据的程度。假设取 $\alpha=0.01$ ，那么就表示为：有90%的把握相信这个概率会发生。在不同的行业，对置信度的精度要求不同。例如航空器材中，对每个零件的精度要求都很高，而相对于普通制衣工厂，对于布料尺寸的把控就没有那么严格。</p>
 <h2 id="正态分布和标准化"><a href="#正态分布和标准化" class="headerlink" title="正态分布和标准化"></a>正态分布和标准化</h2><p>普天之下，所有的分布，最终都会归于正态分布：</p>
-<p>如果 $X$ 的概率密度为：<br>$$<br>f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \qquad (-\infty<x<+\infty) $$="" 其中="" $-\infty<\mu<+\infty$="" ，$\sigma="">0$ ，则称 $X$ 服从参数为 $(\mu,\sigma^2)$ 的<strong>正态分布</strong>，或称 $X$ 为<strong>正态变量</strong>，记 $X\sim N (\mu,\sigma^2)$ 。</x<+\infty)></p>
+<p>如果 $X$ 的概率密度为：<br>$$<br>f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \qquad (-\infty&lt;x&lt;+\infty)<br>$$</p>
+<p>其中 $-\infty&lt;\mu&lt;+\infty$ ，$\sigma&gt;0$ ，则称 $X$ 服从参数为 $(\mu,\sigma^2)$ 的<strong>正态分布</strong>，或称 $X$ 为<strong>正态变量</strong>，记 $X\sim N (\mu,\sigma^2)$ 。</p>
 <p>由于 $(\mu,\sigma^2)$ 的不同，所画出的函数图像也就不同，于是我们希望构造出一个标准化的形式，来研究他的属性。那么用 $X$ 减去自己的期望并除以标准差后，我们能得到 $X$ 的标准化形式，即：<br>$$<br>\frac{X-EX}{\sqrt{DX}}<br>$$<br>对于正态分布来说即为：<br>$$<br>\frac{X-\mu}{\sigma} \sim N(0,1)<br>$$<br><img src="https://lh3.googleusercontent.com/-oie8_LXV_5w/WyfmW2fLN8I/AAAAAAAABTE/Iqh_m3FLJmo6FhlXaCkzPUU41C9daTtzgCHMYCw/I/geogebra-export.png" alt="geogebra-export"><br>现在假设有一组数据：<br>$$<br>(x_1,x_2…x_n) \overset{iid}{\sim}N(\mu,\sigma^2)<br>$$<br>它的<br>$$<br>E\overline{X}=E\frac{(x_1+x_2+…+x_n)}{n}=\frac{1}{n}\cdot n\mu=\mu<br>$$</p>
 <p>$$<br>D\overline{X}=D\frac{(x_1+x_2+…+x_n)}{n}=\frac{1}{n^2}\cdot n\sigma^2=\frac{\sigma^2}{n}<br>$$</p>
 <p>平均值波动为原样本的 $\frac{1}{n}$ ，波动程度缩小，则 $\overline{X} \sim N(\mu, \frac{\sigma^2}{n})$ 。</p>
