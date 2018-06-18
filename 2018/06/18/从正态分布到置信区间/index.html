@@ -130,7 +130,7 @@
 <meta property="og:image" content="https://lh3.googleusercontent.com/-oie8_LXV_5w/WyfmW2fLN8I/AAAAAAAABTE/Iqh_m3FLJmo6FhlXaCkzPUU41C9daTtzgCHMYCw/I/geogebra-export.png">
 <meta property="og:image" content="https://lh3.googleusercontent.com/-BqUKrbsLS9s/WyfmQOvYCYI/AAAAAAAABS8/Q-00W59fTEo_JbbultPoksKdKklHG4gfQCHMYCw/I/geogebra-export%2B%25281%2529.png">
 <meta property="og:image" content="https://lh3.googleusercontent.com/-ZufUIaMhHWk/WyfmDyhdkKI/AAAAAAAABS4/cR9MyQNMULkFJQteGuZnlxj5UpA-T6FlgCHMYCw/I/geogebra-export%2B%25282%2529.png">
-<meta property="og:updated_time" content="2018-06-18T17:17:11.541Z">
+<meta property="og:updated_time" content="2018-06-18T17:20:35.643Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从正态分布到置信区间">
 <meta name="twitter:description" content="先从人均收入说起我们通常会统计一个地区的人均收入水平，以此来反应这个地区的经济发展水平。假设现在从一个地区，随机抽取1000人，统计他们的年收入，求和后除以1000，得到一个平均年收入：$$\overline{X}=\frac{1}{1000}\sum_{i=1}^{1000}X_i \qquad（X_i为第i个人的年收入）$$但是这里有一个显而易见的问题，由于每次随机抽取的样本不尽相同，导致算出">
@@ -471,9 +471,18 @@
 <p>我们回到最开始的概率：<br>$$<br>P(|\overline{X}-\mu|&lt;\Delta)=1-\alpha<br>$$<br>通过上面的推导，我们欲对其标准化，因为 $\frac{\sigma^2}{n}&gt;0$ ，所以只需两端同时除以 $\frac{\sigma^2}{n}$ 即可<br>$$<br>P(|\frac{\overline{X}-\mu}{\frac{\sigma^2}{n}}|&lt; \frac{\Delta}{\frac{\sigma^2}{n}})=1-\alpha<br>$$<br>那么它就是一个服从标准正态分布的随机变量的概率分布。</p>
 <h2 id="区间估计"><a href="#区间估计" class="headerlink" title="区间估计"></a>区间估计</h2><p>为方便理解，我把上式中 $\frac{\overline{X}-\mu}{\frac{\sigma^2}{n}} $ 记为 $U$ ，把 $\frac{\Delta}{\frac{\sigma^2}{n}}$ 记为 $Q \quad (Q为常数)$<br>$$<br>P(\vert U \vert &lt; Q)=1-\alpha<br>$$</p>
 <p>$$<br>P(-Q&lt;U&lt;Q)=1-\alpha<br>$$</p>
-<p>根据上 $\alpha$ 分位数，$\alpha$ 的下标代表图像右侧的面积<br><img src="https://lh3.googleusercontent.com/-BqUKrbsLS9s/WyfmQOvYCYI/AAAAAAAABS8/Q-00W59fTEo_JbbultPoksKdKklHG4gfQCHMYCw/I/geogebra-export%2B%25281%2529.png" alt="geogebra-export -1-"><br>$$<br>P(\vert U \vert &lt; U<em>\frac{\alpha}{2})=1-\alpha<br>$$<br>则<br>$$<br>\frac{\Delta}{\frac{\sigma}{\sqrt{n}}}=U</em>\frac{\alpha}{2}<br>$$</p>
+<p>根据上 $\alpha$ 分位数，$\alpha$ 的下标代表图像右侧的面积<br><img src="https://lh3.googleusercontent.com/-BqUKrbsLS9s/WyfmQOvYCYI/AAAAAAAABS8/Q-00W59fTEo_JbbultPoksKdKklHG4gfQCHMYCw/I/geogebra-export%2B%25281%2529.png" alt="geogebra-export -1-"></p>
+<p>$$<br>P(\vert U \vert &lt; U_\frac{\alpha}{2})=1-\alpha<br>$$</p>
+<p>则</p>
+<p>$$<br>\frac{\Delta}{\frac{\sigma}{\sqrt{n}}}=U_\frac{\alpha}{2}<br>$$</p>
 <p>$$<br>\Delta=U_\frac{\alpha}{2} \cdot \frac{\sigma}{\sqrt{n}}<br>$$</p>
-<p>代回原式<br>$$<br>P(|\overline{X}-\mu|&lt;U<em>\frac{\alpha}{2} \cdot \frac{\sigma}{\sqrt{n}})=1-\alpha<br>$$<br>这里的意思就为<br>$$<br>P(\vert 一次抽样的均值 - 客观存在的均值 \vert &lt; 常数)=1-\alpha<br>$$<br>那么<br>$$<br>\overline{X}-U</em>\frac{\alpha}{2} \cdot \frac{\sigma}{\sqrt{n}}&lt;\mu&lt;\overline{X}+U_\frac{\alpha}{2} \cdot \frac{\sigma}{\sqrt{n}}<br>$$<br><img src="https://lh3.googleusercontent.com/-ZufUIaMhHWk/WyfmDyhdkKI/AAAAAAAABS4/cR9MyQNMULkFJQteGuZnlxj5UpA-T6FlgCHMYCw/I/geogebra-export%2B%25282%2529.png" alt="geogebra-export -2-"><br>也就是落入 $(\overline{X}-δ,\overline{X}+δ)$ 之间的概率，即叫做<strong>区间估计</strong>。</p>
+<p>代回原式</p>
+<p>$$<br>P(|\overline{X}-\mu|&lt;U_\frac{\alpha}{2} \cdot \frac{\sigma}{\sqrt{n}})=1-\alpha<br>$$</p>
+<p>这里的意思就为</p>
+<p>$$<br>P(\vert 一次抽样的均值 - 客观存在的均值 \vert &lt; 常数)=1-\alpha<br>$$</p>
+<p>那么</p>
+<p>$$<br>\overline{X}-U<em>\frac{\alpha}{2} \cdot \frac{\sigma}{\sqrt{n}}&lt;\mu&lt;\overline{X}+U</em>\frac{\alpha}{2} \cdot \frac{\sigma}{\sqrt{n}}<br>$$</p>
+<p><img src="https://lh3.googleusercontent.com/-ZufUIaMhHWk/WyfmDyhdkKI/AAAAAAAABS4/cR9MyQNMULkFJQteGuZnlxj5UpA-T6FlgCHMYCw/I/geogebra-export%2B%25282%2529.png" alt="geogebra-export -2-"><br>也就是落入 $(\overline{X}-δ,\overline{X}+δ)$ 之间的概率，即叫做<strong>区间估计</strong>。</p>
 
       
     </div>
