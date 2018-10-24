@@ -7,7 +7,7 @@
 
 <html class="theme-next muse use-motion" lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -119,45 +119,23 @@
 
 
 
-<meta name="description" content="文章排版还有问题，待修改  支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。 支持向量机的优点包括：  在高维空间中行之有效。 当维数大于样本数时仍然可用。 在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。 用途广泛：决策函数中可以使用不同的核函数。提供了一种通用的核，但是也可以指定自定义的核。 返回的分割直线满足margin最大的条件，所以是一个rob">
+<meta name="description" content="支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。 支持向量机的优点包括：  在高维空间中行之有效。 当维数大于样本数时仍然可用。 在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。 用途广泛：决策函数中可以使用不同的核函数。提供了一种通用的核，但是也可以指定自定义的核。 返回的分割直线满足margin最大的条件，所以是一个robust的解。 SVM对数据点">
 <meta name="keywords" content="Python,Machine Learning,SVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Scikit-learn的支持向量机（SVM）">
 <meta property="og:url" content="http://yoursite.com/2017/10/05/Support vector machine (SVM) for scikit-learn/index.html">
 <meta property="og:site_name" content="Gavin&#39;s Blog">
-<meta property="og:description" content="文章排版还有问题，待修改  支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。 支持向量机的优点包括：  在高维空间中行之有效。 当维数大于样本数时仍然可用。 在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。 用途广泛：决策函数中可以使用不同的核函数。提供了一种通用的核，但是也可以指定自定义的核。 返回的分割直线满足margin最大的条件，所以是一个rob">
+<meta property="og:description" content="支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。 支持向量机的优点包括：  在高维空间中行之有效。 当维数大于样本数时仍然可用。 在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。 用途广泛：决策函数中可以使用不同的核函数。提供了一种通用的核，但是也可以指定自定义的核。 返回的分割直线满足margin最大的条件，所以是一个robust的解。 SVM对数据点">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://scikit-learn.org/stable/_images/sphx_glr_plot_iris_001.png">
 <meta property="og:image" content="http://scikit-learn.org/stable/_images/sphx_glr_plot_separating_hyperplane_unbalanced_001.png">
 <meta property="og:image" content="http://scikit-learn.org/stable/_images/sphx_glr_plot_weighted_samples_001.png">
 <meta property="og:image" content="http://scikit-learn.org/stable/_images/sphx_glr_plot_oneclass_001.png">
-<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/cc655b2d07d61893992ca7bfb9256b43314933bf.png">
-<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/d571609cf042d44f541e8c11efbc305354206096.png">
-<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/e5dadad6828c157553e944e605a295afdcc600cf.png">
 <meta property="og:image" content="http://scikit-learn.org/stable/_images/sphx_glr_plot_separating_hyperplane_0011.png">
-<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/3c2810ae28117c8ad2d9464adc7f57ad2143887c.png">
-<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/ede528003a9c8d8f47c5e4c3c8ed4dc0056b8c36.png">
-<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/afe25ea32dba823e13d2ae45b439d4529cd15364.png">
-<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/ca662d71b1a44a2cdf255fbe69c8a72803eded1c.png">
-<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/02d6bcb474ff4e171fdd4de3e6d3e3b772b41c8c.png">
-<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/4488f5555693ea818a6bb1cb471fa11fdd11b39f.png">
-<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/c2f31c22645274c375eff7920cfdfdc18d60341f.png">
-<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/c4b8feb333aa69aaa37401ee4db26ae4afdbeb63.png">
-<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/cb88554a78c6610201fd61574c2591aa23da35ac.png">
-<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/3c2810ae28117c8ad2d9464adc7f57ad2143887c.png">
-<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/1269782190e528401491505bf582106d5990f870.png">
-<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/3cb373a8030ad846aed7b1ee45bab27b13775928.png">
-<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/84dfa253bd3c36093102158fbe951a73819f96df.png">
-<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/adfba00b3343f39be094f322b9349d472f29fd63.png">
-<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/a3e3a226d8b165a8871e4aa2b981e440ca1ccc1d.png">
-<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/c2f31c22645274c375eff7920cfdfdc18d60341f.png">
-<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/7b2ae68afb44fc8ac21ce0e4c5028ec7497cb5cc.png">
-<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/c7e6ffac97e60b9e6f0c0e0e6efe7425064c0013.png">
-<meta property="og:image" content="http://scikit-learn.org/stable/_images/math/9a51ab9a0b521705e1e8762fac6bdd6f11771758.png">
-<meta property="og:updated_time" content="2017-10-05T12:25:47.053Z">
+<meta property="og:updated_time" content="2018-06-19T14:58:33.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scikit-learn的支持向量机（SVM）">
-<meta name="twitter:description" content="文章排版还有问题，待修改  支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。 支持向量机的优点包括：  在高维空间中行之有效。 当维数大于样本数时仍然可用。 在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。 用途广泛：决策函数中可以使用不同的核函数。提供了一种通用的核，但是也可以指定自定义的核。 返回的分割直线满足margin最大的条件，所以是一个rob">
+<meta name="twitter:description" content="支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。 支持向量机的优点包括：  在高维空间中行之有效。 当维数大于样本数时仍然可用。 在决策函数中只使用训练点的一个子集（称为支持向量），大大节省了内存开销。 用途广泛：决策函数中可以使用不同的核函数。提供了一种通用的核，但是也可以指定自定义的核。 返回的分割直线满足margin最大的条件，所以是一个robust的解。 SVM对数据点">
 <meta name="twitter:image" content="http://scikit-learn.org/stable/_images/sphx_glr_plot_iris_001.png">
 
 
@@ -212,7 +190,7 @@
      js.src = "//connect.facebook.net/en/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -231,7 +209,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -482,11 +460,9 @@
       
 
       
-        <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
-<p>文章排版还有问题，待修改</p>
-<hr>
-<p>支持向量机（SVM）是用于分类，回归和异常值检测的监督学习方法。</p>
+<p><strong>支持向量机（SVM）</strong>是用于分类，回归和异常值检测的监督学习方法。</p>
 <p>支持向量机的优点包括：</p>
 <ul>
 <li>在高维空间中行之有效。</li>
@@ -516,7 +492,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># get support vectors</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>clf.support_vectors_</div><div class="line">array([[ <span class="number">0.</span>,  <span class="number">0.</span>],</div><div class="line">       [ <span class="number">1.</span>,  <span class="number">1.</span>]])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># get indices of support vectors</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>clf.support_ </div><div class="line">array([<span class="number">0</span>, <span class="number">1</span>]...)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># get number of support vectors for each class</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>clf.n_support_ </div><div class="line">array([<span class="number">1</span>, <span class="number">1</span>]...)</div></pre></td></tr></table></figure>
 <h3 id="多类别分类"><a href="#多类别分类" class="headerlink" title="多类别分类"></a>多类别分类</h3><p><code>SVC</code>和<code>NuSVC</code>使用“一对多”方法（Knerr et al., 1990）来实现多类别分类。如果<code>n_class</code>是类别的数目，则该实现会构造<code>n_class * (n_class - 1) / 2</code>个分类器，每个分类器针对两个类别对数据进行训练。为了提供一个和其它分类器一致的接口，选项<code>decision_function_shape</code>允许调用者将所有“一对一”分类器的结果聚合进一个<code>(n_samples, n_classes)</code>的决策函数</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>X = [[<span class="number">0</span>], [<span class="number">1</span>], [<span class="number">2</span>], [<span class="number">3</span>]]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>Y = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>clf = svm.SVC(decision_function_shape=<span class="string">'ovo'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>clf.fit(X, Y) </div><div class="line">SVC(C=<span class="number">1.0</span>, cache_size=<span class="number">200</span>, class_weight=<span class="keyword">None</span>, coef0=<span class="number">0.0</span>,</div><div class="line">    decision_function_shape=<span class="string">'ovo'</span>, degree=<span class="number">3</span>, gamma=<span class="string">'auto'</span>, kernel=<span class="string">'rbf'</span>,</div><div class="line">    max_iter=<span class="number">-1</span>, probability=<span class="keyword">False</span>, random_state=<span class="keyword">None</span>, shrinking=<span class="keyword">True</span>,</div><div class="line">    tol=<span class="number">0.001</span>, verbose=<span class="keyword">False</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dec = clf.decision_function([[<span class="number">1</span>]])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dec.shape[<span class="number">1</span>] <span class="comment"># 4 classes: 4*3/2 = 6</span></div><div class="line"><span class="number">6</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>clf.decision_function_shape = <span class="string">"ovr"</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dec = clf.decision_function([[<span class="number">1</span>]])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dec.shape[<span class="number">1</span>] <span class="comment"># 4 classes</span></div><div class="line"><span class="number">4</span></div></pre></td></tr></table></figure>
-<p>另一方面，<code>LinearSVC</code>实现了“一对多”分类法，因此会训练n_class个模型。如果只有两个类别，那么只会得到一个模型：</p>
+<p>另一方面，<code>LinearSVC</code>实现了“一对多”分类法，因此会训练<code>n_class</code>个模型。如果只有两个类别，那么只会得到一个模型：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>lin_clf = svm.LinearSVC()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>lin_clf.fit(X, Y) </div><div class="line">LinearSVC(C=<span class="number">1.0</span>, class_weight=<span class="keyword">None</span>, dual=<span class="keyword">True</span>, fit_intercept=<span class="keyword">True</span>,</div><div class="line">     intercept_scaling=<span class="number">1</span>, loss=<span class="string">'squared_hinge'</span>, max_iter=<span class="number">1000</span>,</div><div class="line">     multi_class=<span class="string">'ovr'</span>, penalty=<span class="string">'l2'</span>, random_state=<span class="keyword">None</span>, tol=<span class="number">0.0001</span>,</div><div class="line">     verbose=<span class="number">0</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dec = lin_clf.decision_function([[<span class="number">1</span>]])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dec.shape[<span class="number">1</span>]</div><div class="line"><span class="number">4</span></div></pre></td></tr></table></figure>
 <p>决策函数的完整描述可见“数学原理”一节。</p>
 <p>需要注意的是，<code>LinearSVC</code>还实现了另一种分类策略，即所谓的多类别SVM（由Crammer和Singer提出）。通过指定<code>multi_class=&#39;crammer_singer&#39;</code>，可以使用该方法。它得到的结果总是一致的，但是一对多分类法并不能保证这一点。然而在实际应用中，还是一对多分类法用的更多，因为通常来讲该方法得到的结果变化不会太大（mostly similar），而且用的时间显著的短。</p>
@@ -583,14 +559,10 @@
 <p>核函数（Kernel method）正是基于这一思想的技巧。我们可以把kernel想象成，然后不去操心f(x)，而是尝试不同的核函数就可以了。</p>
 <p><strong>核函数</strong>可以有以下几种选择：</p>
 <ul>
-<li><p>线性（linear）核：<img src="http://scikit-learn.org/stable/_images/math/cc655b2d07d61893992ca7bfb9256b43314933bf.png" alt="\ langle x，x&#39;\ rangle">。</p>
-</li>
-<li><p>多项式（polynomial）核：<br>$$<br>\left (\gamma \left \langle x, {x}’  \right \rangle +r  \right )^{d}<br>$$<br>。其中d由选项<code>degree</code>指定，r由<code>coef0</code>指定</p>
-</li>
-<li><p>径向基Gaussian（RBF）函数：<img src="http://scikit-learn.org/stable/_images/math/d571609cf042d44f541e8c11efbc305354206096.png" alt="\ exp（ -  \ gamma \ | x-x&#39;\ | ^ 2）">。其中<br>$$<br>\gamma<br>$$<br>由选项<code>gamma</code>指定，必须大于0</p>
-</li>
-<li><p>sigmoid函数(<img src="http://scikit-learn.org/stable/_images/math/e5dadad6828c157553e944e605a295afdcc600cf.png" alt="\ tanh（\ gamma \ langle x，x&#39;\ rangle + r）">)，其中由选项<code>coef0</code>指定</p>
-</li>
+<li>线性（linear）核： $\langle x,x^{‘}\rangle$ 。</li>
+<li>多项式（polynomial）核： $\left (\gamma \left \langle x, {x}’  \right \rangle +r  \right )^{d}$ 。其中 $d$ 由选项<code>degree</code>指定，$r$ 由<code>coef0</code>指定</li>
+<li>径向基Gaussian（RBF）函数： $\ exp( -  \ gamma \ | x-x’\ | ^ 2)$ 。其中 $\gamma$ 由选项<code>gamma</code>指定，必须大于0</li>
+<li>sigmoid函数 $\tanh（\gamma \langle x，x’\rangle + r）$ ，其中由选项<code>coef0</code>指定</li>
 </ul>
 <p>在初始化时通过选项<code>kernel</code>指定用什么核</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>linear_svc = svm.SVC(kernel=<span class="string">'linear'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>linear_svc.kernel</div><div class="line"><span class="string">'linear'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>rbf_svc = svm.SVC(kernel=<span class="string">'rbf'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>rbf_svc.kernel</div><div class="line"><span class="string">'rbf'</span></div></pre></td></tr></table></figure>
@@ -607,14 +579,12 @@
 </blockquote>
 <h2 id="数学原理"><a href="#数学原理" class="headerlink" title="数学原理"></a>数学原理</h2><p>支持向量机的原理是在高维甚至无限维空间中构建一个超平面或者若干超平面组成的集合，并藉此用于分类、回归或其它任务。从直觉上来讲，好的分隔面是由使得函数间隔最大的超平面得到（即该超平面到任何类别最近训练数据点的距离都取得最大值），因为总体上来讲，间隔越大，分类器的泛化误差越小。</p>
 <p><img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_separating_hyperplane_0011.png" alt="sphx_glr_plot_separating_hyperplane_0011"></p>
-<h3 id="SVC"><a href="#SVC" class="headerlink" title="SVC"></a>SVC</h3><p>给定可能属于某两种类别的训练向量<img src="http://scikit-learn.org/stable/_images/math/3c2810ae28117c8ad2d9464adc7f57ad2143887c.png" alt="3c2810ae28117c8ad2d9464adc7f57ad2143887c">,<code>i=1, ..., n</code>和向量<img src="http://scikit-learn.org/stable/_images/math/ede528003a9c8d8f47c5e4c3c8ed4dc0056b8c36.png" alt="ede528003a9c8d8f47c5e4c3c8ed4dc0056b8c36">，SVC解决的首要问题是</p>
-<p><img src="http://scikit-learn.org/stable/_images/math/afe25ea32dba823e13d2ae45b439d4529cd15364.png" alt="afe25ea32dba823e13d2ae45b439d4529cd15364 (1)"></p>
+<h3 id="SVC"><a href="#SVC" class="headerlink" title="SVC"></a>SVC</h3><p>给定可能属于某两种类别的训练向量 $x_i \in \mathbb{R}, \ i=1,2,…,n$ 和向量 $y \in \left{ 1,-1 \right}^{n}$ ，SVC解决的首要问题是</p>
+<p>$$<br>\min<em>{\omega ,b,\zeta} \frac{1}{2}\omega^{T}\omega + C \sum</em>{i=1}^{n}\zeta_i \<br>subject \ to \ y_i (\omega^{T}\phi(x_i)+b) \geqslant 1-\zeta_i, \<br>\zeta_i \geqslant 0,i=1,2,…,n<br>$$</p>
 <p>其对偶形式为</p>
-<p><img src="http://scikit-learn.org/stable/_images/math/ca662d71b1a44a2cdf255fbe69c8a72803eded1c.png" alt="ca662d71b1a44a2cdf255fbe69c8a72803eded1c (1)"></p>
-<p>其中<code>e</code>是全1向量，<code>C &gt; 0</code>是上界，<code>Q</code>是一个半正定矩阵，<img src="http://scikit-learn.org/stable/_images/math/02d6bcb474ff4e171fdd4de3e6d3e3b772b41c8c.png" alt="02d6bcb474ff4e171fdd4de3e6d3e3b772b41c8c">，其中<img src="http://scikit-learn.org/stable/_images/math/4488f5555693ea818a6bb1cb471fa11fdd11b39f.png" alt="4488f5555693ea818a6bb1cb471fa11fdd11b39f">是核。这里训练向量通过函数被隐式映射到一个高维（甚至无限维）空间<img src="http://scikit-learn.org/stable/_images/math/c2f31c22645274c375eff7920cfdfdc18d60341f.png" alt="c2f31c22645274c375eff7920cfdfdc18d60341f">。</p>
-<p>决策函数是 <strong>注意</strong>：虽然从<a href="http://www.csie.ntu.edu.tw/~cjlin/libsvm/" target="_blank" rel="external"><code>libsvm</code></a>和<a href="http://www.csie.ntu.edu.tw/~cjlin/liblinear/" target="_blank" rel="external"><code>liblinear</code></a>导出的SVM模型使用<code>C</code>作为正则化参数，但实际上其它更多预测器使用的是<code>alpha</code>。这两个参数之间的关系是</p>
-<p><img src="http://scikit-learn.org/stable/_images/math/c4b8feb333aa69aaa37401ee4db26ae4afdbeb63.png" alt="2"></p>
-<p>这些参数可以通过各个成员变量访问：<code>dual_coef_</code>存放乘积，<code>support_vectors</code>存放支持向量，<code>intercept_</code>存放独立项：</p>
+<p>$$<br>\min_{\alpha} \frac{1}{2} \alpha^{T}Q\alpha-e^{T}\alpha \<br>subject\ to\ y^{T}\alpha=0\<br>0 \leqslant \alpha<em>i \leqslant C,i=1,2,…,n<br>$$<br>其中 $e$ 是全 $1$ 向量， $C &gt; 0$ 是上界， $Q$ 是一个半正定矩阵，$Q</em>{ij} \equiv y_i y_j K(x_i,x_j)$ ，其中 $K(x_i,x_j) \equiv \phi(x_i)^{T} \phi(x_j)$ 是核。这里训练向量通过函数被隐式映射到一个高维（甚至无限维）空间 $\phi$ 。</p>
+<p>决策函数是 <strong>注意</strong>：虽然从<a href="http://www.csie.ntu.edu.tw/~cjlin/libsvm/" target="_blank" rel="external"><code>libsvm</code></a>和<a href="http://www.csie.ntu.edu.tw/~cjlin/liblinear/" target="_blank" rel="external"><code>liblinear</code></a>导出的SVM模型使用 $C$ 作为正则化参数，但实际上其它更多预测器使用的是<code>alpha</code>。这两个参数之间的关系是</p>
+<p>$$<br>\mathop{\rm sgn}(\sum_{i=1}^n y_i \alpha_i K(x_i,x_j)+\rho)<br>$$<br>这些参数可以通过各个成员变量访问：<code>dual_coef_</code>存放乘积，<code>support_vectors</code>存放支持向量，<code>intercept_</code>存放独立项：</p>
 <blockquote>
 <p>参考文献：</p>
 <ul>
@@ -622,16 +592,11 @@
 <li><a href="http://link.springer.com/article/10.1007%2FBF00994018" target="_blank" rel="external">“Support-vector networks”</a>, C. Cortes, V. Vapnik - Machine Learning, 20, 273-297 (1995).</li>
 </ul>
 </blockquote>
-<h3 id="NuSVC"><a href="#NuSVC" class="headerlink" title="NuSVC"></a>NuSVC</h3><p>其提供了一个新的参数，控制支持向量的个数和训练误差。参数<img src="http://scikit-learn.org/stable/_images/math/cb88554a78c6610201fd61574c2591aa23da35ac.png" alt="cb88554a78c6610201fd61574c2591aa23da35ac">是训练误差的上限和支持向量的下限。</p>
+<h3 id="NuSVC"><a href="#NuSVC" class="headerlink" title="NuSVC"></a>NuSVC</h3><p>其提供了一个新的参数，控制支持向量的个数和训练误差。参数 $v \in \left (0,1 \right ]$ 是训练误差的上限和支持向量的下限。</p>
 <p>可以看到<code>v-SVC</code>是<code>C-SVC</code>的一种重参数化形式，因此两者在数学上是等价的。</p>
-<h3 id="SVR"><a href="#SVR" class="headerlink" title="SVR"></a>SVR</h3><p>给定训练向量组<img src="http://scikit-learn.org/stable/_images/math/3c2810ae28117c8ad2d9464adc7f57ad2143887c.png" alt="3c2810ae28117c8ad2d9464adc7f57ad2143887c (1)">,<code>i=1, ..., n</code>和向量<img src="http://scikit-learn.org/stable/_images/math/1269782190e528401491505bf582106d5990f870.png" alt="1269782190e528401491505bf582106d5990f870">，<img src="http://scikit-learn.org/stable/_images/math/3cb373a8030ad846aed7b1ee45bab27b13775928.png" alt="3cb373a8030ad846aed7b1ee45bab27b13775928">-SVR要解决的主要问题如下所示：</p>
-<p><img src="http://scikit-learn.org/stable/_images/math/84dfa253bd3c36093102158fbe951a73819f96df.png" alt="84dfa253bd3c36093102158fbe951a73819f96df (1)"></p>
-<p> 其对偶为</p>
-<p><img src="http://scikit-learn.org/stable/_images/math/adfba00b3343f39be094f322b9349d472f29fd63.png" alt="adfba00b3343f39be094f322b9349d472f29fd63 (1)"></p>
-<p>其中<code>e</code>是全1向量，<code>C &gt; 0</code>是上界，<code>Q</code>是一个半正定矩阵，<img src="http://scikit-learn.org/stable/_images/math/a3e3a226d8b165a8871e4aa2b981e440ca1ccc1d.png" alt="a3e3a226d8b165a8871e4aa2b981e440ca1ccc1d">是内核。这里训练向量通过函数被隐式映射到一个高维（甚至无限维）空间<img src="http://scikit-learn.org/stable/_images/math/c2f31c22645274c375eff7920cfdfdc18d60341f.png" alt="\披">。</p>
+<h3 id="SVR"><a href="#SVR" class="headerlink" title="SVR"></a>SVR</h3><p>给定训练向量组 $x<em>i \in \mathbb{R}^p ,\ i=1,2,…,n$ 和向量 $y \in \mathbb{R}^n ,\ \varepsilon-SVR$ 要解决的主要问题如下所示：<br>$$<br>\min</em>{\omega ,b,\zeta, \zeta^<em>} \frac{1}{2}\omega^{T}\omega + C \sum_{i=1}^{n}(\zeta_i+\zeta^</em>) \<br>subject \ to \ y_i - \omega^T \phi(x_i) - b \leqslant \varepsilon + \zeta_i, \<br>\omega^T \phi(x_i) + b - y_i \leqslant \varepsilon + \zeta_i^<em>, \<br>\zeta<em>i, \zeta</em>{i}^</em> \geqslant 0,i=1,2,…,n<br>$$<br>其对偶为<br>$$<br>\min_{\alpha, \alpha^<em>} \frac{1}{2} (\alpha - \alpha^</em>)^{T}Q(\alpha - \alpha^<em>) + \varepsilon e^T (\alpha + \alpha^</em>) -y^T (\alpha - \alpha^<em>)\<br>subject\ to\ e^{T} (\alpha - \alpha^</em>) =0\<br>0 \leqslant \alpha_i,\alpha<em>i^* \leqslant C,i=1,2,…,n<br>$$<br>其中 $e$ 是全 $1$ 向量，$C &gt; 0$ 是上界，$Q$ 是一个半正定矩阵， $Q</em>{ij} \equiv K(x_i,x_j) = \phi(x_i)^T \phi(x_j)$ 是内核。这里训练向量通过函数被隐式映射到一个高维（甚至无限维）空间 $\phi$ 。</p>
 <p>决策函数为</p>
-<p><img src="http://scikit-learn.org/stable/_images/math/7b2ae68afb44fc8ac21ce0e4c5028ec7497cb5cc.png" alt="7b2ae68afb44fc8ac21ce0e4c5028ec7497cb5cc (1)"></p>
-<p>这些参数可以通过各个成员变量访问。其保持的差<img src="http://scikit-learn.org/stable/_images/math/c7e6ffac97e60b9e6f0c0e0e6efe7425064c0013.png" alt="\ alpha_i  -  \ alpha_i ^ *">，其中变量<code>dual_coef_</code>存储，<code>support_vectors_</code>存储支持向量，<code>intercept_</code>存储独立项<img src="http://scikit-learn.org/stable/_images/math/9a51ab9a0b521705e1e8762fac6bdd6f11771758.png" alt="1">。</p>
+<p>$$<br>\sum_{i=1}^n (\alpha - \alpha^<em>)K(x_i,x) + \rho<br>$$<br>这些参数可以通过各个成员变量访问。其保持的差 $\alpha - \alpha^</em>$ ，其中变量<code>dual_coef_</code>存储，<code>support_vectors_</code>存储支持向量，<code>intercept_</code>存储独立项 $\rho$ 。</p>
 <blockquote>
 <p>参考文献：</p>
 <ul>
@@ -1409,7 +1374,24 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 

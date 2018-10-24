@@ -7,7 +7,7 @@
 
 <html class="theme-next muse use-motion" lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -103,7 +103,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Machine Learning," />
+  <meta name="keywords" content="Machine Learning,Statistics," />
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-<meta name="keywords" content="Machine Learning">
+<meta name="keywords" content="Machine Learning,Statistics">
 <meta property="og:type" content="article">
 <meta property="og:title" content="矩阵，向量求导法则">
 <meta property="og:url" content="http://yoursite.com/2017/10/12/The Derivation formula of matrix and vector/index.html">
 <meta property="og:site_name" content="Gavin&#39;s Blog">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-10-12T15:03:40.846Z">
+<meta property="og:updated_time" content="2018-06-19T14:54:12.374Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="矩阵，向量求导法则">
 
@@ -181,7 +181,7 @@
      js.src = "//connect.facebook.net/en/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -200,7 +200,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -509,6 +509,8 @@
         <div class="post-tags">
           
             <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
+          
+            <a href="/tags/Statistics/" rel="tag"># Statistics</a>
           
         </div>
       
@@ -1193,7 +1195,24 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 
