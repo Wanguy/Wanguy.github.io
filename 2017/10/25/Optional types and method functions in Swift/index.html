@@ -542,7 +542,7 @@
 </ul>
 <p>让我们来看看<code>if</code>和<code>for</code>语句的更多细节。</p>
 <h3 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h3><h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a><code>if</code>语句</h4><p><code>if</code>语句的基本结构是这个样子的：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="built_in">count</span> == <span class="number">0</span> &#123;</div><div class="line">	text = <span class="string">"No Items"</span></div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="built_in">count</span> == <span class="number">1</span> &#123;</div><div class="line">	text = <span class="string">"1 Item"</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">	text = <span class="string">"\(count) Items"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="built_in">count</span> == <span class="number">0</span> &#123;</div><div class="line">	text = <span class="string">"No Items"</span></div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="built_in">count</span> == <span class="number">1</span> &#123;</div><div class="line">	text = <span class="string">"1 Item"</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">	text = <span class="string">"<span class="subst">\(<span class="built_in">count</span>)</span> Items"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><code>if</code>后面的表达式称之为条件。如果条件为真，那么<code>if</code>后面花括号内的语句会被执行。如果没有一个条件为真，那么最后一个<code>else</code>后面的花括号内的语句会被执行。</p>
 <p>通过使用比较运算符来对两个值进行比较：</p>
 <ul>
@@ -841,7 +841,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -947,7 +947,7 @@
         <div class="copyright" >
   
   &copy;  2015 &mdash; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1439,24 +1439,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 

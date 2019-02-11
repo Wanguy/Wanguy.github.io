@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-18T17:39:38.777Z</updated>
+  <updated>2019-02-11T05:58:56.882Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,225 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>最简单最实用：线性回归</title>
+    <link href="http://yoursite.com/2019/02/11/Linear_Regression_Lecture/"/>
+    <id>http://yoursite.com/2019/02/11/Linear_Regression_Lecture/</id>
+    <published>2019-02-11T03:45:02.000Z</published>
+    <updated>2019-02-11T05:58:56.882Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a><em>线性回归</em></h2><ul>
+<li>在解决连续变量的预测问题里，线性回归最简单</li>
+<li>对于很多问题，在一定范围内是有效的</li>
+<li>理论和应用也是最完善的</li>
+</ul>
+<a id="more"></a>
+<h2 id="1-为什么要使用线性回归？"><a href="#1-为什么要使用线性回归？" class="headerlink" title="1. 为什么要使用线性回归？"></a>1. 为什么要使用线性回归？</h2><ul>
+<li>$y=c_0+c_1 x_1+c_2 x_2$</li>
+<li>形式简单</li>
+<li><p>应用广泛：身高与体重，海拔与气压<br><img src="https://i.loli.net/2019/02/11/5c60f71c96fc7.png" alt="hw"></p>
+</li>
+<li><p>普通最小二乘法理解容易，计算起来简单</p>
+</li>
+<li>结果也很容易解释</li>
+<li>奥卡姆剃刀指南：如果没有足够的证据（理由），就不用更复杂的模型<blockquote>
+<p>In my opinion the theory here is the logically simplest relativistic field theory that is at all possible.  But this does not mean that Nature might not obey a more complex theory.  More complex theories have frequently been proposed. . .  In my view, such more complicated systems and their combinations should be considered only if there exist physical-empirical reasons to do so.               </p>
+<p>​                                                                –Einstein</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="2-如何计算线性回归？最小二乘法"><a href="#2-如何计算线性回归？最小二乘法" class="headerlink" title="2. 如何计算线性回归？最小二乘法"></a>2. 如何计算线性回归？最小二乘法</h2><ul>
+<li>世界不是完美的，要接纳不完美</li>
+<li>需要通过量化的形式来比较<br><img src="https://i.loli.net/2019/02/11/5c60fec49326f.png" width="500"></li>
+</ul>
+<p>$$<br>\begin{align}<br>\hat{y}_{黄} = c_0 + c_1 x \\<br>\hat{y}_{红} = d_0 + d_1 x<br>\end{align}<br>$$</p>
+<p><img src="https://i.loli.net/2019/02/11/5c60fed7bb135.png" width="500"></p>
+<ul>
+<li><p>每个观测值是$x_i,y_i$</p>
+</li>
+<li><p>$x_i$是自变量，回归的值是$\hat{y}_i$</p>
+</li>
+<li><p>样本的回归是对总体的回归的估计</p>
+<p>$$<br>\begin{align}<br>&amp;\hat{y}_i = \hat{\alpha} + \hat{\beta} x_i \\<br>&amp;y_i = \alpha + \beta x_i \<br>\end{align}<br>$$</p>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2019/02/11/5c60fea46485b.png" width="700"></p>
+<ul>
+<li>单个点的拟合程度用<strong>残差</strong>来衡量：<br>$$<br>\begin{align}<br>\epsilon_i = y_i - \hat{y}_i<br>\end{align}<br>$$</li>
+</ul>
+<ul>
+<li><p>整体的拟合程度，用<strong>残差平方和（SSE）</strong>来衡量：</p>
+<p>$$<br>\begin{align}<br>sum of square error &amp;= \sum_i \epsilon_i^2 \\<br>&amp;= \sum_i (y_i - \hat{y}_i)^2 \\<br>&amp;= \sum_i (y_i - \hat{\alpha} - \hat{\beta} x_i )^2\<br>\end{align}<br>$$</p>
+</li>
+</ul>
+<h4 id="选出拟合程度最好的直线"><a href="#选出拟合程度最好的直线" class="headerlink" title="选出拟合程度最好的直线"></a>选出拟合程度最好的直线</h4><ul>
+<li><p>残差平方和最小的直线</p>
+</li>
+<li><p>根据极值条件求 $\alpha,\beta$<br>$$<br>\begin{align}<br>&amp;\hat{\beta} =  \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sum(x_i-\bar{x})^2}\\<br>&amp;\hat{\alpha} =  \bar{y}-\hat{\beta}\bar{x}<br>\end{align}<br>$$</p>
+</li>
+</ul>
+<h2 id="3-由最小二乘法选出的直线有没有用？"><a href="#3-由最小二乘法选出的直线有没有用？" class="headerlink" title="3. 由最小二乘法选出的直线有没有用？"></a>3. 由最小二乘法选出的直线有没有用？</h2><ul>
+<li>选出一根直线只是万里长征第一步</li>
+<li>不管是什么样的数据，都可以计算出一根这样的直线</li>
+<li>需要用其他标准来衡量，这跟直线，对解释数据到底有没有用</li>
+</ul>
+<p><code>In[1]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"></div><div class="line">%matplotlib inline</div><div class="line">%config InlineBackend.figure_format = <span class="string">'retina'</span></div><div class="line"></div><div class="line">x = np.linspace(<span class="number">0</span>, <span class="number">800</span>, <span class="number">10000</span>)</div><div class="line">np.random.seed(<span class="number">1</span>)</div><div class="line">y = <span class="number">400</span> + np.random.random(<span class="number">10000</span>) * <span class="number">400</span> + x * <span class="number">0.002</span></div><div class="line"></div><div class="line">plt.figure(figsize=[<span class="number">8</span>, <span class="number">6</span>])</div><div class="line">plt.scatter(x, y, s=<span class="number">0.2</span>)</div><div class="line"></div><div class="line">plt.xlabel(<span class="string">'PM_Nongzhanguan'</span>)</div><div class="line">plt.ylabel(<span class="string">'PM_Dongsi'</span>)</div></pre></td></tr></table></figure>
+<p><code>Out[1]</code></p>
+<pre><code>Text(0, 0.5, &apos;PM_Dongsi&apos;)
+</code></pre><p><img src="https://i.loli.net/2019/02/11/5c60fe86690db.png" alt="png"></p>
+<p><code>In[2]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</div><div class="line">lr = LinearRegression()</div><div class="line">lr.fit(x.reshape(<span class="number">-1</span>, <span class="number">1</span>), y)</div><div class="line">y_hat = lr.predict(x.reshape(<span class="number">-1</span>, <span class="number">1</span>))</div><div class="line"></div><div class="line">print(<span class="string">'intercept = %f, slope = %f'</span> % (lr.intercept_, lr.coef_))</div><div class="line"></div><div class="line">plt.figure(figsize=[<span class="number">8</span>, <span class="number">6</span>])</div><div class="line">plt.scatter(x, y, s=<span class="number">0.2</span>)</div><div class="line">plt.plot(x, <span class="number">600</span> + x * <span class="number">0.002</span>, <span class="string">'--'</span>, c=<span class="string">'blue'</span>)</div><div class="line">plt.plot(x, y_hat, c=<span class="string">'red'</span>)</div><div class="line">plt.xlabel(<span class="string">'PM_Nongzhonguan'</span>)</div><div class="line">plt.ylabel(<span class="string">'PM_Dongsi'</span>)</div></pre></td></tr></table></figure>
+<pre><code>intercept = 600.891491, slope = -0.002232
+</code></pre><p><code>Out[2]</code></p>
+<pre><code>Text(0, 0.5, &apos;PM_Dongsi&apos;)
+</code></pre><p><img src="https://i.loli.net/2019/02/11/5c60f7756589f.png" alt="output_10_2"></p>
+<p><code>In[3]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">y_1_random = (y - x * <span class="number">0.002</span>)</div><div class="line">y_2 = np.mean(</div><div class="line">    y_1_random) + x * <span class="number">0.002</span> + (y_1_random - np.mean(y_1_random)) / <span class="number">400</span> * <span class="number">20</span></div><div class="line"></div><div class="line">plt.figure(figsize=[<span class="number">8</span>, <span class="number">6</span>])</div><div class="line">plt.scatter(x, y_2, s=<span class="number">0.2</span>)</div><div class="line">plt.xlabel(<span class="string">'PM_Nongzhanguan'</span>)</div><div class="line">plt.ylabel(<span class="string">'PM_Dongsi'</span>)</div><div class="line">plt.ylim([<span class="number">400</span>, <span class="number">800</span>])</div></pre></td></tr></table></figure>
+<p><code>Out[3]</code></p>
+<pre><code>(400, 800)
+</code></pre><p><img src="https://i.loli.net/2019/02/11/5c60f79fb1517.png" alt="output_11_1"></p>
+<p><code>In[4]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</div><div class="line">lr2 = LinearRegression()</div><div class="line">lr2.fit(x.reshape(<span class="number">-1</span>, <span class="number">1</span>), y_2)</div><div class="line">y_hat_2 = lr2.predict(x.reshape(<span class="number">-1</span>, <span class="number">1</span>))</div><div class="line">plt.figure(figsize=[<span class="number">8</span>, <span class="number">6</span>])</div><div class="line">plt.scatter(x, y_2, s=<span class="number">0.2</span>)</div><div class="line">plt.plot(x, y_hat_2, c=<span class="string">'white'</span>)</div><div class="line">plt.xlabel(<span class="string">'PM_Nongzhanguan'</span>)</div><div class="line">plt.ylabel(<span class="string">'PM_Dongsi'</span>)</div><div class="line">plt.ylim([<span class="number">400</span>, <span class="number">800</span>])</div><div class="line">print(<span class="string">'intercept = %f, slope = %f'</span> % (lr2.intercept_, lr2.coef_))</div></pre></td></tr></table></figure>
+<pre><code>intercept = 599.283220, slope = 0.001788
+</code></pre><p><img src="https://i.loli.net/2019/02/11/5c60fca7cb836.png" alt="output_12_1"></p>
+<p><code>In[5]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">fig = plt.figure(figsize=(<span class="number">15</span>, <span class="number">6</span>))</div><div class="line">fig.subplots_adjust(hspace=<span class="number">0.4</span>, wspace=<span class="number">0.4</span>)</div><div class="line">plt.subplot(<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>)</div><div class="line">plt.scatter(x, y, s=<span class="number">0.2</span>)</div><div class="line">plt.plot(x, y_hat, c=<span class="string">'red'</span>)</div><div class="line">plt.xlabel(<span class="string">'PM_Nongzhanguan'</span>)</div><div class="line">plt.ylabel(<span class="string">'PM_Dongsi'</span>)</div><div class="line"></div><div class="line">plt.subplot(<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>)</div><div class="line">plt.scatter(x, y_2, s=<span class="number">0.2</span>)</div><div class="line">plt.plot(x, y_hat_2, c=<span class="string">'white'</span>)</div><div class="line">plt.xlabel(<span class="string">'PM_Nongzhanguan'</span>)</div><div class="line">plt.ylabel(<span class="string">'PM_Dongsi'</span>)</div><div class="line">plt.ylim([<span class="number">400</span>, <span class="number">800</span>])</div><div class="line">print(<span class="string">'left intercept = %f, slope = %f'</span> % (lr.intercept_, lr.coef_))</div><div class="line">print(<span class="string">'right intercept = %f, slope = %f'</span> % (lr2.intercept_, lr2.coef_))</div></pre></td></tr></table></figure>
+<pre><code>left intercept = 600.891491, slope = -0.002232
+right intercept = 599.283220, slope = 0.001788
+</code></pre><p><img src="https://i.loli.net/2019/02/11/5c60fcbcc4d65.png" alt="output_13_1"></p>
+<p><code>In[6]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">x = np.linspace(<span class="number">0</span>, <span class="number">800</span>, <span class="number">10000</span>)</div><div class="line">np.random.seed(<span class="number">2</span>)</div><div class="line">y3 = <span class="number">400</span> + np.random.random(<span class="number">10000</span>) * <span class="number">400</span> + x * <span class="number">0.002</span></div><div class="line"></div><div class="line">lr3 = LinearRegression()</div><div class="line">lr3.fit(x.reshape(<span class="number">-1</span>, <span class="number">1</span>), y3)</div><div class="line">y_hat_3 = lr3.predict(x.reshape(<span class="number">-1</span>, <span class="number">1</span>))</div><div class="line"></div><div class="line">y_3_random = (y3 - x * <span class="number">0.002</span>)</div><div class="line">y_4 = np.mean(</div><div class="line">    y_3_random) + x * <span class="number">0.002</span> + (y_3_random - np.mean(y_3_random)) / <span class="number">400</span> * <span class="number">20</span></div><div class="line">lr4 = LinearRegression()</div><div class="line">lr4.fit(x.reshape(<span class="number">-1</span>, <span class="number">1</span>), y_4)</div><div class="line">y_hat_4 = lr4.predict(x.reshape(<span class="number">-1</span>, <span class="number">1</span>))</div><div class="line">print(<span class="string">'left intercept = %f, slope = %f'</span> % (lr3.intercept_, lr3.coef_))</div><div class="line">print(<span class="string">'right intercept = %f, slope = %f'</span> % (lr4.intercept_, lr4.coef_))</div></pre></td></tr></table></figure>
+<pre><code>left intercept = 597.434210, slope = 0.002158
+right intercept = 597.494287, slope = 0.002008
+</code></pre><p><code>In[7]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">x = np.linspace(<span class="number">0</span>, <span class="number">800</span>, <span class="number">10000</span>)</div><div class="line">np.random.seed(<span class="number">3</span>)</div><div class="line">y3 = <span class="number">400</span> + np.random.random(<span class="number">10000</span>) * <span class="number">400</span> + x * <span class="number">0.002</span></div><div class="line"></div><div class="line">lr3 = LinearRegression()</div><div class="line">lr3.fit(x.reshape(<span class="number">-1</span>, <span class="number">1</span>), y3)</div><div class="line">y_hat_3 = lr3.predict(x.reshape(<span class="number">-1</span>, <span class="number">1</span>))</div><div class="line"></div><div class="line">y_3_random = (y3 - x * <span class="number">0.002</span>)</div><div class="line">y_4 = np.mean(</div><div class="line">    y_3_random) + x * <span class="number">0.002</span> + (y_3_random - np.mean(y_3_random)) / <span class="number">400</span> * <span class="number">20</span></div><div class="line">lr4 = LinearRegression()</div><div class="line">lr4.fit(x.reshape(<span class="number">-1</span>, <span class="number">1</span>), y_4)</div><div class="line">y_hat_4 = lr4.predict(x.reshape(<span class="number">-1</span>, <span class="number">1</span>))</div><div class="line">print(<span class="string">'left intercept = %f, slope = %f'</span> % (lr3.intercept_, lr3.coef_))</div><div class="line">print(<span class="string">'right intercept = %f, slope = %f'</span> % (lr4.intercept_, lr4.coef_))</div></pre></td></tr></table></figure>
+<pre><code>left intercept = 599.686570, slope = -0.000431
+right intercept = 598.762664, slope = 0.001878
+</code></pre><p><code>In[8]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">coeff_lr</span><span class="params">(i)</span>:</span></div><div class="line">    x = np.linspace(<span class="number">0</span>, <span class="number">800</span>, <span class="number">10000</span>)</div><div class="line">    np.random.seed(i)</div><div class="line">    y3 = <span class="number">400</span> + np.random.random(<span class="number">10000</span>) * <span class="number">400</span> + x * <span class="number">0.002</span></div><div class="line"></div><div class="line">    lr3 = LinearRegression()</div><div class="line">    lr3.fit(x.reshape(<span class="number">-1</span>, <span class="number">1</span>), y3)</div><div class="line">    y_hat_3 = lr3.predict(x.reshape(<span class="number">-1</span>, <span class="number">1</span>))</div><div class="line"></div><div class="line">    y_3_random = (y3 - x * <span class="number">0.002</span>)</div><div class="line">    y_4 = np.mean(</div><div class="line">        y_3_random) + x * <span class="number">0.002</span> + (y_3_random - np.mean(y_3_random)) / <span class="number">400</span> * <span class="number">20</span></div><div class="line">    lr4 = LinearRegression()</div><div class="line">    lr4.fit(x.reshape(<span class="number">-1</span>, <span class="number">1</span>), y_4)</div><div class="line">    y_hat_4 = lr4.predict(x.reshape(<span class="number">-1</span>, <span class="number">1</span>))</div><div class="line">    <span class="comment">#print('left intercept = %f, slope = %f'%(lr3.intercept_,lr3.coef_))</span></div><div class="line">    <span class="comment">#print('right intercept = %f, slope = %f'%(lr4.intercept_,lr4.coef_))</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> pd.DataFrame([[<span class="number">0</span>, lr3.coef_], [<span class="number">1</span>, lr4.coef_]],</div><div class="line">                        columns=[<span class="string">'cate'</span>, <span class="string">'coef_'</span>])</div><div class="line"></div><div class="line"></div><div class="line">result = coeff_lr(<span class="number">0</span>)</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">100</span>):</div><div class="line">    df = coeff_lr(i)</div><div class="line">    result = result.append(df, ignore_index=<span class="keyword">True</span>)</div></pre></td></tr></table></figure>
+<p><code>In[9]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</div><div class="line">sns.stripplot(</div><div class="line">    x=<span class="string">"cate"</span>, y=<span class="string">"coef_"</span>, data=result, jitter=<span class="keyword">True</span>)</div></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/02/11/5c60fce73689c.png" alt="output_17_1"></p>
+<h3 id="3-1-要点"><a href="#3-1-要点" class="headerlink" title="3.1 要点"></a>3.1 要点</h3><ul>
+<li>每次回归是对<strong>某一次抽样</strong>的样本进行回归分析</li>
+<li>对样本回归计算后的斜率是个变量，随抽样结果不同而不同</li>
+</ul>
+<h3 id="3-2-需要进一步使用其他指标来衡量线性回归的效用，达到建模与分析的目的"><a href="#3-2-需要进一步使用其他指标来衡量线性回归的效用，达到建模与分析的目的" class="headerlink" title="3.2 需要进一步使用其他指标来衡量线性回归的效用，达到建模与分析的目的"></a>3.2 需要进一步使用其他指标来衡量线性回归的效用，达到建模与分析的目的</h3><ul>
+<li>回归分析的<span style="color:blue">目的</span>是什么？<ul>
+<li>去估计总体的x与总体的y之间的关系，是正相关？负相关？还是不相关？（这一层面，在于与‘不相关‘比较）</li>
+<li>相关性会不会随不同的抽样情景变化？会不会出现：第一次抽样的回归结果是正相关，第二次抽样的回归结果是负相关？</li>
+<li>确定了相关性，那么线性回归模型能不能很好的解释原有数据的特点？</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-线性回归的参数估计分析"><a href="#4-线性回归的参数估计分析" class="headerlink" title="4. 线性回归的参数估计分析"></a>4. 线性回归的参数估计分析</h2><h4 id="以斜率为例"><a href="#以斜率为例" class="headerlink" title="以斜率为例"></a>以斜率为例</h4><ul>
+<li><p>斜率的符号与相关性</p>
+<p>$$<br>\begin{align}<br>\hat{\beta} &amp; = \frac{Cov(x,y)}{Var(x)} \\<br>&amp; = \frac{Cov(x,y)}{\sqrt{Var(x) }\sqrt{Var(x)} }\\<br>&amp; = \frac{Cov(x,y)}{\sqrt{Var(x) }\sqrt{Var(y)}}\frac{\sqrt{Var(y)}} {\sqrt{Var(x)} }\\<br>&amp; ={Corr(x,y)}\frac{\sqrt{Var(y)}}{\sqrt{Var(x)}}<br>\end{align}<br>$$</p>
+</li>
+</ul>
+<ul>
+<li><p>在假设检验的框架下，衡量回归参数符号的<strong>不确定性</strong></p>
+</li>
+<li><p>$\hat{\beta}$随样本变化而变化，是总体回归参数$\beta$的估计量，具有均值和方差</p>
+<p>$$<br>\begin{align}<br>\hat{\beta} &amp;= \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sum(x_i-\bar{x})^2}\\<br>&amp;= \frac{\sum(x_i-\bar{x})y_i}{\sum(x_i-\bar{x})^2}\\<br>\end{align}<br>$$</p>
+<p>$$<br>\begin{align}<br>E(\hat{\beta})<br>&amp;=\frac{\sum(x_i-\bar{x})E(y_i)}{\sum(x_i-\bar{x})^2}\\<br>&amp;=\frac{\sum(x_i-\bar{x})(\alpha+\beta x_i)}{\sum(x_i-\bar{x})^2}\\<br>&amp;=\beta<br>\end{align}<br>$$</p>
+<p>$$<br>\begin{align}<br>Var(\hat{\beta}) &amp;= \sum[\frac{(x_i-\bar{x})}{\sum(x_i-\bar{x})2}]2Var(y_i)\\<br>&amp;=\frac{\sigma2}{\sum(x_i-\bar{x})2}<br>\end{align}<br>$$</p>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2019/02/11/5c60fd2e0639b.png" width="500"></p>
+<ul>
+<li><p>用t检验来判断，0在回归参数分布的位置，以判断参数正负符号的不确定性</p>
+</li>
+<li><p>t检验：</p>
+<ul>
+<li>原假设， H0: $\beta = 0$</li>
+<li>备择假设,H1: $\beta \neq 0$</li>
+<li>$\hat{\beta} \sim N(\beta,\frac{\sigma^2}{\sum(x_i-x)^2}$)</li>
+<li>构造统计量<ul>
+<li>$t = \frac{\hat{\beta}}{\sqrt{\hat{\sigma}^2/\sum(x_i-x)^2}}$</li>
+<li>其中 $\hat{\sigma}^2 = \frac{1}{n-1}\sum e_i^2 = \frac{1}{n-1}\sum(y_i-\hat{y_i})^2$</li>
+</ul>
+</li>
+<li>计算对应的p值，判断是否拒绝原假设</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2019/02/11/5c60fd581123b.png" width="400"></p>
+<ul>
+<li>如何解释显著性？（我的理解应解释为相关性的确定程度）</li>
+</ul>
+<h2 id="5-线性回归对数据的解释"><a href="#5-线性回归对数据的解释" class="headerlink" title="5. 线性回归对数据的解释"></a>5. 线性回归对数据的解释</h2><ul>
+<li>回归分析的<span style="color:blue">目的</span>是什么？<ul>
+<li>去估计总体的x与总体的y之间的关系，是正相关？负相关？还是不相关？（这一层面，在于与‘不相关‘比较）</li>
+<li>相关性会不会随不同的抽样情景变化？会不会出现：第一次抽样的回归结果是正相关，第二次抽样的回归结果是负相关？</li>
+<li>确定了相关性，那么线性回归模型能不能很好的解释原有数据的特点？</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2019/02/11/5c60fe5374e57.png" width="700"></p>
+<p>$$<br>\begin{align}<br>R^2 = \frac{SSR}{SST}=1-\frac{SSE}{SST}<br>\end{align}<br>$$</p>
+<ul>
+<li><p>$R^2$含义：离差平方和中有多少能被回归平方和解释</p>
+</li>
+<li><p>注意事项：</p>
+<ul>
+<li>$R^2=0$不代表自变量与因变量没有关系<br><img src="https://i.loli.net/2019/02/11/5c60fe32c16dc.gif" width="300"></li>
+<li>$R^2$大也不代表自变量和因变量就一定是线性关系<br><img src="https://i.loli.net/2019/02/11/5c60fe32bfb96.gif" width="400"></li>
+<li>$R^2$大也不代表结果显著（与确定性无关）</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-线性回归对样本及误差的要求和假设前提"><a href="#6-线性回归对样本及误差的要求和假设前提" class="headerlink" title="6. 线性回归对样本及误差的要求和假设前提"></a>6. 线性回归对样本及误差的要求和假设前提</h2><p><img src="https://i.loli.net/2019/02/11/5c60fe11e17be.png" width="700"></p>
+<h3 id="要求："><a href="#要求：" class="headerlink" title="要求："></a>要求：</h3><ol>
+<li>y的均值是x的线性组合</li>
+<li>残差$e_i$独立于x</li>
+<li>给定x, 残差$e_i$要服从正态分布</li>
+<li>对于不同的xi, 残差$e_i$的方差variance应相同</li>
+</ol>
+<ul>
+<li><span style="color:blue">L</span>inear Function</li>
+<li><span style="color:blue">I</span>ndependent</li>
+<li><span style="color:blue">N</span>ormal Distribution</li>
+<li><span style="color:blue">E</span>qual Variance</li>
+</ul>
+<h2 id="7-预测的confidence-interval-和-prediction-interval"><a href="#7-预测的confidence-interval-和-prediction-interval" class="headerlink" title="7. 预测的confidence interval 和 prediction interval"></a>7. 预测的confidence interval 和 prediction interval</h2><ul>
+<li>问题1：年级与某成人考试分数，根据抽样样本，估计二年级学生的平均分数<br><img src="https://i.loli.net/2019/02/11/5c60fde5ee17f.png" width="700"><br><img src="https://i.loli.net/2019/02/11/5c60fde5ec423.png" width="700"></li>
+<li>不同次的抽样，回归结果是不一样的</li>
+</ul>
+<ul>
+<li>预测二年级的学生平均分数 vs 预测某个学生的考试分数<br><img src="https://i.loli.net/2019/02/11/5c60fdb096972.png" width="800"></li>
+</ul>
+<p>Confidential Interval</p>
+<p><img src="https://i.loli.net/2019/02/11/5c60fda003b68.png" width="800"></p>
+<p>Prediction Interval</p>
+<p><img src="https://i.loli.net/2019/02/11/5c60fd8294fa4.png" width="800"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;线性回归&quot;&gt;&lt;a href=&quot;#线性回归&quot; class=&quot;headerlink&quot; title=&quot;线性回归&quot;&gt;&lt;/a&gt;&lt;em&gt;线性回归&lt;/em&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;在解决连续变量的预测问题里，线性回归最简单&lt;/li&gt;
+&lt;li&gt;对于很多问题，在一定范围内是有效的&lt;/li&gt;
+&lt;li&gt;理论和应用也是最完善的&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+    
+      <category term="Machine Learning" scheme="http://yoursite.com/tags/Machine-Learning/"/>
+    
+      <category term="Statistics" scheme="http://yoursite.com/tags/Statistics/"/>
+    
+  </entry>
+  
+  <entry>
     <title>从正态分布到置信区间</title>
     <link href="http://yoursite.com/2018/06/18/%E4%BB%8E%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E5%88%B0%E7%BD%AE%E4%BF%A1%E5%8C%BA%E9%97%B4/"/>
     <id>http://yoursite.com/2018/06/18/从正态分布到置信区间/</id>
     <published>2018-06-18T14:16:25.971Z</published>
-    <updated>2018-06-18T17:39:38.777Z</updated>
+    <updated>2019-02-11T05:17:12.306Z</updated>
     
     <content type="html"><![CDATA[<h2 id="先从人均收入说起"><a href="#先从人均收入说起" class="headerlink" title="先从人均收入说起"></a>先从人均收入说起</h2><p>我们通常会统计一个地区的人均收入水平，以此来反应这个地区的经济发展水平。假设现在从一个地区，随机抽取1000人，统计他们的年收入，求和后除以1000，得到一个平均年收入：<br>$$<br>\overline{X}=\frac{1}{1000}\sum_{i=1}^{1000}X_i \qquad（X_i为第i个人的年收入）<br>$$<br>但是这里有一个显而易见的问题，由于每次随机抽取的样本不尽相同，导致算出的算术平均值每次都可能不同。例如第一次$\overline{X_1}=6200$，第二次$\overline{X_2}=6000$，第三次$\overline{X_3}=6100$……，这样得到的数据，让人不知道该相信哪个。</p>
 <a id="more"></a>
@@ -567,7 +781,7 @@
 </ul>
 <p>让我们来看看<code>if</code>和<code>for</code>语句的更多细节。</p>
 <h3 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h3><h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a><code>if</code>语句</h4><p><code>if</code>语句的基本结构是这个样子的：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="built_in">count</span> == <span class="number">0</span> &#123;</div><div class="line">	text = <span class="string">"No Items"</span></div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="built_in">count</span> == <span class="number">1</span> &#123;</div><div class="line">	text = <span class="string">"1 Item"</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">	text = <span class="string">"\(count) Items"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="built_in">count</span> == <span class="number">0</span> &#123;</div><div class="line">	text = <span class="string">"No Items"</span></div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="built_in">count</span> == <span class="number">1</span> &#123;</div><div class="line">	text = <span class="string">"1 Item"</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">	text = <span class="string">"<span class="subst">\(<span class="built_in">count</span>)</span> Items"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><code>if</code>后面的表达式称之为条件。如果条件为真，那么<code>if</code>后面花括号内的语句会被执行。如果没有一个条件为真，那么最后一个<code>else</code>后面的花括号内的语句会被执行。</p>
 <p>通过使用比较运算符来对两个值进行比较：</p>
 <ul>
@@ -1586,6 +1800,48 @@
   </entry>
   
   <entry>
+    <title>用纯 CSS 为 HTML checkbox 添加自定义样式及动画效果</title>
+    <link href="http://yoursite.com/2017/03/17/Add%20custom%20style%20and%20animation%20effects%20to%20HTML%20checkbox%20with%20CSS/"/>
+    <id>http://yoursite.com/2017/03/17/Add custom style and animation effects to HTML checkbox with CSS/</id>
+    <published>2017-03-17T06:07:34.000Z</published>
+    <updated>2017-09-08T12:18:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>一般情况下，<code>`元素（也包括一部分其他</code>input<code>元素）是由操作系统（而非浏览器）进行渲染的。在不同操作系统下，这类特殊元素的样式往往和系统本身的风格一致，和浏览器无关。也正是由于这种机制，开发者无法像一般元素那样使用 CSS 来修饰这类元素。这里介绍一种利用纯 CSS 实现自定义 checkbox 样式的方法。思路很简单：由于控件所对应的</code>label<code>元素是可以点击并切换控件状态的，而</code>label<code>元素的样式又可以自由设定，因此我们可将</code>input<code>元素隐藏，通过</code>label`元素实现交互。</p>
+<a id="more"></a>
+<p>HTML 代码如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;input type="checkbox" id="checkbox" class="checkbox"/&gt;</div><div class="line">&lt;div class="checkbox-wrapper"&gt;</div><div class="line">    &lt;label for="checkbox" class="checkbox-label"&gt;&lt;/label&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="样式一：Metro-UI-风格"><a href="#样式一：Metro-UI-风格" class="headerlink" title="样式一：Metro UI 风格"></a>样式一：Metro UI 风格</h2></blockquote>
+<p>效果：</p>
+<p>CSS 代码如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">80px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span> &#123;</div><div class="line">    <span class="attribute">display</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::before</span>,</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">    <span class="attribute">font-family</span>: sans-serif;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">13px</span>;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">font-weight</span>: bold;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::before</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">'ON'</span>;</div><div class="line">    <span class="attribute">left</span>: -<span class="number">40px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#45b6af</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">'OFF'</span>;</div><div class="line">    <span class="attribute">right</span>: -<span class="number">40px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#f3565d</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">4s</span> ease;</div><div class="line">    <span class="attribute">cursor</span>: pointer;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#dddddd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> <span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">left</span>: <span class="number">40px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="样式二：iOS-7-风格"><a href="#样式二：iOS-7-风格" class="headerlink" title="样式二：iOS 7 风格"></a>样式二：iOS 7 风格</h2></blockquote>
+<p>效果：</p>
+<p>CSS代码如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">58px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">16px</span>;</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">3s</span> ease-out;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">2px</span> <span class="number">#ddd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span> &#123;</div><div class="line">    <span class="attribute">display</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0px</span>;</div><div class="line">    <span class="attribute">top</span>: <span class="number">0px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">cursor</span>: pointer;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">16px</span>;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">2px</span> <span class="number">3px</span> <span class="built_in">rgba</span>(0,0,0,0.2);</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">3s</span> ease-out;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#0bd318</span>;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">2px</span> <span class="number">#0bd318</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> <span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">left</span>: <span class="number">26px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>值得一提的是，这个例子虽然比较完美的还原了 iOS 7 中 UISwitch 控件的外观，但是动画曲线却还有些差距。iOS 7 中使用的是一种名为 String Animation 的动画（该 API 在 iOS 8 中已经公开），仔细看的话可以发现开始滑块移动很快，到后面逐渐变慢，并且结束时还有小幅度的「反弹」效果。这里我们为了方便，使用 ease-out 来模拟。</p>
+<blockquote>
+<h2 id="JSFiddle"><a href="#JSFiddle" class="headerlink" title="JSFiddle"></a>JSFiddle</h2></blockquote>
+<p>点击<a href="http://jsfiddle.net/gnu1qqnq/" target="_blank" rel="external">此处</a>查看本教程在 JSFiddle 的示范代码。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一般情况下，&lt;code&gt;`元素（也包括一部分其他&lt;/code&gt;input&lt;code&gt;元素）是由操作系统（而非浏览器）进行渲染的。在不同操作系统下，这类特殊元素的样式往往和系统本身的风格一致，和浏览器无关。也正是由于这种机制，开发者无法像一般元素那样使用 CSS 来修饰这类元素。这里介绍一种利用纯 CSS 实现自定义 checkbox 样式的方法。思路很简单：由于控件所对应的&lt;/code&gt;label&lt;code&gt;元素是可以点击并切换控件状态的，而&lt;/code&gt;label&lt;code&gt;元素的样式又可以自由设定，因此我们可将&lt;/code&gt;input&lt;code&gt;元素隐藏，通过&lt;/code&gt;label`元素实现交互。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+    
+      <category term="HTML" scheme="http://yoursite.com/tags/HTML/"/>
+    
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Mac OS X Terminal 101：终端使用初级教程</title>
     <link href="http://yoursite.com/2017/03/17/The%20introductory%20of%20macOS%20Terminal/"/>
     <id>http://yoursite.com/2017/03/17/The introductory of macOS Terminal/</id>
@@ -1716,48 +1972,6 @@
     
     
       <category term="Terminal" scheme="http://yoursite.com/tags/Terminal/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用纯 CSS 为 HTML checkbox 添加自定义样式及动画效果</title>
-    <link href="http://yoursite.com/2017/03/17/Add%20custom%20style%20and%20animation%20effects%20to%20HTML%20checkbox%20with%20CSS/"/>
-    <id>http://yoursite.com/2017/03/17/Add custom style and animation effects to HTML checkbox with CSS/</id>
-    <published>2017-03-17T06:07:34.000Z</published>
-    <updated>2017-09-08T12:18:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>一般情况下，<code>`元素（也包括一部分其他</code>input<code>元素）是由操作系统（而非浏览器）进行渲染的。在不同操作系统下，这类特殊元素的样式往往和系统本身的风格一致，和浏览器无关。也正是由于这种机制，开发者无法像一般元素那样使用 CSS 来修饰这类元素。这里介绍一种利用纯 CSS 实现自定义 checkbox 样式的方法。思路很简单：由于控件所对应的</code>label<code>元素是可以点击并切换控件状态的，而</code>label<code>元素的样式又可以自由设定，因此我们可将</code>input<code>元素隐藏，通过</code>label`元素实现交互。</p>
-<a id="more"></a>
-<p>HTML 代码如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;input type="checkbox" id="checkbox" class="checkbox"/&gt;</div><div class="line">&lt;div class="checkbox-wrapper"&gt;</div><div class="line">    &lt;label for="checkbox" class="checkbox-label"&gt;&lt;/label&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="样式一：Metro-UI-风格"><a href="#样式一：Metro-UI-风格" class="headerlink" title="样式一：Metro UI 风格"></a>样式一：Metro UI 风格</h2></blockquote>
-<p>效果：</p>
-<p>CSS 代码如下：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">80px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span> &#123;</div><div class="line">    <span class="attribute">display</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::before</span>,</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">    <span class="attribute">font-family</span>: sans-serif;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">13px</span>;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">font-weight</span>: bold;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::before</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">'ON'</span>;</div><div class="line">    <span class="attribute">left</span>: -<span class="number">40px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#45b6af</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">'OFF'</span>;</div><div class="line">    <span class="attribute">right</span>: -<span class="number">40px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#f3565d</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">4s</span> ease;</div><div class="line">    <span class="attribute">cursor</span>: pointer;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#dddddd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> <span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">left</span>: <span class="number">40px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="样式二：iOS-7-风格"><a href="#样式二：iOS-7-风格" class="headerlink" title="样式二：iOS 7 风格"></a>样式二：iOS 7 风格</h2></blockquote>
-<p>效果：</p>
-<p>CSS代码如下：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">58px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">16px</span>;</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">3s</span> ease-out;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">2px</span> <span class="number">#ddd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span> &#123;</div><div class="line">    <span class="attribute">display</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0px</span>;</div><div class="line">    <span class="attribute">top</span>: <span class="number">0px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">cursor</span>: pointer;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">16px</span>;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">2px</span> <span class="number">3px</span> <span class="built_in">rgba</span>(0,0,0,0.2);</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">3s</span> ease-out;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#0bd318</span>;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">2px</span> <span class="number">#0bd318</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> <span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">left</span>: <span class="number">26px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>值得一提的是，这个例子虽然比较完美的还原了 iOS 7 中 UISwitch 控件的外观，但是动画曲线却还有些差距。iOS 7 中使用的是一种名为 String Animation 的动画（该 API 在 iOS 8 中已经公开），仔细看的话可以发现开始滑块移动很快，到后面逐渐变慢，并且结束时还有小幅度的「反弹」效果。这里我们为了方便，使用 ease-out 来模拟。</p>
-<blockquote>
-<h2 id="JSFiddle"><a href="#JSFiddle" class="headerlink" title="JSFiddle"></a>JSFiddle</h2></blockquote>
-<p>点击<a href="http://jsfiddle.net/gnu1qqnq/" target="_blank" rel="external">此处</a>查看本教程在 JSFiddle 的示范代码。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一般情况下，&lt;code&gt;`元素（也包括一部分其他&lt;/code&gt;input&lt;code&gt;元素）是由操作系统（而非浏览器）进行渲染的。在不同操作系统下，这类特殊元素的样式往往和系统本身的风格一致，和浏览器无关。也正是由于这种机制，开发者无法像一般元素那样使用 CSS 来修饰这类元素。这里介绍一种利用纯 CSS 实现自定义 checkbox 样式的方法。思路很简单：由于控件所对应的&lt;/code&gt;label&lt;code&gt;元素是可以点击并切换控件状态的，而&lt;/code&gt;label&lt;code&gt;元素的样式又可以自由设定，因此我们可将&lt;/code&gt;input&lt;code&gt;元素隐藏，通过&lt;/code&gt;label`元素实现交互。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
-    
-    
-      <category term="HTML" scheme="http://yoursite.com/tags/HTML/"/>
-    
-      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
     
   </entry>
   
