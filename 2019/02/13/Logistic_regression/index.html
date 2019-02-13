@@ -122,7 +122,7 @@
 <meta name="description" content="逻辑回归与线性回归 线性回归：预测连续数值变量（明天上海的地面温度？） 逻辑回归：预测分类 (classification)（今天会不会考试？） 逻辑回归与线性回归有什么联系？ 从一个例子说起：获取数据，判断恶意订房">
 <meta name="keywords" content="Statistics,Machine Learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="最简单最实用：线性回归">
+<meta property="og:title" content="逻辑回归与代价函数">
 <meta property="og:url" content="http://yoursite.com/2019/02/13/Logistic_regression/index.html">
 <meta property="og:site_name" content="Gavin&#39;s Blog">
 <meta property="og:description" content="逻辑回归与线性回归 线性回归：预测连续数值变量（明天上海的地面温度？） 逻辑回归：预测分类 (classification)（今天会不会考试？） 逻辑回归与线性回归有什么联系？ 从一个例子说起：获取数据，判断恶意订房">
@@ -133,9 +133,9 @@
 <meta property="og:image" content="https://i.loli.net/2019/02/13/5c63adc67f71c.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/13/5c63ae7f9cb53.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/13/5c63adc67f71c.png">
-<meta property="og:updated_time" content="2019-02-13T05:58:57.987Z">
+<meta property="og:updated_time" content="2019-02-13T06:03:47.619Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="最简单最实用：线性回归">
+<meta name="twitter:title" content="逻辑回归与代价函数">
 <meta name="twitter:description" content="逻辑回归与线性回归 线性回归：预测连续数值变量（明天上海的地面温度？） 逻辑回归：预测分类 (classification)（今天会不会考试？） 逻辑回归与线性回归有什么联系？ 从一个例子说起：获取数据，判断恶意订房">
 <meta name="twitter:image" content="https://i.loli.net/2019/02/13/5c63afbb969c5.jpg">
 
@@ -173,7 +173,7 @@
 
 
 
-  <title>最简单最实用：线性回归 | Gavin's Blog</title>
+  <title>逻辑回归与代价函数 | Gavin's Blog</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -379,7 +379,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">最简单最实用：线性回归</h1>
+          <h1 class="post-title" itemprop="name headline">逻辑回归与代价函数</h1>
         
 
         <div class="post-meta">
@@ -503,7 +503,7 @@ p=\frac{1}{1+e^{-wx-a}} \qquad \qquad x\in\left ( -\infty , +\infty \right )</sc
 <p><img src="https://i.loli.net/2019/02/13/5c63ad7090a8d.png" width="700"></p>
 <p>进行拟合，对于这一种：<br><img src="https://i.loli.net/2019/02/13/5c63adc6820ec.png" width="700"><br>在拐点处无法求导，继而无法得到最值，于是我们选用平滑曲线代替<br><img src="https://i.loli.net/2019/02/13/5c63adc67f71c.png" width="700"></p>
 <p>可问题又来了<br><img src="https://i.loli.net/2019/02/13/5c63ae7f9cb53.png" width="700"><br>不同的参数，得到的不同的拟合结果，我们应该选用哪一个来做最优解呢？</p>
-<h2 id="3-寻找最合理的参数——Cost-Function"><a href="#3-寻找最合理的参数——Cost-Function" class="headerlink" title="3. 寻找最合理的参数——Cost Function"></a>3. 寻找最合理的参数——Cost Function</h2><p>我们的目的，是找到一个能让模型拟合结果更好的参数。方法就是设计一个<strong><em>Cost Function</em></strong>，让它来决定什么是好的模型。</p>
+<h2 id="3-寻找最合理的参数-——-Cost-Function"><a href="#3-寻找最合理的参数-——-Cost-Function" class="headerlink" title="3. 寻找最合理的参数 —— Cost Function"></a>3. 寻找最合理的参数 —— Cost Function</h2><p>我们的目的，是找到一个能让模型拟合结果更好的参数。方法就是设计一个<strong><em>Cost Function</em></strong>，让它来决定什么是好的模型。</p>
 <blockquote>
 <p>以下用 $h_\theta (x)$ 来指代<code>sigmoid function:</code>  $\frac{1}{1+e^{-\theta _1x^{i}-\theta _2}}$</p>
 </blockquote>
@@ -809,7 +809,7 @@ J(\theta) = \sum_{i=1}^{n}[-(1-y^{i})ln(1-h_\theta(x^{i}))-y^{i}ln(h_\theta (x^{
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑回归与线性回归"><span class="nav-number">1.</span> <span class="nav-text">逻辑回归与线性回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-从酒店订房说起"><span class="nav-number">2.</span> <span class="nav-text">1. 从酒店订房说起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何通过信用值等数据来预测恶意订房"><span class="nav-number">3.</span> <span class="nav-text">2. 如何通过信用值等数据来预测恶意订房</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-寻找最合理的参数——Cost-Function"><span class="nav-number">4.</span> <span class="nav-text">3. 寻找最合理的参数——Cost Function</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑回归与线性回归"><span class="nav-number">1.</span> <span class="nav-text">逻辑回归与线性回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-从酒店订房说起"><span class="nav-number">2.</span> <span class="nav-text">1. 从酒店订房说起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何通过信用值等数据来预测恶意订房"><span class="nav-number">3.</span> <span class="nav-text">2. 如何通过信用值等数据来预测恶意订房</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-寻找最合理的参数-——-Cost-Function"><span class="nav-number">4.</span> <span class="nav-text">3. 寻找最合理的参数 —— Cost Function</span></a></li></ol></div>
             
 
           </div>

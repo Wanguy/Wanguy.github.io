@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-13T05:58:57.987Z</updated>
+  <updated>2019-02-13T06:03:47.619Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>最简单最实用：线性回归</title>
+    <title>逻辑回归与代价函数</title>
     <link href="http://yoursite.com/2019/02/13/Logistic_regression/"/>
     <id>http://yoursite.com/2019/02/13/Logistic_regression/</id>
     <published>2019-02-13T03:39:26.176Z</published>
-    <updated>2019-02-13T05:58:57.987Z</updated>
+    <updated>2019-02-13T06:03:47.619Z</updated>
     
     <content type="html"><![CDATA[<h2 id="逻辑回归与线性回归"><a href="#逻辑回归与线性回归" class="headerlink" title="逻辑回归与线性回归"></a><em>逻辑回归与线性回归</em></h2><ul>
 <li>线性回归：预测连续数值变量（明天上海的地面温度？）</li>
@@ -64,7 +64,7 @@ p=\frac{1}{1+e^{-wx-a}} \qquad \qquad x\in\left ( -\infty , +\infty \right )</sc
 <p><img src="https://i.loli.net/2019/02/13/5c63ad7090a8d.png" width="700"></p>
 <p>进行拟合，对于这一种：<br><img src="https://i.loli.net/2019/02/13/5c63adc6820ec.png" width="700"><br>在拐点处无法求导，继而无法得到最值，于是我们选用平滑曲线代替<br><img src="https://i.loli.net/2019/02/13/5c63adc67f71c.png" width="700"></p>
 <p>可问题又来了<br><img src="https://i.loli.net/2019/02/13/5c63ae7f9cb53.png" width="700"><br>不同的参数，得到的不同的拟合结果，我们应该选用哪一个来做最优解呢？</p>
-<h2 id="3-寻找最合理的参数——Cost-Function"><a href="#3-寻找最合理的参数——Cost-Function" class="headerlink" title="3. 寻找最合理的参数——Cost Function"></a>3. 寻找最合理的参数——Cost Function</h2><p>我们的目的，是找到一个能让模型拟合结果更好的参数。方法就是设计一个<strong><em>Cost Function</em></strong>，让它来决定什么是好的模型。</p>
+<h2 id="3-寻找最合理的参数-——-Cost-Function"><a href="#3-寻找最合理的参数-——-Cost-Function" class="headerlink" title="3. 寻找最合理的参数 —— Cost Function"></a>3. 寻找最合理的参数 —— Cost Function</h2><p>我们的目的，是找到一个能让模型拟合结果更好的参数。方法就是设计一个<strong><em>Cost Function</em></strong>，让它来决定什么是好的模型。</p>
 <blockquote>
 <p>以下用 $h_\theta (x)$ 来指代<code>sigmoid function:</code>  $\frac{1}{1+e^{-\theta _1x^{i}-\theta _2}}$</p>
 </blockquote>
