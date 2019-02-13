@@ -119,13 +119,13 @@
 
 
 
-<meta name="description" content="0. 逻辑回归与线性回归 线性回归：预测连续数值变量（明天上海的地面温度？） 逻辑回归：预测分类 (classification)（今天会不会考试？） 逻辑回归与线性回归有什么联系？ 从一个例子说起：获取数据，判断恶意订房">
+<meta name="description" content="逻辑回归与线性回归 线性回归：预测连续数值变量（明天上海的地面温度？） 逻辑回归：预测分类 (classification)（今天会不会考试？） 逻辑回归与线性回归有什么联系？ 从一个例子说起：获取数据，判断恶意订房">
 <meta name="keywords" content="Statistics,Machine Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="最简单最实用：线性回归">
 <meta property="og:url" content="http://yoursite.com/2019/02/13/Logistic_regression/index.html">
 <meta property="og:site_name" content="Gavin&#39;s Blog">
-<meta property="og:description" content="0. 逻辑回归与线性回归 线性回归：预测连续数值变量（明天上海的地面温度？） 逻辑回归：预测分类 (classification)（今天会不会考试？） 逻辑回归与线性回归有什么联系？ 从一个例子说起：获取数据，判断恶意订房">
+<meta property="og:description" content="逻辑回归与线性回归 线性回归：预测连续数值变量（明天上海的地面温度？） 逻辑回归：预测分类 (classification)（今天会不会考试？） 逻辑回归与线性回归有什么联系？ 从一个例子说起：获取数据，判断恶意订房">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://i.loli.net/2019/02/13/5c63afbb969c5.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/02/13/5c63ad7090a8d.png">
@@ -133,10 +133,10 @@
 <meta property="og:image" content="https://i.loli.net/2019/02/13/5c63adc67f71c.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/13/5c63ae7f9cb53.png">
 <meta property="og:image" content="https://i.loli.net/2019/02/13/5c63adc67f71c.png">
-<meta property="og:updated_time" content="2019-02-13T05:56:12.381Z">
+<meta property="og:updated_time" content="2019-02-13T05:58:57.987Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最简单最实用：线性回归">
-<meta name="twitter:description" content="0. 逻辑回归与线性回归 线性回归：预测连续数值变量（明天上海的地面温度？） 逻辑回归：预测分类 (classification)（今天会不会考试？） 逻辑回归与线性回归有什么联系？ 从一个例子说起：获取数据，判断恶意订房">
+<meta name="twitter:description" content="逻辑回归与线性回归 线性回归：预测连续数值变量（明天上海的地面温度？） 逻辑回归：预测分类 (classification)（今天会不会考试？） 逻辑回归与线性回归有什么联系？ 从一个例子说起：获取数据，判断恶意订房">
 <meta name="twitter:image" content="https://i.loli.net/2019/02/13/5c63afbb969c5.jpg">
 
 
@@ -461,7 +461,7 @@
       
 
       
-        <h2 id="0-逻辑回归与线性回归"><a href="#0-逻辑回归与线性回归" class="headerlink" title="0. 逻辑回归与线性回归"></a>0. 逻辑回归与线性回归</h2><ul>
+        <h2 id="逻辑回归与线性回归"><a href="#逻辑回归与线性回归" class="headerlink" title="逻辑回归与线性回归"></a><em>逻辑回归与线性回归</em></h2><ul>
 <li>线性回归：预测连续数值变量（明天上海的地面温度？）</li>
 <li>逻辑回归：预测分类 (classification)（今天会不会考试？）</li>
 <li>逻辑回归与线性回归有什么联系？</li>
@@ -809,7 +809,7 @@ J(\theta) = \sum_{i=1}^{n}[-(1-y^{i})ln(1-h_\theta(x^{i}))-y^{i}ln(h_\theta (x^{
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-逻辑回归与线性回归"><span class="nav-number">1.</span> <span class="nav-text">0. 逻辑回归与线性回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-从酒店订房说起"><span class="nav-number">2.</span> <span class="nav-text">1. 从酒店订房说起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何通过信用值等数据来预测恶意订房"><span class="nav-number">3.</span> <span class="nav-text">2. 如何通过信用值等数据来预测恶意订房</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-寻找最合理的参数——Cost-Function"><span class="nav-number">4.</span> <span class="nav-text">3. 寻找最合理的参数——Cost Function</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑回归与线性回归"><span class="nav-number">1.</span> <span class="nav-text">逻辑回归与线性回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-从酒店订房说起"><span class="nav-number">2.</span> <span class="nav-text">1. 从酒店订房说起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何通过信用值等数据来预测恶意订房"><span class="nav-number">3.</span> <span class="nav-text">2. 如何通过信用值等数据来预测恶意订房</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-寻找最合理的参数——Cost-Function"><span class="nav-number">4.</span> <span class="nav-text">3. 寻找最合理的参数——Cost Function</span></a></li></ol></div>
             
 
           </div>

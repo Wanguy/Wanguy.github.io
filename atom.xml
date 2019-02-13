@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-13T05:56:12.381Z</updated>
+  <updated>2019-02-13T05:58:57.987Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://yoursite.com/2019/02/13/Logistic_regression/"/>
     <id>http://yoursite.com/2019/02/13/Logistic_regression/</id>
     <published>2019-02-13T03:39:26.176Z</published>
-    <updated>2019-02-13T05:56:12.381Z</updated>
+    <updated>2019-02-13T05:58:57.987Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="0-逻辑回归与线性回归"><a href="#0-逻辑回归与线性回归" class="headerlink" title="0. 逻辑回归与线性回归"></a>0. 逻辑回归与线性回归</h2><ul>
+    <content type="html"><![CDATA[<h2 id="逻辑回归与线性回归"><a href="#逻辑回归与线性回归" class="headerlink" title="逻辑回归与线性回归"></a><em>逻辑回归与线性回归</em></h2><ul>
 <li>线性回归：预测连续数值变量（明天上海的地面温度？）</li>
 <li>逻辑回归：预测分类 (classification)（今天会不会考试？）</li>
 <li>逻辑回归与线性回归有什么联系？</li>
@@ -132,7 +132,7 @@ J(\theta) = \sum_{i=1}^{n}[-(1-y^{i})ln(1-h_\theta(x^{i}))-y^{i}ln(h_\theta (x^{
     
     <summary type="html">
     
-      &lt;h2 id=&quot;0-逻辑回归与线性回归&quot;&gt;&lt;a href=&quot;#0-逻辑回归与线性回归&quot; class=&quot;headerlink&quot; title=&quot;0. 逻辑回归与线性回归&quot;&gt;&lt;/a&gt;0. 逻辑回归与线性回归&lt;/h2&gt;&lt;ul&gt;
+      &lt;h2 id=&quot;逻辑回归与线性回归&quot;&gt;&lt;a href=&quot;#逻辑回归与线性回归&quot; class=&quot;headerlink&quot; title=&quot;逻辑回归与线性回归&quot;&gt;&lt;/a&gt;&lt;em&gt;逻辑回归与线性回归&lt;/em&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;线性回归：预测连续数值变量（明天上海的地面温度？）&lt;/li&gt;
 &lt;li&gt;逻辑回归：预测分类 (classification)（今天会不会考试？）&lt;/li&gt;
 &lt;li&gt;逻辑回归与线性回归有什么联系？&lt;/li&gt;
@@ -406,35 +406,56 @@ R^2 = \frac{SSR}{SST}=1-\frac{SSE}{SST}
     <published>2018-06-18T14:16:25.971Z</published>
     <updated>2019-02-11T05:17:12.306Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="先从人均收入说起"><a href="#先从人均收入说起" class="headerlink" title="先从人均收入说起"></a>先从人均收入说起</h2><p>我们通常会统计一个地区的人均收入水平，以此来反应这个地区的经济发展水平。假设现在从一个地区，随机抽取1000人，统计他们的年收入，求和后除以1000，得到一个平均年收入：<br>$$<br>\overline{X}=\frac{1}{1000}\sum_{i=1}^{1000}X_i \qquad（X_i为第i个人的年收入）<br>$$<br>但是这里有一个显而易见的问题，由于每次随机抽取的样本不尽相同，导致算出的算术平均值每次都可能不同。例如第一次$\overline{X_1}=6200$，第二次$\overline{X_2}=6000$，第三次$\overline{X_3}=6100$……，这样得到的数据，让人不知道该相信哪个。</p>
+    <content type="html"><![CDATA[<h2 id="先从人均收入说起"><a href="#先从人均收入说起" class="headerlink" title="先从人均收入说起"></a>先从人均收入说起</h2><p>我们通常会统计一个地区的人均收入水平，以此来反应这个地区的经济发展水平。假设现在从一个地区，随机抽取1000人，统计他们的年收入，求和后除以1000，得到一个平均年收入：</p>
+<script type="math/tex; mode=display">
+\overline{X}=\frac{1}{1000}\sum_{i=1}^{1000}X_i \qquad（X_i为第i个人的年收入）</script><p>但是这里有一个显而易见的问题，由于每次随机抽取的样本不尽相同，导致算出的算术平均值每次都可能不同。例如第一次$\overline{X_1}=6200$，第二次$\overline{X_2}=6000$，第三次$\overline{X_3}=6100$……，这样得到的数据，让人不知道该相信哪个。</p>
 <a id="more"></a>
 <h2 id="从抽样到客观"><a href="#从抽样到客观" class="headerlink" title="从抽样到客观"></a>从抽样到客观</h2><p>通过以上的例子，我们得出了一个结论：以点估点是靠不住的，更何况在连续型随机变量中，取一个点的概率是测不到的。但是，这并不意味着平均收入值是不存在的。即一定有那么一个客观存在的值，不因抽样的不同而改变，我们不妨记这个数为 $\mu$ 。</p>
-<p>我们回到统计中，假设现在有一组灯泡，我们该如何去估计平均寿命呢？我们同样去抽取一组样本，测量它们的平均寿命 $\overline{X}$ ，虽然这个 $\overline{X}$ 不会正好就是 $\mu$ ，但是我们从常理可知，这个值应该与真实存在的 $\mu$ 相去不远。也就是说，在如果一组灯泡的真实平均寿命是1800小时，我们测得的平均值应该在1800左右，而不会出现例如20，100这样明显偏离的值。那么计算我们测得的 $\overline{X}$ 与 $\mu$ 的距离：<br>$$<br>|\overline{X}-\mu|<br>$$<br>然后计算这个距离小于某个值得概率：<br>$$<br>P(|\overline{X}-\mu|&lt;\Delta)=1-\alpha<br>$$<br>这里，我们便称 $1-\alpha$ 为<strong>置信度</strong>。通俗的解释就是可以相信你给出的这个数据的程度。假设取 $\alpha=0.01$ ，那么就表示为：有90%的把握相信这个概率会发生。在不同的行业，对置信度的精度要求不同。例如航空器材中，对每个零件的精度要求都很高，而相对于普通制衣工厂，对于布料尺寸的把控就没有那么严格。</p>
+<p>我们回到统计中，假设现在有一组灯泡，我们该如何去估计平均寿命呢？我们同样去抽取一组样本，测量它们的平均寿命 $\overline{X}$ ，虽然这个 $\overline{X}$ 不会正好就是 $\mu$ ，但是我们从常理可知，这个值应该与真实存在的 $\mu$ 相去不远。也就是说，在如果一组灯泡的真实平均寿命是1800小时，我们测得的平均值应该在1800左右，而不会出现例如20，100这样明显偏离的值。那么计算我们测得的 $\overline{X}$ 与 $\mu$ 的距离：</p>
+<script type="math/tex; mode=display">
+|\overline{X}-\mu|</script><p>然后计算这个距离小于某个值得概率：</p>
+<script type="math/tex; mode=display">
+P(|\overline{X}-\mu|<\Delta)=1-\alpha</script><p>这里，我们便称 $1-\alpha$ 为<strong>置信度</strong>。通俗的解释就是可以相信你给出的这个数据的程度。假设取 $\alpha=0.01$ ，那么就表示为：有90%的把握相信这个概率会发生。在不同的行业，对置信度的精度要求不同。例如航空器材中，对每个零件的精度要求都很高，而相对于普通制衣工厂，对于布料尺寸的把控就没有那么严格。</p>
 <h2 id="正态分布和标准化"><a href="#正态分布和标准化" class="headerlink" title="正态分布和标准化"></a>正态分布和标准化</h2><p>普天之下，所有的分布，最终都会归于正态分布：</p>
-<p>如果 $X$ 的概率密度为：<br>$$<br>f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \qquad (-\infty&lt;x&lt;+\infty)<br>$$</p>
-<p>其中 $-\infty&lt;\mu&lt;+\infty$ ，$\sigma&gt;0$ ，则称 $X$ 服从参数为 $(\mu,\sigma^2)$ 的<strong>正态分布</strong>，或称 $X$ 为<strong>正态变量</strong>，记 $X\sim N (\mu,\sigma^2)$ 。</p>
-<p>由于 $(\mu,\sigma^2)$ 的不同，所画出的函数图像也就不同，于是我们希望构造出一个标准化的形式，来研究他的属性。那么用 $X$ 减去自己的期望并除以标准差后，我们能得到 $X$ 的标准化形式，即：<br>$$<br>\frac{X-EX}{\sqrt{DX}}<br>$$<br>对于正态分布来说即为：<br>$$<br>\frac{X-\mu}{\sigma} \sim N(0,1)<br>$$<br><img src="https://lh3.googleusercontent.com/-oie8_LXV_5w/WyfmW2fLN8I/AAAAAAAABTE/Iqh_m3FLJmo6FhlXaCkzPUU41C9daTtzgCHMYCw/I/geogebra-export.png" alt="geogebra-export"><br>现在假设有一组数据：<br>$$<br>(x_1,x_2…x_n) \overset{iid}{\sim}N(\mu,\sigma^2)<br>$$<br>它的<br>$$<br>E\overline{X}=E\frac{(x_1+x_2+…+x_n)}{n}=\frac{1}{n}\cdot n\mu=\mu<br>$$</p>
-<p>$$<br>D\overline{X}=D\frac{(x_1+x_2+…+x_n)}{n}=\frac{1}{n^2}\cdot n\sigma^2=\frac{\sigma^2}{n}<br>$$</p>
-<p>平均值波动为原样本的 $\frac{1}{n}$ ，波动程度缩小，则 $\overline{X} \sim N(\mu, \frac{\sigma^2}{n})$ 。</p>
-<p>我们回到最开始的概率：<br>$$<br>P(|\overline{X}-\mu|&lt;\Delta)=1-\alpha<br>$$<br>通过上面的推导，我们欲对其标准化，因为 $\frac{\sigma^2}{n}&gt;0$ ，所以只需两端同时除以 $\frac{\sigma^2}{n}$ 即可<br>$$<br>P(|\frac{\overline{X}-\mu}{\frac{\sigma^2}{n}}|&lt; \frac{\Delta}{\frac{\sigma^2}{n}})=1-\alpha<br>$$<br>那么它就是一个服从标准正态分布的随机变量的概率分布。</p>
-<h2 id="区间估计"><a href="#区间估计" class="headerlink" title="区间估计"></a>区间估计</h2><p>为方便理解，我把上式中 $\frac{\overline{X}-\mu}{\frac{\sigma^2}{n}} $ 记为 $U$ ，把 $\frac{\Delta}{\frac{\sigma^2}{n}}$ 记为 $Q \quad (Q为常数)$<br>$$<br>P(\vert U \vert &lt; Q)=1-\alpha<br>$$</p>
-<p>$$<br>P(-Q&lt;U&lt;Q)=1-\alpha<br>$$</p>
-<p>根据上 $\alpha$ 分位数，$\alpha$ 的下标代表图像右侧的面积<br><img src="https://lh3.googleusercontent.com/-BqUKrbsLS9s/WyfmQOvYCYI/AAAAAAAABS8/Q-00W59fTEo_JbbultPoksKdKklHG4gfQCHMYCw/I/geogebra-export%2B%25281%2529.png" alt="geogebra-export -1-"></p>
-<p>$$<br>P(\vert U \vert &lt; U_\frac{\alpha}{2})=1-\alpha<br>$$</p>
-<p>则</p>
-<p>$$<br>\frac{\Delta}{\frac{\sigma}{\sqrt{n}}}=U_\frac{\alpha}{2}<br>$$</p>
-<p>$$<br>\Delta=U_\frac{\alpha}{2} \cdot \frac{\sigma}{\sqrt{n}}<br>$$</p>
-<p>代回原式</p>
-<p>$$<br>P(|\overline{X}-\mu|&lt;U_\frac{\alpha}{2} \cdot \frac{\sigma}{\sqrt{n}})=1-\alpha<br>$$</p>
-<p>这里的意思就为</p>
-<p>$$<br>P(\vert 一次抽样的均值 - 客观存在的均值 \vert &lt; 常数)=1-\alpha<br>$$</p>
-<p><img src="https://lh3.googleusercontent.com/-gga_EEQ1wrQ/WyfuSFWq3CI/AAAAAAAABTU/q9ljbHeSAx8xtBhI6WoUEDJG3usYFQs6ACHMYCw/I/geogebra-export%2B%25283%2529.png" alt="geogebra-export -3-"></p>
+<p>如果 $X$ 的概率密度为：</p>
+<script type="math/tex; mode=display">
+f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \qquad (-\infty<x<+\infty)</script><p>其中 $-\infty&lt;\mu&lt;+\infty$ ，$\sigma&gt;0$ ，则称 $X$ 服从参数为 $(\mu,\sigma^2)$ 的<strong>正态分布</strong>，或称 $X$ 为<strong>正态变量</strong>，记 $X\sim N (\mu,\sigma^2)$ 。</p>
+<p>由于 $(\mu,\sigma^2)$ 的不同，所画出的函数图像也就不同，于是我们希望构造出一个标准化的形式，来研究他的属性。那么用 $X$ 减去自己的期望并除以标准差后，我们能得到 $X$ 的标准化形式，即：</p>
+<script type="math/tex; mode=display">
+\frac{X-EX}{\sqrt{DX}}</script><p>对于正态分布来说即为：</p>
+<script type="math/tex; mode=display">
+\frac{X-\mu}{\sigma} \sim N(0,1)</script><p><img src="https://lh3.googleusercontent.com/-oie8_LXV_5w/WyfmW2fLN8I/AAAAAAAABTE/Iqh_m3FLJmo6FhlXaCkzPUU41C9daTtzgCHMYCw/I/geogebra-export.png" alt="geogebra-export"><br>现在假设有一组数据：</p>
+<script type="math/tex; mode=display">
+(x_1,x_2...x_n) \overset{iid}{\sim}N(\mu,\sigma^2)</script><p>它的</p>
+<script type="math/tex; mode=display">
+E\overline{X}=E\frac{(x_1+x_2+...+x_n)}{n}=\frac{1}{n}\cdot n\mu=\mu</script><script type="math/tex; mode=display">
+D\overline{X}=D\frac{(x_1+x_2+...+x_n)}{n}=\frac{1}{n^2}\cdot n\sigma^2=\frac{\sigma^2}{n}</script><p>平均值波动为原样本的 $\frac{1}{n}$ ，波动程度缩小，则 $\overline{X} \sim N(\mu, \frac{\sigma^2}{n})$ 。</p>
+<p>我们回到最开始的概率：</p>
+<script type="math/tex; mode=display">
+P(|\overline{X}-\mu|<\Delta)=1-\alpha</script><p>通过上面的推导，我们欲对其标准化，因为 $\frac{\sigma^2}{n}&gt;0$ ，所以只需两端同时除以 $\frac{\sigma^2}{n}$ 即可</p>
+<script type="math/tex; mode=display">
+P(|\frac{\overline{X}-\mu}{\frac{\sigma^2}{n}}|< \frac{\Delta}{\frac{\sigma^2}{n}})=1-\alpha</script><p>那么它就是一个服从标准正态分布的随机变量的概率分布。</p>
+<h2 id="区间估计"><a href="#区间估计" class="headerlink" title="区间估计"></a>区间估计</h2><p>为方便理解，我把上式中 $\frac{\overline{X}-\mu}{\frac{\sigma^2}{n}} $ 记为 $U$ ，把 $\frac{\Delta}{\frac{\sigma^2}{n}}$ 记为 $Q \quad (Q为常数)$ </p>
+<script type="math/tex; mode=display">
+P(\vert U \vert < Q)=1-\alpha</script><script type="math/tex; mode=display">
+P(-Q<U<Q)=1-\alpha</script><p>根据上 $\alpha$ 分位数，$\alpha$ 的下标代表图像右侧的面积<br><img src="https://lh3.googleusercontent.com/-BqUKrbsLS9s/WyfmQOvYCYI/AAAAAAAABS8/Q-00W59fTEo_JbbultPoksKdKklHG4gfQCHMYCw/I/geogebra-export%2B%25281%2529.png" alt="geogebra-export -1-"></p>
+<script type="math/tex; mode=display">
+P(\vert U \vert < U_\frac{\alpha}{2})=1-\alpha</script><p>则</p>
+<script type="math/tex; mode=display">
+\frac{\Delta}{\frac{\sigma}{\sqrt{n}}}=U_\frac{\alpha}{2}</script><script type="math/tex; mode=display">
+\Delta=U_\frac{\alpha}{2} \cdot \frac{\sigma}{\sqrt{n}}</script><p>代回原式</p>
+<script type="math/tex; mode=display">
+P(|\overline{X}-\mu|<U_\frac{\alpha}{2} \cdot \frac{\sigma}{\sqrt{n}})=1-\alpha</script><p>这里的意思就为</p>
+<script type="math/tex; mode=display">
+P(\vert 一次抽样的均值 - 客观存在的均值 \vert < 常数)=1-\alpha</script><p><img src="https://lh3.googleusercontent.com/-gga_EEQ1wrQ/WyfuSFWq3CI/AAAAAAAABTU/q9ljbHeSAx8xtBhI6WoUEDJG3usYFQs6ACHMYCw/I/geogebra-export%2B%25283%2529.png" alt="geogebra-export -3-"></p>
 <p>也就是落入 $(\overline{X}-δ,\overline{X}+δ)$ 之间的概率，即叫做<strong>区间估计</strong>。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;先从人均收入说起&quot;&gt;&lt;a href=&quot;#先从人均收入说起&quot; class=&quot;headerlink&quot; title=&quot;先从人均收入说起&quot;&gt;&lt;/a&gt;先从人均收入说起&lt;/h2&gt;&lt;p&gt;我们通常会统计一个地区的人均收入水平，以此来反应这个地区的经济发展水平。假设现在从一个地区，随机抽取1000人，统计他们的年收入，求和后除以1000，得到一个平均年收入：&lt;br&gt;$$&lt;br&gt;\overline{X}=\frac{1}{1000}\sum_{i=1}^{1000}X_i \qquad（X_i为第i个人的年收入）&lt;br&gt;$$&lt;br&gt;但是这里有一个显而易见的问题，由于每次随机抽取的样本不尽相同，导致算出的算术平均值每次都可能不同。例如第一次$\overline{X_1}=6200$，第二次$\overline{X_2}=6000$，第三次$\overline{X_3}=6100$……，这样得到的数据，让人不知道该相信哪个。&lt;/p&gt;
+      &lt;h2 id=&quot;先从人均收入说起&quot;&gt;&lt;a href=&quot;#先从人均收入说起&quot; class=&quot;headerlink&quot; title=&quot;先从人均收入说起&quot;&gt;&lt;/a&gt;先从人均收入说起&lt;/h2&gt;&lt;p&gt;我们通常会统计一个地区的人均收入水平，以此来反应这个地区的经济发展水平。假设现在从一个地区，随机抽取1000人，统计他们的年收入，求和后除以1000，得到一个平均年收入：&lt;/p&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+\overline{X}=\frac{1}{1000}\sum_{i=1}^{1000}X_i \qquad（X_i为第i个人的年收入）&lt;/script&gt;&lt;p&gt;但是这里有一个显而易见的问题，由于每次随机抽取的样本不尽相同，导致算出的算术平均值每次都可能不同。例如第一次$\overline{X_1}=6200$，第二次$\overline{X_2}=6000$，第三次$\overline{X_3}=6100$……，这样得到的数据，让人不知道该相信哪个。&lt;/p&gt;
     
     </summary>
     
@@ -1300,12 +1321,18 @@ R^2 = \frac{SSR}{SST}=1-\frac{SSE}{SST}
 </blockquote>
 <h2 id="数学原理"><a href="#数学原理" class="headerlink" title="数学原理"></a>数学原理</h2><p>支持向量机的原理是在高维甚至无限维空间中构建一个超平面或者若干超平面组成的集合，并藉此用于分类、回归或其它任务。从直觉上来讲，好的分隔面是由使得函数间隔最大的超平面得到（即该超平面到任何类别最近训练数据点的距离都取得最大值），因为总体上来讲，间隔越大，分类器的泛化误差越小。</p>
 <p><img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_separating_hyperplane_0011.png" alt="sphx_glr_plot_separating_hyperplane_0011"></p>
-<h3 id="SVC"><a href="#SVC" class="headerlink" title="SVC"></a>SVC</h3><p>给定可能属于某两种类别的训练向量 $x_i \in \mathbb{R},  i=1,2,…,n$ 和向量 $y \in \left{ 1,-1 \right}^{n}$ ，SVC解决的首要问题是</p>
-<p>$$<br>\min_{\omega ,b,\zeta} \frac{1}{2}\omega^{T}\omega + C \sum_{i=1}^{n}\zeta_i \\<br>subject  to  y_i (\omega^{T}\phi(x_i)+b) \geqslant 1-\zeta_i, \\<br>\zeta_i \geqslant 0,i=1,2,…,n<br>$$</p>
-<p>其对偶形式为</p>
-<p>$$<br>\min_{\alpha} \frac{1}{2} \alpha^{T}Q\alpha-e^{T}\alpha \\<br>subject to y^{T}\alpha=0\\<br>0 \leqslant \alpha_i \leqslant C,i=1,2,…,n<br>$$<br>其中 $e$ 是全 $1$ 向量， $C &gt; 0$ 是上界， $Q$ 是一个半正定矩阵，$Q_{ij} \equiv y_i y_j K(x_i,x_j)$ ，其中 $K(x_i,x_j) \equiv \phi(x_i)^{T} \phi(x_j)$ 是核。这里训练向量通过函数被隐式映射到一个高维（甚至无限维）空间 $\phi$ 。</p>
+<h3 id="SVC"><a href="#SVC" class="headerlink" title="SVC"></a>SVC</h3><p>给定可能属于某两种类别的训练向量 $x_i \in \mathbb{R},  i=1,2,…,n$ 和向量 $y \in \left\{ 1,-1 \right\}^{n}$ ，SVC解决的首要问题是</p>
+<script type="math/tex; mode=display">
+\min_{\omega ,b,\zeta} \frac{1}{2}\omega^{T}\omega + C \sum_{i=1}^{n}\zeta_i \\
+subject \ to \ y_i (\omega^{T}\phi(x_i)+b) \geqslant 1-\zeta_i, \\
+\zeta_i \geqslant 0,i=1,2,...,n</script><p>其对偶形式为</p>
+<script type="math/tex; mode=display">
+\min_{\alpha} \frac{1}{2} \alpha^{T}Q\alpha-e^{T}\alpha \\
+subject\ to\ y^{T}\alpha=0\\
+0 \leqslant \alpha_i \leqslant C,i=1,2,...,n</script><p>其中 $e$ 是全 $1$ 向量， $C &gt; 0$ 是上界， $Q$ 是一个半正定矩阵，$Q_{ij} \equiv y_i y_j K(x_i,x_j)$ ，其中 $K(x_i,x_j) \equiv \phi(x_i)^{T} \phi(x_j)$ 是核。这里训练向量通过函数被隐式映射到一个高维（甚至无限维）空间 $\phi$ 。</p>
 <p>决策函数是 <strong>注意</strong>：虽然从<a href="http://www.csie.ntu.edu.tw/~cjlin/libsvm/" target="_blank" rel="external"><code>libsvm</code></a>和<a href="http://www.csie.ntu.edu.tw/~cjlin/liblinear/" target="_blank" rel="external"><code>liblinear</code></a>导出的SVM模型使用 $C$ 作为正则化参数，但实际上其它更多预测器使用的是<code>alpha</code>。这两个参数之间的关系是</p>
-<p>$$<br>\mathop{\rm sgn}(\sum_{i=1}^n y_i \alpha_i K(x_i,x_j)+\rho)<br>$$<br>这些参数可以通过各个成员变量访问：<code>dual_coef_</code>存放乘积，<code>support_vectors</code>存放支持向量，<code>intercept_</code>存放独立项：</p>
+<script type="math/tex; mode=display">
+\mathop{\rm sgn}(\sum_{i=1}^n y_i \alpha_i K(x_i,x_j)+\rho)</script><p>这些参数可以通过各个成员变量访问：<code>dual_coef_</code>存放乘积，<code>support_vectors</code>存放支持向量，<code>intercept_</code>存放独立项：</p>
 <blockquote>
 <p>参考文献：</p>
 <ul>
@@ -1315,9 +1342,19 @@ R^2 = \frac{SSR}{SST}=1-\frac{SSE}{SST}
 </blockquote>
 <h3 id="NuSVC"><a href="#NuSVC" class="headerlink" title="NuSVC"></a>NuSVC</h3><p>其提供了一个新的参数，控制支持向量的个数和训练误差。参数 $v \in \left (0,1 \right ]$ 是训练误差的上限和支持向量的下限。</p>
 <p>可以看到<code>v-SVC</code>是<code>C-SVC</code>的一种重参数化形式，因此两者在数学上是等价的。</p>
-<h3 id="SVR"><a href="#SVR" class="headerlink" title="SVR"></a>SVR</h3><p>给定训练向量组 $x_i \in \mathbb{R}^p , i=1,2,…,n$ 和向量 $y \in \mathbb{R}^n , \varepsilon-SVR$ 要解决的主要问题如下所示：<br>$$<br>\min_{\omega ,b,\zeta, \zeta^<em>} \frac{1}{2}\omega^{T}\omega + C \sum_{i=1}^{n}(\zeta_i+\zeta^</em>) \\<br>subject  to  y_i - \omega^T \phi(x_i) - b \leqslant \varepsilon + \zeta_i, \\<br>\omega^T \phi(x_i) + b - y_i \leqslant \varepsilon + \zeta_i^<em>, \\<br>\zeta_i, \zeta_{i}^</em> \geqslant 0,i=1,2,…,n<br>$$<br>其对偶为<br>$$<br>\min_{\alpha, \alpha^<em>} \frac{1}{2} (\alpha - \alpha^</em>)^{T}Q(\alpha - \alpha^<em>) + \varepsilon e^T (\alpha + \alpha^</em>) -y^T (\alpha - \alpha^<em>)\\<br>subject to e^{T} (\alpha - \alpha^</em>) =0\\<br>0 \leqslant \alpha_i,\alpha_i^* \leqslant C,i=1,2,…,n<br>$$<br>其中 $e$ 是全 $1$ 向量，$C &gt; 0$ 是上界，$Q$ 是一个半正定矩阵， $Q_{ij} \equiv K(x_i,x_j) = \phi(x_i)^T \phi(x_j)$ 是内核。这里训练向量通过函数被隐式映射到一个高维（甚至无限维）空间 $\phi$ 。</p>
+<h3 id="SVR"><a href="#SVR" class="headerlink" title="SVR"></a>SVR</h3><p>给定训练向量组 $x_i \in \mathbb{R}^p , i=1,2,…,n$ 和向量 $y \in \mathbb{R}^n , \varepsilon-SVR$ 要解决的主要问题如下所示：</p>
+<script type="math/tex; mode=display">
+\min_{\omega ,b,\zeta, \zeta^*} \frac{1}{2}\omega^{T}\omega + C \sum_{i=1}^{n}(\zeta_i+\zeta^*) \\
+subject \ to \ y_i - \omega^T \phi(x_i) - b \leqslant \varepsilon + \zeta_i, \\
+\omega^T \phi(x_i) + b - y_i \leqslant \varepsilon + \zeta_i^*, \\
+\zeta_i, \zeta_{i}^* \geqslant 0,i=1,2,...,n</script><p>其对偶为</p>
+<script type="math/tex; mode=display">
+\min_{\alpha, \alpha^*} \frac{1}{2} (\alpha - \alpha^*)^{T}Q(\alpha - \alpha^*) + \varepsilon e^T (\alpha + \alpha^*) -y^T (\alpha - \alpha^*)\\
+subject\ to\ e^{T} (\alpha - \alpha^*) =0\\
+0 \leqslant \alpha_i,\alpha_i^* \leqslant C,i=1,2,...,n</script><p>其中 $e$ 是全 $1$ 向量，$C &gt; 0$ 是上界，$Q$ 是一个半正定矩阵， $Q_{ij} \equiv K(x_i,x_j) = \phi(x_i)^T \phi(x_j)$ 是内核。这里训练向量通过函数被隐式映射到一个高维（甚至无限维）空间 $\phi$ 。</p>
 <p>决策函数为</p>
-<p>$$<br>\sum_{i=1}^n (\alpha - \alpha^<em>)K(x_i,x) + \rho<br>$$<br>这些参数可以通过各个成员变量访问。其保持的差 $\alpha - \alpha^</em>$ ，其中变量<code>dual_coef_</code>存储，<code>support_vectors_</code>存储支持向量，<code>intercept_</code>存储独立项 $\rho$ 。</p>
+<script type="math/tex; mode=display">
+\sum_{i=1}^n (\alpha - \alpha^*)K(x_i,x) + \rho</script><p>这些参数可以通过各个成员变量访问。其保持的差 $\alpha - \alpha^*$ ，其中变量<code>dual_coef_</code>存储，<code>support_vectors_</code>存储支持向量，<code>intercept_</code>存储独立项 $\rho$ 。</p>
 <blockquote>
 <p>参考文献：</p>
 <ul>
@@ -1381,7 +1418,8 @@ R^2 = \frac{SSR}{SST}=1-\frac{SSE}{SST}
 <p><code>SELECT [ALL | DISTINCT] &lt;目标列表达式&gt; FROM &lt;表名或视图名&gt; (&lt;SELECT 语句&gt;) [AS] &lt;别名&gt; [WHERE&lt;条件表达式&gt;]</code></p>
 <a id="more"></a>
 <p>以下操作，都以下表为模型。</p>
-<h5 id="Student"><a href="#Student" class="headerlink" title="Student"></a>Student</h5><table>
+<h5 id="Student"><a href="#Student" class="headerlink" title="Student"></a>Student</h5><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:center">Sno</th>
@@ -1422,7 +1460,9 @@ R^2 = \frac{SSR}{SST}=1-\frac{SSE}{SST}
 </tr>
 </tbody>
 </table>
-<h5 id="Course"><a href="#Course" class="headerlink" title="Course"></a>Course</h5><table>
+</div>
+<h5 id="Course"><a href="#Course" class="headerlink" title="Course"></a>Course</h5><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:center">Cno</th>
@@ -1476,7 +1516,9 @@ R^2 = \frac{SSR}{SST}=1-\frac{SSE}{SST}
 </tr>
 </tbody>
 </table>
-<h5 id="SC"><a href="#SC" class="headerlink" title="SC"></a>SC</h5><table>
+</div>
+<h5 id="SC"><a href="#SC" class="headerlink" title="SC"></a>SC</h5><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:center">Sno</th>
@@ -1512,6 +1554,7 @@ R^2 = \frac{SSR}{SST}=1-\frac{SSE}{SST}
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h2><h3 id="选择表中的若干列"><a href="#选择表中的若干列" class="headerlink" title="选择表中的若干列"></a>选择表中的若干列</h3><p>选择表中的全部或若干列即关系代数的投影运算。</p>
 <h4 id="查询指定列"><a href="#查询指定列" class="headerlink" title="查询指定列"></a>查询指定列</h4><h5 id="查询全体学生的学号和姓名"><a href="#查询全体学生的学号和姓名" class="headerlink" title="查询全体学生的学号和姓名"></a>查询全体学生的学号和姓名</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNO, SNAME </div><div class="line"><span class="keyword">from</span> Student;</div></pre></td></tr></table></figure>
 <blockquote>
@@ -1553,6 +1596,7 @@ R^2 = \frac{SSR}{SST}=1-\frac{SSE}{SST}
 <h3 id="ORDER-BY-子句"><a href="#ORDER-BY-子句" class="headerlink" title="ORDER BY 子句"></a>ORDER BY 子句</h3><p>可以用<code>ORDER BY</code>子句对查询结果进行升序（<code>ASC</code>）或降序（<code>DESC</code>）排列。默认为升序。</p>
 <h6 id="查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。"><a href="#查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。" class="headerlink" title="查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。"></a>查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNO, Grade </div><div class="line"><span class="keyword">from</span> SC</div><div class="line"><span class="keyword">where</span> Cno=<span class="string">'3'</span></div><div class="line"><span class="keyword">order</span> <span class="keyword">by</span> GRADE <span class="keyword">desc</span>;</div></pre></td></tr></table></figure>
 <h3 id="聚集函数"><a href="#聚集函数" class="headerlink" title="聚集函数"></a>聚集函数</h3><p>为进一步方便用户，增强检索功能，SQL提供了如下聚集函数：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1587,6 +1631,7 @@ R^2 = \frac{SSR}{SST}=1-\frac{SSE}{SST}
 </tr>
 </tbody>
 </table>
+</div>
 <h6 id="查询学生总人数"><a href="#查询学生总人数" class="headerlink" title="查询学生总人数"></a>查询学生总人数</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*)</div><div class="line"><span class="keyword">from</span> Student;</div></pre></td></tr></table></figure>
 <h6 id="查询选修了课程的学生人数"><a href="#查询选修了课程的学生人数" class="headerlink" title="查询选修了课程的学生人数"></a>查询选修了课程的学生人数</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">count</span>(<span class="keyword">distinct</span> SNO)</div><div class="line"><span class="keyword">from</span> SC;</div></pre></td></tr></table></figure>
 <h6 id="计算选修1号课程的学生平均成绩"><a href="#计算选修1号课程的学生平均成绩" class="headerlink" title="计算选修1号课程的学生平均成绩"></a>计算选修1号课程的学生平均成绩</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(Grade)</div><div class="line"><span class="keyword">from</span> SC</div><div class="line"><span class="keyword">where</span> SNO=<span class="string">'1'</span>;</div></pre></td></tr></table></figure>

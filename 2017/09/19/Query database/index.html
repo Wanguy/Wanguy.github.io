@@ -458,7 +458,8 @@
 <p><code>SELECT [ALL | DISTINCT] &lt;目标列表达式&gt; FROM &lt;表名或视图名&gt; (&lt;SELECT 语句&gt;) [AS] &lt;别名&gt; [WHERE&lt;条件表达式&gt;]</code></p>
 <a id="more"></a>
 <p>以下操作，都以下表为模型。</p>
-<h5 id="Student"><a href="#Student" class="headerlink" title="Student"></a>Student</h5><table>
+<h5 id="Student"><a href="#Student" class="headerlink" title="Student"></a>Student</h5><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:center">Sno</th>
@@ -499,7 +500,9 @@
 </tr>
 </tbody>
 </table>
-<h5 id="Course"><a href="#Course" class="headerlink" title="Course"></a>Course</h5><table>
+</div>
+<h5 id="Course"><a href="#Course" class="headerlink" title="Course"></a>Course</h5><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:center">Cno</th>
@@ -553,7 +556,9 @@
 </tr>
 </tbody>
 </table>
-<h5 id="SC"><a href="#SC" class="headerlink" title="SC"></a>SC</h5><table>
+</div>
+<h5 id="SC"><a href="#SC" class="headerlink" title="SC"></a>SC</h5><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:center">Sno</th>
@@ -589,6 +594,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h2><h3 id="选择表中的若干列"><a href="#选择表中的若干列" class="headerlink" title="选择表中的若干列"></a>选择表中的若干列</h3><p>选择表中的全部或若干列即关系代数的投影运算。</p>
 <h4 id="查询指定列"><a href="#查询指定列" class="headerlink" title="查询指定列"></a>查询指定列</h4><h5 id="查询全体学生的学号和姓名"><a href="#查询全体学生的学号和姓名" class="headerlink" title="查询全体学生的学号和姓名"></a>查询全体学生的学号和姓名</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNO, SNAME </div><div class="line"><span class="keyword">from</span> Student;</div></pre></td></tr></table></figure>
 <blockquote>
@@ -630,6 +636,7 @@
 <h3 id="ORDER-BY-子句"><a href="#ORDER-BY-子句" class="headerlink" title="ORDER BY 子句"></a>ORDER BY 子句</h3><p>可以用<code>ORDER BY</code>子句对查询结果进行升序（<code>ASC</code>）或降序（<code>DESC</code>）排列。默认为升序。</p>
 <h6 id="查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。"><a href="#查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。" class="headerlink" title="查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。"></a>查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNO, Grade </div><div class="line"><span class="keyword">from</span> SC</div><div class="line"><span class="keyword">where</span> Cno=<span class="string">'3'</span></div><div class="line"><span class="keyword">order</span> <span class="keyword">by</span> GRADE <span class="keyword">desc</span>;</div></pre></td></tr></table></figure>
 <h3 id="聚集函数"><a href="#聚集函数" class="headerlink" title="聚集函数"></a>聚集函数</h3><p>为进一步方便用户，增强检索功能，SQL提供了如下聚集函数：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -664,6 +671,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h6 id="查询学生总人数"><a href="#查询学生总人数" class="headerlink" title="查询学生总人数"></a>查询学生总人数</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*)</div><div class="line"><span class="keyword">from</span> Student;</div></pre></td></tr></table></figure>
 <h6 id="查询选修了课程的学生人数"><a href="#查询选修了课程的学生人数" class="headerlink" title="查询选修了课程的学生人数"></a>查询选修了课程的学生人数</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">count</span>(<span class="keyword">distinct</span> SNO)</div><div class="line"><span class="keyword">from</span> SC;</div></pre></td></tr></table></figure>
 <h6 id="计算选修1号课程的学生平均成绩"><a href="#计算选修1号课程的学生平均成绩" class="headerlink" title="计算选修1号课程的学生平均成绩"></a>计算选修1号课程的学生平均成绩</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(Grade)</div><div class="line"><span class="keyword">from</span> SC</div><div class="line"><span class="keyword">where</span> SNO=<span class="string">'1'</span>;</div></pre></td></tr></table></figure>

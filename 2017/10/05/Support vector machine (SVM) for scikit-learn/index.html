@@ -579,12 +579,18 @@
 </blockquote>
 <h2 id="数学原理"><a href="#数学原理" class="headerlink" title="数学原理"></a>数学原理</h2><p>支持向量机的原理是在高维甚至无限维空间中构建一个超平面或者若干超平面组成的集合，并藉此用于分类、回归或其它任务。从直觉上来讲，好的分隔面是由使得函数间隔最大的超平面得到（即该超平面到任何类别最近训练数据点的距离都取得最大值），因为总体上来讲，间隔越大，分类器的泛化误差越小。</p>
 <p><img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_separating_hyperplane_0011.png" alt="sphx_glr_plot_separating_hyperplane_0011"></p>
-<h3 id="SVC"><a href="#SVC" class="headerlink" title="SVC"></a>SVC</h3><p>给定可能属于某两种类别的训练向量 $x_i \in \mathbb{R},  i=1,2,…,n$ 和向量 $y \in \left{ 1,-1 \right}^{n}$ ，SVC解决的首要问题是</p>
-<p>$$<br>\min_{\omega ,b,\zeta} \frac{1}{2}\omega^{T}\omega + C \sum_{i=1}^{n}\zeta_i \\<br>subject  to  y_i (\omega^{T}\phi(x_i)+b) \geqslant 1-\zeta_i, \\<br>\zeta_i \geqslant 0,i=1,2,…,n<br>$$</p>
-<p>其对偶形式为</p>
-<p>$$<br>\min_{\alpha} \frac{1}{2} \alpha^{T}Q\alpha-e^{T}\alpha \\<br>subject to y^{T}\alpha=0\\<br>0 \leqslant \alpha_i \leqslant C,i=1,2,…,n<br>$$<br>其中 $e$ 是全 $1$ 向量， $C &gt; 0$ 是上界， $Q$ 是一个半正定矩阵，$Q_{ij} \equiv y_i y_j K(x_i,x_j)$ ，其中 $K(x_i,x_j) \equiv \phi(x_i)^{T} \phi(x_j)$ 是核。这里训练向量通过函数被隐式映射到一个高维（甚至无限维）空间 $\phi$ 。</p>
+<h3 id="SVC"><a href="#SVC" class="headerlink" title="SVC"></a>SVC</h3><p>给定可能属于某两种类别的训练向量 $x_i \in \mathbb{R},  i=1,2,…,n$ 和向量 $y \in \left\{ 1,-1 \right\}^{n}$ ，SVC解决的首要问题是</p>
+<script type="math/tex; mode=display">
+\min_{\omega ,b,\zeta} \frac{1}{2}\omega^{T}\omega + C \sum_{i=1}^{n}\zeta_i \\
+subject \ to \ y_i (\omega^{T}\phi(x_i)+b) \geqslant 1-\zeta_i, \\
+\zeta_i \geqslant 0,i=1,2,...,n</script><p>其对偶形式为</p>
+<script type="math/tex; mode=display">
+\min_{\alpha} \frac{1}{2} \alpha^{T}Q\alpha-e^{T}\alpha \\
+subject\ to\ y^{T}\alpha=0\\
+0 \leqslant \alpha_i \leqslant C,i=1,2,...,n</script><p>其中 $e$ 是全 $1$ 向量， $C &gt; 0$ 是上界， $Q$ 是一个半正定矩阵，$Q_{ij} \equiv y_i y_j K(x_i,x_j)$ ，其中 $K(x_i,x_j) \equiv \phi(x_i)^{T} \phi(x_j)$ 是核。这里训练向量通过函数被隐式映射到一个高维（甚至无限维）空间 $\phi$ 。</p>
 <p>决策函数是 <strong>注意</strong>：虽然从<a href="http://www.csie.ntu.edu.tw/~cjlin/libsvm/" target="_blank" rel="external"><code>libsvm</code></a>和<a href="http://www.csie.ntu.edu.tw/~cjlin/liblinear/" target="_blank" rel="external"><code>liblinear</code></a>导出的SVM模型使用 $C$ 作为正则化参数，但实际上其它更多预测器使用的是<code>alpha</code>。这两个参数之间的关系是</p>
-<p>$$<br>\mathop{\rm sgn}(\sum_{i=1}^n y_i \alpha_i K(x_i,x_j)+\rho)<br>$$<br>这些参数可以通过各个成员变量访问：<code>dual_coef_</code>存放乘积，<code>support_vectors</code>存放支持向量，<code>intercept_</code>存放独立项：</p>
+<script type="math/tex; mode=display">
+\mathop{\rm sgn}(\sum_{i=1}^n y_i \alpha_i K(x_i,x_j)+\rho)</script><p>这些参数可以通过各个成员变量访问：<code>dual_coef_</code>存放乘积，<code>support_vectors</code>存放支持向量，<code>intercept_</code>存放独立项：</p>
 <blockquote>
 <p>参考文献：</p>
 <ul>
@@ -594,9 +600,19 @@
 </blockquote>
 <h3 id="NuSVC"><a href="#NuSVC" class="headerlink" title="NuSVC"></a>NuSVC</h3><p>其提供了一个新的参数，控制支持向量的个数和训练误差。参数 $v \in \left (0,1 \right ]$ 是训练误差的上限和支持向量的下限。</p>
 <p>可以看到<code>v-SVC</code>是<code>C-SVC</code>的一种重参数化形式，因此两者在数学上是等价的。</p>
-<h3 id="SVR"><a href="#SVR" class="headerlink" title="SVR"></a>SVR</h3><p>给定训练向量组 $x_i \in \mathbb{R}^p , i=1,2,…,n$ 和向量 $y \in \mathbb{R}^n , \varepsilon-SVR$ 要解决的主要问题如下所示：<br>$$<br>\min_{\omega ,b,\zeta, \zeta^<em>} \frac{1}{2}\omega^{T}\omega + C \sum_{i=1}^{n}(\zeta_i+\zeta^</em>) \\<br>subject  to  y_i - \omega^T \phi(x_i) - b \leqslant \varepsilon + \zeta_i, \\<br>\omega^T \phi(x_i) + b - y_i \leqslant \varepsilon + \zeta_i^<em>, \\<br>\zeta_i, \zeta_{i}^</em> \geqslant 0,i=1,2,…,n<br>$$<br>其对偶为<br>$$<br>\min_{\alpha, \alpha^<em>} \frac{1}{2} (\alpha - \alpha^</em>)^{T}Q(\alpha - \alpha^<em>) + \varepsilon e^T (\alpha + \alpha^</em>) -y^T (\alpha - \alpha^<em>)\\<br>subject to e^{T} (\alpha - \alpha^</em>) =0\\<br>0 \leqslant \alpha_i,\alpha_i^* \leqslant C,i=1,2,…,n<br>$$<br>其中 $e$ 是全 $1$ 向量，$C &gt; 0$ 是上界，$Q$ 是一个半正定矩阵， $Q_{ij} \equiv K(x_i,x_j) = \phi(x_i)^T \phi(x_j)$ 是内核。这里训练向量通过函数被隐式映射到一个高维（甚至无限维）空间 $\phi$ 。</p>
+<h3 id="SVR"><a href="#SVR" class="headerlink" title="SVR"></a>SVR</h3><p>给定训练向量组 $x_i \in \mathbb{R}^p , i=1,2,…,n$ 和向量 $y \in \mathbb{R}^n , \varepsilon-SVR$ 要解决的主要问题如下所示：</p>
+<script type="math/tex; mode=display">
+\min_{\omega ,b,\zeta, \zeta^*} \frac{1}{2}\omega^{T}\omega + C \sum_{i=1}^{n}(\zeta_i+\zeta^*) \\
+subject \ to \ y_i - \omega^T \phi(x_i) - b \leqslant \varepsilon + \zeta_i, \\
+\omega^T \phi(x_i) + b - y_i \leqslant \varepsilon + \zeta_i^*, \\
+\zeta_i, \zeta_{i}^* \geqslant 0,i=1,2,...,n</script><p>其对偶为</p>
+<script type="math/tex; mode=display">
+\min_{\alpha, \alpha^*} \frac{1}{2} (\alpha - \alpha^*)^{T}Q(\alpha - \alpha^*) + \varepsilon e^T (\alpha + \alpha^*) -y^T (\alpha - \alpha^*)\\
+subject\ to\ e^{T} (\alpha - \alpha^*) =0\\
+0 \leqslant \alpha_i,\alpha_i^* \leqslant C,i=1,2,...,n</script><p>其中 $e$ 是全 $1$ 向量，$C &gt; 0$ 是上界，$Q$ 是一个半正定矩阵， $Q_{ij} \equiv K(x_i,x_j) = \phi(x_i)^T \phi(x_j)$ 是内核。这里训练向量通过函数被隐式映射到一个高维（甚至无限维）空间 $\phi$ 。</p>
 <p>决策函数为</p>
-<p>$$<br>\sum_{i=1}^n (\alpha - \alpha^<em>)K(x_i,x) + \rho<br>$$<br>这些参数可以通过各个成员变量访问。其保持的差 $\alpha - \alpha^</em>$ ，其中变量<code>dual_coef_</code>存储，<code>support_vectors_</code>存储支持向量，<code>intercept_</code>存储独立项 $\rho$ 。</p>
+<script type="math/tex; mode=display">
+\sum_{i=1}^n (\alpha - \alpha^*)K(x_i,x) + \rho</script><p>这些参数可以通过各个成员变量访问。其保持的差 $\alpha - \alpha^*$ ，其中变量<code>dual_coef_</code>存储，<code>support_vectors_</code>存储支持向量，<code>intercept_</code>存储独立项 $\rho$ 。</p>
 <blockquote>
 <p>参考文献：</p>
 <ul>
