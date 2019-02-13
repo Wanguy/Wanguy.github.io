@@ -103,7 +103,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Machine Learning,Statistics," />
+  <meta name="keywords" content="Statistics,Machine Learning," />
 
 
 
@@ -120,7 +120,7 @@
 
 
 <meta name="description" content="线性回归 在解决连续变量的预测问题里，线性回归最简单 对于很多问题，在一定范围内是有效的 理论和应用也是最完善的">
-<meta name="keywords" content="Machine Learning,Statistics">
+<meta name="keywords" content="Statistics,Machine Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="最简单最实用：线性回归">
 <meta property="og:url" content="http://yoursite.com/2019/02/11/Linear_Regression_Lecture/index.html">
@@ -492,7 +492,7 @@
 <li>结果也很容易解释</li>
 <li>奥卡姆剃刀指南：如果没有足够的证据（理由），就不用更复杂的模型<blockquote>
 <p>In my opinion the theory here is the logically simplest relativistic field theory that is at all possible.  But this does not mean that Nature might not obey a more complex theory.  More complex theories have frequently been proposed. . .  In my view, such more complicated systems and their combinations should be considered only if there exist physical-empirical reasons to do so.               </p>
-<p>​                                                                –Einstein</p>
+<p>​                                                                —Einstein</p>
 </blockquote>
 </li>
 </ul>
@@ -500,31 +500,48 @@
 <li>世界不是完美的，要接纳不完美</li>
 <li>需要通过量化的形式来比较<br><img src="https://i.loli.net/2019/02/11/5c60fec49326f.png" width="500"></li>
 </ul>
-<p>$$<br>\begin{align}<br>\hat{y}_{黄} = c_0 + c_1 x \\<br>\hat{y}_{红} = d_0 + d_1 x<br>\end{align}<br>$$</p>
-<p><img src="https://i.loli.net/2019/02/11/5c60fed7bb135.png" width="500"></p>
+<script type="math/tex; mode=display">
+\begin{align}
+\hat{y}_{黄} = c_0 + c_1 x \\
+\hat{y}_{红} = d_0 + d_1 x
+\end{align}</script><p><img src="https://i.loli.net/2019/02/11/5c60fed7bb135.png" width="500"></p>
 <ul>
 <li><p>每个观测值是$x_i,y_i$</p>
 </li>
 <li><p>$x_i$是自变量，回归的值是$\hat{y}_i$</p>
 </li>
 <li><p>样本的回归是对总体的回归的估计</p>
-<p>$$<br>\begin{align}<br>&amp;\hat{y}_i = \hat{\alpha} + \hat{\beta} x_i \\<br>&amp;y_i = \alpha + \beta x_i \<br>\end{align}<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+\begin{align}
+&\hat{y}_i = \hat{\alpha} + \hat{\beta} x_i \\
+&y_i = \alpha + \beta x_i \
+\end{align}</script></li>
 </ul>
 <p><img src="https://i.loli.net/2019/02/11/5c60fea46485b.png" width="700"></p>
 <ul>
-<li>单个点的拟合程度用<strong>残差</strong>来衡量：<br>$$<br>\begin{align}<br>\epsilon_i = y_i - \hat{y}_i<br>\end{align}<br>$$</li>
+<li>单个点的拟合程度用<strong>残差</strong>来衡量：<script type="math/tex; mode=display">
+\begin{align}
+\epsilon_i = y_i - \hat{y}_i
+\end{align}</script></li>
 </ul>
 <ul>
 <li><p>整体的拟合程度，用<strong>残差平方和（SSE）</strong>来衡量：</p>
-<p>$$<br>\begin{align}<br>sum of square error &amp;= \sum_i \epsilon_i^2 \\<br>&amp;= \sum_i (y_i - \hat{y}_i)^2 \\<br>&amp;= \sum_i (y_i - \hat{\alpha} - \hat{\beta} x_i )^2\<br>\end{align}<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+\begin{align}
+sum\ of\ square\ error &= \sum_i \epsilon_i^2 \\
+&= \sum_i (y_i - \hat{y}_i)^2 \\
+&= \sum_i (y_i - \hat{\alpha} - \hat{\beta} x_i )^2\
+\end{align}</script></li>
 </ul>
 <h4 id="选出拟合程度最好的直线"><a href="#选出拟合程度最好的直线" class="headerlink" title="选出拟合程度最好的直线"></a>选出拟合程度最好的直线</h4><ul>
 <li><p>残差平方和最小的直线</p>
 </li>
-<li><p>根据极值条件求 $\alpha,\beta$<br>$$<br>\begin{align}<br>&amp;\hat{\beta} =  \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sum(x_i-\bar{x})^2}\\<br>&amp;\hat{\alpha} =  \bar{y}-\hat{\beta}\bar{x}<br>\end{align}<br>$$</p>
-</li>
+<li><p>根据极值条件求 $\alpha,\beta$</p>
+<script type="math/tex; mode=display">
+\begin{align}
+&\hat{\beta} =  \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sum(x_i-\bar{x})^2}\\
+&\hat{\alpha} =  \bar{y}-\hat{\beta}\bar{x}
+\end{align}</script></li>
 </ul>
 <h2 id="3-由最小二乘法选出的直线有没有用？"><a href="#3-由最小二乘法选出的直线有没有用？" class="headerlink" title="3. 由最小二乘法选出的直线有没有用？"></a>3. 由最小二乘法选出的直线有没有用？</h2><ul>
 <li>选出一根直线只是万里长征第一步</li>
@@ -534,13 +551,13 @@
 <p><code>In[1]</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"></div><div class="line">%matplotlib inline</div><div class="line">%config InlineBackend.figure_format = <span class="string">'retina'</span></div><div class="line"></div><div class="line">x = np.linspace(<span class="number">0</span>, <span class="number">800</span>, <span class="number">10000</span>)</div><div class="line">np.random.seed(<span class="number">1</span>)</div><div class="line">y = <span class="number">400</span> + np.random.random(<span class="number">10000</span>) * <span class="number">400</span> + x * <span class="number">0.002</span></div><div class="line"></div><div class="line">plt.figure(figsize=[<span class="number">8</span>, <span class="number">6</span>])</div><div class="line">plt.scatter(x, y, s=<span class="number">0.2</span>)</div><div class="line"></div><div class="line">plt.xlabel(<span class="string">'PM_Nongzhanguan'</span>)</div><div class="line">plt.ylabel(<span class="string">'PM_Dongsi'</span>)</div></pre></td></tr></table></figure>
 <p><code>Out[1]</code></p>
-<pre><code>Text(0, 0.5, &apos;PM_Dongsi&apos;)
+<pre><code>Text(0, 0.5, &#39;PM_Dongsi&#39;)
 </code></pre><p><img src="https://i.loli.net/2019/02/11/5c60fe86690db.png" alt="png"></p>
 <p><code>In[2]</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</div><div class="line">lr = LinearRegression()</div><div class="line">lr.fit(x.reshape(<span class="number">-1</span>, <span class="number">1</span>), y)</div><div class="line">y_hat = lr.predict(x.reshape(<span class="number">-1</span>, <span class="number">1</span>))</div><div class="line"></div><div class="line">print(<span class="string">'intercept = %f, slope = %f'</span> % (lr.intercept_, lr.coef_))</div><div class="line"></div><div class="line">plt.figure(figsize=[<span class="number">8</span>, <span class="number">6</span>])</div><div class="line">plt.scatter(x, y, s=<span class="number">0.2</span>)</div><div class="line">plt.plot(x, <span class="number">600</span> + x * <span class="number">0.002</span>, <span class="string">'--'</span>, c=<span class="string">'blue'</span>)</div><div class="line">plt.plot(x, y_hat, c=<span class="string">'red'</span>)</div><div class="line">plt.xlabel(<span class="string">'PM_Nongzhonguan'</span>)</div><div class="line">plt.ylabel(<span class="string">'PM_Dongsi'</span>)</div></pre></td></tr></table></figure>
 <pre><code>intercept = 600.891491, slope = -0.002232
 </code></pre><p><code>Out[2]</code></p>
-<pre><code>Text(0, 0.5, &apos;PM_Dongsi&apos;)
+<pre><code>Text(0, 0.5, &#39;PM_Dongsi&#39;)
 </code></pre><p><img src="https://i.loli.net/2019/02/11/5c60f7756589f.png" alt="output_10_2"></p>
 <p><code>In[3]</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">y_1_random = (y - x * <span class="number">0.002</span>)</div><div class="line">y_2 = np.mean(</div><div class="line">    y_1_random) + x * <span class="number">0.002</span> + (y_1_random - np.mean(y_1_random)) / <span class="number">400</span> * <span class="number">20</span></div><div class="line"></div><div class="line">plt.figure(figsize=[<span class="number">8</span>, <span class="number">6</span>])</div><div class="line">plt.scatter(x, y_2, s=<span class="number">0.2</span>)</div><div class="line">plt.xlabel(<span class="string">'PM_Nongzhanguan'</span>)</div><div class="line">plt.ylabel(<span class="string">'PM_Dongsi'</span>)</div><div class="line">plt.ylim([<span class="number">400</span>, <span class="number">800</span>])</div></pre></td></tr></table></figure>
@@ -583,17 +600,33 @@ right intercept = 598.762664, slope = 0.001878
 </ul>
 <h2 id="4-线性回归的参数估计分析"><a href="#4-线性回归的参数估计分析" class="headerlink" title="4. 线性回归的参数估计分析"></a>4. 线性回归的参数估计分析</h2><h4 id="以斜率为例"><a href="#以斜率为例" class="headerlink" title="以斜率为例"></a>以斜率为例</h4><ul>
 <li><p>斜率的符号与相关性</p>
-<p>$$<br>\begin{align}<br>\hat{\beta} &amp; = \frac{Cov(x,y)}{Var(x)} \\<br>&amp; = \frac{Cov(x,y)}{\sqrt{Var(x) }\sqrt{Var(x)} }\\<br>&amp; = \frac{Cov(x,y)}{\sqrt{Var(x) }\sqrt{Var(y)}}\frac{\sqrt{Var(y)}} {\sqrt{Var(x)} }\\<br>&amp; ={Corr(x,y)}\frac{\sqrt{Var(y)}}{\sqrt{Var(x)}}<br>\end{align}<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+\begin{align}
+\hat{\beta} & = \frac{Cov(x,y)}{Var(x)} \\
+& = \frac{Cov(x,y)}{\sqrt{Var(x) }\sqrt{Var(x)} }\\
+& = \frac{Cov(x,y)}{\sqrt{Var(x) }\sqrt{Var(y)}}\frac{\sqrt{Var(y)}} {\sqrt{Var(x)} }\\
+& ={Corr(x,y)}\frac{\sqrt{Var(y)}}{\sqrt{Var(x)}}
+\end{align}</script></li>
 </ul>
 <ul>
 <li><p>在假设检验的框架下，衡量回归参数符号的<strong>不确定性</strong></p>
 </li>
 <li><p>$\hat{\beta}$随样本变化而变化，是总体回归参数$\beta$的估计量，具有均值和方差</p>
-<p>$$<br>\begin{align}<br>\hat{\beta} &amp;= \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sum(x_i-\bar{x})^2}\\<br>&amp;= \frac{\sum(x_i-\bar{x})y_i}{\sum(x_i-\bar{x})^2}\\<br>\end{align}<br>$$</p>
-<p>$$<br>\begin{align}<br>E(\hat{\beta})<br>&amp;=\frac{\sum(x_i-\bar{x})E(y_i)}{\sum(x_i-\bar{x})^2}\\<br>&amp;=\frac{\sum(x_i-\bar{x})(\alpha+\beta x_i)}{\sum(x_i-\bar{x})^2}\\<br>&amp;=\beta<br>\end{align}<br>$$</p>
-<p>$$<br>\begin{align}<br>Var(\hat{\beta}) &amp;= \sum[\frac{(x_i-\bar{x})}{\sum(x_i-\bar{x})2}]2Var(y_i)\\<br>&amp;=\frac{\sigma2}{\sum(x_i-\bar{x})2}<br>\end{align}<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+\begin{align}
+\hat{\beta} &= \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sum(x_i-\bar{x})^2}\\
+&= \frac{\sum(x_i-\bar{x})y_i}{\sum(x_i-\bar{x})^2}\\
+\end{align}</script><script type="math/tex; mode=display">
+\begin{align}
+E(\hat{\beta})
+&=\frac{\sum(x_i-\bar{x})E(y_i)}{\sum(x_i-\bar{x})^2}\\
+&=\frac{\sum(x_i-\bar{x})(\alpha+\beta x_i)}{\sum(x_i-\bar{x})^2}\\
+&=\beta
+\end{align}</script><script type="math/tex; mode=display">
+\begin{align}
+Var(\hat{\beta}) &= \sum[\frac{(x_i-\bar{x})}{\sum(x_i-\bar{x})2}]2Var(y_i)\\
+&=\frac{\sigma2}{\sum(x_i-\bar{x})2}
+\end{align}</script></li>
 </ul>
 <p><img src="https://i.loli.net/2019/02/11/5c60fd2e0639b.png" width="500"></p>
 <ul>
@@ -626,8 +659,10 @@ right intercept = 598.762664, slope = 0.001878
 </li>
 </ul>
 <p><img src="https://i.loli.net/2019/02/11/5c60fe5374e57.png" width="700"></p>
-<p>$$<br>\begin{align}<br>R^2 = \frac{SSR}{SST}=1-\frac{SSE}{SST}<br>\end{align}<br>$$</p>
-<ul>
+<script type="math/tex; mode=display">
+\begin{align}
+R^2 = \frac{SSR}{SST}=1-\frac{SSE}{SST}
+\end{align}</script><ul>
 <li><p>$R^2$含义：离差平方和中有多少能被回归平方和解释</p>
 </li>
 <li><p>注意事项：</p>
@@ -711,9 +746,9 @@ right intercept = 598.762664, slope = 0.001878
       
         <div class="post-tags">
           
-            <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
-          
             <a href="/tags/Statistics/" rel="tag"># Statistics</a>
+          
+            <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
           
         </div>
       
@@ -735,6 +770,10 @@ right intercept = 598.762664, slope = 0.001878
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/13/Logistic_regression/" rel="prev" title="最简单最实用：线性回归">
+                最简单最实用：线性回归 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -821,7 +860,7 @@ right intercept = 598.762664, slope = 0.001878
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

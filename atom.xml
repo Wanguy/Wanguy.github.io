@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-11T05:58:56.882Z</updated>
+  <updated>2019-02-13T05:56:12.381Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,141 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>最简单最实用：线性回归</title>
+    <link href="http://yoursite.com/2019/02/13/Logistic_regression/"/>
+    <id>http://yoursite.com/2019/02/13/Logistic_regression/</id>
+    <published>2019-02-13T03:39:26.176Z</published>
+    <updated>2019-02-13T05:56:12.381Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="0-逻辑回归与线性回归"><a href="#0-逻辑回归与线性回归" class="headerlink" title="0. 逻辑回归与线性回归"></a>0. 逻辑回归与线性回归</h2><ul>
+<li>线性回归：预测连续数值变量（明天上海的地面温度？）</li>
+<li>逻辑回归：预测分类 (classification)（今天会不会考试？）</li>
+<li>逻辑回归与线性回归有什么联系？</li>
+<li>从一个例子说起：获取数据，判断恶意订房</li>
+</ul>
+<a id="more"></a>
+<h2 id="1-从酒店订房说起"><a href="#1-从酒店订房说起" class="headerlink" title="1. 从酒店订房说起"></a>1. 从酒店订房说起</h2><ol>
+<li><p>商家需要判断顾客是否会恶意订房</p>
+</li>
+<li><p>根据什么来判断？</p>
+</li>
+<li><p>利用信用值来判断是否会恶意订房</p>
+</li>
+</ol>
+<p><img src="https://i.loli.net/2019/02/13/5c63afbb969c5.jpg" alt=""></p>
+<h2 id="2-如何通过信用值等数据来预测恶意订房"><a href="#2-如何通过信用值等数据来预测恶意订房" class="headerlink" title="2. 如何通过信用值等数据来预测恶意订房"></a>2. 如何通过信用值等数据来预测恶意订房</h2><ul>
+<li>输入值：信用值等连续型数字，取值范围为 $\left ( -\infty , +\infty \right )$ </li>
+<li>输出值：正常订房的概率 $p$，取值范围为 $\left [ 0 , 1 \right ]$</li>
+<li><span style="color:blue">当 $p&gt;阈值(0.5)$，判断顾客正常订房</span></li>
+<li><span style="color:blue">当 $p \leqslant 阈值(0.5)$，判断顾客正常订房</span></li>
+</ul>
+<p>如果直接通过线性回归，发现由于输入输出值得范围不同，导致无法很好的进行映射。于是通过对输出值进行变换</p>
+<ul>
+<li>输入值：信用值等连续型数字，取值范围为 $\left ( -\infty , +\infty \right )$ </li>
+<li>输出值：正常订房的概率 $p$，取值范围为 $\left [ 0 , 1 \right ]<ul>
+<li>通过 $\frac{p}{1-p}$ ，取值范围为 $\left [ 0 , +\infty \right )$ </li>
+<li>进一步取对数 $ln\left (\frac{p}{1-p}  \right )$ ，取值范围为 $\left ( -\infty , +\infty \right )$ </li>
+</ul>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{align}
+&ln\left (\frac{p}{1-p}  \right ) = wx+a\\
+&\Rightarrow  \frac{p}{1-p}=e^{wx+a}\\
+&\Rightarrow p=e^{wx+a}(1-p)=\frac{e^{wx+a}}{1+e^{wx+a}}
+\\
+\end{align}</script><script type="math/tex; mode=display">
+p=\frac{1}{1+e^{-wx-a}} \qquad \qquad x\in\left ( -\infty , +\infty \right )</script><p>通过回归，我们得到了如下的数据：</p>
+<p><img src="https://i.loli.net/2019/02/13/5c63ad7090a8d.png" width="700"></p>
+<p>进行拟合，对于这一种：<br><img src="https://i.loli.net/2019/02/13/5c63adc6820ec.png" width="700"><br>在拐点处无法求导，继而无法得到最值，于是我们选用平滑曲线代替<br><img src="https://i.loli.net/2019/02/13/5c63adc67f71c.png" width="700"></p>
+<p>可问题又来了<br><img src="https://i.loli.net/2019/02/13/5c63ae7f9cb53.png" width="700"><br>不同的参数，得到的不同的拟合结果，我们应该选用哪一个来做最优解呢？</p>
+<h2 id="3-寻找最合理的参数——Cost-Function"><a href="#3-寻找最合理的参数——Cost-Function" class="headerlink" title="3. 寻找最合理的参数——Cost Function"></a>3. 寻找最合理的参数——Cost Function</h2><p>我们的目的，是找到一个能让模型拟合结果更好的参数。方法就是设计一个<strong><em>Cost Function</em></strong>，让它来决定什么是好的模型。</p>
+<blockquote>
+<p>以下用 $h_\theta (x)$ 来指代<code>sigmoid function:</code>  $\frac{1}{1+e^{-\theta _1x^{i}-\theta _2}}$</p>
+</blockquote>
+<p>一个好的模型，<strong><em>Cost Function</em></strong>要尽量小</p>
+<ul>
+<li>真值 $y=1$ ，$h_\theta (x)$ 会尽量大</li>
+<li>真值 $y=0$ ，$h_\theta (x)$ 会尽量小</li>
+</ul>
+<p>如此得到一个<strong><em>Cost Function</em></strong>：</p>
+<script type="math/tex; mode=display">
+Cost(h_\theta (x), y)=\begin{cases}
+-ln(h_\theta (x)) &  & y=1\\ 
+-ln(1-h_\theta (x)) &  & y=0\\ 
+\end{cases}</script><p>即：</p>
+<script type="math/tex; mode=display">
+Cost(\theta) = -(1-y)ln(1-h_\theta (x))-yln(h_\theta (x))</script><p>对于 $n$ 个数据，进行求和：</p>
+<script type="math/tex; mode=display">
+J(\theta) = \sum_{i=1}^{n}[-(1-y^{i})ln(1-h_\theta(x^{i}))-y^{i}ln(h_\theta (x^{i}))]</script><ul>
+<li>$x^i$ 是第 $i$ 个人的信用值，$y^i$ 是最后订房与否的指示数</li>
+<li>$i=1$ 表示预定，$i=0$ 表示未预定</li>
+<li>$\theta$ 是参数，作为向量的表示方法，因为参数很可能不止一个</li>
+</ul>
+<p>根据这个 <strong><em>Cost Function</em></strong>，寻找能让其最小的 $\theta \in \left \{ \theta_1 , \theta_2  \right \}$，通过使其一阶导数为0，二阶导数为正，从而获取 $min \theta$：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\frac{\partial J(\theta)}{\partial \theta_j} &= \frac{\partial }{\partial \theta_j }\sum_{i=1}^{n}[-(1-y^{i})ln(1-h_\theta(x^{i}))-y^{i}ln(h_\theta (x^{i}))]\\
+&=-\sum_{i=1}^{n}[(1-y^{i})\frac{\partial ln(1-h_\theta (x^{i}))}{\partial \theta _j}+y^{i}\frac{\partial ln(h_\theta (x^{i}))}{\partial \theta _j}]\\
+&=-\sum_{i=1}^{n}[(1-y^{i})\frac{1}{ln(1-h_\theta (x^{i}))} \frac{\partial (1-h_\theta (x^{i}))}{\partial \theta _j}+y^{i}\frac{1}{h_\theta (x^{i})}\frac{\partial (h_\theta (x^{i}))}{\partial \theta _j}]\\
+&=-\sum_{i=1}^{n}[-(1-y^{i})\frac{h_\theta (x^{i})[1-h_\theta (x^{i})]}{1-h_\theta (x^{i})}\frac{\partial (\theta x^{i})}{\partial \theta_j}+y^{i}\frac{h_\theta (x^{i})[1-h_\theta (x^{i})]}{h_\theta (x^{i})}\frac{\partial (\theta x^{i})}{\partial \theta_j}]\\
+&=-\sum_{i=1}^{n}[-(1-y^{i})h_\theta (x^{i})+y^{i}(1-h_\theta (x^{i}))]\frac{\partial (\theta x^{i})}{\partial \theta_j}\\
+&=-\sum_{i=1}^{n}[-h_\theta (x^{i})+y^{i}]x_{j}^{i}
+\end{align}</script><blockquote>
+<p>其中</p>
+</blockquote>
+<script type="math/tex; mode=display">
+\begin{align}
+\frac{\partial (h_\theta (x^{i}))}{\partial \theta _1} &=\frac{\partial }{\partial \theta _1}\frac{1}{1+e^{-\theta _1x^{i}-\theta _2}} \\
+&=-\frac{1}{(1+e^{-\theta _1x^{i}-\theta _2})^{2}}\frac{\partial (1+e^{-\theta _1x^{i}-\theta _2})}{\partial \theta _1}\\
+&=\frac{x^{i}e^{-\theta _1x^{i}-\theta _2}}{(1+e^{-\theta _1x^{i}-\theta _2})^{2}}\\
+&=x^{i}\frac{1}{1+e^{-\theta _1x^{i}-\theta _2}}(1-\frac{1}{1+e^{-\theta _1x^{i}-\theta _2}}) \\
+&=x^{i}h_\theta (x^{i})[1-h_\theta (x^{i})]
+\end{align}</script><script type="math/tex; mode=display">
+\begin{align}
+\frac{\partial (h_\theta (x^{i}))}{\partial \theta _2} &=\frac{\partial }{\partial \theta _2}\frac{1}{1+e^{-\theta _1x^{i}-\theta _2}} \\
+&=-\frac{1}{(1+e^{-\theta _1x^{i}-\theta _2})^{2}}\frac{\partial (1+e^{-\theta _1x^{i}-\theta _2})}{\partial \theta _2}\\
+&=\frac{e^{-\theta _1x^{i}-\theta _2}}{(1+e^{-\theta _1x^{i}-\theta _2})^{2}}\\
+&=\frac{1}{1+e^{-\theta _1x^{i}-\theta _2}}(1-\frac{1}{1+e^{-\theta _1x^{i}-\theta _2}}) \\
+&=h_\theta (x^{i})[1-h_\theta (x^{i})]
+\end{align}</script><p>对于所有的 $\theta_j$，都需要有：</p>
+<script type="math/tex; mode=display">
+\frac{\partial J(\theta)}{\partial \theta_j}=-\sum_{i=1}^{n}[-h_\theta (x^{i})+y^{i}]x_{j}^{i}\qquad \qquad j=1,2,...</script><p>理论上，可以通过该方程求解各个 $\theta_j$，但由于 $h_\theta (x^i)$ 的存在，不易求出解析解，需要通过其他方法，计算出 $\theta_j$ 的近似解：</p>
+<ul>
+<li>梯度下降法<script type="math/tex; mode=display">
+\begin{align}
+\theta_j &=\theta_j - \frac{\partial J(\theta)}{\partial \theta_j}\\
+&=\theta_j+\sum_{i=1}^{n}[-h_\theta (x^{i})+y^{i}]x_{j}^{i}
+\end{align}</script></li>
+</ul>
+<ul>
+<li>牛顿法<script type="math/tex; mode=display">
+\theta_j=\theta_j - H^{-1}\nabla J(\theta)</script></li>
+</ul>
+<p>通过上面的数据处理，便得到了对于本次回归的最优解：<br><img src="https://i.loli.net/2019/02/13/5c63adc67f71c.png" width="700"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;0-逻辑回归与线性回归&quot;&gt;&lt;a href=&quot;#0-逻辑回归与线性回归&quot; class=&quot;headerlink&quot; title=&quot;0. 逻辑回归与线性回归&quot;&gt;&lt;/a&gt;0. 逻辑回归与线性回归&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;线性回归：预测连续数值变量（明天上海的地面温度？）&lt;/li&gt;
+&lt;li&gt;逻辑回归：预测分类 (classification)（今天会不会考试？）&lt;/li&gt;
+&lt;li&gt;逻辑回归与线性回归有什么联系？&lt;/li&gt;
+&lt;li&gt;从一个例子说起：获取数据，判断恶意订房&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+    
+      <category term="Statistics" scheme="http://yoursite.com/tags/Statistics/"/>
+    
+      <category term="Machine Learning" scheme="http://yoursite.com/tags/Machine-Learning/"/>
+    
+  </entry>
   
   <entry>
     <title>最简单最实用：线性回归</title>
@@ -38,7 +173,7 @@
 <li>结果也很容易解释</li>
 <li>奥卡姆剃刀指南：如果没有足够的证据（理由），就不用更复杂的模型<blockquote>
 <p>In my opinion the theory here is the logically simplest relativistic field theory that is at all possible.  But this does not mean that Nature might not obey a more complex theory.  More complex theories have frequently been proposed. . .  In my view, such more complicated systems and their combinations should be considered only if there exist physical-empirical reasons to do so.               </p>
-<p>​                                                                –Einstein</p>
+<p>​                                                                —Einstein</p>
 </blockquote>
 </li>
 </ul>
@@ -46,31 +181,48 @@
 <li>世界不是完美的，要接纳不完美</li>
 <li>需要通过量化的形式来比较<br><img src="https://i.loli.net/2019/02/11/5c60fec49326f.png" width="500"></li>
 </ul>
-<p>$$<br>\begin{align}<br>\hat{y}_{黄} = c_0 + c_1 x \\<br>\hat{y}_{红} = d_0 + d_1 x<br>\end{align}<br>$$</p>
-<p><img src="https://i.loli.net/2019/02/11/5c60fed7bb135.png" width="500"></p>
+<script type="math/tex; mode=display">
+\begin{align}
+\hat{y}_{黄} = c_0 + c_1 x \\
+\hat{y}_{红} = d_0 + d_1 x
+\end{align}</script><p><img src="https://i.loli.net/2019/02/11/5c60fed7bb135.png" width="500"></p>
 <ul>
 <li><p>每个观测值是$x_i,y_i$</p>
 </li>
 <li><p>$x_i$是自变量，回归的值是$\hat{y}_i$</p>
 </li>
 <li><p>样本的回归是对总体的回归的估计</p>
-<p>$$<br>\begin{align}<br>&amp;\hat{y}_i = \hat{\alpha} + \hat{\beta} x_i \\<br>&amp;y_i = \alpha + \beta x_i \<br>\end{align}<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+\begin{align}
+&\hat{y}_i = \hat{\alpha} + \hat{\beta} x_i \\
+&y_i = \alpha + \beta x_i \
+\end{align}</script></li>
 </ul>
 <p><img src="https://i.loli.net/2019/02/11/5c60fea46485b.png" width="700"></p>
 <ul>
-<li>单个点的拟合程度用<strong>残差</strong>来衡量：<br>$$<br>\begin{align}<br>\epsilon_i = y_i - \hat{y}_i<br>\end{align}<br>$$</li>
+<li>单个点的拟合程度用<strong>残差</strong>来衡量：<script type="math/tex; mode=display">
+\begin{align}
+\epsilon_i = y_i - \hat{y}_i
+\end{align}</script></li>
 </ul>
 <ul>
 <li><p>整体的拟合程度，用<strong>残差平方和（SSE）</strong>来衡量：</p>
-<p>$$<br>\begin{align}<br>sum of square error &amp;= \sum_i \epsilon_i^2 \\<br>&amp;= \sum_i (y_i - \hat{y}_i)^2 \\<br>&amp;= \sum_i (y_i - \hat{\alpha} - \hat{\beta} x_i )^2\<br>\end{align}<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+\begin{align}
+sum\ of\ square\ error &= \sum_i \epsilon_i^2 \\
+&= \sum_i (y_i - \hat{y}_i)^2 \\
+&= \sum_i (y_i - \hat{\alpha} - \hat{\beta} x_i )^2\
+\end{align}</script></li>
 </ul>
 <h4 id="选出拟合程度最好的直线"><a href="#选出拟合程度最好的直线" class="headerlink" title="选出拟合程度最好的直线"></a>选出拟合程度最好的直线</h4><ul>
 <li><p>残差平方和最小的直线</p>
 </li>
-<li><p>根据极值条件求 $\alpha,\beta$<br>$$<br>\begin{align}<br>&amp;\hat{\beta} =  \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sum(x_i-\bar{x})^2}\\<br>&amp;\hat{\alpha} =  \bar{y}-\hat{\beta}\bar{x}<br>\end{align}<br>$$</p>
-</li>
+<li><p>根据极值条件求 $\alpha,\beta$</p>
+<script type="math/tex; mode=display">
+\begin{align}
+&\hat{\beta} =  \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sum(x_i-\bar{x})^2}\\
+&\hat{\alpha} =  \bar{y}-\hat{\beta}\bar{x}
+\end{align}</script></li>
 </ul>
 <h2 id="3-由最小二乘法选出的直线有没有用？"><a href="#3-由最小二乘法选出的直线有没有用？" class="headerlink" title="3. 由最小二乘法选出的直线有没有用？"></a>3. 由最小二乘法选出的直线有没有用？</h2><ul>
 <li>选出一根直线只是万里长征第一步</li>
@@ -80,13 +232,13 @@
 <p><code>In[1]</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"></div><div class="line">%matplotlib inline</div><div class="line">%config InlineBackend.figure_format = <span class="string">'retina'</span></div><div class="line"></div><div class="line">x = np.linspace(<span class="number">0</span>, <span class="number">800</span>, <span class="number">10000</span>)</div><div class="line">np.random.seed(<span class="number">1</span>)</div><div class="line">y = <span class="number">400</span> + np.random.random(<span class="number">10000</span>) * <span class="number">400</span> + x * <span class="number">0.002</span></div><div class="line"></div><div class="line">plt.figure(figsize=[<span class="number">8</span>, <span class="number">6</span>])</div><div class="line">plt.scatter(x, y, s=<span class="number">0.2</span>)</div><div class="line"></div><div class="line">plt.xlabel(<span class="string">'PM_Nongzhanguan'</span>)</div><div class="line">plt.ylabel(<span class="string">'PM_Dongsi'</span>)</div></pre></td></tr></table></figure>
 <p><code>Out[1]</code></p>
-<pre><code>Text(0, 0.5, &apos;PM_Dongsi&apos;)
+<pre><code>Text(0, 0.5, &#39;PM_Dongsi&#39;)
 </code></pre><p><img src="https://i.loli.net/2019/02/11/5c60fe86690db.png" alt="png"></p>
 <p><code>In[2]</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</div><div class="line">lr = LinearRegression()</div><div class="line">lr.fit(x.reshape(<span class="number">-1</span>, <span class="number">1</span>), y)</div><div class="line">y_hat = lr.predict(x.reshape(<span class="number">-1</span>, <span class="number">1</span>))</div><div class="line"></div><div class="line">print(<span class="string">'intercept = %f, slope = %f'</span> % (lr.intercept_, lr.coef_))</div><div class="line"></div><div class="line">plt.figure(figsize=[<span class="number">8</span>, <span class="number">6</span>])</div><div class="line">plt.scatter(x, y, s=<span class="number">0.2</span>)</div><div class="line">plt.plot(x, <span class="number">600</span> + x * <span class="number">0.002</span>, <span class="string">'--'</span>, c=<span class="string">'blue'</span>)</div><div class="line">plt.plot(x, y_hat, c=<span class="string">'red'</span>)</div><div class="line">plt.xlabel(<span class="string">'PM_Nongzhonguan'</span>)</div><div class="line">plt.ylabel(<span class="string">'PM_Dongsi'</span>)</div></pre></td></tr></table></figure>
 <pre><code>intercept = 600.891491, slope = -0.002232
 </code></pre><p><code>Out[2]</code></p>
-<pre><code>Text(0, 0.5, &apos;PM_Dongsi&apos;)
+<pre><code>Text(0, 0.5, &#39;PM_Dongsi&#39;)
 </code></pre><p><img src="https://i.loli.net/2019/02/11/5c60f7756589f.png" alt="output_10_2"></p>
 <p><code>In[3]</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">y_1_random = (y - x * <span class="number">0.002</span>)</div><div class="line">y_2 = np.mean(</div><div class="line">    y_1_random) + x * <span class="number">0.002</span> + (y_1_random - np.mean(y_1_random)) / <span class="number">400</span> * <span class="number">20</span></div><div class="line"></div><div class="line">plt.figure(figsize=[<span class="number">8</span>, <span class="number">6</span>])</div><div class="line">plt.scatter(x, y_2, s=<span class="number">0.2</span>)</div><div class="line">plt.xlabel(<span class="string">'PM_Nongzhanguan'</span>)</div><div class="line">plt.ylabel(<span class="string">'PM_Dongsi'</span>)</div><div class="line">plt.ylim([<span class="number">400</span>, <span class="number">800</span>])</div></pre></td></tr></table></figure>
@@ -129,17 +281,33 @@ right intercept = 598.762664, slope = 0.001878
 </ul>
 <h2 id="4-线性回归的参数估计分析"><a href="#4-线性回归的参数估计分析" class="headerlink" title="4. 线性回归的参数估计分析"></a>4. 线性回归的参数估计分析</h2><h4 id="以斜率为例"><a href="#以斜率为例" class="headerlink" title="以斜率为例"></a>以斜率为例</h4><ul>
 <li><p>斜率的符号与相关性</p>
-<p>$$<br>\begin{align}<br>\hat{\beta} &amp; = \frac{Cov(x,y)}{Var(x)} \\<br>&amp; = \frac{Cov(x,y)}{\sqrt{Var(x) }\sqrt{Var(x)} }\\<br>&amp; = \frac{Cov(x,y)}{\sqrt{Var(x) }\sqrt{Var(y)}}\frac{\sqrt{Var(y)}} {\sqrt{Var(x)} }\\<br>&amp; ={Corr(x,y)}\frac{\sqrt{Var(y)}}{\sqrt{Var(x)}}<br>\end{align}<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+\begin{align}
+\hat{\beta} & = \frac{Cov(x,y)}{Var(x)} \\
+& = \frac{Cov(x,y)}{\sqrt{Var(x) }\sqrt{Var(x)} }\\
+& = \frac{Cov(x,y)}{\sqrt{Var(x) }\sqrt{Var(y)}}\frac{\sqrt{Var(y)}} {\sqrt{Var(x)} }\\
+& ={Corr(x,y)}\frac{\sqrt{Var(y)}}{\sqrt{Var(x)}}
+\end{align}</script></li>
 </ul>
 <ul>
 <li><p>在假设检验的框架下，衡量回归参数符号的<strong>不确定性</strong></p>
 </li>
 <li><p>$\hat{\beta}$随样本变化而变化，是总体回归参数$\beta$的估计量，具有均值和方差</p>
-<p>$$<br>\begin{align}<br>\hat{\beta} &amp;= \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sum(x_i-\bar{x})^2}\\<br>&amp;= \frac{\sum(x_i-\bar{x})y_i}{\sum(x_i-\bar{x})^2}\\<br>\end{align}<br>$$</p>
-<p>$$<br>\begin{align}<br>E(\hat{\beta})<br>&amp;=\frac{\sum(x_i-\bar{x})E(y_i)}{\sum(x_i-\bar{x})^2}\\<br>&amp;=\frac{\sum(x_i-\bar{x})(\alpha+\beta x_i)}{\sum(x_i-\bar{x})^2}\\<br>&amp;=\beta<br>\end{align}<br>$$</p>
-<p>$$<br>\begin{align}<br>Var(\hat{\beta}) &amp;= \sum[\frac{(x_i-\bar{x})}{\sum(x_i-\bar{x})2}]2Var(y_i)\\<br>&amp;=\frac{\sigma2}{\sum(x_i-\bar{x})2}<br>\end{align}<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+\begin{align}
+\hat{\beta} &= \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sum(x_i-\bar{x})^2}\\
+&= \frac{\sum(x_i-\bar{x})y_i}{\sum(x_i-\bar{x})^2}\\
+\end{align}</script><script type="math/tex; mode=display">
+\begin{align}
+E(\hat{\beta})
+&=\frac{\sum(x_i-\bar{x})E(y_i)}{\sum(x_i-\bar{x})^2}\\
+&=\frac{\sum(x_i-\bar{x})(\alpha+\beta x_i)}{\sum(x_i-\bar{x})^2}\\
+&=\beta
+\end{align}</script><script type="math/tex; mode=display">
+\begin{align}
+Var(\hat{\beta}) &= \sum[\frac{(x_i-\bar{x})}{\sum(x_i-\bar{x})2}]2Var(y_i)\\
+&=\frac{\sigma2}{\sum(x_i-\bar{x})2}
+\end{align}</script></li>
 </ul>
 <p><img src="https://i.loli.net/2019/02/11/5c60fd2e0639b.png" width="500"></p>
 <ul>
@@ -172,8 +340,10 @@ right intercept = 598.762664, slope = 0.001878
 </li>
 </ul>
 <p><img src="https://i.loli.net/2019/02/11/5c60fe5374e57.png" width="700"></p>
-<p>$$<br>\begin{align}<br>R^2 = \frac{SSR}{SST}=1-\frac{SSE}{SST}<br>\end{align}<br>$$</p>
-<ul>
+<script type="math/tex; mode=display">
+\begin{align}
+R^2 = \frac{SSR}{SST}=1-\frac{SSE}{SST}
+\end{align}</script><ul>
 <li><p>$R^2$含义：离差平方和中有多少能被回归平方和解释</p>
 </li>
 <li><p>注意事项：</p>
@@ -223,9 +393,9 @@ right intercept = 598.762664, slope = 0.001878
       <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
     
     
-      <category term="Machine Learning" scheme="http://yoursite.com/tags/Machine-Learning/"/>
-    
       <category term="Statistics" scheme="http://yoursite.com/tags/Statistics/"/>
+    
+      <category term="Machine Learning" scheme="http://yoursite.com/tags/Machine-Learning/"/>
     
   </entry>
   
@@ -781,7 +951,7 @@ right intercept = 598.762664, slope = 0.001878
 </ul>
 <p>让我们来看看<code>if</code>和<code>for</code>语句的更多细节。</p>
 <h3 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h3><h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a><code>if</code>语句</h4><p><code>if</code>语句的基本结构是这个样子的：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="built_in">count</span> == <span class="number">0</span> &#123;</div><div class="line">	text = <span class="string">"No Items"</span></div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="built_in">count</span> == <span class="number">1</span> &#123;</div><div class="line">	text = <span class="string">"1 Item"</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">	text = <span class="string">"<span class="subst">\(<span class="built_in">count</span>)</span> Items"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="built_in">count</span> == <span class="number">0</span> &#123;</div><div class="line">	text = <span class="string">"No Items"</span></div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="built_in">count</span> == <span class="number">1</span> &#123;</div><div class="line">	text = <span class="string">"1 Item"</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">	text = <span class="string">"\(count) Items"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><code>if</code>后面的表达式称之为条件。如果条件为真，那么<code>if</code>后面花括号内的语句会被执行。如果没有一个条件为真，那么最后一个<code>else</code>后面的花括号内的语句会被执行。</p>
 <p>通过使用比较运算符来对两个值进行比较：</p>
 <ul>
@@ -965,9 +1135,9 @@ right intercept = 598.762664, slope = 0.001878
       <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
     
     
-      <category term="Machine Learning" scheme="http://yoursite.com/tags/Machine-Learning/"/>
-    
       <category term="Statistics" scheme="http://yoursite.com/tags/Statistics/"/>
+    
+      <category term="Machine Learning" scheme="http://yoursite.com/tags/Machine-Learning/"/>
     
   </entry>
   
@@ -1112,7 +1282,7 @@ right intercept = 598.762664, slope = 0.001878
 <ul>
 <li>线性（linear）核： $\langle x,x^{‘}\rangle$ 。</li>
 <li>多项式（polynomial）核： $\left (\gamma \left \langle x, {x}’  \right \rangle +r  \right )^{d}$ 。其中 $d$ 由选项<code>degree</code>指定，$r$ 由<code>coef0</code>指定</li>
-<li>径向基Gaussian（RBF）函数： $\ exp( -  \ gamma \ | x-x’\ | ^ 2)$ 。其中 $\gamma$ 由选项<code>gamma</code>指定，必须大于0</li>
+<li>径向基Gaussian（RBF）函数： $ exp( -   gamma  | x-x’ | ^ 2)$ 。其中 $\gamma$ 由选项<code>gamma</code>指定，必须大于0</li>
 <li>sigmoid函数 $\tanh（\gamma \langle x，x’\rangle + r）$ ，其中由选项<code>coef0</code>指定</li>
 </ul>
 <p>在初始化时通过选项<code>kernel</code>指定用什么核</p>
@@ -1130,10 +1300,10 @@ right intercept = 598.762664, slope = 0.001878
 </blockquote>
 <h2 id="数学原理"><a href="#数学原理" class="headerlink" title="数学原理"></a>数学原理</h2><p>支持向量机的原理是在高维甚至无限维空间中构建一个超平面或者若干超平面组成的集合，并藉此用于分类、回归或其它任务。从直觉上来讲，好的分隔面是由使得函数间隔最大的超平面得到（即该超平面到任何类别最近训练数据点的距离都取得最大值），因为总体上来讲，间隔越大，分类器的泛化误差越小。</p>
 <p><img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_separating_hyperplane_0011.png" alt="sphx_glr_plot_separating_hyperplane_0011"></p>
-<h3 id="SVC"><a href="#SVC" class="headerlink" title="SVC"></a>SVC</h3><p>给定可能属于某两种类别的训练向量 $x_i \in \mathbb{R}, \ i=1,2,…,n$ 和向量 $y \in \left{ 1,-1 \right}^{n}$ ，SVC解决的首要问题是</p>
-<p>$$<br>\min<em>{\omega ,b,\zeta} \frac{1}{2}\omega^{T}\omega + C \sum</em>{i=1}^{n}\zeta_i \<br>subject \ to \ y_i (\omega^{T}\phi(x_i)+b) \geqslant 1-\zeta_i, \<br>\zeta_i \geqslant 0,i=1,2,…,n<br>$$</p>
+<h3 id="SVC"><a href="#SVC" class="headerlink" title="SVC"></a>SVC</h3><p>给定可能属于某两种类别的训练向量 $x_i \in \mathbb{R},  i=1,2,…,n$ 和向量 $y \in \left{ 1,-1 \right}^{n}$ ，SVC解决的首要问题是</p>
+<p>$$<br>\min_{\omega ,b,\zeta} \frac{1}{2}\omega^{T}\omega + C \sum_{i=1}^{n}\zeta_i \\<br>subject  to  y_i (\omega^{T}\phi(x_i)+b) \geqslant 1-\zeta_i, \\<br>\zeta_i \geqslant 0,i=1,2,…,n<br>$$</p>
 <p>其对偶形式为</p>
-<p>$$<br>\min_{\alpha} \frac{1}{2} \alpha^{T}Q\alpha-e^{T}\alpha \<br>subject\ to\ y^{T}\alpha=0\<br>0 \leqslant \alpha<em>i \leqslant C,i=1,2,…,n<br>$$<br>其中 $e$ 是全 $1$ 向量， $C &gt; 0$ 是上界， $Q$ 是一个半正定矩阵，$Q</em>{ij} \equiv y_i y_j K(x_i,x_j)$ ，其中 $K(x_i,x_j) \equiv \phi(x_i)^{T} \phi(x_j)$ 是核。这里训练向量通过函数被隐式映射到一个高维（甚至无限维）空间 $\phi$ 。</p>
+<p>$$<br>\min_{\alpha} \frac{1}{2} \alpha^{T}Q\alpha-e^{T}\alpha \\<br>subject to y^{T}\alpha=0\\<br>0 \leqslant \alpha_i \leqslant C,i=1,2,…,n<br>$$<br>其中 $e$ 是全 $1$ 向量， $C &gt; 0$ 是上界， $Q$ 是一个半正定矩阵，$Q_{ij} \equiv y_i y_j K(x_i,x_j)$ ，其中 $K(x_i,x_j) \equiv \phi(x_i)^{T} \phi(x_j)$ 是核。这里训练向量通过函数被隐式映射到一个高维（甚至无限维）空间 $\phi$ 。</p>
 <p>决策函数是 <strong>注意</strong>：虽然从<a href="http://www.csie.ntu.edu.tw/~cjlin/libsvm/" target="_blank" rel="external"><code>libsvm</code></a>和<a href="http://www.csie.ntu.edu.tw/~cjlin/liblinear/" target="_blank" rel="external"><code>liblinear</code></a>导出的SVM模型使用 $C$ 作为正则化参数，但实际上其它更多预测器使用的是<code>alpha</code>。这两个参数之间的关系是</p>
 <p>$$<br>\mathop{\rm sgn}(\sum_{i=1}^n y_i \alpha_i K(x_i,x_j)+\rho)<br>$$<br>这些参数可以通过各个成员变量访问：<code>dual_coef_</code>存放乘积，<code>support_vectors</code>存放支持向量，<code>intercept_</code>存放独立项：</p>
 <blockquote>
@@ -1145,7 +1315,7 @@ right intercept = 598.762664, slope = 0.001878
 </blockquote>
 <h3 id="NuSVC"><a href="#NuSVC" class="headerlink" title="NuSVC"></a>NuSVC</h3><p>其提供了一个新的参数，控制支持向量的个数和训练误差。参数 $v \in \left (0,1 \right ]$ 是训练误差的上限和支持向量的下限。</p>
 <p>可以看到<code>v-SVC</code>是<code>C-SVC</code>的一种重参数化形式，因此两者在数学上是等价的。</p>
-<h3 id="SVR"><a href="#SVR" class="headerlink" title="SVR"></a>SVR</h3><p>给定训练向量组 $x<em>i \in \mathbb{R}^p ,\ i=1,2,…,n$ 和向量 $y \in \mathbb{R}^n ,\ \varepsilon-SVR$ 要解决的主要问题如下所示：<br>$$<br>\min</em>{\omega ,b,\zeta, \zeta^<em>} \frac{1}{2}\omega^{T}\omega + C \sum_{i=1}^{n}(\zeta_i+\zeta^</em>) \<br>subject \ to \ y_i - \omega^T \phi(x_i) - b \leqslant \varepsilon + \zeta_i, \<br>\omega^T \phi(x_i) + b - y_i \leqslant \varepsilon + \zeta_i^<em>, \<br>\zeta<em>i, \zeta</em>{i}^</em> \geqslant 0,i=1,2,…,n<br>$$<br>其对偶为<br>$$<br>\min_{\alpha, \alpha^<em>} \frac{1}{2} (\alpha - \alpha^</em>)^{T}Q(\alpha - \alpha^<em>) + \varepsilon e^T (\alpha + \alpha^</em>) -y^T (\alpha - \alpha^<em>)\<br>subject\ to\ e^{T} (\alpha - \alpha^</em>) =0\<br>0 \leqslant \alpha_i,\alpha<em>i^* \leqslant C,i=1,2,…,n<br>$$<br>其中 $e$ 是全 $1$ 向量，$C &gt; 0$ 是上界，$Q$ 是一个半正定矩阵， $Q</em>{ij} \equiv K(x_i,x_j) = \phi(x_i)^T \phi(x_j)$ 是内核。这里训练向量通过函数被隐式映射到一个高维（甚至无限维）空间 $\phi$ 。</p>
+<h3 id="SVR"><a href="#SVR" class="headerlink" title="SVR"></a>SVR</h3><p>给定训练向量组 $x_i \in \mathbb{R}^p , i=1,2,…,n$ 和向量 $y \in \mathbb{R}^n , \varepsilon-SVR$ 要解决的主要问题如下所示：<br>$$<br>\min_{\omega ,b,\zeta, \zeta^<em>} \frac{1}{2}\omega^{T}\omega + C \sum_{i=1}^{n}(\zeta_i+\zeta^</em>) \\<br>subject  to  y_i - \omega^T \phi(x_i) - b \leqslant \varepsilon + \zeta_i, \\<br>\omega^T \phi(x_i) + b - y_i \leqslant \varepsilon + \zeta_i^<em>, \\<br>\zeta_i, \zeta_{i}^</em> \geqslant 0,i=1,2,…,n<br>$$<br>其对偶为<br>$$<br>\min_{\alpha, \alpha^<em>} \frac{1}{2} (\alpha - \alpha^</em>)^{T}Q(\alpha - \alpha^<em>) + \varepsilon e^T (\alpha + \alpha^</em>) -y^T (\alpha - \alpha^<em>)\\<br>subject to e^{T} (\alpha - \alpha^</em>) =0\\<br>0 \leqslant \alpha_i,\alpha_i^* \leqslant C,i=1,2,…,n<br>$$<br>其中 $e$ 是全 $1$ 向量，$C &gt; 0$ 是上界，$Q$ 是一个半正定矩阵， $Q_{ij} \equiv K(x_i,x_j) = \phi(x_i)^T \phi(x_j)$ 是内核。这里训练向量通过函数被隐式映射到一个高维（甚至无限维）空间 $\phi$ 。</p>
 <p>决策函数为</p>
 <p>$$<br>\sum_{i=1}^n (\alpha - \alpha^<em>)K(x_i,x) + \rho<br>$$<br>这些参数可以通过各个成员变量访问。其保持的差 $\alpha - \alpha^</em>$ ，其中变量<code>dual_coef_</code>存储，<code>support_vectors_</code>存储支持向量，<code>intercept_</code>存储独立项 $\rho$ 。</p>
 <blockquote>
@@ -1192,9 +1362,9 @@ right intercept = 598.762664, slope = 0.001878
       <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
     
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
       <category term="Machine Learning" scheme="http://yoursite.com/tags/Machine-Learning/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
     
       <category term="SVM" scheme="http://yoursite.com/tags/SVM/"/>
     
@@ -1796,48 +1966,6 @@ right intercept = 598.762664, slope = 0.001878
     
     
       <category term="C++" scheme="http://yoursite.com/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用纯 CSS 为 HTML checkbox 添加自定义样式及动画效果</title>
-    <link href="http://yoursite.com/2017/03/17/Add%20custom%20style%20and%20animation%20effects%20to%20HTML%20checkbox%20with%20CSS/"/>
-    <id>http://yoursite.com/2017/03/17/Add custom style and animation effects to HTML checkbox with CSS/</id>
-    <published>2017-03-17T06:07:34.000Z</published>
-    <updated>2017-09-08T12:18:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>一般情况下，<code>`元素（也包括一部分其他</code>input<code>元素）是由操作系统（而非浏览器）进行渲染的。在不同操作系统下，这类特殊元素的样式往往和系统本身的风格一致，和浏览器无关。也正是由于这种机制，开发者无法像一般元素那样使用 CSS 来修饰这类元素。这里介绍一种利用纯 CSS 实现自定义 checkbox 样式的方法。思路很简单：由于控件所对应的</code>label<code>元素是可以点击并切换控件状态的，而</code>label<code>元素的样式又可以自由设定，因此我们可将</code>input<code>元素隐藏，通过</code>label`元素实现交互。</p>
-<a id="more"></a>
-<p>HTML 代码如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;input type="checkbox" id="checkbox" class="checkbox"/&gt;</div><div class="line">&lt;div class="checkbox-wrapper"&gt;</div><div class="line">    &lt;label for="checkbox" class="checkbox-label"&gt;&lt;/label&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="样式一：Metro-UI-风格"><a href="#样式一：Metro-UI-风格" class="headerlink" title="样式一：Metro UI 风格"></a>样式一：Metro UI 风格</h2></blockquote>
-<p>效果：</p>
-<p>CSS 代码如下：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">80px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span> &#123;</div><div class="line">    <span class="attribute">display</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::before</span>,</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">    <span class="attribute">font-family</span>: sans-serif;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">13px</span>;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">font-weight</span>: bold;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::before</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">'ON'</span>;</div><div class="line">    <span class="attribute">left</span>: -<span class="number">40px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#45b6af</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">'OFF'</span>;</div><div class="line">    <span class="attribute">right</span>: -<span class="number">40px</span>;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#f3565d</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">40px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">4s</span> ease;</div><div class="line">    <span class="attribute">cursor</span>: pointer;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#dddddd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> <span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">left</span>: <span class="number">40px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="样式二：iOS-7-风格"><a href="#样式二：iOS-7-风格" class="headerlink" title="样式二：iOS 7 风格"></a>样式二：iOS 7 风格</h2></blockquote>
-<p>效果：</p>
-<p>CSS代码如下：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">58px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">16px</span>;</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">3s</span> ease-out;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">2px</span> <span class="number">#ddd</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span> &#123;</div><div class="line">    <span class="attribute">display</span>: none;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">position</span>: absolute;</div><div class="line">    <span class="attribute">left</span>: <span class="number">0px</span>;</div><div class="line">    <span class="attribute">top</span>: <span class="number">0px</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">    <span class="attribute">cursor</span>: pointer;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#ffffff</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">16px</span>;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">2px</span> <span class="number">3px</span> <span class="built_in">rgba</span>(0,0,0,0.2);</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">3s</span> ease-out;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> &#123;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#0bd318</span>;</div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">0px</span> <span class="number">2px</span> <span class="number">#0bd318</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.checkbox</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.checkbox-wrapper</span> <span class="selector-class">.checkbox-label</span> &#123;</div><div class="line">    <span class="attribute">left</span>: <span class="number">26px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>值得一提的是，这个例子虽然比较完美的还原了 iOS 7 中 UISwitch 控件的外观，但是动画曲线却还有些差距。iOS 7 中使用的是一种名为 String Animation 的动画（该 API 在 iOS 8 中已经公开），仔细看的话可以发现开始滑块移动很快，到后面逐渐变慢，并且结束时还有小幅度的「反弹」效果。这里我们为了方便，使用 ease-out 来模拟。</p>
-<blockquote>
-<h2 id="JSFiddle"><a href="#JSFiddle" class="headerlink" title="JSFiddle"></a>JSFiddle</h2></blockquote>
-<p>点击<a href="http://jsfiddle.net/gnu1qqnq/" target="_blank" rel="external">此处</a>查看本教程在 JSFiddle 的示范代码。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一般情况下，&lt;code&gt;`元素（也包括一部分其他&lt;/code&gt;input&lt;code&gt;元素）是由操作系统（而非浏览器）进行渲染的。在不同操作系统下，这类特殊元素的样式往往和系统本身的风格一致，和浏览器无关。也正是由于这种机制，开发者无法像一般元素那样使用 CSS 来修饰这类元素。这里介绍一种利用纯 CSS 实现自定义 checkbox 样式的方法。思路很简单：由于控件所对应的&lt;/code&gt;label&lt;code&gt;元素是可以点击并切换控件状态的，而&lt;/code&gt;label&lt;code&gt;元素的样式又可以自由设定，因此我们可将&lt;/code&gt;input&lt;code&gt;元素隐藏，通过&lt;/code&gt;label`元素实现交互。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
-    
-    
-      <category term="HTML" scheme="http://yoursite.com/tags/HTML/"/>
-    
-      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
     
   </entry>
   
