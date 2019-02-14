@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-13T06:03:47.619Z</updated>
+  <updated>2019-02-14T05:22:25.494Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2019/02/13/Logistic_regression/"/>
     <id>http://yoursite.com/2019/02/13/Logistic_regression/</id>
     <published>2019-02-13T03:39:26.176Z</published>
-    <updated>2019-02-13T06:03:47.619Z</updated>
+    <updated>2019-02-14T05:22:25.494Z</updated>
     
     <content type="html"><![CDATA[<h2 id="逻辑回归与线性回归"><a href="#逻辑回归与线性回归" class="headerlink" title="逻辑回归与线性回归"></a><em>逻辑回归与线性回归</em></h2><ul>
 <li>线性回归：预测连续数值变量（明天上海的地面温度？）</li>
@@ -47,7 +47,7 @@
 <p>如果直接通过线性回归，发现由于输入输出值得范围不同，导致无法很好的进行映射。于是通过对输出值进行变换</p>
 <ul>
 <li>输入值：信用值等连续型数字，取值范围为 $\left ( -\infty , +\infty \right )$ </li>
-<li>输出值：正常订房的概率 $p$，取值范围为 $\left [ 0 , 1 \right ]<ul>
+<li>输出值：正常订房的概率 $p$，取值范围为 $\left [ 0 , 1 \right ]$<ul>
 <li>通过 $\frac{p}{1-p}$ ，取值范围为 $\left [ 0 , +\infty \right )$ </li>
 <li>进一步取对数 $ln\left (\frac{p}{1-p}  \right )$ ，取值范围为 $\left ( -\infty , +\infty \right )$ </li>
 </ul>
@@ -82,7 +82,7 @@ Cost(h_\theta (x), y)=\begin{cases}
 <script type="math/tex; mode=display">
 Cost(\theta) = -(1-y)ln(1-h_\theta (x))-yln(h_\theta (x))</script><p>对于 $n$ 个数据，进行求和：</p>
 <script type="math/tex; mode=display">
-J(\theta) = \sum_{i=1}^{n}[-(1-y^{i})ln(1-h_\theta(x^{i}))-y^{i}ln(h_\theta (x^{i}))]</script><ul>
+J(\theta) = \sum_{i=1}^{n}\left[-(1-y^{i})ln(1-h_\theta(x^{i}))-y^{i}ln(h_\theta (x^{i}))\right]</script><ul>
 <li>$x^i$ 是第 $i$ 个人的信用值，$y^i$ 是最后订房与否的指示数</li>
 <li>$i=1$ 表示预定，$i=0$ 表示未预定</li>
 <li>$\theta$ 是参数，作为向量的表示方法，因为参数很可能不止一个</li>
@@ -90,45 +90,171 @@ J(\theta) = \sum_{i=1}^{n}[-(1-y^{i})ln(1-h_\theta(x^{i}))-y^{i}ln(h_\theta (x^{
 <p>根据这个 <strong><em>Cost Function</em></strong>，寻找能让其最小的 $\theta \in \left \{ \theta_1 , \theta_2  \right \}$，通过使其一阶导数为0，二阶导数为正，从而获取 $min \theta$：</p>
 <script type="math/tex; mode=display">
 \begin{align}
-\frac{\partial J(\theta)}{\partial \theta_j} &= \frac{\partial }{\partial \theta_j }\sum_{i=1}^{n}[-(1-y^{i})ln(1-h_\theta(x^{i}))-y^{i}ln(h_\theta (x^{i}))]\\
-&=-\sum_{i=1}^{n}[(1-y^{i})\frac{\partial ln(1-h_\theta (x^{i}))}{\partial \theta _j}+y^{i}\frac{\partial ln(h_\theta (x^{i}))}{\partial \theta _j}]\\
-&=-\sum_{i=1}^{n}[(1-y^{i})\frac{1}{ln(1-h_\theta (x^{i}))} \frac{\partial (1-h_\theta (x^{i}))}{\partial \theta _j}+y^{i}\frac{1}{h_\theta (x^{i})}\frac{\partial (h_\theta (x^{i}))}{\partial \theta _j}]\\
-&=-\sum_{i=1}^{n}[-(1-y^{i})\frac{h_\theta (x^{i})[1-h_\theta (x^{i})]}{1-h_\theta (x^{i})}\frac{\partial (\theta x^{i})}{\partial \theta_j}+y^{i}\frac{h_\theta (x^{i})[1-h_\theta (x^{i})]}{h_\theta (x^{i})}\frac{\partial (\theta x^{i})}{\partial \theta_j}]\\
-&=-\sum_{i=1}^{n}[-(1-y^{i})h_\theta (x^{i})+y^{i}(1-h_\theta (x^{i}))]\frac{\partial (\theta x^{i})}{\partial \theta_j}\\
-&=-\sum_{i=1}^{n}[-h_\theta (x^{i})+y^{i}]x_{j}^{i}
+\frac{\partial J(\theta)}{\partial \theta_j} 
+&= \frac{\partial }{\partial \theta_j }\sum_{i=1}^{n}\left [-(1-y^{i})ln(1-h_\theta(x^{i}))-y^{i}ln(h_\theta (x^{i}))\right ]\\
+&=-\sum_{i=1}^{n}\left [(1-y^{i})\frac{\partial ln(1-h_\theta (x^{i}))}{\partial \theta _j}+y^{i}\frac{\partial ln(h_\theta (x^{i}))}{\partial \theta _j}\right ]\\
+&=-\sum_{i=1}^{n}\left [(1-y^{i})\frac{1}{ln(1-h_\theta (x^{i}))} \frac{\partial (1-h_\theta (x^{i}))}{\partial \theta _j}+y^{i}\frac{1}{h_\theta (x^{i})}\frac{\partial (h_\theta (x^{i}))}{\partial \theta _j}\right]\\
+&=-\sum_{i=1}^{n}\left [-(1-y^{i})\frac{h_\theta (x^{i})[1-h_\theta (x^{i})]}{1-h_\theta (x^{i})}\frac{\partial (\theta x^{i})}{\partial \theta_j}+y^{i}\frac{h_\theta (x^{i})[1-h_\theta (x^{i})]}{h_\theta (x^{i})}\frac{\partial (\theta x^{i})}{\partial \theta_j}\right]\\
+&=-\sum_{i=1}^{n}\left [-(1-y^{i})h_\theta (x^{i})+y^{i}(1-h_\theta (x^{i}))\right]\frac{\partial (\theta x^{i})}{\partial \theta_j}\\
+&=-\sum_{i=1}^{n}\left [-h_\theta (x^{i})+y^{i}\right]x_{j}^{i}
 \end{align}</script><blockquote>
 <p>其中</p>
 </blockquote>
 <script type="math/tex; mode=display">
 \begin{align}
-\frac{\partial (h_\theta (x^{i}))}{\partial \theta _1} &=\frac{\partial }{\partial \theta _1}\frac{1}{1+e^{-\theta _1x^{i}-\theta _2}} \\
-&=-\frac{1}{(1+e^{-\theta _1x^{i}-\theta _2})^{2}}\frac{\partial (1+e^{-\theta _1x^{i}-\theta _2})}{\partial \theta _1}\\
-&=\frac{x^{i}e^{-\theta _1x^{i}-\theta _2}}{(1+e^{-\theta _1x^{i}-\theta _2})^{2}}\\
-&=x^{i}\frac{1}{1+e^{-\theta _1x^{i}-\theta _2}}(1-\frac{1}{1+e^{-\theta _1x^{i}-\theta _2}}) \\
-&=x^{i}h_\theta (x^{i})[1-h_\theta (x^{i})]
+\frac{\partial \left(h_\theta \left (x^{i}\right)\right)}{\partial \theta _1} 
+&=\frac{\partial }{\partial \theta _1}\frac{1}{1+e^{-\theta _1x^{i}-\theta _2}} \\
+&=-\frac{1}{(1+e^{-\theta _1x^{i}-\theta _2})^{2}}\frac{\partial \left(1+e^{-\theta _1x^{i}-\theta _2}\right)}{\partial \theta _1}\\
+&=\frac{x^{i}e^{-\theta _1x^{i}-\theta _2}}{\left(1+e^{-\theta _1x^{i}-\theta _2}\right)^{2}}\\
+&=x^{i}\frac{1}{1+e^{-\theta _1x^{i}-\theta _2}}\left(1-\frac{1}{1+e^{-\theta _1x^{i}-\theta _2}}\right) \\
+&=x^{i}h_\theta \left (x^{i}\right)\left[1-h_\theta \left(x^{i}\right)\right]
 \end{align}</script><script type="math/tex; mode=display">
 \begin{align}
-\frac{\partial (h_\theta (x^{i}))}{\partial \theta _2} &=\frac{\partial }{\partial \theta _2}\frac{1}{1+e^{-\theta _1x^{i}-\theta _2}} \\
-&=-\frac{1}{(1+e^{-\theta _1x^{i}-\theta _2})^{2}}\frac{\partial (1+e^{-\theta _1x^{i}-\theta _2})}{\partial \theta _2}\\
-&=\frac{e^{-\theta _1x^{i}-\theta _2}}{(1+e^{-\theta _1x^{i}-\theta _2})^{2}}\\
-&=\frac{1}{1+e^{-\theta _1x^{i}-\theta _2}}(1-\frac{1}{1+e^{-\theta _1x^{i}-\theta _2}}) \\
-&=h_\theta (x^{i})[1-h_\theta (x^{i})]
+\frac{\partial \left(h_\theta \left(x^{i}\right)\right)}{\partial \theta _2} 
+&=\frac{\partial }{\partial \theta _2}\frac{1}{1+e^{-\theta _1x^{i}-\theta _2}} \\
+&=-\frac{1}{\left(1+e^{-\theta _1x^{i}-\theta _2}\right)^{2}}\frac{\partial \left(1+e^{-\theta _1x^{i}-\theta _2}\right)}{\partial \theta _2}\\
+&=\frac{e^{-\theta _1x^{i}-\theta _2}}{\left(1+e^{-\theta _1x^{i}-\theta _2}\right)^{2}}\\
+&=\frac{1}{1+e^{-\theta _1x^{i}-\theta _2}}\left(1-\frac{1}{1+e^{-\theta _1x^{i}-\theta _2}}\right) \\
+&=h_\theta (x^{i})\left[1-h_\theta \left(x^{i}\right)\right]
 \end{align}</script><p>对于所有的 $\theta_j$，都需要有：</p>
 <script type="math/tex; mode=display">
-\frac{\partial J(\theta)}{\partial \theta_j}=-\sum_{i=1}^{n}[-h_\theta (x^{i})+y^{i}]x_{j}^{i}\qquad \qquad j=1,2,...</script><p>理论上，可以通过该方程求解各个 $\theta_j$，但由于 $h_\theta (x^i)$ 的存在，不易求出解析解，需要通过其他方法，计算出 $\theta_j$ 的近似解：</p>
-<ul>
-<li>梯度下降法<script type="math/tex; mode=display">
+\frac{\partial J(\theta)}{\partial \theta_j}=-\sum_{i=1}^{n}\left[-h_\theta \left(x^{i}\right)+y^{i}\right]x_{j}^{i}\qquad \qquad j=1,2,...</script><p>理论上，可以通过该方程求解各个 $\theta_j$，但由于 $h_\theta (x^i)$ 的存在，不易求出解析解，需要通过其他方法，计算出 $\theta_j$ 的近似解。</p>
+<h3 id="3-1-使用sklearn自带函数求解逻辑回归参数"><a href="#3-1-使用sklearn自带函数求解逻辑回归参数" class="headerlink" title="3.1. 使用sklearn自带函数求解逻辑回归参数"></a>3.1. 使用<code>sklearn</code>自带函数求解逻辑回归参数</h3><p><code>In[1]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</div><div class="line"></div><div class="line">%matplotlib inline</div><div class="line">data = pd.read_csv(<span class="string">'Score_Pass.csv'</span>)</div><div class="line">X, y = np.array(data[<span class="string">'Score'</span>]), np.array(data[<span class="string">'Pass/N'</span>])</div><div class="line">x = X / np.max(X)</div><div class="line">lr = LogisticRegression(solver=<span class="string">'lbfgs'</span>)  <span class="comment">#solver 可选默认，可选'newton-cg'，有区别</span></div><div class="line">lr.fit(x.reshape(<span class="number">-1</span>, <span class="number">1</span>), y)</div><div class="line">print(<span class="string">'slope = %f, interception= %f '</span> % (lr.coef_, lr.intercept_))</div><div class="line">pre_y = lr.predict_proba(x.reshape(<span class="number">-1</span>, <span class="number">1</span>))</div><div class="line">pre_y_1 = [i[<span class="number">1</span>] <span class="keyword">for</span> i <span class="keyword">in</span> pre_y]</div><div class="line">plt.scatter(x, y)</div><div class="line">plt.scatter(x, pre_y_1)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">slope = 11.702751, interception= -8.900218</div></pre></td></tr></table></figure>
+<p><code>Out[1]</code></p>
+<p><img src="https://i.loli.net/2019/02/14/5c64f7d9dff97.png" alt="output_2_2"></p>
+<p><code>In[2]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line">%matplotlib inline</div><div class="line">%config InlineBackend.figure_format = <span class="string">'retina'</span></div><div class="line"></div><div class="line">np.random.seed(<span class="number">12</span>)</div><div class="line">num_observations = <span class="number">5000</span></div><div class="line"></div><div class="line">x1 = np.random.multivariate_normal([<span class="number">0</span>, <span class="number">0</span>], [[<span class="number">1</span>, <span class="number">.75</span>], [<span class="number">.75</span>, <span class="number">1</span>]],</div><div class="line">                                   num_observations)</div><div class="line">x2 = np.random.multivariate_normal([<span class="number">1</span>, <span class="number">4</span>], [[<span class="number">1</span>, <span class="number">.75</span>], [<span class="number">.75</span>, <span class="number">1</span>]],</div><div class="line">                                   num_observations)</div><div class="line"></div><div class="line">simulated_separableish_features = np.vstack((x1, x2)).astype(np.float32)</div><div class="line">simulated_labels = np.hstack((np.zeros(num_observations),</div><div class="line">                              np.ones(num_observations)))</div><div class="line">plt.figure(figsize=(<span class="number">12</span>, <span class="number">8</span>))</div><div class="line">plt.scatter(</div><div class="line">    simulated_separableish_features[:, <span class="number">0</span>],</div><div class="line">    simulated_separableish_features[:, <span class="number">1</span>],</div><div class="line">    c=simulated_labels,</div><div class="line">    alpha=<span class="number">.4</span>)</div></pre></td></tr></table></figure>
+<p><code>Out[2]</code></p>
+<p><img src="https://i.loli.net/2019/02/14/5c64f7b27dd6e.png" alt="output_3_1"></p>
+<p><code>In[3]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</div><div class="line"></div><div class="line">clf = LogisticRegression(fit_intercept=<span class="keyword">True</span>, C=<span class="number">1e15</span>)</div><div class="line">clf.fit(simulated_separableish_features, simulated_labels)</div><div class="line"></div><div class="line">print(</div><div class="line">    clf.coef_,</div><div class="line">    clf.intercept_,</div><div class="line">)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[-5.02712572  8.23286799]] [-13.99400797]</div></pre></td></tr></table></figure>
+<h3 id="3-2-使用梯度下降法求解逻辑回归参数"><a href="#3-2-使用梯度下降法求解逻辑回归参数" class="headerlink" title="3.2. 使用梯度下降法求解逻辑回归参数"></a>3.2. 使用梯度下降法求解逻辑回归参数</h3><blockquote>
+<p>沿着J(x)的下降方向对 $\theta$ 进行更新</p>
+</blockquote>
+<script type="math/tex; mode=display">
 \begin{align}
-\theta_j &=\theta_j - \frac{\partial J(\theta)}{\partial \theta_j}\\
-&=\theta_j+\sum_{i=1}^{n}[-h_\theta (x^{i})+y^{i}]x_{j}^{i}
-\end{align}</script></li>
-</ul>
-<ul>
-<li>牛顿法<script type="math/tex; mode=display">
-\theta_j=\theta_j - H^{-1}\nabla J(\theta)</script></li>
-</ul>
+  \theta_j &=\theta_j - \frac{\partial J(\theta)}{\partial \theta_j}\\
+  &=\theta_j + \alpha\frac{1}{m}\sum_{i=1}^m\left[ y^{(i)}-h_\theta\left(x^{(i)}\right)\right]\,x_j^{(i)}\\
+  h_\theta\left(x^{(i)}\right) &= \frac{1}{1+e^{\sum_{j=1}^{n}-\theta_j x_j^{(i)}}}
+  \end{align}</script><p>$i$ 是样本点的标号，$j$ 是自变量个数的标号，在我们的案例中，$i$ 取1至10000，$j$ 只取 $1,2,3$（有常量参数）</p>
+<p><code>In[4]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sigmoid_eg</span><span class="params">(x1, x2, theta_1, theta_2, theta_3)</span>:</span></div><div class="line">    z = (theta_1 * x1 + theta_2 * x2 + theta_3).astype(<span class="string">"float_"</span>)</div><div class="line">    <span class="keyword">return</span> <span class="number">1.0</span> / (<span class="number">1.0</span> + np.exp(-z))</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># def Cost(x, y, theta_1, theta_2):</span></div><div class="line"><span class="comment">#     sigmoid_probs = sigmoid(x, theta_1, theta_2)</span></div><div class="line"><span class="comment">#     return -np.mean(y * np.log(sigmoid_probs)</span></div><div class="line"><span class="comment">#                   + (1 - y) * np.log(1 - sigmoid_probs))</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">gradient_eg</span><span class="params">(x1, x2, y, theta_1, theta_2, theta_3)</span>:</span></div><div class="line">    sigmoid_probs = sigmoid_eg(x1, x2, theta_1, theta_2, theta_3)</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>/len(y)*np.sum((y - sigmoid_probs)*x1),\</div><div class="line"><span class="number">1</span>/len(y)*np.sum((y - sigmoid_probs)*x2),\</div><div class="line"><span class="number">1</span>/len(y)*np.sum((y - sigmoid_probs))</div></pre></td></tr></table></figure>
+<p><code>In[5]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">GradDe_eg</span><span class="params">(x1, x2, y, Max_Loop=<span class="number">20</span>, alpha=<span class="number">0.1</span>)</span>:</span></div><div class="line">    <span class="comment">#alpha = 0.00000001</span></div><div class="line">    <span class="comment">#Max_Loop = 200</span></div><div class="line">    </div><div class="line">    <span class="comment"># Initialize Cost &amp; parameters</span></div><div class="line">    theta_1 = <span class="number">0.1</span></div><div class="line">    theta_2 = <span class="number">-0.4</span></div><div class="line">    theta_3 = <span class="number">0.56</span></div><div class="line">    <span class="keyword">for</span> l <span class="keyword">in</span> range(Max_Loop):</div><div class="line">        delta1, delta2, delta3 = gradient_eg(x1, x2, y, theta_1, theta_2,</div><div class="line">                                             theta_3)</div><div class="line">        <span class="comment">#delta1 = alpha * np.sum((y-sigmoid(X, theta_1, theta_2)) * X)</span></div><div class="line">        <span class="comment">#delta2 = alpha * np.sum(y-sigmoid(X, theta_1, theta_2))</span></div><div class="line">        </div><div class="line">        <span class="comment"># alpha is the step size used for each gradient descent.</span></div><div class="line">        theta_1 = theta_1 + alpha * delta1</div><div class="line">        theta_2 = theta_2 + alpha * delta2</div><div class="line">        theta_3 = theta_3 + alpha * delta3</div><div class="line">        <span class="keyword">if</span> l % <span class="number">1000</span> == <span class="number">0</span>:</div><div class="line">            <span class="comment">#print('cost = %f'%Cost(x, y, theta_1, theta_2))</span></div><div class="line">            print(<span class="string">'delta%d ='</span> % (l), [delta1, delta2, delta3])</div><div class="line">            print(<span class="string">'theta%d ='</span> % (l), [theta_1, theta_2, theta_3], <span class="string">'\n'</span>)</div><div class="line"></div><div class="line">        <span class="comment">#if l % 1000 == 0:</span></div><div class="line">        <span class="comment">#    print(Cost(X, y, theta_1, theta_2), gradient(X,y,theta_1, theta_2),delta1,delta2)</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> [theta_1, theta_2, theta_3]</div></pre></td></tr></table></figure>
+<p><code>In[6]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">weights_GD = GradDe_eg(simulated_separableish_features[:,<span class="number">0</span>],\</div><div class="line">                    simulated_separableish_features[:,<span class="number">1</span>],\</div><div class="line">                    simulated_labels,<span class="number">200000</span>,<span class="number">0.9</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">delta0 = [0.3961871800720364, 1.5009373411273292, 0.041322520564441766]</div><div class="line">theta0 = [0.4565684620648328, 0.9508436070145964, 0.5971902685079976] </div><div class="line"></div><div class="line">delta1000 = [-0.0007704583774520729, 0.001169577110841499, -0.00204740502940396]</div><div class="line">theta1000 = [-2.6636329924890543, 4.471657694939081, -7.450004128248804] </div><div class="line"></div><div class="line">delta2000 = [-0.00040699408309612366, 0.0006346501021336131, -0.0011069894635109044]</div><div class="line">theta2000 = [-3.1583938131200133, 5.233346806623855, -8.780787027655295]  </div><div class="line"></div><div class="line">... ...</div><div class="line">... ...</div><div class="line"></div><div class="line">delta198000 = [-3.64302204385325e-09, -9.997352543678063e-09, -5.087131606984486e-09]</div><div class="line">theta198000 = [-5.059009978575051, 8.289579861025118, -14.09229413937621] </div><div class="line"></div><div class="line">delta199000 = [-1.8617213591198835e-09, -2.5363573357140016e-09, -1.3400418549025517e-09]</div><div class="line">theta199000 = [-5.059010268875257, 8.289579870388907, -14.09229451979946]</div></pre></td></tr></table></figure>
+<p><code>In[7]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">weights_GD</div></pre></td></tr></table></figure>
+<p><code>Out[7]</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[-5.059010268463914, 8.289579874245822, -14.092294984033252]</div></pre></td></tr></table></figure>
+<h3 id="3-3-使用牛顿法求解逻辑回归参数"><a href="#3-3-使用牛顿法求解逻辑回归参数" class="headerlink" title="3.3. 使用牛顿法求解逻辑回归参数"></a>3.3. 使用牛顿法求解逻辑回归参数</h3><script type="math/tex; mode=display">
+\begin{align}
+x_{n+1} &= x_{n} - \frac{f(x_{n})}{f’(x_{n})} \\
+x_{n+2} &= x_{n+1} - \frac{f(x_{n+1})}{f’(x_{n+1})} \\
+\end{align}</script><p><img src="https://i.loli.net/2019/02/14/5c64f8064bb8a.gif" width="600"></p>
+<p>我们要找的是一阶导数为 $0$ 的点，所以 我们的 $f(x)=J’(x)$，我们的牛顿迭代公式为：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+x_{n+1} &= x_{n} - \frac{J'(x_{n})}{J''(x_{n})} \\
+x_{n+2} &= x_{n+1} - \frac{J'(x_{n+1})}{J''(x_{n+1})}
+\end{align}</script><p>在多元的情况下，$J’’(x_{n})=H_{\ell(\hat{\theta})}$ 海塞矩阵：</p>
+<script type="math/tex; mode=display">
+H_{\ell(\hat{\theta})} = \begin{bmatrix}
+\begin{split}
+\frac{\partial^{2}{J}}{\partial{\theta_{1}}\partial{\theta_{1}}}   & 
+\frac{\partial^{2}{J}}{\partial{\theta_{1}}\partial{\theta_{2}}} \\
+\frac{\partial^{2}{J}}{\partial{\theta_{2}}\partial{\theta_{1}}}   &
+\frac{\partial^{2}{J}}{\partial{\theta_{2}}\partial{\theta_{2}}} \\
+\end{split}\end{bmatrix}</script><p>三阶海塞矩阵形式为：</p>
+<script type="math/tex; mode=display">
+H_{\ell(\hat{\theta})} = \begin{bmatrix}
+\begin{split}
+\frac{\partial^{2}{J}}{\partial{\theta_{1}}\partial{\theta_{1}}}   & 
+\frac{\partial^{2}{J}}{\partial{\theta_{1}}\partial{\theta_{2}}} &
+\frac{\partial^{2}{J}}{\partial{\theta_{1}}\partial{\theta_{3}}} \\
+\frac{\partial^{2}{J}}{\partial{\theta_{2}}\partial{\theta_{1}}}   &
+\frac{\partial^{2}{J}}{\partial{\theta_{2}}\partial{\theta_{2}}} &
+\frac{\partial^{2}{J}}{\partial{\theta_{2}}\partial{\theta_{3}}}\\
+\frac{\partial^{2}{J}}{\partial{\theta_{3}}\partial{\theta_{1}}}   &
+\frac{\partial^{2}{J}}{\partial{\theta_{3}}\partial{\theta_{2}}}&
+\frac{\partial^{2}{J}}{\partial{\theta_{3}}\partial{\theta_{3}}}\\
+\end{split}\end{bmatrix}</script><script type="math/tex; mode=display">
+H_{\ell(\hat{\theta})} = \begin{bmatrix}\begin{split}
+\sum_{i=1}^{n}h_{\theta}(x_{i})(1-h_{\theta}(x_{i}))x_{i,1}x_{i,1},\ &
+\sum_{i=1}^{n}h_{\theta}(x_{i})(1-h_{\theta}(x_{i}))x_{i,1}x_{i,2},\ &
+\sum_{i=1}^{n}h_{\theta}(x_{i})(1-h_{\theta}(x_{i}))x_{i,1}\\
+\sum_{i=1}^{n}h_{\theta}(x_{i})(1-h_{\theta}(x_{i}))x_{i,2}x_{i,1},\ &
+\sum_{i=1}^{n}h_{\theta}(x_{i})(1-h_{\theta}(x_{i}))x_{i,2}x_{i,2},\ &
+\sum_{i=1}^{n}h_{\theta}(x_{i})(1-h_{\theta}(x_{i}))x_{i,2},\\
+\sum_{i=1}^{n}h_{\theta}(x_{i})(1-h_{\theta}(x_{i}))x_{i,1},\ &
+\sum_{i=1}^{n}h_{\theta}(x_{i})(1-h_{\theta}(x_{i}))x_{i,2},\ &
+\sum_{i=1}^{n}h_{\theta}(x_{i})(1-h_{\theta}(x_{i}))x_{i,3}\\
+\end{split}\end{bmatrix} \\</script><script type="math/tex; mode=display">
+\begin{align}
+&h_{\theta}(x_i) = \frac{1}{1 + e^{-z}}\\
+&z = \theta_{1}x_{i,1} + \theta_{2}x_{i,2}+\theta_3
+\end{align}</script><p>一阶导数</p>
+<script type="math/tex; mode=display">
+\nabla J = -\begin{pmatrix}
+\sum_{i=1}^{n}(y_{i} - h_{\theta}(x_{i}))x_{i,1}\\ 
+\sum_{i=1}^{n}(y_{i} - h_{\theta}(x_{i}))x_{i,2}\\ 
+\sum_{i=1}^{n}(y_{i} - h_{\theta}(x_{i}))x_{i,3}
+\end{pmatrix}</script><script type="math/tex; mode=display">
+\theta_j=\theta_j - H^{-1}\nabla J(\theta)</script><p><code>In[8]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sigmoid_eg</span><span class="params">(x1, x2, theta_1, theta_2, theta_3)</span>:</span></div><div class="line">    z = (theta_1 * x1 + theta_2 * x2 + theta_3).astype(<span class="string">"float_"</span>)</div><div class="line">    <span class="keyword">return</span> <span class="number">1.0</span> / (<span class="number">1.0</span> + np.exp(-z))</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">Cost</span><span class="params">(x1, x2, y, theta_1, theta_2, theta_3)</span>:</span></div><div class="line">    sigmoid_probs = sigmoid_eg(x1, x2, theta_1, theta_2, theta_3)</div><div class="line">    <span class="keyword">return</span> -np.mean(y * np.log(sigmoid_probs) +</div><div class="line">                    (<span class="number">1</span> - y) * np.log(<span class="number">1</span> - sigmoid_probs))</div></pre></td></tr></table></figure>
+<p><code>In[9]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">gradient_nt</span><span class="params">(x1, x2, y, theta_1, theta_2, theta_3)</span>:</span></div><div class="line">    sigmoid_probs = sigmoid_eg(x1, x2, theta_1, theta_2, theta_3)</div><div class="line">    <span class="keyword">return</span> np.array([</div><div class="line">        np.sum((y - sigmoid_probs) * x1),</div><div class="line">        np.sum((y - sigmoid_probs) * x2),</div><div class="line">        np.sum(y - sigmoid_probs)</div><div class="line">    ])</div></pre></td></tr></table></figure>
+<p><code>In[10]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">hessian</span><span class="params">(x1, x2, y, theta_1, theta_2, theta_3)</span>:</span></div><div class="line">    sigmoid_probs = sigmoid_eg(x1, x2, theta_1, theta_2, theta_3)</div><div class="line">    d1 = np.sum((sigmoid_probs * (<span class="number">1</span> - sigmoid_probs)) * x1 * x1)</div><div class="line">    d2 = np.sum((sigmoid_probs * (<span class="number">1</span> - sigmoid_probs)) * x1 * x2)</div><div class="line">    d3 = np.sum((sigmoid_probs * (<span class="number">1</span> - sigmoid_probs)) * x1)</div><div class="line">    d4 = np.sum((sigmoid_probs * (<span class="number">1</span> - sigmoid_probs)) * x2 * x1)</div><div class="line">    d5 = np.sum((sigmoid_probs * (<span class="number">1</span> - sigmoid_probs)) * x2 * x2)</div><div class="line">    d6 = np.sum((sigmoid_probs * (<span class="number">1</span> - sigmoid_probs)) * x2)</div><div class="line">    d7 = np.sum((sigmoid_probs * (<span class="number">1</span> - sigmoid_probs)) * x1)</div><div class="line">    d8 = np.sum((sigmoid_probs * (<span class="number">1</span> - sigmoid_probs)) * x2)</div><div class="line">    d9 = np.sum((sigmoid_probs * (<span class="number">1</span> - sigmoid_probs)))</div><div class="line">    H = np.array([[d1, d2, d3], [d4, d5, d6], [d7, d8, d9]])</div><div class="line">    <span class="keyword">return</span> H</div></pre></td></tr></table></figure>
+<p><code>In[11]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">theta_1 = <span class="number">0.001</span></div><div class="line">theta_2 = <span class="number">-0.4</span></div><div class="line">theta_3 = <span class="number">0.6</span></div><div class="line">sigmoid_probs = sigmoid_eg(simulated_separableish_features[:,<span class="number">0</span>],\</div><div class="line">                    simulated_separableish_features[:,<span class="number">1</span>],\</div><div class="line">                     theta_1,theta_2,theta_3)</div><div class="line"></div><div class="line">sigmoid_probs</div></pre></td></tr></table></figure>
+<p><code>Out[11]</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">array([0.70539901, 0.71740128, 0.75001283, ..., 0.25536395, 0.25133316,</div><div class="line">       0.20942065])</div></pre></td></tr></table></figure>
+<p><code>In[12]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">newtons_method</span><span class="params">(x1, x2, y)</span>:</span></div><div class="line"></div><div class="line">    <span class="comment"># Initialize Cost &amp; parameters</span></div><div class="line">    theta_1 = <span class="number">0.001</span></div><div class="line">    theta_2 = <span class="number">-0.4</span></div><div class="line">    theta_3 = <span class="number">0.6</span></div><div class="line">    delta_l = np.Infinity</div><div class="line">    l = Cost(x1, x2, y, theta_1, theta_2, theta_3)</div><div class="line">    </div><div class="line">    <span class="comment"># Convergence Conditions</span></div><div class="line">    δ = <span class="number">.0000000001</span></div><div class="line">    max_iterations = <span class="number">15</span></div><div class="line">    i = <span class="number">0</span></div><div class="line">    </div><div class="line">    <span class="keyword">while</span> abs(delta_l) &gt; δ <span class="keyword">and</span> i &lt; max_iterations:</div><div class="line">        i += <span class="number">1</span></div><div class="line">        g = gradient_nt(x1, x2, y, theta_1, theta_2, theta_3)</div><div class="line">        hess = hessian(x1, x2, y, theta_1, theta_2, theta_3)</div><div class="line">        H_inv = np.linalg.inv(hess)</div><div class="line">        </div><div class="line">        <span class="comment"># @ is syntactic sugar for np.dot(H_inv, g.T)¹</span></div><div class="line">        delta = H_inv @ g.T</div><div class="line">        delta_theta_1 = delta[<span class="number">0</span>]</div><div class="line">        delta_theta_2 = delta[<span class="number">1</span>]</div><div class="line">        delta_theta_3 = delta[<span class="number">2</span>]</div><div class="line">        print(theta_1, theta_2, theta_3, l, g)</div><div class="line"></div><div class="line">        <span class="comment"># Perform our update step</span></div><div class="line">        theta_1 += delta_theta_1</div><div class="line">        theta_2 += delta_theta_2</div><div class="line">        theta_3 += delta_theta_3</div><div class="line"></div><div class="line">        <span class="comment"># Update the log-likelihood at each iteration</span></div><div class="line">        l_new = Cost(x1, x2, y, theta_1, theta_2, theta_3)</div><div class="line">        delta_l = l - l_new</div><div class="line">        l = l_new</div><div class="line">        </div><div class="line">    <span class="keyword">return</span> np.array([theta_1, theta_2, theta_3])</div></pre></td></tr></table></figure>
+<p><code>In[13]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">weights_NT = newtons_method(simulated_separableish_features[:,<span class="number">0</span>],\</div><div class="line">                    simulated_separableish_features[:,<span class="number">1</span>],\</div><div class="line">                    simulated_labels)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">0.001 -0.4 0.6 1.192232682683846 [ 4203.81624265 15339.64896586   425.24295633]</div><div class="line">-0.5323055089899444 1.3654730366188175 -2.213077389806385 0.1268005198001985 [  -4.87460157  917.75831422 -229.19748353]</div><div class="line">-1.1017906890766926 2.1170684289582935 -3.515199454248499 0.06344214919739537 [  9.11552841 372.53112984 -82.41612615]</div><div class="line">-1.696350075213766 2.9567826609247536 -4.958577211933369 0.0359808048849091 [  7.25193544 153.26328814 -30.62002723]</div><div class="line">-2.3598703977461986 3.9351755787400005 -6.633652721276137 0.023305245309678077 [  4.99551386  64.01150281 -11.18719616]</div><div class="line">-3.102101701476835 5.077389660723291 -8.586610622518707 0.017443703519444794 [ 3.20603557 26.54120782 -3.88451216]</div><div class="line">-3.8866316214728123 6.334661214553187 -10.738329272756982 0.014970682152691529 [ 1.76384655 10.23918884 -1.21513341]</div><div class="line">-4.578746773357871 7.479180436760244 -12.700646487249276 0.014194607302215922 [ 0.69308352  3.13228017 -0.30245818]</div><div class="line">-4.96926037381912 8.137065370724404 -13.830223818356856 0.014076397801702743 [ 0.13170341  0.51575348 -0.0430004 ]</div><div class="line">-5.055692120582939 8.28392101239704 -14.082565688206492 0.014072547126520205 [ 0.00514173  0.01873735 -0.00152877]</div><div class="line">-5.059007231550736 8.28957481482966 -14.092286111829237 0.014072542010902475 [3.46957973e-05 1.22308017e-04 4.33913704e-05]</div><div class="line">-5.059012074312396 8.289583319446658 -14.092299639264253 0.014072542383840357 [-1.32332893e-05 -3.33496011e-05 -1.47340364e-05]</div><div class="line">-5.059012209362201 8.289583262232439 -14.092299836143358 0.014072542049442381 [ 8.05848509e-06 -4.68544268e-06 -5.44347003e-06]</div><div class="line">-5.059011843642549 8.289583140516363 -14.0922999061835 0.014072542383840357 [-1.32332893e-05 -3.33496011e-05 -1.47340364e-05]</div></pre></td></tr></table></figure>
+<p><code>In[14]</code></p>
+<p><code>In[14]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">print(<span class="string">'Gradient descent: &#123;&#125;'</span>.format(weights_GD))</div><div class="line">print(<span class="string">'Newtons method: &#123;&#125;'</span>.format(weights_NT))</div><div class="line">print(<span class="string">'Sklearn method: &#123;&#125; &#123;&#125;'</span>.format(clf.coef_, clf.intercept_,))</div></pre></td></tr></table></figure>
+<p><code>Out[14]</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Gradient descent: [-5.059010268463914, 8.289579874245822, -14.092294984033252]</div><div class="line">Newtons method: [ -5.05901198   8.28958308 -14.0923001 ]</div><div class="line">Sklearn method: [[-5.02712572  8.23286799]] [-13.99400797]</div></pre></td></tr></table></figure>
 <p>通过上面的数据处理，便得到了对于本次回归的最优解：<br><img src="https://i.loli.net/2019/02/13/5c63adc67f71c.png" width="700"></p>
-]]></content>
+<h2 id="从逻辑回归到SoftMax"><a href="#从逻辑回归到SoftMax" class="headerlink" title="从逻辑回归到SoftMax"></a>从逻辑回归到SoftMax</h2><p>对于二分类问题，我们使用逻辑回归</p>
+<script type="math/tex; mode=display">
+h_\theta (x)=\frac{1}{1+e^{-\left ( \theta_1 x+\theta_2 \right )}}
+=\frac{e^{ \theta_1 x+\theta_2}}{1+e^{ \theta_1 x+\theta_2}}</script><p>而对于多分类的问题，就要引入<strong><em>SoftMax Function</em></strong>，其本质上和逻辑回归一致，但需要从多个角度分析</p>
+<ul>
+<li>首先定义</li>
+</ul>
+<script type="math/tex; mode=display">
+  Z_i (x)=\theta _{i,1}x_1+\theta _{i,2}x_2</script><ul>
+<li>则<strong><em>SoftMax Function</em></strong>为</li>
+</ul>
+<script type="math/tex; mode=display">
+  Softmax = \frac{e^{z_i(x)}}{\sum e^{z_i(x)}}</script><ul>
+<li>例如我们定义一个5类的<strong><em>SoftMax Function</em></strong></li>
+</ul>
+<script type="math/tex; mode=display">
+  p_i=\begin{cases}
+  \frac{e^{z_1(x)}}{\sum_{i=1}^{5} e^{z_i(x)}}&  & ①\\ 
+  \frac{e^{z_2(x)}}{\sum_{i=1}^{5} e^{z_i(x)}}&  & ②\\ 
+  \frac{e^{z_3(x)}}{\sum_{i=1}^{5} e^{z_i(x)}}&  & ③\\ 
+  \frac{e^{z_4(x)}}{\sum_{i=1}^{5} e^{z_i(x)}}&  & ④\\ 
+  \frac{e^{z_5(x)}}{\sum_{i=1}^{5} e^{z_i(x)}}&  & ⑤
+  \end{cases}</script><p>同逻辑回归一样，<strong><em>SoftMax Function</em></strong>也可以求偏导</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\frac{\partial (Softmax_{(i)})}{\partial \theta _j}
+&=\frac{\partial }{\partial \theta _j}\frac{e^{\theta_{i}x_{i}}}{\sum_{j=1}^{n}e^{\theta_{j}x_{j}}}\\
+&\Rightarrow x_j\cdot\left ( 1-Softmax_{(i)} \right )\cdot Softmax_{(i)} &       &(i=j)\\
+&\Rightarrow -x_j \cdot Softmax_{(i)}\cdot Softmax_{(j)}&       &(i\neq j) 
+\end{align}</script>]]></content>
     
     <summary type="html">
     
@@ -1935,86 +2061,6 @@ subject\ to\ e^{T} (\alpha - \alpha^*) =0\\
   </entry>
   
   <entry>
-    <title>C++ string 字符串函数详解</title>
-    <link href="http://yoursite.com/2017/03/17/The%20details%20of%20string%20function%20of%20Cpp/"/>
-    <id>http://yoursite.com/2017/03/17/The details of string function of Cpp/</id>
-    <published>2017-03-17T06:07:34.000Z</published>
-    <updated>2017-10-12T08:08:12.306Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<h2 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h2></blockquote>
-<ol>
-<li><p>+ 和 +=：连接字符串</p>
-</li>
-<li><p>=：字符串赋值</p>
-</li>
-<li><p>>、&gt;=、&lt; 和 &lt;=：字符串比较（例如a &lt; b, aa &lt; ab）</p>
-</li>
-<li><p>==、!=：比较字符串</p>
-</li>
-<li><p>&lt;&lt;、&gt;&gt;：输出、输入字符串</p>
-<a id="more"></a>
-</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="built_in">string</span> str = <span class="string">"cat"</span>;</div><div class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"apple"</span> + <span class="string">"boy"</span> + str; <span class="comment">// illegal!</span></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> str;</div><div class="line"><span class="built_in">cin</span> &gt;&gt; str;</div><div class="line"></div><div class="line">str.find(<span class="string">"ab"</span>);<span class="comment">//返回字符串 ab 在 str 的位置</span></div><div class="line">str.find(<span class="string">"ab"</span>, <span class="number">2</span>);<span class="comment">//在 str[2]~str[n-1] 范围内查找并返回字符串 ab 在 str 的位置</span></div><div class="line">str.rfind(<span class="string">"ab"</span>, <span class="number">2</span>);<span class="comment">//在 str[0]~str[2] 范围内查找并返回字符串 ab 在 str 的位置</span></div><div class="line"></div><div class="line"><span class="comment">//first 系列函数</span></div><div class="line">str.find_first_of(<span class="string">"apple"</span>);<span class="comment">//返回 apple 中任何一个字符首次在 str 中出现的位置</span></div><div class="line">str.find_first_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回 apple 中任何一个字符首次在 str[2]~str[n-1] 范围中出现的位置</span></div><div class="line">str.find_first_not_of(<span class="string">"apple"</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str 中首次出现的位置</span></div><div class="line">str.find_first_not_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str[2]~str[n-1] 范围中首次出现的位置</span></div><div class="line"></div><div class="line"><span class="comment">//last 系列函数</span></div><div class="line">str.find_last_of(<span class="string">"apple"</span>);<span class="comment">//返回 apple 中任何一个字符最后一次在 str 中出现的位置</span></div><div class="line">str.find_last_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回 apple 中任何一个字符最后一次在 str[0]~str[2] 范围中出现的位置</span></div><div class="line">str.find_last_not_of(<span class="string">"apple"</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str 中最后一次出现的位置</span></div><div class="line">str.find_last_not_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str[0]~str[2] 范围中最后一次出现的位置</span></div><div class="line"></div><div class="line"><span class="comment">//以上函数如果没有找到，均返回string::npos</span></div><div class="line"><span class="built_in">cout</span> &lt;&lt; <span class="built_in">string</span>::npos;</div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="子串"><a href="#子串" class="headerlink" title="子串"></a>子串</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.substr(<span class="number">3</span>); <span class="comment">//返回 [3] 及以后的子串</span></div><div class="line">str.substr(<span class="number">2</span>, <span class="number">4</span>); <span class="comment">//返回 str[2]~str[2+(4-1)] 子串(即从[2]开始4个字符组成的字符串)</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.replace(<span class="number">2</span>, <span class="number">4</span>, <span class="string">"sz"</span>);<span class="comment">//返回把 [2]~[2+(4-1)] 的内容替换为 "sz" 后的新字符串</span></div><div class="line">str.replace(<span class="number">2</span>, <span class="number">4</span>, <span class="string">"abcd"</span>, <span class="number">3</span>);<span class="comment">//返回把 [2]~[2+(4-1)] 的内容替换为 "abcd" 的前3个字符后的新字符串</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">str.insert(<span class="number">2</span>, <span class="string">"sz"</span>);<span class="comment">//从 [2] 位置开始添加字符串 "sz"，并返回形成的新字符串</span></div><div class="line">str.insert(<span class="number">2</span>, <span class="string">"abcd"</span>, <span class="number">3</span>);<span class="comment">//从 [2] 位置开始添加字符串 "abcd" 的前 3 个字符，并返回形成的新字符串</span></div><div class="line">str.insert(<span class="number">2</span>, <span class="string">"abcd"</span>, <span class="number">1</span>, <span class="number">3</span>);<span class="comment">//从 [2] 位置开始添加字符串 "abcd" 的前 [2]~[2+(3-1)] 个字符，并返回形成的新字符串</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="追加"><a href="#追加" class="headerlink" title="追加"></a>追加</h2></blockquote>
-<p>除了用重载的 <code>+</code> 操作符，还可以使用函数来完成。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.push_back(<span class="string">'a'</span>);<span class="comment">//在 str 末尾添加字符'a'</span></div><div class="line">str.append(<span class="string">"abc"</span>);<span class="comment">//在 str 末尾添加字符串"abc"</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.erase(<span class="number">3</span>);<span class="comment">//删除 [3] 及以后的字符，并返回新字符串</span></div><div class="line">str.erase(<span class="number">3</span>, <span class="number">5</span>);<span class="comment">//删除从 [3] 开始的 5 个字符，并返回新字符串</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="交换"><a href="#交换" class="headerlink" title="交换"></a>交换</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">str1.swap(str2);<span class="comment">//把 str1 与 str2 交换</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">str.size();<span class="comment">//返回字符串长度</span></div><div class="line">str.length();<span class="comment">//返回字符串长度</span></div><div class="line">str.empty();<span class="comment">//检查 str 是否为空，为空返回 1，否则返回 0</span></div><div class="line">str[n];<span class="comment">//存取 str 第 n + 1 个字符</span></div><div class="line">str.at(n);<span class="comment">//存取 str 第 n + 1 个字符（如果溢出会抛出异常）</span></div></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2></blockquote>
-<h3 id="查找给定字符串并把相应子串替换为另一给定字符串"><a href="#查找给定字符串并把相应子串替换为另一给定字符串" class="headerlink" title="查找给定字符串并把相应子串替换为另一给定字符串"></a>查找给定字符串并把相应子串替换为另一给定字符串</h3><p>string 并没有提供这样的函数，所以我们自己来实现。由于给定字符串可能出现多次，所以需要用到 <code>find()</code> 成员函数的第二个参数，每次查找之后，从找到位置往后继续搜索。直接看代码（这个函数返回替换的次数，如果返回值是 0 说明没有替换）：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_replace</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> &amp;src, <span class="keyword">const</span> <span class="built_in">string</span> &amp;dest)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</div><div class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> ((pos = str.find(src, pos)) != <span class="built_in">string</span>::npos) &#123;</div><div class="line">        str.replace(pos, src.size(), dest);</div><div class="line">        ++counter;</div><div class="line">        pos += dest.size();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> counter;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="从给定字符串中删除一给定字串"><a href="#从给定字符串中删除一给定字串" class="headerlink" title="从给定字符串中删除一给定字串"></a>从给定字符串中删除一给定字串</h3><p>方法和上面相似，内部使用 <code>erase()</code> 完成。代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_erase</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> src)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</div><div class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> ((pos = str.find(src, pos)) != <span class="built_in">string</span>::npos) &#123;</div><div class="line">        str.erase(pos, src.size());</div><div class="line">        ++counter;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> counter;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="给定一字符串和一字符集，从字符串剔除字符集中的任意字符"><a href="#给定一字符串和一字符集，从字符串剔除字符集中的任意字符" class="headerlink" title="给定一字符串和一字符集，从字符串剔除字符集中的任意字符"></a>给定一字符串和一字符集，从字符串剔除字符集中的任意字符</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_wash</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> src)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</div><div class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> ((pos = str.find_first_of(src, pos)) != <span class="built_in">string</span>::npos) &#123;</div><div class="line">        str.erase(pos, <span class="number">1</span>);</div><div class="line">        ++counter;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> counter;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;h2 id=&quot;运算符重载&quot;&gt;&lt;a href=&quot;#运算符重载&quot; class=&quot;headerlink&quot; title=&quot;运算符重载&quot;&gt;&lt;/a&gt;运算符重载&lt;/h2&gt;&lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;+ 和 +=：连接字符串&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;=：字符串赋值&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&gt;、&amp;gt;=、&amp;lt; 和 &amp;lt;=：字符串比较（例如a &amp;lt; b, aa &amp;lt; ab）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;==、!=：比较字符串&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt;、&amp;gt;&amp;gt;：输出、输入字符串&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
-    
-    
-      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Mac OS X Terminal 101：终端使用初级教程</title>
     <link href="http://yoursite.com/2017/03/17/The%20introductory%20of%20macOS%20Terminal/"/>
     <id>http://yoursite.com/2017/03/17/The introductory of macOS Terminal/</id>
@@ -2145,6 +2191,86 @@ subject\ to\ e^{T} (\alpha - \alpha^*) =0\\
     
     
       <category term="Terminal" scheme="http://yoursite.com/tags/Terminal/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++ string 字符串函数详解</title>
+    <link href="http://yoursite.com/2017/03/17/The%20details%20of%20string%20function%20of%20Cpp/"/>
+    <id>http://yoursite.com/2017/03/17/The details of string function of Cpp/</id>
+    <published>2017-03-17T06:07:34.000Z</published>
+    <updated>2017-10-12T08:08:12.306Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<h2 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h2></blockquote>
+<ol>
+<li><p>+ 和 +=：连接字符串</p>
+</li>
+<li><p>=：字符串赋值</p>
+</li>
+<li><p>>、&gt;=、&lt; 和 &lt;=：字符串比较（例如a &lt; b, aa &lt; ab）</p>
+</li>
+<li><p>==、!=：比较字符串</p>
+</li>
+<li><p>&lt;&lt;、&gt;&gt;：输出、输入字符串</p>
+<a id="more"></a>
+</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="built_in">string</span> str = <span class="string">"cat"</span>;</div><div class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"apple"</span> + <span class="string">"boy"</span> + str; <span class="comment">// illegal!</span></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> str;</div><div class="line"><span class="built_in">cin</span> &gt;&gt; str;</div><div class="line"></div><div class="line">str.find(<span class="string">"ab"</span>);<span class="comment">//返回字符串 ab 在 str 的位置</span></div><div class="line">str.find(<span class="string">"ab"</span>, <span class="number">2</span>);<span class="comment">//在 str[2]~str[n-1] 范围内查找并返回字符串 ab 在 str 的位置</span></div><div class="line">str.rfind(<span class="string">"ab"</span>, <span class="number">2</span>);<span class="comment">//在 str[0]~str[2] 范围内查找并返回字符串 ab 在 str 的位置</span></div><div class="line"></div><div class="line"><span class="comment">//first 系列函数</span></div><div class="line">str.find_first_of(<span class="string">"apple"</span>);<span class="comment">//返回 apple 中任何一个字符首次在 str 中出现的位置</span></div><div class="line">str.find_first_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回 apple 中任何一个字符首次在 str[2]~str[n-1] 范围中出现的位置</span></div><div class="line">str.find_first_not_of(<span class="string">"apple"</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str 中首次出现的位置</span></div><div class="line">str.find_first_not_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str[2]~str[n-1] 范围中首次出现的位置</span></div><div class="line"></div><div class="line"><span class="comment">//last 系列函数</span></div><div class="line">str.find_last_of(<span class="string">"apple"</span>);<span class="comment">//返回 apple 中任何一个字符最后一次在 str 中出现的位置</span></div><div class="line">str.find_last_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回 apple 中任何一个字符最后一次在 str[0]~str[2] 范围中出现的位置</span></div><div class="line">str.find_last_not_of(<span class="string">"apple"</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str 中最后一次出现的位置</span></div><div class="line">str.find_last_not_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str[0]~str[2] 范围中最后一次出现的位置</span></div><div class="line"></div><div class="line"><span class="comment">//以上函数如果没有找到，均返回string::npos</span></div><div class="line"><span class="built_in">cout</span> &lt;&lt; <span class="built_in">string</span>::npos;</div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="子串"><a href="#子串" class="headerlink" title="子串"></a>子串</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.substr(<span class="number">3</span>); <span class="comment">//返回 [3] 及以后的子串</span></div><div class="line">str.substr(<span class="number">2</span>, <span class="number">4</span>); <span class="comment">//返回 str[2]~str[2+(4-1)] 子串(即从[2]开始4个字符组成的字符串)</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.replace(<span class="number">2</span>, <span class="number">4</span>, <span class="string">"sz"</span>);<span class="comment">//返回把 [2]~[2+(4-1)] 的内容替换为 "sz" 后的新字符串</span></div><div class="line">str.replace(<span class="number">2</span>, <span class="number">4</span>, <span class="string">"abcd"</span>, <span class="number">3</span>);<span class="comment">//返回把 [2]~[2+(4-1)] 的内容替换为 "abcd" 的前3个字符后的新字符串</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">str.insert(<span class="number">2</span>, <span class="string">"sz"</span>);<span class="comment">//从 [2] 位置开始添加字符串 "sz"，并返回形成的新字符串</span></div><div class="line">str.insert(<span class="number">2</span>, <span class="string">"abcd"</span>, <span class="number">3</span>);<span class="comment">//从 [2] 位置开始添加字符串 "abcd" 的前 3 个字符，并返回形成的新字符串</span></div><div class="line">str.insert(<span class="number">2</span>, <span class="string">"abcd"</span>, <span class="number">1</span>, <span class="number">3</span>);<span class="comment">//从 [2] 位置开始添加字符串 "abcd" 的前 [2]~[2+(3-1)] 个字符，并返回形成的新字符串</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="追加"><a href="#追加" class="headerlink" title="追加"></a>追加</h2></blockquote>
+<p>除了用重载的 <code>+</code> 操作符，还可以使用函数来完成。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.push_back(<span class="string">'a'</span>);<span class="comment">//在 str 末尾添加字符'a'</span></div><div class="line">str.append(<span class="string">"abc"</span>);<span class="comment">//在 str 末尾添加字符串"abc"</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str.erase(<span class="number">3</span>);<span class="comment">//删除 [3] 及以后的字符，并返回新字符串</span></div><div class="line">str.erase(<span class="number">3</span>, <span class="number">5</span>);<span class="comment">//删除从 [3] 开始的 5 个字符，并返回新字符串</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="交换"><a href="#交换" class="headerlink" title="交换"></a>交换</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">str1.swap(str2);<span class="comment">//把 str1 与 str2 交换</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">str.size();<span class="comment">//返回字符串长度</span></div><div class="line">str.length();<span class="comment">//返回字符串长度</span></div><div class="line">str.empty();<span class="comment">//检查 str 是否为空，为空返回 1，否则返回 0</span></div><div class="line">str[n];<span class="comment">//存取 str 第 n + 1 个字符</span></div><div class="line">str.at(n);<span class="comment">//存取 str 第 n + 1 个字符（如果溢出会抛出异常）</span></div></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2></blockquote>
+<h3 id="查找给定字符串并把相应子串替换为另一给定字符串"><a href="#查找给定字符串并把相应子串替换为另一给定字符串" class="headerlink" title="查找给定字符串并把相应子串替换为另一给定字符串"></a>查找给定字符串并把相应子串替换为另一给定字符串</h3><p>string 并没有提供这样的函数，所以我们自己来实现。由于给定字符串可能出现多次，所以需要用到 <code>find()</code> 成员函数的第二个参数，每次查找之后，从找到位置往后继续搜索。直接看代码（这个函数返回替换的次数，如果返回值是 0 说明没有替换）：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_replace</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> &amp;src, <span class="keyword">const</span> <span class="built_in">string</span> &amp;dest)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</div><div class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> ((pos = str.find(src, pos)) != <span class="built_in">string</span>::npos) &#123;</div><div class="line">        str.replace(pos, src.size(), dest);</div><div class="line">        ++counter;</div><div class="line">        pos += dest.size();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> counter;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="从给定字符串中删除一给定字串"><a href="#从给定字符串中删除一给定字串" class="headerlink" title="从给定字符串中删除一给定字串"></a>从给定字符串中删除一给定字串</h3><p>方法和上面相似，内部使用 <code>erase()</code> 完成。代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_erase</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> src)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</div><div class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> ((pos = str.find(src, pos)) != <span class="built_in">string</span>::npos) &#123;</div><div class="line">        str.erase(pos, src.size());</div><div class="line">        ++counter;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> counter;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="给定一字符串和一字符集，从字符串剔除字符集中的任意字符"><a href="#给定一字符串和一字符集，从字符串剔除字符集中的任意字符" class="headerlink" title="给定一字符串和一字符集，从字符串剔除字符集中的任意字符"></a>给定一字符串和一字符集，从字符串剔除字符集中的任意字符</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_wash</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> src)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</div><div class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> ((pos = str.find_first_of(src, pos)) != <span class="built_in">string</span>::npos) &#123;</div><div class="line">        str.erase(pos, <span class="number">1</span>);</div><div class="line">        ++counter;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> counter;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;h2 id=&quot;运算符重载&quot;&gt;&lt;a href=&quot;#运算符重载&quot; class=&quot;headerlink&quot; title=&quot;运算符重载&quot;&gt;&lt;/a&gt;运算符重载&lt;/h2&gt;&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;+ 和 +=：连接字符串&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;=：字符串赋值&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&gt;、&amp;gt;=、&amp;lt; 和 &amp;lt;=：字符串比较（例如a &amp;lt; b, aa &amp;lt; ab）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;==、!=：比较字符串&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&amp;lt;&amp;lt;、&amp;gt;&amp;gt;：输出、输入字符串&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+    
+      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
     
   </entry>
   
