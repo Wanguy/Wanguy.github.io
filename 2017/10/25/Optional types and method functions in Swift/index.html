@@ -2,14 +2,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
 <html class="theme-next muse use-motion" lang="en">
-<head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +29,6 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -38,88 +45,58 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
 
 
 
 
-  
-  
-  
-  
 
-  
-    
-    
-  
 
-  
-    
-      
-    
 
-    
-  
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
 
-  
-    
-      
-    
 
-    
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|PingFang SC:300,300italic,400,400italic,700,700italic|PingFang SC:300,300italic,400,400italic,700,700italic|PingFang SC:300,300italic,400,400italic,700,700italic|PingFang SC:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
 
 
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Swift," />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.1.2" />
-
-
-
-
-
-
-<meta name="description" content="可选类型和解包Swift中，在数组的方括号内必须写上类型，或者在Array后面的尖括号&amp;lt;&amp;gt;内写上类型。 对于字典而言，你一共需要提供两个类型，一个用于键，而另一个用于值。 Swift要求所有的变量和常量都必须有值。你可以在声明它们的时候给它们指定一个值，也可以通过init方法给它们分配值。">
+  <meta name="description" content="可选类型和解包Swift中，在数组的方括号内必须写上类型，或者在Array后面的尖括号&amp;lt;&amp;gt;内写上类型。 对于字典而言，你一共需要提供两个类型，一个用于键，而另一个用于值。 Swift要求所有的变量和常量都必须有值。你可以在声明它们的时候给它们指定一个值，也可以通过init方法给它们分配值。">
 <meta name="keywords" content="Swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="初步了解 Swift 中的可选类型和方法函数">
@@ -134,58 +111,39 @@
 
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '5.1.2',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+  <link rel="alternate" href="/atom.xml" title="Gavin's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/25/Optional types and method functions in Swift/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
   };
 </script>
 
-
-
-  <link rel="canonical" href="http://yoursite.com/2017/10/25/Optional types and method functions in Swift/"/>
-
-
-
-
-
   <title>初步了解 Swift 中的可选类型和方法函数 | Gavin's Blog</title>
   
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '',
-      xfbml      : true,
-      version    : 'v2.10'
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId  : '',
+        xfbml  : true,
+        version: 'v2.10'
+      });
+    };
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
 
 
 
@@ -193,10 +151,40 @@
 
 
 
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -206,25 +194,28 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Gavin's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
-        <p class="site-subtitle">Hello, World</p>
+        <p class="site-subtitle">分享有趣</p>
       
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="Toggle navigation bar">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -232,76 +223,124 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Home
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            Tags
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            Categories
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            About
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
 
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags<span class="badge">16</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">2</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">21</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            Search
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
         </li>
       
     </ul>
+  
+
+  
+    
+
   
 
   
@@ -316,9 +355,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -332,12 +369,29 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/Wanguy" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
 
@@ -350,20 +404,22 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/25/Optional types and method functions in Swift/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Richard Gavin">
-      <meta itemprop="description" content="">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin">
+      <meta itemprop="description" content="Make it, Fake it.">
       <meta itemprop="image" content="/uploads/IMG_0629.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Gavin's Blog">
     </span>
 
@@ -372,11 +428,20 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">初步了解 Swift 中的可选类型和方法函数</h1>
+          <h1 class="post-title" itemprop="name headline">初步了解 Swift 中的可选类型和方法函数
+
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -384,18 +449,23 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-25T17:19:23+08:00">
-                10-25-2017
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 10-25-2017 17:19:23 / Modified: 18:17:38" itemprop="dateCreated datePublished" datetime="2017-10-25T17:19:23+08:00">10-25-2017</time>
             
 
             
+              
 
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -406,11 +476,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Note/" itemprop="url" rel="index">
-                    <span itemprop="name">Note</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a></span>
 
                 
                 
@@ -420,13 +486,16 @@
 
           
             
+            
+              
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
+            
                 <a href="/2017/10/25/Optional types and method functions in Swift/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/10/25/Optional types and method functions in Swift/" itemprop="commentCount">0</span> comments
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/10/25/Optional types and method functions in Swift/" itemprop="commentCount">0</span>
                 </a>
               </span>
             
@@ -459,68 +528,68 @@
 <p>Swift要求所有的变量和常量都必须有值。你可以在声明它们的时候给它们指定一个值，也可以通过<code>init</code>方法给它们分配值。</p>
 <a id="more"></a>
 <p>有时，你需要一个变量可以没有值，这种情况，你需要将变量声明为可选型：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> checklistToEdit: <span class="type">Checklist</span>?</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> checklistToEdit: <span class="type">Checklist</span>?</span><br></pre></td></tr></table></figure>
 <p>可是你不能直接使用这种类型的变量，你必须在使用它们之前，侦测一下其中是否有值，这个行为就叫做可选型解包：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="keyword">let</span> checklist = checklistToEdit &#123;</div><div class="line">  	<span class="comment">// “checklist” now contains the real object</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  	<span class="comment">// the optional was nil</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> checklist = checklistToEdit &#123;</span><br><span class="line">  	<span class="comment">// “checklist” now contains the real object</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  	<span class="comment">// the optional was nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>下面例子中的变量<code>age</code>就是一个可选型，因为没有任何保证说字典中存在一个名为”Jony Ive”的键，所以<code>age</code>的类型是<code>Int?</code>，而不是<code>Int</code>：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="keyword">let</span> age = dict[<span class="string">"Jony Ive"</span>] &#123;</div><div class="line"><span class="comment">// 使用age变量</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> age = dict[<span class="string">"Jony Ive"</span>] &#123;</span><br><span class="line"><span class="comment">// 使用age变量</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如果你100%的确定字典中存在一个叫做”Jony Ive”的键的话，那么你就可以对<code>age</code>变量进行强制解包：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> age = dict[<span class="string">"Jony Ive"</span>]!</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> age = dict[<span class="string">"Jony Ive"</span>]!</span><br></pre></td></tr></table></figure>
 <p>你使用感叹号<code>!</code>来通知Swift，“这个可选型不会为nil，我用我的名誉打赌！”，当然，如果你错了的话，这个变量的值为<code>nil</code>，那么app就会挂掉，你也就名誉扫地了，所以你在使用强制解包的时候一定要小心。</p>
 <p>另一种稍微安全点的强制解包方式叫做可选型链接。例如，下面的语句会在<code>navigationController</code>为<code>nil</code>时把app挂掉。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">navigationController!.delegate = <span class="keyword">self</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigationController!.delegate = <span class="keyword">self</span></span><br></pre></td></tr></table></figure>
 <p>但是像这样做则不会把app挂掉：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">navigationController?.delegate = <span class="keyword">self</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigationController?.delegate = <span class="keyword">self</span></span><br></pre></td></tr></table></figure>
 <p>位于问号后面的任何东西，都会在<code>navigationController</code>为<code>nil</code>时把它忽视掉。这个使用问号强制解包的语句等价于下面的语句：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> navigationController != <span class="literal">nil</span> &#123;</div><div class="line">  	navigationController!.delegate = <span class="keyword">self</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> navigationController != <span class="literal">nil</span> &#123;</span><br><span class="line">  	navigationController!.delegate = <span class="keyword">self</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在声明可选型的时候，也可以用感叹号来代替问号，这样就是一个隐式解包可选型了：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> dataModel: <span class="type">DataModel</span>!</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dataModel: <span class="type">DataModel</span>!</span><br></pre></td></tr></table></figure>
 <p>这样的变量会带来潜在的危险，因为你可以如同使用常规变量那样直接使用它，并不需要先解包。一旦如果它的值为空，那么app就挂了。而当使用的常规变量为空时，编译器则会提示你该怎么做。</p>
 <p>可选型平时被包裹起来，以避免app崩溃，但是使用了感叹号以后，就解除了可选型的安全级别。</p>
 <p>然而，有时使用<strong>隐式解包可选型</strong>比使用<strong>可选型</strong>要方便一些。当你无法给一个变量初始值，也无法用<code>init</code>方法对其初始化的时候，你就会需要到这种隐式解包可选型。</p>
 <p>如果你给了一个变量一个值后，就不应该再使它为<code>nil</code>，如果一个变量可以从有值变为<code>nil</code>，那么你最好还是使用用问号声明的可选型。</p>
 <h2 id="方法与函数（Methods-and-functions）"><a href="#方法与函数（Methods-and-functions）" class="headerlink" title="方法与函数（Methods and functions）"></a>方法与函数（Methods and functions）</h2><p>有这样的一种对象，它是所有app的基础组成部分，同时具有数据和功能。实例变量及常量提供数据，方法提供功能。</p>
 <h3 id="方法的返回值"><a href="#方法的返回值" class="headerlink" title="方法的返回值"></a>方法的返回值</h3><p>当你调用一个方法，app就会跳转到方法中，逐条的执行其中的语句，当方法中最后一条语句被执行完毕后，app就会会到之前离开的地方：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> result = performUselessCalculation(<span class="number">314</span>)</div><div class="line"><span class="built_in">print</span>(result)</div><div class="line">...</div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">performUselessCalculation</span><span class="params">(<span class="number">_</span> a: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">    <span class="keyword">var</span> b = <span class="type">Int</span>(arc4random_uniform(<span class="number">100</span>))</div><div class="line">    <span class="keyword">var</span> <span class="built_in">c</span> = a / <span class="number">2</span></div><div class="line">    <span class="keyword">return</span> (a + b) * <span class="built_in">c</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> result = performUselessCalculation(<span class="number">314</span>)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line">...</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">performUselessCalculation</span><span class="params">(<span class="number">_</span> a: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="type">Int</span>(arc4random_uniform(<span class="number">100</span>))</span><br><span class="line">    <span class="keyword">var</span> <span class="built_in">c</span> = a / <span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> (a + b) * <span class="built_in">c</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>方法经常会返回一个值给调用者，比如一个计算结果或者从一个集合中找到的一个对象。返回值的类型会写在<code>-&gt;</code>符号的后面。在上面的例子中，返回值的类型是<code>Int</code>。如果不存在<code>-&gt;</code>这个符号，那么就是说这个方法不返回任何值。</p>
 <h3 id="方法的调用"><a href="#方法的调用" class="headerlink" title="方法的调用"></a>方法的调用</h3><p>方法就是属于某一特定对象的函数，Swift中也存在独立的函数，比如<code>print()</code>或者<code>arc4random_uniform()</code>。</p>
 <p>函数和方法的工作原理一样，一个可重复使用的功能块，但是函数不属于任何对象。像这种函数也被称为自由函数或者全局函数。</p>
 <p>下面是一些关于方法的例子：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 这个方法没有返回值及参数的方法</span></div><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span></div><div class="line"></div><div class="line"><span class="comment">// 这个方法有一个slider参数，但是一样没有返回值</span></div><div class="line"><span class="comment">// 关键字@IBAction意味着这个方法可以被连接到界面建造器的控件上</span></div><div class="line"><span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">sliderMoved</span><span class="params">(<span class="number">_</span> slider: UISlider)</span></span></div><div class="line"></div><div class="line"><span class="comment">// 这个方法没有参数，但是有一个Int型的返回值</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">countUncheckedItems</span><span class="params">()</span></span> -&gt; <span class="type">Int</span></div><div class="line"></div><div class="line"><span class="comment">// 这个方法有两个参数，cell和item，但是没有返回值</span></div><div class="line"><span class="comment">// 注意一下，第一个参数有一个外部名称for，而第二个参数有一个外部名称with</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">configureCheckmarkFor</span><span class="params">(<span class="keyword">for</span> cell: UITableViewCell,</span></span></div><div class="line"><span class="function"><span class="params">                           with item: ChecklistItem)</span></span></div><div class="line"></div><div class="line"><span class="comment">// 这个方法有两个参数, tableView和section. 并且有一个Int型的返回值。</span></div><div class="line"><span class="comment">// 第一个参数前的下划线代表这个参数没有外部名称。</span></div><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView,</span></span></div><div class="line"><span class="function"><span class="params">                        numberOfRowsInSection section: Int)</span></span> -&gt; <span class="type">Int</span></div><div class="line"></div><div class="line"><span class="comment">// 这个方法有两个参数, tableView和indexPath.</span></div><div class="line"><span class="comment">// 问号代表它返回一个为可选型的IndexPath对象。</span></div><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView,</span></span></div><div class="line"><span class="function"><span class="params">                    willSelectRowAt indexPath: IndexPath)</span></span> -&gt; <span class="type">IndexPath</span>?</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这个方法没有返回值及参数的方法</span></span><br><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个方法有一个slider参数，但是一样没有返回值</span></span><br><span class="line"><span class="comment">// 关键字@IBAction意味着这个方法可以被连接到界面建造器的控件上</span></span><br><span class="line"><span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">sliderMoved</span><span class="params">(<span class="number">_</span> slider: UISlider)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个方法没有参数，但是有一个Int型的返回值</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">countUncheckedItems</span><span class="params">()</span></span> -&gt; <span class="type">Int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个方法有两个参数，cell和item，但是没有返回值</span></span><br><span class="line"><span class="comment">// 注意一下，第一个参数有一个外部名称for，而第二个参数有一个外部名称with</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">configureCheckmarkFor</span><span class="params">(<span class="keyword">for</span> cell: UITableViewCell,</span></span></span><br><span class="line"><span class="function"><span class="params">                           with item: ChecklistItem)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个方法有两个参数, tableView和section. 并且有一个Int型的返回值。</span></span><br><span class="line"><span class="comment">// 第一个参数前的下划线代表这个参数没有外部名称。</span></span><br><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView,</span></span></span><br><span class="line"><span class="function"><span class="params">                        numberOfRowsInSection section: Int)</span></span> -&gt; <span class="type">Int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个方法有两个参数, tableView和indexPath.</span></span><br><span class="line"><span class="comment">// 问号代表它返回一个为可选型的IndexPath对象。</span></span><br><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView,</span></span></span><br><span class="line"><span class="function"><span class="params">                    willSelectRowAt indexPath: IndexPath)</span></span> -&gt; <span class="type">IndexPath</span>?</span><br></pre></td></tr></table></figure>
 <p>在一个对象上调用一个方法，语法是<code>object.method(parameters)</code>。例如：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Calling a method on the lists object:</span></div><div class="line">lists.append(checklist)</div><div class="line"><span class="comment">// Calling a method with more than one parameter:</span></div><div class="line">tableView.insertRows(at: indexPaths, with: .fade)</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Calling a method on the lists object:</span></span><br><span class="line">lists.append(checklist)</span><br><span class="line"><span class="comment">// Calling a method with more than one parameter:</span></span><br><span class="line">tableView.insertRows(at: indexPaths, with: .fade)</span><br></pre></td></tr></table></figure>
 <p>你可以把调用方法想象为从一个对象向另一个对象传递消息：“嗨 lists，我从checklist对象中向你发送了append的消息。”</p>
 <p>你调用消息所属的对象被称为消息的接收者。</p>
 <p>从同一个对象中调用方法非常常见，下面的例子中，<code>loadChecklists()</code>调用了<code>sortChecklists()</code>。它们都是<code>DataModel</code>对象中的成员：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DataModel</span> </span>&#123;</div><div class="line">  	<span class="function"><span class="keyword">func</span> <span class="title">loadChecklists</span><span class="params">()</span></span> &#123;</div><div class="line">        ...</div><div class="line">        sortChecklists()</div><div class="line">  	&#125;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">sortChecklists</span><span class="params">()</span></span> &#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DataModel</span> </span>&#123;</span><br><span class="line">  	<span class="function"><span class="keyword">func</span> <span class="title">loadChecklists</span><span class="params">()</span></span> &#123;</span><br><span class="line">        ...</span><br><span class="line">        sortChecklists()</span><br><span class="line">  	&#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">sortChecklists</span><span class="params">()</span></span> &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>有时你会写为下面这个样子：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">loadChecklists</span><span class="params">()</span></span> &#123;</div><div class="line">    ...</div><div class="line">    <span class="keyword">self</span>.sortChecklists()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">loadChecklists</span><span class="params">()</span></span> &#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">self</span>.sortChecklists()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>关键字<code>self</code>清晰的表明了<code>DataModel</code>对象自己是这个消息的接受者。</p>
 <blockquote>
 <p>⚠️：在我们的课程中，调用方法的时候，我省略了self关键字，因为并不是必须要这样做。Object-C开发者会非常乐意在每个地方都写上self，所以你也许会见到它在Swift中也被大量使用。到底写与不写，这是程序员间可以引发战争的一个话题，但是无论如何，app并不是太关心这点。</p>
 </blockquote>
 <p>在一个方法的内部，你也可以使用self关键字来引用这个对象自己：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">cancel</span><span class="params">()</span></span> &#123;</div><div class="line">	delegate?.itemDetailViewControllerDidCancel(<span class="keyword">self</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">cancel</span><span class="params">()</span></span> &#123;</span><br><span class="line">	delegate?.itemDetailViewControllerDidCancel(<span class="keyword">self</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这里<code>cancel()</code>方法将对象自身的引用发送给<code>delegate</code>，所以<code>delegate</code>知道谁发送了这个<code>itemDetailViewControllerDidCancel()</code>消息。</p>
 <p>同时注意一下这里的可选型链接。这个<code>delegate</code>属性是个可选型，所以它可以为nil。在调用方法前使用一个问号来确保<code>delegate</code>为<code>nil</code>时，app不会挂掉。</p>
 <h3 id="方法的参数"><a href="#方法的参数" class="headerlink" title="方法的参数"></a>方法的参数</h3><p>方法经常会具有一个或多个参数，所以你可以让它们接收不同数据源上的数据。一个被限定了数据源的方法，就不会非常有价值。例如下面的<code>sumValuesFormArray()</code>方法，它没有参数：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyObject</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> numbers = [<span class="type">Int</span>]()</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">sunValuesFromArray</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">var</span> total = <span class="number">0</span></div><div class="line">        <span class="keyword">for</span> number <span class="keyword">in</span> numbers &#123;</div><div class="line">            total += number</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> total</div><div class="line"> 	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyObject</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> numbers = [<span class="type">Int</span>]()</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">sunValuesFromArray</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> total = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> number <span class="keyword">in</span> numbers &#123;</span><br><span class="line">            total += number</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> total</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这里，<code>numbers</code>是一个实例变量。方法<code>sumValuesFromArray()</code>被这个实例变量绑定死了，如果这个变量不存在，那么这个方法就没用了。</p>
 <p>假设你在这个app中添加了第二数组，也想要应用上面的计算，方法之一是把这个方法复制一遍，重新命名为一个新的方法来处理这个新的数组。这样做确实可行，但是者看起来不那么聪明。</p>
 <p>另一个好一点的选择是，给这个方法一个参数，使得你可以传送任何你想要计算的数组，这样，这个方法就从实例变量中解放出来了：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">sumValues</span><span class="params">(from array: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">    <span class="keyword">var</span> total = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> number <span class="keyword">in</span> array &#123;</div><div class="line">    	total += number</div><div class="line">    &#125;</div><div class="line">  	<span class="keyword">return</span> total</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sumValues</span><span class="params">(from array: [Int])</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> total = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> number <span class="keyword">in</span> array &#123;</span><br><span class="line">    	total += number</span><br><span class="line">    &#125;</span><br><span class="line">  	<span class="keyword">return</span> total</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>现在你可以用任何整数型的数组作为它的参数了。</p>
 <blockquote>
 <p>这并不是说方法不应该使用实例变量，只是说你想要一个方法的应用更加广泛，那么给它一个参数是个很好的选择。</p>
 </blockquote>
 <p>方法的参数经常会有两个名字，一个<strong>外部名称</strong>，一个<strong>内部名称</strong>，例如：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">downloadImage</span><span class="params">(<span class="keyword">for</span> searchResult: SearchResult,withTimeout timeout: TimeInterval,andPlaceOn button: UIButton)</span></span> &#123;</div><div class="line">	...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">downloadImage</span><span class="params">(<span class="keyword">for</span> searchResult: SearchResult,withTimeout timeout: TimeInterval,andPlaceOn button: UIButton)</span></span> &#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这个方法有三个参数：<code>searchResult</code>，<code>timeout</code>和<code>button</code>。这些是<strong>内部名称</strong>，你在方法的<strong>内部</strong>用这些名称来调用参数。</p>
 <p><strong>方法的外部名称是方法名称的一部分</strong>。所以这个方法的全名是<code>downloadImage(for,withTimeout,andPlaceOn)</code>，Swift中的方法名称经常会特别的长。</p>
 <p>调用这个方法的时候，你需要使用外部名称：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">downloadImage(<span class="keyword">for</span>:result,withTimeout:<span class="number">10</span>,andPlaceButton)</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">downloadImage(<span class="keyword">for</span>:result,withTimeout:<span class="number">10</span>,andPlaceButton)</span><br></pre></td></tr></table></figure>
 <p>有时，你会看到一个方法它的第一个参数没有外部名称，取而代之的是一个下划线：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView,numberOfRowsInSection section: Int)</span></span>-&gt; <span class="type">Int</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView,numberOfRowsInSection section: Int)</span></span>-&gt; <span class="type">Int</span></span><br></pre></td></tr></table></figure>
 <p>这种情况经常出现在委托方法中，它是Object-C的遗留物，第一个参数的内部和外部名称都会被包含在方法名称中，比如在Object-C中<code>downloadImage()</code>方法的全名会是<code>downloadImageForSearchResult</code>。像这样的命名方式，以后会非常少见。</p>
 <p>如果是在Object-C中，这个方法的名称会是<code>tableViewTableVIew</code>，非常古怪是吧，而Swift中，以下划线代替外部名称时，方法名称中就可以省略这个参数的外部名称，在Swift中，这个方法的全名是<code>tableView(numberOfRowsInSection)</code>。这样是不是容易明白多了？Swift在对方法命名时更加灵活，但它还是会保留一些旧的惯例。</p>
 <h2 id="循环和判断"><a href="#循环和判断" class="headerlink" title="循环和判断"></a>循环和判断</h2><p>在一个方法的内部，你可以做以下事情：</p>
@@ -542,7 +611,7 @@
 </ul>
 <p>让我们来看看<code>if</code>和<code>for</code>语句的更多细节。</p>
 <h3 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h3><h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a><code>if</code>语句</h4><p><code>if</code>语句的基本结构是这个样子的：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="built_in">count</span> == <span class="number">0</span> &#123;</div><div class="line">	text = <span class="string">"No Items"</span></div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="built_in">count</span> == <span class="number">1</span> &#123;</div><div class="line">	text = <span class="string">"1 Item"</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">	text = <span class="string">"\(count) Items"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="built_in">count</span> == <span class="number">0</span> &#123;</span><br><span class="line">	text = <span class="string">"No Items"</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="built_in">count</span> == <span class="number">1</span> &#123;</span><br><span class="line">	text = <span class="string">"1 Item"</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	text = <span class="string">"\(count) Items"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>if</code>后面的表达式称之为条件。如果条件为真，那么<code>if</code>后面花括号内的语句会被执行。如果没有一个条件为真，那么最后一个<code>else</code>后面的花括号内的语句会被执行。</p>
 <p>通过使用比较运算符来对两个值进行比较：</p>
 <ul>
@@ -556,7 +625,7 @@
 <li><code>&gt;=</code> 大于等于</li>
 </ul>
 <p>使用等于操作时，被比较的两个对象仅在相等时返回<code>true</code>，比如：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> a = <span class="string">"Hello,world"</span></div><div class="line"><span class="keyword">let</span> b = <span class="string">"Hello,"</span> + <span class="string">"world"</span></div><div class="line"><span class="built_in">print</span>(a == b) <span class="comment">//打印结果为true</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="string">"Hello,world"</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="string">"Hello,"</span> + <span class="string">"world"</span></span><br><span class="line"><span class="built_in">print</span>(a == b) <span class="comment">//打印结果为true</span></span><br></pre></td></tr></table></figure>
 <p>这个和Object-C有所不同，在Object-C中，必须两个对象是内存中的同一个实例，才会返回为<code>true</code>。而Swift中的<code>==</code>操作，仅仅是比较对象的值，而不管它在内存中是不是同一个对象，如果在Swift中像做这个操作的话，需要使用运算符 <code>===</code>，三个等号。</p>
 <p>你还可以使用逻辑操作符来连接两个表达式：</p>
 <ul>
@@ -571,51 +640,51 @@
 </li>
 </ul>
 <p>可以使用括号<code>()</code>来对表达式分组：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> ((this &amp;&amp; that) || (such &amp;&amp; so)) &amp;&amp; !other &#123;</div><div class="line">...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ((this &amp;&amp; that) || (such &amp;&amp; so)) &amp;&amp; !other &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>它读作：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> ((this and that) or (such and so)) and not other &#123;</div><div class="line">...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ((this and that) or (such and so)) and not other &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>为了看起来更加清晰一些，我们写的有层次一点：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (</div><div class="line">  (this and that)</div><div class="line">  or</div><div class="line">  (such and so)</div><div class="line">)</div><div class="line">and</div><div class="line">  (not other)</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (</span><br><span class="line">  (this and that)</span><br><span class="line">  or</span><br><span class="line">  (such and so)</span><br><span class="line">)</span><br><span class="line">and</span><br><span class="line">  (not other)</span><br></pre></td></tr></table></figure>
 <h4 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a><code>switch</code>语句</h4><p>当然，你弄的越复杂，越难记清楚自己在做什么！</p>
 <p>Swift中还有一种非常强大的结构，可以用来做出判断，那就是<code>switch</code>语句：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> condition &#123;</div><div class="line">    <span class="keyword">case</span> value1:</div><div class="line">      	<span class="comment">//语句</span></div><div class="line">    <span class="keyword">case</span> value2:</div><div class="line">      	<span class="comment">//语句</span></div><div class="line">    <span class="keyword">case</span> value3:</div><div class="line">      	<span class="comment">//语句</span></div><div class="line">    <span class="keyword">default</span>:</div><div class="line">    	<span class="comment">//语句</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> condition &#123;</span><br><span class="line">    <span class="keyword">case</span> value1:</span><br><span class="line">      	<span class="comment">//语句</span></span><br><span class="line">    <span class="keyword">case</span> value2:</span><br><span class="line">      	<span class="comment">//语句</span></span><br><span class="line">    <span class="keyword">case</span> value3:</span><br><span class="line">      	<span class="comment">//语句</span></span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">    	<span class="comment">//语句</span></span><br></pre></td></tr></table></figure>
 <p>它的效果和多个<code>if else</code>的效果是一致的，上面的代码等同于：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> condition == value1 &#123;</div><div class="line">  	<span class="comment">//语句</span></div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> condition == value2 &#123;</div><div class="line">  	<span class="comment">//语句</span></div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> condition == value3 &#123;</div><div class="line">  	<span class="comment">//语句</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  <span class="comment">//语句</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> condition == value1 &#123;</span><br><span class="line">  	<span class="comment">//语句</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> condition == value2 &#123;</span><br><span class="line">  	<span class="comment">//语句</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> condition == value3 &#123;</span><br><span class="line">  	<span class="comment">//语句</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">//语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>相较之下，<code>switch</code>在这种情况中更加便利，而且意思清晰。而且Swift版的<code>switch</code>比Object-C版的更加强大。例如，你可以使用区间范围：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> difference &#123;</div><div class="line">    <span class="keyword">case</span> <span class="number">0</span>:</div><div class="line">      	title = <span class="string">"Perfect!"</span></div><div class="line">    <span class="keyword">case</span> <span class="number">1</span>..&lt;<span class="number">5</span>:</div><div class="line">      	title = <span class="string">"You almost had it!"</span></div><div class="line">    <span class="keyword">case</span> <span class="number">5</span>..&lt;<span class="number">10</span>:</div><div class="line">      	title = <span class="string">"Pretty good!"</span></div><div class="line">    <span class="keyword">default</span>:</div><div class="line">      	title = <span class="string">"Not even close..."</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> difference &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">      	title = <span class="string">"Perfect!"</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>..&lt;<span class="number">5</span>:</span><br><span class="line">      	title = <span class="string">"You almost had it!"</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">5</span>..&lt;<span class="number">10</span>:</span><br><span class="line">      	title = <span class="string">"Pretty good!"</span></span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      	title = <span class="string">"Not even close..."</span></span><br></pre></td></tr></table></figure>
 <p>这里的<code>..&lt;</code>是半开区间操作符。它可以创建两个值之间的区间，其中的值都是不重复的，半开区间<code>1..&lt;5</code>等价于闭区间<code>1...4</code>。</p>
 <p>有时你会看到下面这个样子的代码：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">someMethod</span><span class="params">()</span></span> &#123;</div><div class="line">  	<span class="keyword">if</span> condition1 &#123;</div><div class="line">    	<span class="keyword">if</span> condition2 &#123;</div><div class="line">      		<span class="keyword">if</span> condition3 &#123;</div><div class="line">        		<span class="comment">//语句</span></div><div class="line">      		&#125; <span class="keyword">else</span> &#123;</div><div class="line">        	<span class="comment">//语句</span></div><div class="line">     	&#125;</div><div class="line">  	&#125; <span class="keyword">else</span> &#123;</div><div class="line">  		<span class="comment">//语句</span></div><div class="line"> 		&#125; <span class="keyword">else</span> &#123;</div><div class="line">  			<span class="comment">//语句</span></div><div class="line"> 		&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">someMethod</span><span class="params">()</span></span> &#123;</span><br><span class="line">  	<span class="keyword">if</span> condition1 &#123;</span><br><span class="line">    	<span class="keyword">if</span> condition2 &#123;</span><br><span class="line">      		<span class="keyword">if</span> condition3 &#123;</span><br><span class="line">        		<span class="comment">//语句</span></span><br><span class="line">      		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        	<span class="comment">//语句</span></span><br><span class="line">     	&#125;</span><br><span class="line">  	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  		<span class="comment">//语句</span></span><br><span class="line"> 		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  			<span class="comment">//语句</span></span><br><span class="line"> 		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这种代码非常难读，我喜欢将它们重构为下面这个样子：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">someMethod</span><span class="params">()</span></span> &#123;</div><div class="line">	<span class="keyword">if</span> !condition1 &#123;</div><div class="line">	<span class="comment">//语句</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">	<span class="keyword">if</span> !condition2 &#123;</div><div class="line">	<span class="comment">//语句</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> !condition3 &#123;</div><div class="line">    <span class="comment">//语句</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">	<span class="comment">//语句</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">someMethod</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> !condition1 &#123;</span><br><span class="line">	<span class="comment">//语句</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> !condition2 &#123;</span><br><span class="line">	<span class="comment">//语句</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> !condition3 &#123;</span><br><span class="line">    <span class="comment">//语句</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这两段代码的作用其实是一样的，但是后一种更加容易理解。（注意一下，第二种写法中使用了<code>！</code>逻辑非来转换了表达式的意思）</p>
 <p>Swift中有一种特殊的语句，<code>guard</code>来帮助你处理这种复杂的情况，用<code>guard</code>重写一下上面的方法就是：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">someMethod</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">guard</span> condition1 <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">//语句</span></div><div class="line">        <span class="keyword">return</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">    <span class="keyword">guard</span> condition21 <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">//语句</span></div><div class="line">        <span class="keyword">return</span></div><div class="line">      &#125;</div><div class="line"></div><div class="line">...</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">someMethod</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">guard</span> condition1 <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//语句</span></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">guard</span> condition21 <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//语句</span></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>你要自己尝试这些方法，比较看看哪种可读性最好，哪种看起来最好，这样慢慢的你就会很有经验了。</p>
 <h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><p><code>for</code>循环</p>
 <p>你之前已经见识过了，如何用<code>for in</code>来历遍一个数组：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> item <span class="keyword">in</span> items &#123;</div><div class="line">    <span class="keyword">if</span> !item.checked &#123;</div><div class="line">    	<span class="built_in">count</span> += <span class="number">1</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> items &#123;</span><br><span class="line">    <span class="keyword">if</span> !item.checked &#123;</span><br><span class="line">    	<span class="built_in">count</span> += <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>也可以写作：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> item <span class="keyword">in</span> items <span class="keyword">where</span> !item.checked &#123;</div><div class="line">  	<span class="built_in">count</span> += <span class="number">1</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> items <span class="keyword">where</span> !item.checked &#123;</span><br><span class="line">  	<span class="built_in">count</span> += <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>for in</code>中的语句会对每个<code>items</code>数组中的对象执行一遍。</p>
 <p>注意一下，变量<code>item</code>的仅在<code>for</code>语句中有效，你不能在外面引用它，它的生命期比局部变量还要短。</p>
 <p>有些语言，也包括Swift 2，中的<code>for</code>语句是这个样子的：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; ++i &#123;</div><div class="line">	<span class="built_in">print</span>(i)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; ++i &#123;</span><br><span class="line">	<span class="built_in">print</span>(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>当你运行这个代码，会得到如下结果：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="number">0</span></div><div class="line"><span class="number">1</span></div><div class="line"><span class="number">2</span></div><div class="line"><span class="number">3</span></div><div class="line"><span class="number">4</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
 <p>然而，在Swift 3种，这种<code>for</code>循环已经被抛弃了，取而代之的是，你可以直接使用区间范围，就像下面这样：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span> ... <span class="number">4</span> &#123;</div><div class="line">	<span class="built_in">print</span>(i)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span> ... <span class="number">4</span> &#123;</span><br><span class="line">	<span class="built_in">print</span>(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>顺便说一下，也可写作：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">stride</span>(from: <span class="number">0</span>,to: <span class="number">5</span>,by: <span class="number">1</span>) &#123;</div><div class="line">	<span class="built_in">print</span>(i)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">stride</span>(from: <span class="number">0</span>,to: <span class="number">5</span>,by: <span class="number">1</span>) &#123;</span><br><span class="line">	<span class="built_in">print</span>(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>stride</code>函数创建了一个专门的对象来代表从1到5，每次增加1。如果你只想要偶数，你可以把<code>by</code>参数改为2。如果你给<code>by</code>参数一个负数的话，那么<code>stride</code>就可以实现倒着数的功能。</p>
 <p><code>while</code>语句</p>
 <p><code>for</code>语句并不是唯一的执行循环的语句，另一个非常强大的循环结构就是<code>while</code>语句：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> something <span class="keyword">is</span> <span class="literal">true</span> &#123;</div><div class="line">	<span class="comment">//语句</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> something <span class="keyword">is</span> <span class="literal">true</span> &#123;</span><br><span class="line">	<span class="comment">//语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>while语句会一直保持循环，知道条件为false为止。还可以使用下面这种形式：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">repeat</span> &#123;</div><div class="line"> 	<span class="comment">//语句</span></div><div class="line">&#125; <span class="keyword">while</span> something <span class="keyword">is</span> <span class="literal">true</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">repeat</span> &#123;</span><br><span class="line"> 	<span class="comment">//语句</span></span><br><span class="line">&#125; <span class="keyword">while</span> something <span class="keyword">is</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <p>在这种情况中，条件是在语句执行后才判断的，所以括号内的语句至少也会被执行一次。</p>
 <p>你可以使用<code>while</code>语句重写一下循环<code>Checklists</code>中的对象：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="built_in">count</span> = <span class="number">0</span></div><div class="line"><span class="keyword">var</span> i = <span class="number">0</span></div><div class="line"><span class="keyword">while</span> i &lt; items.<span class="built_in">count</span> &#123;</div><div class="line">   <span class="keyword">let</span> item = items[i]</div><div class="line">   <span class="keyword">if</span> !item.checked &#123;</div><div class="line">     <span class="built_in">count</span> += <span class="number">1</span></div><div class="line">   &#125;</div><div class="line">   i += <span class="number">1</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="built_in">count</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; items.<span class="built_in">count</span> &#123;</span><br><span class="line">   <span class="keyword">let</span> item = items[i]</span><br><span class="line">   <span class="keyword">if</span> !item.checked &#123;</span><br><span class="line">     <span class="built_in">count</span> += <span class="number">1</span></span><br><span class="line">   &#125;</span><br><span class="line">   i += <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这些循环结构的作用大致相同，只是看起来有些不一样。每一种都可以使你重复执行一段语句，直到条件不符合为止。</p>
 <p>然而，使用<code>while</code>会比<code>for in</code>要看起来复杂一些，所以大多数时候，我们都会使用<code>for in</code>。</p>
 <p>使用<code>for in</code>、<code>while</code>、<code>repeat</code>并没有什么不同，只是可读性上有所区别。</p>
@@ -623,18 +692,18 @@
 <p>⚠️：上面例子中的<code>item.count</code>和<code>count</code>是两种不同的东西，只是名字一样。<code>item.count</code>中的<code>count</code>是数组<code>items</code>中的属性用于返回数组中元素的个数；后面的一个<code>count</code>是一个局部变量，用于对没有激活对勾符号的item对象计数。</p>
 </blockquote>
 <p>就你可以在方法中使用<code>return</code>退出方法一样，你可以使用<code>break</code>来提前退出循环：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> found = <span class="literal">false</span></div><div class="line"><span class="keyword">for</span> item <span class="keyword">in</span> array &#123;</div><div class="line">  	<span class="keyword">if</span> item == searchText &#123;</div><div class="line">    	found = <span class="literal">true</span></div><div class="line">    	<span class="keyword">break</span></div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> found = <span class="literal">false</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> array &#123;</span><br><span class="line">  	<span class="keyword">if</span> item == searchText &#123;</span><br><span class="line">    	found = <span class="literal">true</span></span><br><span class="line">    	<span class="keyword">break</span></span><br><span class="line">  	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这个例子中，<code>for</code>语句在数组中循环，直到找到第一个与<code>searchText</code>的值相当的值后，将<code>found</code>设置为<code>true</code>，然后退出循环，不再查看数组中剩下的对象。因为你已经找到了你想要的东西，所以没有必要把整个数组都循环完毕。</p>
 <p>还存在一个<code>contiue</code>语句，和<code>break</code>的作用正好相反。它的作用是立即跳到下一个迭代中，当你使用<code>contiue</code>时，你的意思就是“目前这个item已经结束了，我们去看看下一个吧！”</p>
 <h4 id="其他语句"><a href="#其他语句" class="headerlink" title="其他语句"></a>其他语句</h4><p>在函数编程中，循环经常会被<code>map</code>，<code>filter</code>或者<code>reduce</code>替代。它们是一些操作集合的函数，对集合中每一个元素执行一段代码，并且返回一个新的集合作为结果。</p>
 <p>例如，在数组上使用<code>filter</code>，会保留符合某些条件的元素。比如要得到未激活对勾符号的ChecklistItem对象，你可以这样写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var uncheckedItems = items.filter &#123; item in !item.checked&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var uncheckedItems = items.filter &#123; item in !item.checked&#125;</span><br></pre></td></tr></table></figure>
 <p>这样写比循环看起来要简单多了。函数编程是一个非常大的话题，所以在这里我们不会展开太多。</p>
 <h2 id="对象（Objects）"><a href="#对象（Objects）" class="headerlink" title="对象（Objects）"></a>对象（Objects）</h2><p>将功能和数据结合在一起的可重用单元，都是对象。</p>
 <p>数据是由对象中的实例变量和实例常量组成。我们经常以对象的属性形式引用它们。功能由对象的方法提供。</p>
 <p>在你的Swift程序中，你使用过已存在的对象，比如<code>String</code>，<code>Array</code>，<code>Date</code>，<code>UITableView</code>，以及你自己创建的对象。</p>
 <p>定义一个新的对象，你需要一个新的Swift文件，比如MyObject.swift，并且包含一个类（<code>class</code>）。比如：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyObject</span> </span>&#123;</div><div class="line">  	<span class="keyword">var</span> text: <span class="type">String</span></div><div class="line">  	<span class="keyword">var</span> <span class="built_in">count</span> = <span class="number">0</span></div><div class="line">    <span class="keyword">let</span> maximum = <span class="number">100</span></div><div class="line"> </div><div class="line">  	<span class="keyword">init</span>() &#123;</div><div class="line">    	text = <span class="string">"Hello World"</span></div><div class="line"> 	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">func</span> <span class="title">doSomething</span><span class="params">()</span></span> &#123;</div><div class="line">  		<span class="comment">//语句</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyObject</span> </span>&#123;</span><br><span class="line">  	<span class="keyword">var</span> text: <span class="type">String</span></span><br><span class="line">  	<span class="keyword">var</span> <span class="built_in">count</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">let</span> maximum = <span class="number">100</span></span><br><span class="line"> </span><br><span class="line">  	<span class="keyword">init</span>() &#123;</span><br><span class="line">    	text = <span class="string">"Hello World"</span></span><br><span class="line"> 	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">func</span> <span class="title">doSomething</span><span class="params">()</span></span> &#123;</span><br><span class="line">  		<span class="comment">//语句</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在<code>class</code>的花括号内，你添加了属性（实例变量和实例常量）和方法。</p>
 <p>属性有两种类型：</p>
 <ul>
@@ -644,7 +713,7 @@
 </li>
 </ul>
 <p>下面是一个关于计算属性的例子：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> indexOfSelectedChecklist: <span class="type">Int</span> &#123;</div><div class="line">  	<span class="keyword">get</span> &#123;</div><div class="line">    	<span class="keyword">return</span> <span class="type">UserDefaults</span>.standard().integerForKey(<span class="string">"ChecklistIndex"</span>)</div><div class="line">  	&#125;</div><div class="line"> 	<span class="keyword">set</span> &#123;</div><div class="line">      	<span class="type">UserDefaults</span>.standard().<span class="keyword">set</span>(newValue,forKey: <span class="string">"ChecklistIndex"</span>)</div><div class="line"> 	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> indexOfSelectedChecklist: <span class="type">Int</span> &#123;</span><br><span class="line">  	<span class="keyword">get</span> &#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="type">UserDefaults</span>.standard().integerForKey(<span class="string">"ChecklistIndex"</span>)</span><br><span class="line">  	&#125;</span><br><span class="line"> 	<span class="keyword">set</span> &#123;</span><br><span class="line">      	<span class="type">UserDefaults</span>.standard().<span class="keyword">set</span>(newValue,forKey: <span class="string">"ChecklistIndex"</span>)</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>indexOfSelectedChecklist</code>属性并不存储一个值，取而代之的是，每次有人使用这个属性时，它执行<code>get</code>或者<code>set</code>内的代码。另一个选择是，分别写一个<code>setIndexOfSelectedChecklist()</code>和<code>getIndexOfSelectedChecklist()</code>方法，但是这样读起来不是很好。</p>
 <p>关键字<code>@IBOutlet</code>的意思是，这个属性可以被界面建造器中的用户接口元素引用，比如label和button。这种属性通常都被声明为<code>weak</code>和可选型。类似的，<code>@IBAction</code>关键字被用于和用户交互时被触发的方法。</p>
 <p>这里有三种类型的方法：</p>
@@ -657,11 +726,11 @@
 </li>
 </ol>
 <p>你已经知道了方法就是属于某一个对象的函数。调用这种类型的方法你首先需要一个这个对象的实例：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> myInstance = <span class="type">MyObject</span>()  <span class="comment">//创建一个对象的实例</span></div><div class="line">myInstance.doSomething()   <span class="comment">//调用方法</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myInstance = <span class="type">MyObject</span>()  <span class="comment">//创建一个对象的实例</span></span><br><span class="line">myInstance.doSomething()   <span class="comment">//调用方法</span></span><br></pre></td></tr></table></figure>
 <p>你也可以创建一个类方法，这样就可以在没有实例的情况下使用这个方法。事实上，类方法经常被当作“工厂”方法使用，用来创建新的实例：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyObject</span> </span>&#123;</div><div class="line">...</div><div class="line">	<span class="class"><span class="keyword">class</span> <span class="title">fun</span> <span class="title">makeObject</span>(<span class="title">text</span>: <span class="title">String</span>)-&gt; <span class="title">MyObject</span> </span>&#123;</div><div class="line">    	<span class="keyword">let</span> m = <span class="type">MyObject</span>()</div><div class="line">    	m.text = text</div><div class="line">    	<span class="keyword">return</span> m</div><div class="line">  	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> <span class="type">MyInstance</span> = <span class="type">MyObject</span>.makeObject(text: <span class="string">"Hello world"</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyObject</span> </span>&#123;</span><br><span class="line">...</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">fun</span> <span class="title">makeObject</span>(<span class="title">text</span>: <span class="title">String</span>)-&gt; <span class="title">MyObject</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">let</span> m = <span class="type">MyObject</span>()</span><br><span class="line">    	m.text = text</span><br><span class="line">    	<span class="keyword">return</span> m</span><br><span class="line">  	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="type">MyInstance</span> = <span class="type">MyObject</span>.makeObject(text: <span class="string">"Hello world"</span>)</span><br></pre></td></tr></table></figure>
 <p><code>init</code>方法，或者叫做初始化设置，在创建一个新的对象实例的过程中被使用。你也可以使用<code>init</code>方法来取代上面的那个工厂方法：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyObject</span> </span>&#123;</div><div class="line">...</div><div class="line">	<span class="keyword">init</span>(text: <span class="type">String</span>) &#123;</div><div class="line">    	<span class="keyword">self</span>.text = text</div><div class="line"> 	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyObject</span> </span>&#123;</span><br><span class="line">...</span><br><span class="line">	<span class="keyword">init</span>(text: <span class="type">String</span>) &#123;</span><br><span class="line">    	<span class="keyword">self</span>.text = text</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>init</code>方法的主要目的是将对象中的实例变量填满。任何没有值的实例变量和实例常量都必须在<code>init</code>方法中被给予一个值。</p>
 <p>Swift不允许变量或者常量没有值（可选型例外），并且<code>init</code>方法是你给变量或者常量赋值的最后一次机会。</p>
 <p>对象可以拥有一个以上的<code>init</code>方法；具体使用哪一个要依据具体情况而定。</p>
@@ -669,20 +738,23 @@
 <p>当对象不再被使用时，你可以提供一个<code>deinit</code>方法。在对象被破坏掉前调用它。</p>
 <p>顺便说一下，<code>class</code>并不是Swift中唯一定义对象的方法。还存在其他类型的对象，比如<code>structs</code>和<code>enums</code>。</p>
 <h2 id="协议（Protocols）"><a href="#协议（Protocols）" class="headerlink" title="协议（Protocols）"></a>协议（Protocols）</h2><p>一个协议就是一组方法名称的列表：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">MyProtocol</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">someMethod</span><span class="params">(value: Int)</span></span></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">anotherMethod</span><span class="params">()</span></span>-&gt; <span class="type">String</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">MyProtocol</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">someMethod</span><span class="params">(value: Int)</span></span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">anotherMethod</span><span class="params">()</span></span>-&gt; <span class="type">String</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>协议就类似于工作列表。它列出了你的公司中每个具体职位的工作。</p>
 <p>但是列表自己本身并不工作，它仅仅是打印出来给大家看的东西。所以你需要雇佣具体的员工来完成列表上的工作。而这些员工，就是具体的对象。</p>
 <p>对象需要被指明自己需要遵守的协议：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyObject</span>: <span class="title">MyProtocol</span> </span>&#123;</div><div class="line"> 	...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyObject</span>: <span class="title">MyProtocol</span> </span>&#123;</span><br><span class="line"> 	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这样，这个对象就需要完成协议中列出的所有方法。（否则，就炒了它）</p>
 <p>此时，你就可以引用这个对象，同时还有协议：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> m1: <span class="type">MyObject</span> = <span class="type">MyObject</span>()</div><div class="line"><span class="keyword">var</span> m2: <span class="type">MyProtocol</span> = <span class="type">MyObject</span>()</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> m1: <span class="type">MyObject</span> = <span class="type">MyObject</span>()</span><br><span class="line"><span class="keyword">var</span> m2: <span class="type">MyProtocol</span> = <span class="type">MyObject</span>()</span><br></pre></td></tr></table></figure>
 <p>对于代码中任何使用<code>m2</code>变量的部分，它是否是<code>MyObject</code>对象并不重要。<code>m2</code>类型是<code>MyProtocol</code>，不是<code>MyObject</code>。</p>
 <p>所有你的代码看到的是，<code>m2</code>是某个遵守<code>MyProtocol</code>协议的对象，但是具体是什么样的对象并不重要。</p>
 <p>换而言之，你并不关心你雇用的员工，是不是兼职其他工作，只要他和你需要的东西不冲突，你就可以雇佣他。</p>
 
       
     </div>
+
+    
+
     
     
     
@@ -690,40 +762,38 @@
     
 
     
+      
+    
+    
 
     
-    <div>
-  
-    
+      <div>
+        
+          
 <div style="text-align:center;color: #ccc;font-size:14px;">
     ------ end ------
 </div>
-<br/>
+<br>
 <div style="border: 1px solid black">
     <div style="margin-left:10px">
         <span style="font-weight:blod">Licenses</span>
-        <img alt="Creative Commons License" style="border-width:0"
-             src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/>
-        <br/>
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
+        <br>
         <p style="font-size: 10px;line-height: 30px">
             <a href="https://wanguy.github.io/" style="color:#258FC6">Gavin's Blog</a>
             by <a href="https://twitter.com/rp_Wang" style="color:#258FC6">Richard Gavin</a> is licensed under a
-            <a rel="license"
-               href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-               style="color:#258FC6">Creative
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:#258FC6">Creative
                 Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
-            <br/>
+            <br>
             由<a href="https://twitter.com/rp_Wang" style="color:#258FC6">Richard Gavin</a>创作并维护的
-            <a href="https://wanguy.github.io/"
-               style="color:#258FC6">Gavin's Blog</a>博客采用<a
-                href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:#258FC6">知识共享署名-非商业性使用-相同方式共享 4.0 国际共享协议</a>进行许可。
+            <a href="https://wanguy.github.io/" style="color:#258FC6">Gavin's Blog</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:#258FC6">知识共享署名-非商业性使用-相同方式共享 4.0 国际共享协议</a>进行许可。
         </p>
     </div>
 </div>
 
 
-  
-</div>
+        
+      </div>
 
     <footer class="post-footer">
       
@@ -770,28 +840,20 @@
   </article>
 
 
-
-    <div class="post-spread">
-      
-    </div>
   </div>
 
 
           </div>
           
 
-
-          
-  <div class="comments" id="comments">
-    
-      <div class="fb-comments"
-           data-href="http://yoursite.com/2017/10/25/Optional types and method functions in Swift/"
-           data-numposts="10"
-           data-width="100%"
-           data-colorscheme="light">
+  
+    <div class="comments" id="comments">
+      <div class="fb-comments" data-href="http://yoursite.com/2017/10/25/Optional types and method functions in Swift/" data-numposts="10" data-width="100%" data-colorscheme="light">
       </div>
-    
-  </div>
+    </div>
+
+  
+
 
 
         </div>
@@ -814,121 +876,210 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             Table of Contents
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             Overview
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/IMG_0629.jpg" alt="Gavin">
+            
+              <p class="site-author-name" itemprop="name">Gavin</p>
+              <p class="site-description motion-element" itemprop="description">Make it, Fake it.</p>
+          </div>
+
           
-            <img class="site-author-image" itemprop="image"
-              src="/uploads/IMG_0629.jpg"
-              alt="Richard Gavin" />
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
           
-            <p class="site-author-name" itemprop="name">Richard Gavin</p>
-            <p class="site-description motion-element" itemprop="description">Know Thyself</p>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Wanguy" title="Github &rarr; https://github.com/Wanguy" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:w020283852@gmail.com" title="E-Mail &rarr; mailto:w020283852@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/rp_Wang" title="Twitter &rarr; https://twitter.com/rp_Wang" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.zhihu.com/people/Wanguy/activities" title="Zhihu &rarr; https://www.zhihu.com/people/Wanguy/activities" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.instagram.com/sephirothgavin/" title="Instagram &rarr; https://www.instagram.com/sephirothgavin/" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
         </div>
-
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-            
-              <a href="/archives/">
-            
-                <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">posts</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">categories</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">16</span>
-                <span class="site-state-item-name">tags</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/Wanguy" target="_blank" title="Github">
-                  
-                    <i class="fa fa-fw fa-globe"></i>Github</a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.zhihu.com/people/Wanguy/activities" target="_blank" title="Zhihu">
-                  
-                    <i class="fa fa-fw fa-globe"></i>Zhihu</a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://twitter.com/rp_Wang" target="_blank" title="Twitter">
-                  
-                    <i class="fa fa-fw fa-twitter"></i>Twitter</a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.instagram.com/sephirothgavin/" target="_blank" title="Instagram">
-                  
-                    <i class="fa fa-fw fa-instagram"></i>Instagram</a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
+      </div>
 
       
       <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
 
             
-              
+            
+            
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#可选类型和解包"><span class="nav-number">1.</span> <span class="nav-text">可选类型和解包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法与函数（Methods-and-functions）"><span class="nav-number">2.</span> <span class="nav-text">方法与函数（Methods and functions）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法的返回值"><span class="nav-number">2.1.</span> <span class="nav-text">方法的返回值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法的调用"><span class="nav-number">2.2.</span> <span class="nav-text">方法的调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法的参数"><span class="nav-number">2.3.</span> <span class="nav-text">方法的参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环和判断"><span class="nav-number">3.</span> <span class="nav-text">循环和判断</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断"><span class="nav-number">3.1.</span> <span class="nav-text">判断</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#if语句"><span class="nav-number">3.1.1.</span> <span class="nav-text">if语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#switch语句"><span class="nav-number">3.1.2.</span> <span class="nav-text">switch语句</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环"><span class="nav-number">3.2.</span> <span class="nav-text">循环</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#其他语句"><span class="nav-number">3.2.1.</span> <span class="nav-text">其他语句</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象（Objects）"><span class="nav-number">4.</span> <span class="nav-text">对象（Objects）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#协议（Protocols）"><span class="nav-number">5.</span> <span class="nav-text">协议（Protocols）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#可选类型和解包"><span class="nav-text">可选类型和解包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法与函数（Methods-and-functions）"><span class="nav-text">方法与函数（Methods and functions）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法的返回值"><span class="nav-text">方法的返回值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法的调用"><span class="nav-text">方法的调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法的参数"><span class="nav-text">方法的参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环和判断"><span class="nav-text">循环和判断</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断"><span class="nav-text">判断</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#if语句"><span class="nav-text">if语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#switch语句"><span class="nav-text">switch语句</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环"><span class="nav-text">循环</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#其他语句"><span class="nav-text">其他语句</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象（Objects）"><span class="nav-text">对象（Objects）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#协议（Protocols）"><span class="nav-text">协议（Protocols）</span></a></li></ol></div>
             
 
           </div>
-        </section>
+        </div>
       <!--/noindex-->
       
 
@@ -944,21 +1095,27 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2015 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; 2015 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-bug"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Richard Gavin</span>
+  <span class="author" itemprop="copyrightHolder">Gavin</span>
+
+  
 
   
 </div>
 
 
 
+
+
+
+
+
+
         
+
 
 
 
@@ -977,11 +1134,16 @@
       </div>
     
 
+    
+
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -995,7 +1157,6 @@
 
 
 
-  
 
 
 
@@ -1004,84 +1165,7 @@
 
 
 
-  
-  
 
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three.min.js"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
-  
-
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
 
 
 
@@ -1091,8 +1175,49 @@
 
 
   
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
-  <script type="text/javascript">
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+  <script>
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -1141,6 +1266,8 @@
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -1174,8 +1301,9 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles
@@ -1344,9 +1472,9 @@
               })
             };
             if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
             } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
             } else {
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
@@ -1420,32 +1548,75 @@
   
 
   
+
   
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-  
-
-
   
 
   
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
 
 </body>
 </html>

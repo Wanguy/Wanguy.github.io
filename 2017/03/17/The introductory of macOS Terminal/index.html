@@ -2,14 +2,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
 <html class="theme-next muse use-motion" lang="en">
-<head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +29,6 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -38,88 +45,58 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
 
 
 
 
-  
-  
-  
-  
 
-  
-    
-    
-  
 
-  
-    
-      
-    
 
-    
-  
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
 
-  
-    
-      
-    
 
-    
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|PingFang SC:300,300italic,400,400italic,700,700italic|PingFang SC:300,300italic,400,400italic,700,700italic|PingFang SC:300,300italic,400,400italic,700,700italic|PingFang SC:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
 
 
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Terminal," />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.1.2" />
-
-
-
-
-
-
-<meta name="description" content="最近学习苹果认证的《Mac OS X Support Essentials》教程，看到 Command Line 一节有很多实用的知识，下面选取一部分翻译 + 笔记，整理成此文。">
+  <meta name="description" content="最近学习苹果认证的《Mac OS X Support Essentials》教程，看到 Command Line 一节有很多实用的知识，下面选取一部分翻译 + 笔记，整理成此文。">
 <meta name="keywords" content="Terminal">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac OS X Terminal 101：终端使用初级教程">
@@ -140,58 +117,39 @@
 
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '5.1.2',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+  <link rel="alternate" href="/atom.xml" title="Gavin's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/17/The introductory of macOS Terminal/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
   };
 </script>
 
-
-
-  <link rel="canonical" href="http://yoursite.com/2017/03/17/The introductory of macOS Terminal/"/>
-
-
-
-
-
   <title>Mac OS X Terminal 101：终端使用初级教程 | Gavin's Blog</title>
   
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '',
-      xfbml      : true,
-      version    : 'v2.10'
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId  : '',
+        xfbml  : true,
+        version: 'v2.10'
+      });
+    };
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
 
 
 
@@ -199,10 +157,40 @@
 
 
 
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -212,25 +200,28 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Gavin's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
-        <p class="site-subtitle">Hello, World</p>
+        <p class="site-subtitle">分享有趣</p>
       
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="Toggle navigation bar">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -238,76 +229,124 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Home
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            Tags
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            Categories
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            About
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
 
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags<span class="badge">16</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">2</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">21</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            Search
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
         </li>
       
     </ul>
+  
+
+  
+    
+
   
 
   
@@ -322,9 +361,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -338,12 +375,29 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/Wanguy" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
 
@@ -356,20 +410,22 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/17/The introductory of macOS Terminal/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Richard Gavin">
-      <meta itemprop="description" content="">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin">
+      <meta itemprop="description" content="Make it, Fake it.">
       <meta itemprop="image" content="/uploads/IMG_0629.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Gavin's Blog">
     </span>
 
@@ -378,11 +434,20 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Mac OS X Terminal 101：终端使用初级教程</h1>
+          <h1 class="post-title" itemprop="name headline">Mac OS X Terminal 101：终端使用初级教程
+
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -390,18 +455,35 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-17T14:07:34+08:00">
-                03-17-2017
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 03-17-2017 14:07:34" itemprop="dateCreated datePublished" datetime="2017-03-17T14:07:34+08:00">03-17-2017</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 09-08-2017 20:17:34" itemprop="dateModified" datetime="2017-09-08T20:17:34+08:00">09-08-2017</time>
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -412,11 +494,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tutorial/" itemprop="url" rel="index">
-                    <span itemprop="name">Tutorial</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Tutorial/" itemprop="url" rel="index"><span itemprop="name">Tutorial</span></a></span>
 
                 
                 
@@ -426,13 +504,16 @@
 
           
             
+            
+              
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
+            
                 <a href="/2017/03/17/The introductory of macOS Terminal/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/03/17/The introductory of macOS Terminal/" itemprop="commentCount">0</span> comments
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/03/17/The introductory of macOS Terminal/" itemprop="commentCount">0</span>
                 </a>
               </span>
             
@@ -516,11 +597,11 @@
 <p>Tab Complete 是 command line 中最能给你节省时间的特性之一，利用它的自动完成文件、目录名称功能还可以防止你输入错误。使用<code>cd</code>进入你的 home folder，使用<code>cd P</code>命令，然后按下tab按键。你可能会听到错误音，因为你的 home folder 内有多个 P 开头的文件夹。再按一次tab，Terminal 将会为你列出 P 开头的两个文件夹：Public 和 Pictures。按U，再按tab，Terminal 则会自动为你补全<code>Public/</code>。Tab complete 同样会处理那些特殊字符。注意，这会在末尾保留<code>/</code>符号，大部分时候这没问题，但如果出错，移除多余的<code>/</code>试一试。</p>
 <p>另外，鄂化符<code>~</code>（tilde）在command line 中可以代表当前用户的 home folder。例如<code>~/Public/Drop\ Box/</code>是合法的。</p>
 <h3 id="查看隐藏文件"><a href="#查看隐藏文件" class="headerlink" title="查看隐藏文件"></a>查看隐藏文件</h3><p>为了简化工作，command line 和 Finder 都会隐藏许多文件和文件夹，这些内容通常是系统需要的。不借助第三方工具让 Finder 显示隐藏文件比较困难，但是在 command line 中却非常简单。首先，许多隐藏文件的隐藏是通过隐藏属性在 Finder 中隐藏的，而 command line 会忽略这些属性，所以这些文件会在 command line 中显示。另外，<code>ls</code>命令会隐藏文件名以<code>.</code>开头的文件，但是这些文件却可以被显示出来，方法是利用<code>-a</code>选项。例如：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">michelle$</span><span class="bash"> ls -la</span></div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">michelle$</span><span class="bash"> ls -la</span></span><br></pre></td></tr></table></figure>
 <p>我们还添加了<code>-l</code>选项，目的是控制输出格式。如果你注意输出内容的话，会发现还包括<code>.</code>和<code>..</code>两项，它们分别表示当前文件夹和父文件夹（如图）。如果你不想显示这两项，只需要把<code>-a</code>改成<code>-A</code>即可。</p>
 <p><img src="/2017/03/17/The introductory of macOS Terminal/Users/sephiroth/Downloads/terminal729.png" alt="terminal729"></p>
 <h3 id="前往其他卷"><a href="#前往其他卷" class="headerlink" title="前往其他卷"></a>前往其他卷</h3><p>在 command line 中，系统卷（也称为 root volume）是由开始的一个正斜杠表示的。然而也许听起来不可思议，在 command line 中其他卷看起来就在文件系统中一个叫做 Volumes 的文件夹中。下面的命令清晰地显示出这种逻辑关系：我从我的 home folder 出发，最终前往一个叫 Time Machine 的卷，该卷是外接在 Mac 上的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">bogon:~ renfei$ pwd</div><div class="line">/Users/renfei</div><div class="line">bogon:~ renfei$ cd /Volumes/</div><div class="line">bogon:Volumes renfei$ pwd</div><div class="line">/Volumes</div><div class="line">bogon:Volumes renfei$ ls</div><div class="line">Macintosh SSD &amp;nbsp; &amp;nbsp; &amp;nbsp;Time Machine</div><div class="line">bogon:Volumes renfei$ cd Time\ Machine/</div><div class="line">bogon:Time Machine renfei$ pwd</div><div class="line">/Volumes/Time Machine</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">bogon:~ renfei$ pwd</span><br><span class="line">/Users/renfei</span><br><span class="line">bogon:~ renfei$ cd /Volumes/</span><br><span class="line">bogon:Volumes renfei$ pwd</span><br><span class="line">/Volumes</span><br><span class="line">bogon:Volumes renfei$ ls</span><br><span class="line">Macintosh SSD &amp;nbsp; &amp;nbsp; &amp;nbsp;Time Machine</span><br><span class="line">bogon:Volumes renfei$ cd Time\ Machine/</span><br><span class="line">bogon:Time Machine renfei$ pwd</span><br><span class="line">/Volumes/Time Machine</span><br></pre></td></tr></table></figure>
 <h2 id="用Command-Line管理文件"><a href="#用Command-Line管理文件" class="headerlink" title="用Command-Line管理文件"></a>用Command-Line管理文件</h2><h3 id="检视文件"><a href="#检视文件" class="headerlink" title="检视文件"></a>检视文件</h3><p>有许多基础命令用来定位、检视文件和文件夹，包括<code>cat</code>, <code>less</code>, <code>which</code>, <code>file</code>以及<code>find</code>。别忘了，你可以利用<code>man</code>命令来查阅每个命令的使用指南。</p>
 <h4 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h4><p><code>cat</code>是“concatenate”的意思，会按顺序读取文件并输出到 Terminal 窗口，语法为<code>cat</code>后接你需要查看的文件的路径。<code>cat</code>命令也可以用<code>&gt;&gt;</code>来增加文本文件的内容，例如命令<code>cat ../textOne.txt &gt;&gt; textTwo.txt</code>会把 textOne.txt 的内容添加到 textTwo.txt 的结尾。这个<code>&gt;&gt;</code>就属于上一篇提到的“Extras”。</p>
 <h4 id="less"><a href="#less" class="headerlink" title="less"></a>less</h4><p>这个命令更适合用来查看长文本文件，因为它会允许你查找文本。语法为 <code>less</code>后接文件路径，和<code>cat</code>一样。用<code>less</code>命令打开的文件其实和你查看命令使用指南的时候使用的是一个查看器，所以操作是相同的，同样可以使用▲（上箭头）或▼（下箭头）来上下移动文本，使用 空格 来翻页，输入<code>/</code>和关键字来按照关键字搜索，按Q来退出使用指南页面。除此之外，按V键来使用<code>vi</code>文本编辑器。</p>
@@ -557,7 +638,7 @@
 <h3 id="使用su来切换用户"><a href="#使用su来切换用户" class="headerlink" title="使用su来切换用户"></a>使用su来切换用户</h3><p><code>su</code>命令代表“substitute user identity”，允许你在命令行中轻松切换到另一个用户账户。语法为<code>su</code>后接用户的短名称。然后会要求你输入密码（但是输入的时候不会显示）。执行完毕后，命令的前缀会改变，表示你拥有其他用户的权利。你可以利用<code>who -m</code>命令来验证当前登陆的身份。切换后，你会一直保持该用户身份，直至退出 Terminal 或者输入<code>exit</code>命令。</p>
 <h3 id="关于sudo的使用"><a href="#关于sudo的使用" class="headerlink" title="关于sudo的使用"></a>关于sudo的使用</h3><h4 id="sudo概述"><a href="#sudo概述" class="headerlink" title="sudo概述"></a>sudo概述</h4><p>更强大的命令就是<code>sudo</code>，代表“substitute user do”，或者，更恰当地，“super user do”。用<code>sudo</code>执行一个命令会使用 root 账户权限。当然，使用之前需要 administrator 账户（管理员账户）的授权（如输入密码）。</p>
 <p>默认情况下，任何管理员账户都可以使用<code>sudo</code>来获取 root 权限，甚至当 root 账户在图形界面被禁用的情况下，<code>sudo</code>依然有效。这个命令是很多情况下我们不得不使用 Terminal 的原因，——同样也是给每个用户管理员身份的危险所在。不过，你可以调整<code>sudo</code>的配置文件，来限制它的使用。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">bogon:~ renfei$ cat secret.txt</div><div class="line">cat: secret.txt: Permission denied</div><div class="line">bogon:~ renfei$ sudo cat secret.txt</div><div class="line">Password:</div><div class="line">This is the contents of the secret.txt text file that the user account renfei does not normally have access permissions to read. However, because he is an administrative user, she can use the sudo command to envoke root user access and read the contents of this file.</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bogon:~ renfei$ cat secret.txt</span><br><span class="line">cat: secret.txt: Permission denied</span><br><span class="line">bogon:~ renfei$ sudo cat secret.txt</span><br><span class="line">Password:</span><br><span class="line">This is the contents of the secret.txt text file that the user account renfei does not normally have access permissions to read. However, because he is an administrative user, she can use the sudo command to envoke root user access and read the contents of this file.</span><br></pre></td></tr></table></figure>
 <p><strong>提示</strong>：如果由于你忘了使用<code>sudo</code>而导致命令行返回一个错误，只需输入<code>sudo !!</code>就可以用<code>sudo</code>来执行上一条指令。</p>
 <p>记住，权力越大责任越大。不恰当地使用<code>sudo</code>可以轻易破坏你的系统设置。命令行只会在你第一次执行严重破坏性行为之前提示你，之后，它就会假设你清楚自己正在干什么。如果你只掌握三条使用命令行的准则，那将是：总是仔细检查你的命令；总是使用Tab completion来帮助你避免拼写错误；使用<code>sudo</code>之前，总是仔仔细细检查你的命令。</p>
 <h4 id="使用-sudo-切换-Shell"><a href="#使用-sudo-切换-Shell" class="headerlink" title="使用 sudo 切换 Shell"></a>使用 sudo 切换 Shell</h4><p>如果你是一个管理员用户，你需要执行很多条需要 root 权限的命令，你可以临时切换整个命令行 shell 来取得 root 级别的访问权限。方法就是先输入<code>sudo -s</code>，回车后再键入你的密码。</p>
@@ -575,6 +656,9 @@
 
       
     </div>
+
+    
+
     
     
     
@@ -582,40 +666,38 @@
     
 
     
+      
+    
+    
 
     
-    <div>
-  
-    
+      <div>
+        
+          
 <div style="text-align:center;color: #ccc;font-size:14px;">
     ------ end ------
 </div>
-<br/>
+<br>
 <div style="border: 1px solid black">
     <div style="margin-left:10px">
         <span style="font-weight:blod">Licenses</span>
-        <img alt="Creative Commons License" style="border-width:0"
-             src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/>
-        <br/>
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
+        <br>
         <p style="font-size: 10px;line-height: 30px">
             <a href="https://wanguy.github.io/" style="color:#258FC6">Gavin's Blog</a>
             by <a href="https://twitter.com/rp_Wang" style="color:#258FC6">Richard Gavin</a> is licensed under a
-            <a rel="license"
-               href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-               style="color:#258FC6">Creative
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:#258FC6">Creative
                 Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
-            <br/>
+            <br>
             由<a href="https://twitter.com/rp_Wang" style="color:#258FC6">Richard Gavin</a>创作并维护的
-            <a href="https://wanguy.github.io/"
-               style="color:#258FC6">Gavin's Blog</a>博客采用<a
-                href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:#258FC6">知识共享署名-非商业性使用-相同方式共享 4.0 国际共享协议</a>进行许可。
+            <a href="https://wanguy.github.io/" style="color:#258FC6">Gavin's Blog</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:#258FC6">知识共享署名-非商业性使用-相同方式共享 4.0 国际共享协议</a>进行许可。
         </p>
     </div>
 </div>
 
 
-  
-</div>
+        
+      </div>
 
     <footer class="post-footer">
       
@@ -634,8 +716,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/17/The details of string function of Cpp/" rel="next" title="C++ string 字符串函数详解">
-                <i class="fa fa-chevron-left"></i> C++ string 字符串函数详解
+              <a href="/2017/03/17/Add custom style and animation effects to HTML checkbox with CSS/" rel="next" title="用纯 CSS 为 HTML checkbox 添加自定义样式及动画效果">
+                <i class="fa fa-chevron-left"></i> 用纯 CSS 为 HTML checkbox 添加自定义样式及动画效果
               </a>
             
           </div>
@@ -644,8 +726,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/17/The process of configures Apache, MySQL, PHP, and phpMyAdmin at Ubuntu/" rel="prev" title="Ubuntu 配置 Apache, MySQL, PHP 以及 phpMyAdmin 过程记录">
-                Ubuntu 配置 Apache, MySQL, PHP 以及 phpMyAdmin 过程记录 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/17/The details of string function of Cpp/" rel="prev" title="C++ string 字符串函数详解">
+                C++ string 字符串函数详解 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -662,28 +744,20 @@
   </article>
 
 
-
-    <div class="post-spread">
-      
-    </div>
   </div>
 
 
           </div>
           
 
-
-          
-  <div class="comments" id="comments">
-    
-      <div class="fb-comments"
-           data-href="http://yoursite.com/2017/03/17/The introductory of macOS Terminal/"
-           data-numposts="10"
-           data-width="100%"
-           data-colorscheme="light">
+  
+    <div class="comments" id="comments">
+      <div class="fb-comments" data-href="http://yoursite.com/2017/03/17/The introductory of macOS Terminal/" data-numposts="10" data-width="100%" data-colorscheme="light">
       </div>
-    
-  </div>
+    </div>
+
+  
+
 
 
         </div>
@@ -706,121 +780,210 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             Table of Contents
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             Overview
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/IMG_0629.jpg" alt="Gavin">
+            
+              <p class="site-author-name" itemprop="name">Gavin</p>
+              <p class="site-description motion-element" itemprop="description">Make it, Fake it.</p>
+          </div>
+
           
-            <img class="site-author-image" itemprop="image"
-              src="/uploads/IMG_0629.jpg"
-              alt="Richard Gavin" />
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
           
-            <p class="site-author-name" itemprop="name">Richard Gavin</p>
-            <p class="site-description motion-element" itemprop="description">Know Thyself</p>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Wanguy" title="Github &rarr; https://github.com/Wanguy" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:w020283852@gmail.com" title="E-Mail &rarr; mailto:w020283852@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/rp_Wang" title="Twitter &rarr; https://twitter.com/rp_Wang" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.zhihu.com/people/Wanguy/activities" title="Zhihu &rarr; https://www.zhihu.com/people/Wanguy/activities" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.instagram.com/sephirothgavin/" title="Instagram &rarr; https://www.instagram.com/sephirothgavin/" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
         </div>
-
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-            
-              <a href="/archives/">
-            
-                <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">posts</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">categories</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">16</span>
-                <span class="site-state-item-name">tags</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/Wanguy" target="_blank" title="Github">
-                  
-                    <i class="fa fa-fw fa-globe"></i>Github</a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.zhihu.com/people/Wanguy/activities" target="_blank" title="Zhihu">
-                  
-                    <i class="fa fa-fw fa-globe"></i>Zhihu</a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://twitter.com/rp_Wang" target="_blank" title="Twitter">
-                  
-                    <i class="fa fa-fw fa-twitter"></i>Twitter</a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.instagram.com/sephirothgavin/" target="_blank" title="Instagram">
-                  
-                    <i class="fa fa-fw fa-instagram"></i>Instagram</a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
+      </div>
 
       
       <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
 
             
-              
+            
+            
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要使用命令行-如何开启命令行？"><span class="nav-number">1.</span> <span class="nav-text">为什么要使用命令行/如何开启命令行？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初识Command-Line"><span class="nav-number">2.</span> <span class="nav-text">初识Command Line</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于-man-命令"><span class="nav-number">3.</span> <span class="nav-text">关于 man 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行，文件和路径"><span class="nav-number">4.</span> <span class="nav-text">命令行，文件和路径</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#两种路径：绝对路径和相对路径"><span class="nav-number">4.1.</span> <span class="nav-text">两种路径：绝对路径和相对路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换到其他路径和目录"><span class="nav-number">4.2.</span> <span class="nav-text">切换到其他路径和目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理特殊字符"><span class="nav-number">4.3.</span> <span class="nav-text">处理特殊字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看隐藏文件"><span class="nav-number">4.4.</span> <span class="nav-text">查看隐藏文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前往其他卷"><span class="nav-number">4.5.</span> <span class="nav-text">前往其他卷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用Command-Line管理文件"><span class="nav-number">5.</span> <span class="nav-text">用Command-Line管理文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#检视文件"><span class="nav-number">5.1.</span> <span class="nav-text">检视文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cat"><span class="nav-number">5.1.1.</span> <span class="nav-text">cat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#less"><span class="nav-number">5.1.2.</span> <span class="nav-text">less</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#which"><span class="nav-number">5.1.3.</span> <span class="nav-text">which</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#file"><span class="nav-number">5.1.4.</span> <span class="nav-text">file</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#find"><span class="nav-number">5.1.5.</span> <span class="nav-text">find</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用通配符（Wildcard-Characters）"><span class="nav-number">5.2.</span> <span class="nav-text">使用通配符（Wildcard Characters）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用递归命令"><span class="nav-number">5.3.</span> <span class="nav-text">使用递归命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑文件和文件夹"><span class="nav-number">5.4.</span> <span class="nav-text">编辑文件和文件夹</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#mkdir"><span class="nav-number">5.4.1.</span> <span class="nav-text">mkdir</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cp"><span class="nav-number">5.4.2.</span> <span class="nav-text">cp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mv"><span class="nav-number">5.4.3.</span> <span class="nav-text">mv</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rm"><span class="nav-number">5.4.4.</span> <span class="nav-text">rm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rmdir和rm-R"><span class="nav-number">5.4.5.</span> <span class="nav-text">rmdir和rm -R</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vi"><span class="nav-number">5.4.6.</span> <span class="nav-text">vi</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用Command-Line管理系统"><span class="nav-number">6.</span> <span class="nav-text">用Command-Line管理系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用su来切换用户"><span class="nav-number">6.1.</span> <span class="nav-text">使用su来切换用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于sudo的使用"><span class="nav-number">6.2.</span> <span class="nav-text">关于sudo的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sudo概述"><span class="nav-number">6.2.1.</span> <span class="nav-text">sudo概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-sudo-切换-Shell"><span class="nav-number">6.2.2.</span> <span class="nav-text">使用 sudo 切换 Shell</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他Command-Line技巧提示"><span class="nav-number">7.</span> <span class="nav-text">其他Command-Line技巧提示</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要使用命令行-如何开启命令行？"><span class="nav-text">为什么要使用命令行/如何开启命令行？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初识Command-Line"><span class="nav-text">初识Command Line</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于-man-命令"><span class="nav-text">关于 man 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行，文件和路径"><span class="nav-text">命令行，文件和路径</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#两种路径：绝对路径和相对路径"><span class="nav-text">两种路径：绝对路径和相对路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换到其他路径和目录"><span class="nav-text">切换到其他路径和目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理特殊字符"><span class="nav-text">处理特殊字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看隐藏文件"><span class="nav-text">查看隐藏文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前往其他卷"><span class="nav-text">前往其他卷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用Command-Line管理文件"><span class="nav-text">用Command-Line管理文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#检视文件"><span class="nav-text">检视文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cat"><span class="nav-text">cat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#less"><span class="nav-text">less</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#which"><span class="nav-text">which</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#file"><span class="nav-text">file</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#find"><span class="nav-text">find</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用通配符（Wildcard-Characters）"><span class="nav-text">使用通配符（Wildcard Characters）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用递归命令"><span class="nav-text">使用递归命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑文件和文件夹"><span class="nav-text">编辑文件和文件夹</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#mkdir"><span class="nav-text">mkdir</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cp"><span class="nav-text">cp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mv"><span class="nav-text">mv</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rm"><span class="nav-text">rm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rmdir和rm-R"><span class="nav-text">rmdir和rm -R</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vi"><span class="nav-text">vi</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用Command-Line管理系统"><span class="nav-text">用Command-Line管理系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用su来切换用户"><span class="nav-text">使用su来切换用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于sudo的使用"><span class="nav-text">关于sudo的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sudo概述"><span class="nav-text">sudo概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-sudo-切换-Shell"><span class="nav-text">使用 sudo 切换 Shell</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他Command-Line技巧提示"><span class="nav-text">其他Command-Line技巧提示</span></a></li></ol></div>
             
 
           </div>
-        </section>
+        </div>
       <!--/noindex-->
       
 
@@ -836,21 +999,27 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2015 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; 2015 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-bug"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Richard Gavin</span>
+  <span class="author" itemprop="copyrightHolder">Gavin</span>
+
+  
 
   
 </div>
 
 
 
+
+
+
+
+
+
         
+
 
 
 
@@ -869,11 +1038,16 @@
       </div>
     
 
+    
+
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -887,7 +1061,6 @@
 
 
 
-  
 
 
 
@@ -896,84 +1069,7 @@
 
 
 
-  
-  
 
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three.min.js"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
-  
-
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
 
 
 
@@ -983,8 +1079,49 @@
 
 
   
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
-  <script type="text/javascript">
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+  <script>
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -1033,6 +1170,8 @@
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -1066,8 +1205,9 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles
@@ -1236,9 +1376,9 @@
               })
             };
             if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
             } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
             } else {
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
@@ -1312,32 +1452,75 @@
   
 
   
+
   
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-  
-
-
   
 
   
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
 
 </body>
 </html>

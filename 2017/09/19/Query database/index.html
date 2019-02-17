@@ -2,14 +2,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
 <html class="theme-next muse use-motion" lang="en">
-<head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +29,6 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -38,88 +45,58 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
 
 
 
 
-  
-  
-  
-  
 
-  
-    
-    
-  
 
-  
-    
-      
-    
 
-    
-  
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
 
-  
-    
-      
-    
 
-    
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=PingFang SC:300,300italic,400,400italic,700,700italic|PingFang SC:300,300italic,400,400italic,700,700italic|PingFang SC:300,300italic,400,400italic,700,700italic|PingFang SC:300,300italic,400,400italic,700,700italic|PingFang SC:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
 
 
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="MySQL,DataBase," />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.1.2" />
-
-
-
-
-
-
-<meta name="description" content="数据查询是数据库操作的核心操作。SQL提供了SELECT语句进行数据查询，其一般格式为： SELECT [ALL | DISTINCT] &amp;lt;目标列表达式&amp;gt; FROM &amp;lt;表名或视图名&amp;gt; (&amp;lt;SELECT 语句&amp;gt;) [AS] &amp;lt;别名&amp;gt; [WHERE&amp;lt;条件表达式&amp;gt;]">
+  <meta name="description" content="数据查询是数据库操作的核心操作。SQL提供了SELECT语句进行数据查询，其一般格式为： SELECT [ALL | DISTINCT] &amp;lt;目标列表达式&amp;gt; FROM &amp;lt;表名或视图名&amp;gt; (&amp;lt;SELECT 语句&amp;gt;) [AS] &amp;lt;别名&amp;gt; [WHERE&amp;lt;条件表达式&amp;gt;]">
 <meta name="keywords" content="MySQL,DataBase">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据表查询">
@@ -134,58 +111,39 @@
 
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '5.1.2',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+  <link rel="alternate" href="/atom.xml" title="Gavin's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/19/Query database/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
   };
 </script>
 
-
-
-  <link rel="canonical" href="http://yoursite.com/2017/09/19/Query database/"/>
-
-
-
-
-
   <title>数据表查询 | Gavin's Blog</title>
   
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '',
-      xfbml      : true,
-      version    : 'v2.10'
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId  : '',
+        xfbml  : true,
+        version: 'v2.10'
+      });
+    };
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
 
 
 
@@ -193,10 +151,40 @@
 
 
 
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -206,25 +194,28 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Gavin's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
-        <p class="site-subtitle">Hello, World</p>
+        <p class="site-subtitle">分享有趣</p>
       
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="Toggle navigation bar">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -232,76 +223,124 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Home
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            Tags
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            Categories
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            About
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
 
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags<span class="badge">16</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">2</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">21</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            Search
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
         </li>
       
     </ul>
+  
+
+  
+    
+
   
 
   
@@ -316,9 +355,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -332,12 +369,29 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+  
+  
+  
+  
+
+  
+
+  <a href="https://github.com/Wanguy" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
 
@@ -350,20 +404,22 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/19/Query database/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Richard Gavin">
-      <meta itemprop="description" content="">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin">
+      <meta itemprop="description" content="Make it, Fake it.">
       <meta itemprop="image" content="/uploads/IMG_0629.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Gavin's Blog">
     </span>
 
@@ -372,11 +428,20 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">数据表查询</h1>
+          <h1 class="post-title" itemprop="name headline">数据表查询
+
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -384,18 +449,35 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-19T13:53:24+08:00">
-                09-19-2017
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 09-19-2017 13:53:24" itemprop="dateCreated datePublished" datetime="2017-09-19T13:53:24+08:00">09-19-2017</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 10-30-2017 11:16:04" itemprop="dateModified" datetime="2017-10-30T11:16:04+08:00">10-30-2017</time>
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -406,11 +488,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Note/" itemprop="url" rel="index">
-                    <span itemprop="name">Note</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a></span>
 
                 
                 
@@ -420,13 +498,16 @@
 
           
             
+            
+              
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
+            
                 <a href="/2017/09/19/Query database/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/09/19/Query database/" itemprop="commentCount">0</span> comments
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/09/19/Query database/" itemprop="commentCount">0</span>
                 </a>
               </span>
             
@@ -596,29 +677,29 @@
 </table>
 </div>
 <h2 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h2><h3 id="选择表中的若干列"><a href="#选择表中的若干列" class="headerlink" title="选择表中的若干列"></a>选择表中的若干列</h3><p>选择表中的全部或若干列即关系代数的投影运算。</p>
-<h4 id="查询指定列"><a href="#查询指定列" class="headerlink" title="查询指定列"></a>查询指定列</h4><h5 id="查询全体学生的学号和姓名"><a href="#查询全体学生的学号和姓名" class="headerlink" title="查询全体学生的学号和姓名"></a>查询全体学生的学号和姓名</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNO, SNAME </div><div class="line"><span class="keyword">from</span> Student;</div></pre></td></tr></table></figure>
+<h4 id="查询指定列"><a href="#查询指定列" class="headerlink" title="查询指定列"></a>查询指定列</h4><h5 id="查询全体学生的学号和姓名"><a href="#查询全体学生的学号和姓名" class="headerlink" title="查询全体学生的学号和姓名"></a>查询全体学生的学号和姓名</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> SNO, SNAME </span><br><span class="line"><span class="keyword">from</span> Student;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>目标表达式中的各列先后顺序可以不同</p>
 </blockquote>
-<h4 id="查询全部列"><a href="#查询全部列" class="headerlink" title="查询全部列"></a>查询全部列</h4><h5 id="查询全体学生的详细记录"><a href="#查询全体学生的详细记录" class="headerlink" title="查询全体学生的详细记录"></a>查询全体学生的详细记录</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * </div><div class="line"><span class="keyword">from</span> Student;</div></pre></td></tr></table></figure>
-<h4 id="查询经过计算的值"><a href="#查询经过计算的值" class="headerlink" title="查询经过计算的值"></a>查询经过计算的值</h4><h5 id="查询全体学生的姓名及出生年份"><a href="#查询全体学生的姓名及出生年份" class="headerlink" title="查询全体学生的姓名及出生年份"></a>查询全体学生的姓名及出生年份</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNAME, <span class="number">2017</span>-SAGE </div><div class="line"><span class="keyword">from</span> Student;</div></pre></td></tr></table></figure>
+<h4 id="查询全部列"><a href="#查询全部列" class="headerlink" title="查询全部列"></a>查询全部列</h4><h5 id="查询全体学生的详细记录"><a href="#查询全体学生的详细记录" class="headerlink" title="查询全体学生的详细记录"></a>查询全体学生的详细记录</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * </span><br><span class="line"><span class="keyword">from</span> Student;</span><br></pre></td></tr></table></figure>
+<h4 id="查询经过计算的值"><a href="#查询经过计算的值" class="headerlink" title="查询经过计算的值"></a>查询经过计算的值</h4><h5 id="查询全体学生的姓名及出生年份"><a href="#查询全体学生的姓名及出生年份" class="headerlink" title="查询全体学生的姓名及出生年份"></a>查询全体学生的姓名及出生年份</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> SNAME, <span class="number">2017</span>-SAGE </span><br><span class="line"><span class="keyword">from</span> Student;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>查询结果中第 2 列不是列名，而是一个计算表达式，用当前年份减去学生年龄，所得到的即是学生的出生年份。</p>
 </blockquote>
-<h5 id="查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名"><a href="#查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名" class="headerlink" title="查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名"></a>查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNAME, <span class="number">2017</span>-SAGE, <span class="keyword">lower</span>(SDEPT) </div><div class="line"><span class="keyword">from</span> Student;</div></pre></td></tr></table></figure>
-<h5 id="查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名，并分别使用别名标识"><a href="#查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名，并分别使用别名标识" class="headerlink" title="查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名，并分别使用别名标识"></a>查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名，并分别使用别名标识</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNAME <span class="keyword">as</span> <span class="keyword">NAME</span>, <span class="number">2017</span>-SAGE <span class="keyword">as</span> BIRTHDAY, <span class="keyword">lower</span>(SDEPT) <span class="keyword">as</span> DEPARTMENT </div><div class="line"><span class="keyword">from</span> Student;</div></pre></td></tr></table></figure>
+<h5 id="查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名"><a href="#查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名" class="headerlink" title="查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名"></a>查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> SNAME, <span class="number">2017</span>-SAGE, <span class="keyword">lower</span>(SDEPT) </span><br><span class="line"><span class="keyword">from</span> Student;</span><br></pre></td></tr></table></figure>
+<h5 id="查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名，并分别使用别名标识"><a href="#查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名，并分别使用别名标识" class="headerlink" title="查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名，并分别使用别名标识"></a>查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名，并分别使用别名标识</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> SNAME <span class="keyword">as</span> <span class="keyword">NAME</span>, <span class="number">2017</span>-SAGE <span class="keyword">as</span> BIRTHDAY, <span class="keyword">lower</span>(SDEPT) <span class="keyword">as</span> DEPARTMENT </span><br><span class="line"><span class="keyword">from</span> Student;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>其中<code>as</code>可以省略</p>
 </blockquote>
-<h3 id="选择表中若干元组"><a href="#选择表中若干元组" class="headerlink" title="选择表中若干元组"></a>选择表中若干元组</h3><h4 id="消除取值重复的行"><a href="#消除取值重复的行" class="headerlink" title="消除取值重复的行"></a>消除取值重复的行</h4><h5 id="查询选修了课程的学生学号"><a href="#查询选修了课程的学生学号" class="headerlink" title="查询选修了课程的学生学号"></a>查询选修了课程的学生学号</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> SNO </div><div class="line"><span class="keyword">from</span> SC;</div></pre></td></tr></table></figure>
+<h3 id="选择表中若干元组"><a href="#选择表中若干元组" class="headerlink" title="选择表中若干元组"></a>选择表中若干元组</h3><h4 id="消除取值重复的行"><a href="#消除取值重复的行" class="headerlink" title="消除取值重复的行"></a>消除取值重复的行</h4><h5 id="查询选修了课程的学生学号"><a href="#查询选修了课程的学生学号" class="headerlink" title="查询选修了课程的学生学号"></a>查询选修了课程的学生学号</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> SNO </span><br><span class="line"><span class="keyword">from</span> SC;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>如果没有<code>distinct</code>关键词，则默认为<code>all</code>。</p>
 </blockquote>
-<h4 id="查询满足条件的元组"><a href="#查询满足条件的元组" class="headerlink" title="查询满足条件的元组"></a>查询满足条件的元组</h4><h5 id="比较大小"><a href="#比较大小" class="headerlink" title="比较大小"></a>比较大小</h5><h6 id="查询所有年龄小于20岁的学生姓名及年龄"><a href="#查询所有年龄小于20岁的学生姓名及年龄" class="headerlink" title="查询所有年龄小于20岁的学生姓名及年龄"></a>查询所有年龄小于20岁的学生姓名及年龄</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNAME, SAGE </div><div class="line"><span class="keyword">from</span> Student </div><div class="line"><span class="keyword">where</span> SAGE&lt;<span class="number">20</span>;</div></pre></td></tr></table></figure>
-<h5 id="确定范围"><a href="#确定范围" class="headerlink" title="确定范围"></a>确定范围</h5><h6 id="查询年龄在20-23岁之间的学生姓名，系别和年龄。"><a href="#查询年龄在20-23岁之间的学生姓名，系别和年龄。" class="headerlink" title="查询年龄在20~23岁之间的学生姓名，系别和年龄。"></a>查询年龄在20~23岁之间的学生姓名，系别和年龄。</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNAME, SDEPT, SAGE </div><div class="line"><span class="keyword">from</span> Student </div><div class="line"><span class="keyword">where</span> SAGE <span class="keyword">between</span> <span class="number">20</span> <span class="keyword">and</span> <span class="number">23</span>;</div></pre></td></tr></table></figure>
-<h6 id="查询年龄不在20-23岁之间的学生姓名，系别和年龄。"><a href="#查询年龄不在20-23岁之间的学生姓名，系别和年龄。" class="headerlink" title="查询年龄不在20~23岁之间的学生姓名，系别和年龄。"></a>查询年龄不在20~23岁之间的学生姓名，系别和年龄。</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNAME, SDEPT, SAGE </div><div class="line"><span class="keyword">from</span> Student </div><div class="line"><span class="keyword">where</span> SAGE <span class="keyword">not</span> <span class="keyword">between</span> <span class="number">20</span> <span class="keyword">and</span> <span class="number">23</span>;</div></pre></td></tr></table></figure>
-<h5 id="确定集合"><a href="#确定集合" class="headerlink" title="确定集合"></a>确定集合</h5><h6 id="查询CS，MA，IS学生的姓名和性别"><a href="#查询CS，MA，IS学生的姓名和性别" class="headerlink" title="查询CS，MA，IS学生的姓名和性别"></a>查询CS，MA，IS学生的姓名和性别</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNAME, SSEX </div><div class="line"><span class="keyword">from</span> Student </div><div class="line"><span class="keyword">where</span> SDEPT <span class="keyword">in</span> (<span class="string">'CS'</span>, <span class="string">'MA'</span>, <span class="string">'IS'</span>);</div></pre></td></tr></table></figure>
-<h6 id="查询不在CS，MA，IS学生的姓名和性别"><a href="#查询不在CS，MA，IS学生的姓名和性别" class="headerlink" title="查询不在CS，MA，IS学生的姓名和性别"></a>查询不在CS，MA，IS学生的姓名和性别</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNAME, SSEX </div><div class="line"><span class="keyword">from</span> Student </div><div class="line"><span class="keyword">where</span> SDEPT <span class="keyword">not</span> <span class="keyword">in</span> (<span class="string">'CS'</span>, <span class="string">'MA'</span>, <span class="string">'IS'</span>);</div></pre></td></tr></table></figure>
+<h4 id="查询满足条件的元组"><a href="#查询满足条件的元组" class="headerlink" title="查询满足条件的元组"></a>查询满足条件的元组</h4><h5 id="比较大小"><a href="#比较大小" class="headerlink" title="比较大小"></a>比较大小</h5><h6 id="查询所有年龄小于20岁的学生姓名及年龄"><a href="#查询所有年龄小于20岁的学生姓名及年龄" class="headerlink" title="查询所有年龄小于20岁的学生姓名及年龄"></a>查询所有年龄小于20岁的学生姓名及年龄</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> SNAME, SAGE </span><br><span class="line"><span class="keyword">from</span> Student </span><br><span class="line"><span class="keyword">where</span> SAGE&lt;<span class="number">20</span>;</span><br></pre></td></tr></table></figure>
+<h5 id="确定范围"><a href="#确定范围" class="headerlink" title="确定范围"></a>确定范围</h5><h6 id="查询年龄在20-23岁之间的学生姓名，系别和年龄。"><a href="#查询年龄在20-23岁之间的学生姓名，系别和年龄。" class="headerlink" title="查询年龄在20~23岁之间的学生姓名，系别和年龄。"></a>查询年龄在20~23岁之间的学生姓名，系别和年龄。</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> SNAME, SDEPT, SAGE </span><br><span class="line"><span class="keyword">from</span> Student </span><br><span class="line"><span class="keyword">where</span> SAGE <span class="keyword">between</span> <span class="number">20</span> <span class="keyword">and</span> <span class="number">23</span>;</span><br></pre></td></tr></table></figure>
+<h6 id="查询年龄不在20-23岁之间的学生姓名，系别和年龄。"><a href="#查询年龄不在20-23岁之间的学生姓名，系别和年龄。" class="headerlink" title="查询年龄不在20~23岁之间的学生姓名，系别和年龄。"></a>查询年龄不在20~23岁之间的学生姓名，系别和年龄。</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> SNAME, SDEPT, SAGE </span><br><span class="line"><span class="keyword">from</span> Student </span><br><span class="line"><span class="keyword">where</span> SAGE <span class="keyword">not</span> <span class="keyword">between</span> <span class="number">20</span> <span class="keyword">and</span> <span class="number">23</span>;</span><br></pre></td></tr></table></figure>
+<h5 id="确定集合"><a href="#确定集合" class="headerlink" title="确定集合"></a>确定集合</h5><h6 id="查询CS，MA，IS学生的姓名和性别"><a href="#查询CS，MA，IS学生的姓名和性别" class="headerlink" title="查询CS，MA，IS学生的姓名和性别"></a>查询CS，MA，IS学生的姓名和性别</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> SNAME, SSEX </span><br><span class="line"><span class="keyword">from</span> Student </span><br><span class="line"><span class="keyword">where</span> SDEPT <span class="keyword">in</span> (<span class="string">'CS'</span>, <span class="string">'MA'</span>, <span class="string">'IS'</span>);</span><br></pre></td></tr></table></figure>
+<h6 id="查询不在CS，MA，IS学生的姓名和性别"><a href="#查询不在CS，MA，IS学生的姓名和性别" class="headerlink" title="查询不在CS，MA，IS学生的姓名和性别"></a>查询不在CS，MA，IS学生的姓名和性别</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> SNAME, SSEX </span><br><span class="line"><span class="keyword">from</span> Student </span><br><span class="line"><span class="keyword">where</span> SDEPT <span class="keyword">not</span> <span class="keyword">in</span> (<span class="string">'CS'</span>, <span class="string">'MA'</span>, <span class="string">'IS'</span>);</span><br></pre></td></tr></table></figure>
 <h5 id="字符匹配"><a href="#字符匹配" class="headerlink" title="字符匹配"></a>字符匹配</h5><p>谓词<code>LIKE</code>可以用来进行字符串的匹配。其一般语法格式为：</p>
 <p><code>[NOT] LIKE &#39;&lt;匹配串&gt;&#39; [ESCAPE &#39;&lt;转码字符&gt;&#39;]</code></p>
 <ul>
@@ -628,13 +709,13 @@
 <blockquote>
 <p>在查询匹配字符串中如果本身含有<code>%</code>或<code>_</code>，这时需要使用<code>ESCAPE &#39;&lt;转码字符&gt;&#39;</code>短语对通配符进行转义。</p>
 </blockquote>
-<h6 id="查询学号为’201215121’的学生的详细情况"><a href="#查询学号为’201215121’的学生的详细情况" class="headerlink" title="查询学号为’201215121’的学生的详细情况"></a>查询学号为’201215121’的学生的详细情况</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * </div><div class="line"><span class="keyword">from</span> Student </div><div class="line"><span class="keyword">where</span> SNO <span class="keyword">like</span> <span class="string">'201215121'</span>;</div></pre></td></tr></table></figure>
-<h6 id="查询所有姓’Liu’的学生姓名，学号和性别"><a href="#查询所有姓’Liu’的学生姓名，学号和性别" class="headerlink" title="查询所有姓’Liu’的学生姓名，学号和性别"></a>查询所有姓’Liu’的学生姓名，学号和性别</h6><figure class="highlight sql"><figcaption><span>lite</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNAME, SNO, SSEX </div><div class="line"><span class="keyword">from</span> Student</div><div class="line"><span class="keyword">where</span> SNAME <span class="keyword">like</span> <span class="string">'Liu%'</span>;</div></pre></td></tr></table></figure>
-<h6 id="查询DB-Design课程的课程号和学分"><a href="#查询DB-Design课程的课程号和学分" class="headerlink" title="查询DB_Design课程的课程号和学分"></a>查询DB_Design课程的课程号和学分</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> CNO, CCREDIT </div><div class="line"><span class="keyword">from</span> Course </div><div class="line"><span class="keyword">where</span> CNAME <span class="keyword">like</span> <span class="string">'DB\_Design'</span> escape <span class="string">'\';</span></div></pre></td></tr></table></figure>
-<h5 id="涉及空值的查询"><a href="#涉及空值的查询" class="headerlink" title="涉及空值的查询"></a>涉及空值的查询</h5><h6 id="查询所有有成绩的学生的学号和成绩"><a href="#查询所有有成绩的学生的学号和成绩" class="headerlink" title="查询所有有成绩的学生的学号和成绩"></a>查询所有有成绩的学生的学号和成绩</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNO, GRADE </div><div class="line"><span class="keyword">from</span> SC </div><div class="line"><span class="keyword">where</span> GRADE <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>;</div></pre></td></tr></table></figure>
-<h5 id="多重条件查询"><a href="#多重条件查询" class="headerlink" title="多重条件查询"></a>多重条件查询</h5><h6 id="查新CS系年龄在20岁以下的学生姓名"><a href="#查新CS系年龄在20岁以下的学生姓名" class="headerlink" title="查新CS系年龄在20岁以下的学生姓名"></a>查新CS系年龄在20岁以下的学生姓名</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNAME </div><div class="line"><span class="keyword">from</span> SC</div><div class="line"><span class="keyword">where</span> SAGE&lt;<span class="number">20</span> <span class="keyword">and</span> SDEPT=<span class="string">'CS'</span>;</div></pre></td></tr></table></figure>
+<h6 id="查询学号为’201215121’的学生的详细情况"><a href="#查询学号为’201215121’的学生的详细情况" class="headerlink" title="查询学号为’201215121’的学生的详细情况"></a>查询学号为’201215121’的学生的详细情况</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * </span><br><span class="line"><span class="keyword">from</span> Student </span><br><span class="line"><span class="keyword">where</span> SNO <span class="keyword">like</span> <span class="string">'201215121'</span>;</span><br></pre></td></tr></table></figure>
+<h6 id="查询所有姓’Liu’的学生姓名，学号和性别"><a href="#查询所有姓’Liu’的学生姓名，学号和性别" class="headerlink" title="查询所有姓’Liu’的学生姓名，学号和性别"></a>查询所有姓’Liu’的学生姓名，学号和性别</h6><figure class="highlight sql"><figcaption><span>lite</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> SNAME, SNO, SSEX </span><br><span class="line"><span class="keyword">from</span> Student</span><br><span class="line"><span class="keyword">where</span> SNAME <span class="keyword">like</span> <span class="string">'Liu%'</span>;</span><br></pre></td></tr></table></figure>
+<h6 id="查询DB-Design课程的课程号和学分"><a href="#查询DB-Design课程的课程号和学分" class="headerlink" title="查询DB_Design课程的课程号和学分"></a>查询DB_Design课程的课程号和学分</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> CNO, CCREDIT </span><br><span class="line"><span class="keyword">from</span> Course </span><br><span class="line"><span class="keyword">where</span> CNAME <span class="keyword">like</span> <span class="string">'DB\_Design'</span> escape <span class="string">'\';</span></span><br></pre></td></tr></table></figure>
+<h5 id="涉及空值的查询"><a href="#涉及空值的查询" class="headerlink" title="涉及空值的查询"></a>涉及空值的查询</h5><h6 id="查询所有有成绩的学生的学号和成绩"><a href="#查询所有有成绩的学生的学号和成绩" class="headerlink" title="查询所有有成绩的学生的学号和成绩"></a>查询所有有成绩的学生的学号和成绩</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> SNO, GRADE </span><br><span class="line"><span class="keyword">from</span> SC </span><br><span class="line"><span class="keyword">where</span> GRADE <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<h5 id="多重条件查询"><a href="#多重条件查询" class="headerlink" title="多重条件查询"></a>多重条件查询</h5><h6 id="查新CS系年龄在20岁以下的学生姓名"><a href="#查新CS系年龄在20岁以下的学生姓名" class="headerlink" title="查新CS系年龄在20岁以下的学生姓名"></a>查新CS系年龄在20岁以下的学生姓名</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> SNAME </span><br><span class="line"><span class="keyword">from</span> SC</span><br><span class="line"><span class="keyword">where</span> SAGE&lt;<span class="number">20</span> <span class="keyword">and</span> SDEPT=<span class="string">'CS'</span>;</span><br></pre></td></tr></table></figure>
 <h3 id="ORDER-BY-子句"><a href="#ORDER-BY-子句" class="headerlink" title="ORDER BY 子句"></a>ORDER BY 子句</h3><p>可以用<code>ORDER BY</code>子句对查询结果进行升序（<code>ASC</code>）或降序（<code>DESC</code>）排列。默认为升序。</p>
-<h6 id="查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。"><a href="#查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。" class="headerlink" title="查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。"></a>查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNO, Grade </div><div class="line"><span class="keyword">from</span> SC</div><div class="line"><span class="keyword">where</span> Cno=<span class="string">'3'</span></div><div class="line"><span class="keyword">order</span> <span class="keyword">by</span> GRADE <span class="keyword">desc</span>;</div></pre></td></tr></table></figure>
+<h6 id="查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。"><a href="#查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。" class="headerlink" title="查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。"></a>查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> SNO, Grade </span><br><span class="line"><span class="keyword">from</span> SC</span><br><span class="line"><span class="keyword">where</span> Cno=<span class="string">'3'</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> GRADE <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
 <h3 id="聚集函数"><a href="#聚集函数" class="headerlink" title="聚集函数"></a>聚集函数</h3><p>为进一步方便用户，增强检索功能，SQL提供了如下聚集函数：</p>
 <div class="table-container">
 <table>
@@ -672,28 +753,31 @@
 </tbody>
 </table>
 </div>
-<h6 id="查询学生总人数"><a href="#查询学生总人数" class="headerlink" title="查询学生总人数"></a>查询学生总人数</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*)</div><div class="line"><span class="keyword">from</span> Student;</div></pre></td></tr></table></figure>
-<h6 id="查询选修了课程的学生人数"><a href="#查询选修了课程的学生人数" class="headerlink" title="查询选修了课程的学生人数"></a>查询选修了课程的学生人数</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">count</span>(<span class="keyword">distinct</span> SNO)</div><div class="line"><span class="keyword">from</span> SC;</div></pre></td></tr></table></figure>
-<h6 id="计算选修1号课程的学生平均成绩"><a href="#计算选修1号课程的学生平均成绩" class="headerlink" title="计算选修1号课程的学生平均成绩"></a>计算选修1号课程的学生平均成绩</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(Grade)</div><div class="line"><span class="keyword">from</span> SC</div><div class="line"><span class="keyword">where</span> SNO=<span class="string">'1'</span>;</div></pre></td></tr></table></figure>
-<h6 id="查新选修1号课程的学生最高分数"><a href="#查新选修1号课程的学生最高分数" class="headerlink" title="查新选修1号课程的学生最高分数"></a>查新选修1号课程的学生最高分数</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">max</span>(Grade)</div><div class="line"><span class="keyword">from</span> SC</div><div class="line"><span class="keyword">where</span> CNO=<span class="string">'1'</span>;</div></pre></td></tr></table></figure>
+<h6 id="查询学生总人数"><a href="#查询学生总人数" class="headerlink" title="查询学生总人数"></a>查询学生总人数</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*)</span><br><span class="line"><span class="keyword">from</span> Student;</span><br></pre></td></tr></table></figure>
+<h6 id="查询选修了课程的学生人数"><a href="#查询选修了课程的学生人数" class="headerlink" title="查询选修了课程的学生人数"></a>查询选修了课程的学生人数</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(<span class="keyword">distinct</span> SNO)</span><br><span class="line"><span class="keyword">from</span> SC;</span><br></pre></td></tr></table></figure>
+<h6 id="计算选修1号课程的学生平均成绩"><a href="#计算选修1号课程的学生平均成绩" class="headerlink" title="计算选修1号课程的学生平均成绩"></a>计算选修1号课程的学生平均成绩</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(Grade)</span><br><span class="line"><span class="keyword">from</span> SC</span><br><span class="line"><span class="keyword">where</span> SNO=<span class="string">'1'</span>;</span><br></pre></td></tr></table></figure>
+<h6 id="查新选修1号课程的学生最高分数"><a href="#查新选修1号课程的学生最高分数" class="headerlink" title="查新选修1号课程的学生最高分数"></a>查新选修1号课程的学生最高分数</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">max</span>(Grade)</span><br><span class="line"><span class="keyword">from</span> SC</span><br><span class="line"><span class="keyword">where</span> CNO=<span class="string">'1'</span>;</span><br></pre></td></tr></table></figure>
 <h3 id="GROUP-BY子句"><a href="#GROUP-BY子句" class="headerlink" title="GROUP BY子句"></a>GROUP BY子句</h3><p><code>GROUP BY</code>子句将查询结果按某一列或多列的值分组，值相等为一组。</p>
 <p><strong>分组后聚集函数将作用与每一个组，即每一组都有一个函数值。</strong></p>
-<h6 id="求各个课程号及相应的选课人数"><a href="#求各个课程号及相应的选课人数" class="headerlink" title="求各个课程号及相应的选课人数"></a>求各个课程号及相应的选课人数</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> CNO, <span class="keyword">count</span>(SNO)</div><div class="line"><span class="keyword">from</span> SC</div><div class="line"><span class="keyword">group</span> <span class="keyword">by</span> CNO;</div></pre></td></tr></table></figure>
-<h6 id="查询平均成绩大于等于90分的学生学号和平均成绩"><a href="#查询平均成绩大于等于90分的学生学号和平均成绩" class="headerlink" title="查询平均成绩大于等于90分的学生学号和平均成绩"></a>查询平均成绩大于等于90分的学生学号和平均成绩</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> SNO, <span class="keyword">avg</span>(Grade)</div><div class="line"><span class="keyword">from</span> SC</div><div class="line"><span class="keyword">group</span> <span class="keyword">by</span> SNO</div><div class="line"><span class="keyword">having</span> <span class="keyword">avg</span>(Grade)&gt;=<span class="number">90</span></div></pre></td></tr></table></figure>
+<h6 id="求各个课程号及相应的选课人数"><a href="#求各个课程号及相应的选课人数" class="headerlink" title="求各个课程号及相应的选课人数"></a>求各个课程号及相应的选课人数</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> CNO, <span class="keyword">count</span>(SNO)</span><br><span class="line"><span class="keyword">from</span> SC</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> CNO;</span><br></pre></td></tr></table></figure>
+<h6 id="查询平均成绩大于等于90分的学生学号和平均成绩"><a href="#查询平均成绩大于等于90分的学生学号和平均成绩" class="headerlink" title="查询平均成绩大于等于90分的学生学号和平均成绩"></a>查询平均成绩大于等于90分的学生学号和平均成绩</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> SNO, <span class="keyword">avg</span>(Grade)</span><br><span class="line"><span class="keyword">from</span> SC</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> SNO</span><br><span class="line"><span class="keyword">having</span> <span class="keyword">avg</span>(Grade)&gt;=<span class="number">90</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><code>WHERE</code>子句中是不能用聚集函数作为条件表达式，应用<code>HAVING</code></p>
 </blockquote>
 <h2 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h2><h3 id="等值于非等值连接查询"><a href="#等值于非等值连接查询" class="headerlink" title="等值于非等值连接查询"></a>等值于非等值连接查询</h3><p>连接查询的WHERE子句中用来连接两个表的条件称为连接条件或连接谓词，格式为：</p>
 <p><code>[&lt;表名1&gt;.] &lt;列名1&gt;&lt;比较运算符&gt; [&lt;表名2&gt;.] &lt;列名2&gt;</code></p>
 <p><code>[&lt;表名1&gt;.] &lt;列名1&gt;BETWEEN [&lt;表名2&gt;.] &lt;列名2&gt;AND [&lt;表名3&gt;.] &lt;列名3&gt;</code></p>
-<h6 id="查询每个学生及其选修课程情况"><a href="#查询每个学生及其选修课程情况" class="headerlink" title="查询每个学生及其选修课程情况"></a>查询每个学生及其选修课程情况</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> Student.*, SC.*</div><div class="line"><span class="keyword">from</span> Student, SC</div><div class="line"><span class="keyword">where</span> Student.SNO=SC.SNO;</div></pre></td></tr></table></figure>
-<h6 id="查询选修2号课程且成绩在90分以上的所有学生的学号和姓名"><a href="#查询选修2号课程且成绩在90分以上的所有学生的学号和姓名" class="headerlink" title="查询选修2号课程且成绩在90分以上的所有学生的学号和姓名"></a>查询选修2号课程且成绩在90分以上的所有学生的学号和姓名</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> Student.SNO, Sname</div><div class="line"><span class="keyword">from</span> Student, SC</div><div class="line"><span class="keyword">where</span> Student.SNO=SC.SNO <span class="keyword">and</span> SC.CNO=<span class="string">'2'</span> <span class="keyword">and</span> SC.Grade&gt;<span class="number">90</span>;</div></pre></td></tr></table></figure>
-<h3 id="自身连接"><a href="#自身连接" class="headerlink" title="自身连接"></a>自身连接</h3><h6 id="查询每一门课的间接先修课"><a href="#查询每一门课的间接先修课" class="headerlink" title="查询每一门课的间接先修课"></a>查询每一门课的间接先修课</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> FIRST.CNO, SECOND.CPNO</div><div class="line"><span class="keyword">from</span> Course <span class="keyword">FIRST</span>, Course <span class="keyword">SECOND</span></div><div class="line"><span class="keyword">where</span> FIRST.SPNO=SECOND.CNO;</div></pre></td></tr></table></figure>
-<h3 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h3><h6 id="查询每个学生及其选修课程情况-1"><a href="#查询每个学生及其选修课程情况-1" class="headerlink" title="查询每个学生及其选修课程情况"></a>查询每个学生及其选修课程情况</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> Student.SNO, SNAME, SSEX, SAGE, SDEPT, CNO, GRADE</div><div class="line"><span class="keyword">from</span> Student <span class="keyword">left</span> <span class="keyword">outer</span> <span class="keyword">join</span> SC <span class="keyword">on</span> (Student.SNO=SC.SNO);</div></pre></td></tr></table></figure>
-<h3 id="多表连接"><a href="#多表连接" class="headerlink" title="多表连接"></a>多表连接</h3><h6 id="查询每个学生的学号，姓名，选修的课程名称及成绩"><a href="#查询每个学生的学号，姓名，选修的课程名称及成绩" class="headerlink" title="查询每个学生的学号，姓名，选修的课程名称及成绩"></a>查询每个学生的学号，姓名，选修的课程名称及成绩</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> Student.SNO, SNAME, CNAME, GRADE</div><div class="line"><span class="keyword">from</span> Student, SC, Course</div><div class="line"><span class="keyword">where</span> Student.SNO=SC.SNO <span class="keyword">and</span> SC.CNO=Course.CNO;</div></pre></td></tr></table></figure>
+<h6 id="查询每个学生及其选修课程情况"><a href="#查询每个学生及其选修课程情况" class="headerlink" title="查询每个学生及其选修课程情况"></a>查询每个学生及其选修课程情况</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> Student.*, SC.*</span><br><span class="line"><span class="keyword">from</span> Student, SC</span><br><span class="line"><span class="keyword">where</span> Student.SNO=SC.SNO;</span><br></pre></td></tr></table></figure>
+<h6 id="查询选修2号课程且成绩在90分以上的所有学生的学号和姓名"><a href="#查询选修2号课程且成绩在90分以上的所有学生的学号和姓名" class="headerlink" title="查询选修2号课程且成绩在90分以上的所有学生的学号和姓名"></a>查询选修2号课程且成绩在90分以上的所有学生的学号和姓名</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> Student.SNO, Sname</span><br><span class="line"><span class="keyword">from</span> Student, SC</span><br><span class="line"><span class="keyword">where</span> Student.SNO=SC.SNO <span class="keyword">and</span> SC.CNO=<span class="string">'2'</span> <span class="keyword">and</span> SC.Grade&gt;<span class="number">90</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="自身连接"><a href="#自身连接" class="headerlink" title="自身连接"></a>自身连接</h3><h6 id="查询每一门课的间接先修课"><a href="#查询每一门课的间接先修课" class="headerlink" title="查询每一门课的间接先修课"></a>查询每一门课的间接先修课</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> FIRST.CNO, SECOND.CPNO</span><br><span class="line"><span class="keyword">from</span> Course <span class="keyword">FIRST</span>, Course <span class="keyword">SECOND</span></span><br><span class="line"><span class="keyword">where</span> FIRST.SPNO=SECOND.CNO;</span><br></pre></td></tr></table></figure>
+<h3 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h3><h6 id="查询每个学生及其选修课程情况-1"><a href="#查询每个学生及其选修课程情况-1" class="headerlink" title="查询每个学生及其选修课程情况"></a>查询每个学生及其选修课程情况</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> Student.SNO, SNAME, SSEX, SAGE, SDEPT, CNO, GRADE</span><br><span class="line"><span class="keyword">from</span> Student <span class="keyword">left</span> <span class="keyword">outer</span> <span class="keyword">join</span> SC <span class="keyword">on</span> (Student.SNO=SC.SNO);</span><br></pre></td></tr></table></figure>
+<h3 id="多表连接"><a href="#多表连接" class="headerlink" title="多表连接"></a>多表连接</h3><h6 id="查询每个学生的学号，姓名，选修的课程名称及成绩"><a href="#查询每个学生的学号，姓名，选修的课程名称及成绩" class="headerlink" title="查询每个学生的学号，姓名，选修的课程名称及成绩"></a>查询每个学生的学号，姓名，选修的课程名称及成绩</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> Student.SNO, SNAME, CNAME, GRADE</span><br><span class="line"><span class="keyword">from</span> Student, SC, Course</span><br><span class="line"><span class="keyword">where</span> Student.SNO=SC.SNO <span class="keyword">and</span> SC.CNO=Course.CNO;</span><br></pre></td></tr></table></figure>
 
       
     </div>
+
+    
+
     
     
     
@@ -701,40 +785,38 @@
     
 
     
+      
+    
+    
 
     
-    <div>
-  
-    
+      <div>
+        
+          
 <div style="text-align:center;color: #ccc;font-size:14px;">
     ------ end ------
 </div>
-<br/>
+<br>
 <div style="border: 1px solid black">
     <div style="margin-left:10px">
         <span style="font-weight:blod">Licenses</span>
-        <img alt="Creative Commons License" style="border-width:0"
-             src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/>
-        <br/>
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
+        <br>
         <p style="font-size: 10px;line-height: 30px">
             <a href="https://wanguy.github.io/" style="color:#258FC6">Gavin's Blog</a>
             by <a href="https://twitter.com/rp_Wang" style="color:#258FC6">Richard Gavin</a> is licensed under a
-            <a rel="license"
-               href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-               style="color:#258FC6">Creative
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:#258FC6">Creative
                 Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
-            <br/>
+            <br>
             由<a href="https://twitter.com/rp_Wang" style="color:#258FC6">Richard Gavin</a>创作并维护的
-            <a href="https://wanguy.github.io/"
-               style="color:#258FC6">Gavin's Blog</a>博客采用<a
-                href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:#258FC6">知识共享署名-非商业性使用-相同方式共享 4.0 国际共享协议</a>进行许可。
+            <a href="https://wanguy.github.io/" style="color:#258FC6">Gavin's Blog</a>博客采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:#258FC6">知识共享署名-非商业性使用-相同方式共享 4.0 国际共享协议</a>进行许可。
         </p>
     </div>
 </div>
 
 
-  
-</div>
+        
+      </div>
 
     <footer class="post-footer">
       
@@ -783,28 +865,20 @@
   </article>
 
 
-
-    <div class="post-spread">
-      
-    </div>
   </div>
 
 
           </div>
           
 
-
-          
-  <div class="comments" id="comments">
-    
-      <div class="fb-comments"
-           data-href="http://yoursite.com/2017/09/19/Query database/"
-           data-numposts="10"
-           data-width="100%"
-           data-colorscheme="light">
+  
+    <div class="comments" id="comments">
+      <div class="fb-comments" data-href="http://yoursite.com/2017/09/19/Query database/" data-numposts="10" data-width="100%" data-colorscheme="light">
       </div>
-    
-  </div>
+    </div>
+
+  
+
 
 
         </div>
@@ -827,121 +901,210 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             Table of Contents
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             Overview
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/IMG_0629.jpg" alt="Gavin">
+            
+              <p class="site-author-name" itemprop="name">Gavin</p>
+              <p class="site-description motion-element" itemprop="description">Make it, Fake it.</p>
+          </div>
+
           
-            <img class="site-author-image" itemprop="image"
-              src="/uploads/IMG_0629.jpg"
-              alt="Richard Gavin" />
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
           
-            <p class="site-author-name" itemprop="name">Richard Gavin</p>
-            <p class="site-description motion-element" itemprop="description">Know Thyself</p>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Wanguy" title="Github &rarr; https://github.com/Wanguy" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:w020283852@gmail.com" title="E-Mail &rarr; mailto:w020283852@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/rp_Wang" title="Twitter &rarr; https://twitter.com/rp_Wang" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.zhihu.com/people/Wanguy/activities" title="Zhihu &rarr; https://www.zhihu.com/people/Wanguy/activities" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>Zhihu</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.instagram.com/sephirothgavin/" title="Instagram &rarr; https://www.instagram.com/sephirothgavin/" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
         </div>
-
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-            
-              <a href="/archives/">
-            
-                <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">posts</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">categories</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">16</span>
-                <span class="site-state-item-name">tags</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/Wanguy" target="_blank" title="Github">
-                  
-                    <i class="fa fa-fw fa-globe"></i>Github</a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.zhihu.com/people/Wanguy/activities" target="_blank" title="Zhihu">
-                  
-                    <i class="fa fa-fw fa-globe"></i>Zhihu</a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://twitter.com/rp_Wang" target="_blank" title="Twitter">
-                  
-                    <i class="fa fa-fw fa-twitter"></i>Twitter</a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.instagram.com/sephirothgavin/" target="_blank" title="Instagram">
-                  
-                    <i class="fa fa-fw fa-instagram"></i>Instagram</a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
+      </div>
 
       
       <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
 
             
-              
+            
+            
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Student"><span class="nav-number">1.</span> <span class="nav-text">Student</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Course"><span class="nav-number">2.</span> <span class="nav-text">Course</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SC"><span class="nav-number">3.</span> <span class="nav-text">SC</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单表查询"><span class="nav-number"></span> <span class="nav-text">单表查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择表中的若干列"><span class="nav-number"></span> <span class="nav-text">选择表中的若干列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查询指定列"><span class="nav-number"></span> <span class="nav-text">查询指定列</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#查询全体学生的学号和姓名"><span class="nav-number">1.</span> <span class="nav-text">查询全体学生的学号和姓名</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询全部列"><span class="nav-number"></span> <span class="nav-text">查询全部列</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#查询全体学生的详细记录"><span class="nav-number">1.</span> <span class="nav-text">查询全体学生的详细记录</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询经过计算的值"><span class="nav-number"></span> <span class="nav-text">查询经过计算的值</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#查询全体学生的姓名及出生年份"><span class="nav-number">1.</span> <span class="nav-text">查询全体学生的姓名及出生年份</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名"><span class="nav-number">2.</span> <span class="nav-text">查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名，并分别使用别名标识"><span class="nav-number">3.</span> <span class="nav-text">查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名，并分别使用别名标识</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择表中若干元组"><span class="nav-number"></span> <span class="nav-text">选择表中若干元组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#消除取值重复的行"><span class="nav-number"></span> <span class="nav-text">消除取值重复的行</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#查询选修了课程的学生学号"><span class="nav-number">1.</span> <span class="nav-text">查询选修了课程的学生学号</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询满足条件的元组"><span class="nav-number"></span> <span class="nav-text">查询满足条件的元组</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#比较大小"><span class="nav-number">1.</span> <span class="nav-text">比较大小</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查询所有年龄小于20岁的学生姓名及年龄"><span class="nav-number">1.1.</span> <span class="nav-text">查询所有年龄小于20岁的学生姓名及年龄</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#确定范围"><span class="nav-number">2.</span> <span class="nav-text">确定范围</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查询年龄在20-23岁之间的学生姓名，系别和年龄。"><span class="nav-number">2.1.</span> <span class="nav-text">查询年龄在20~23岁之间的学生姓名，系别和年龄。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查询年龄不在20-23岁之间的学生姓名，系别和年龄。"><span class="nav-number">2.2.</span> <span class="nav-text">查询年龄不在20~23岁之间的学生姓名，系别和年龄。</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#确定集合"><span class="nav-number">3.</span> <span class="nav-text">确定集合</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查询CS，MA，IS学生的姓名和性别"><span class="nav-number">3.1.</span> <span class="nav-text">查询CS，MA，IS学生的姓名和性别</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查询不在CS，MA，IS学生的姓名和性别"><span class="nav-number">3.2.</span> <span class="nav-text">查询不在CS，MA，IS学生的姓名和性别</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符匹配"><span class="nav-number">4.</span> <span class="nav-text">字符匹配</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查询学号为’201215121’的学生的详细情况"><span class="nav-number">4.1.</span> <span class="nav-text">查询学号为’201215121’的学生的详细情况</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查询所有姓’Liu’的学生姓名，学号和性别"><span class="nav-number">4.2.</span> <span class="nav-text">查询所有姓’Liu’的学生姓名，学号和性别</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查询DB-Design课程的课程号和学分"><span class="nav-number">4.3.</span> <span class="nav-text">查询DB_Design课程的课程号和学分</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#涉及空值的查询"><span class="nav-number">5.</span> <span class="nav-text">涉及空值的查询</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查询所有有成绩的学生的学号和成绩"><span class="nav-number">5.1.</span> <span class="nav-text">查询所有有成绩的学生的学号和成绩</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多重条件查询"><span class="nav-number">6.</span> <span class="nav-text">多重条件查询</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查新CS系年龄在20岁以下的学生姓名"><span class="nav-number">6.1.</span> <span class="nav-text">查新CS系年龄在20岁以下的学生姓名</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ORDER-BY-子句"><span class="nav-number"></span> <span class="nav-text">ORDER BY 子句</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。"><span class="nav-number">0.1.</span> <span class="nav-text">查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#聚集函数"><span class="nav-number"></span> <span class="nav-text">聚集函数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查询学生总人数"><span class="nav-number">0.1.</span> <span class="nav-text">查询学生总人数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查询选修了课程的学生人数"><span class="nav-number">0.2.</span> <span class="nav-text">查询选修了课程的学生人数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#计算选修1号课程的学生平均成绩"><span class="nav-number">0.3.</span> <span class="nav-text">计算选修1号课程的学生平均成绩</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查新选修1号课程的学生最高分数"><span class="nav-number">0.4.</span> <span class="nav-text">查新选修1号课程的学生最高分数</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GROUP-BY子句"><span class="nav-number"></span> <span class="nav-text">GROUP BY子句</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#求各个课程号及相应的选课人数"><span class="nav-number">0.1.</span> <span class="nav-text">求各个课程号及相应的选课人数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查询平均成绩大于等于90分的学生学号和平均成绩"><span class="nav-number">0.2.</span> <span class="nav-text">查询平均成绩大于等于90分的学生学号和平均成绩</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接查询"><span class="nav-number"></span> <span class="nav-text">连接查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#等值于非等值连接查询"><span class="nav-number"></span> <span class="nav-text">等值于非等值连接查询</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查询每个学生及其选修课程情况"><span class="nav-number">0.1.</span> <span class="nav-text">查询每个学生及其选修课程情况</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查询选修2号课程且成绩在90分以上的所有学生的学号和姓名"><span class="nav-number">0.2.</span> <span class="nav-text">查询选修2号课程且成绩在90分以上的所有学生的学号和姓名</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自身连接"><span class="nav-number"></span> <span class="nav-text">自身连接</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查询每一门课的间接先修课"><span class="nav-number">0.1.</span> <span class="nav-text">查询每一门课的间接先修课</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外连接"><span class="nav-number"></span> <span class="nav-text">外连接</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查询每个学生及其选修课程情况-1"><span class="nav-number">0.1.</span> <span class="nav-text">查询每个学生及其选修课程情况</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多表连接"><span class="nav-number"></span> <span class="nav-text">多表连接</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查询每个学生的学号，姓名，选修的课程名称及成绩"><span class="nav-number">0.1.</span> <span class="nav-text">查询每个学生的学号，姓名，选修的课程名称及成绩</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Student"><span class="nav-text">Student</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Course"><span class="nav-text">Course</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SC"><span class="nav-text">SC</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#单表查询"><span class="nav-text">单表查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择表中的若干列"><span class="nav-text">选择表中的若干列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查询指定列"><span class="nav-text">查询指定列</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#查询全体学生的学号和姓名"><span class="nav-text">查询全体学生的学号和姓名</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询全部列"><span class="nav-text">查询全部列</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#查询全体学生的详细记录"><span class="nav-text">查询全体学生的详细记录</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询经过计算的值"><span class="nav-text">查询经过计算的值</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#查询全体学生的姓名及出生年份"><span class="nav-text">查询全体学生的姓名及出生年份</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名"><span class="nav-text">查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名，并分别使用别名标识"><span class="nav-text">查询所有学生姓名、出生年份和所在院系，要求用小写字母表示系名，并分别使用别名标识</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择表中若干元组"><span class="nav-text">选择表中若干元组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#消除取值重复的行"><span class="nav-text">消除取值重复的行</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#查询选修了课程的学生学号"><span class="nav-text">查询选修了课程的学生学号</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询满足条件的元组"><span class="nav-text">查询满足条件的元组</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#比较大小"><span class="nav-text">比较大小</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查询所有年龄小于20岁的学生姓名及年龄"><span class="nav-text">查询所有年龄小于20岁的学生姓名及年龄</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#确定范围"><span class="nav-text">确定范围</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查询年龄在20-23岁之间的学生姓名，系别和年龄。"><span class="nav-text">查询年龄在20~23岁之间的学生姓名，系别和年龄。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查询年龄不在20-23岁之间的学生姓名，系别和年龄。"><span class="nav-text">查询年龄不在20~23岁之间的学生姓名，系别和年龄。</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#确定集合"><span class="nav-text">确定集合</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查询CS，MA，IS学生的姓名和性别"><span class="nav-text">查询CS，MA，IS学生的姓名和性别</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查询不在CS，MA，IS学生的姓名和性别"><span class="nav-text">查询不在CS，MA，IS学生的姓名和性别</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符匹配"><span class="nav-text">字符匹配</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查询学号为’201215121’的学生的详细情况"><span class="nav-text">查询学号为’201215121’的学生的详细情况</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查询所有姓’Liu’的学生姓名，学号和性别"><span class="nav-text">查询所有姓’Liu’的学生姓名，学号和性别</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查询DB-Design课程的课程号和学分"><span class="nav-text">查询DB_Design课程的课程号和学分</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#涉及空值的查询"><span class="nav-text">涉及空值的查询</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查询所有有成绩的学生的学号和成绩"><span class="nav-text">查询所有有成绩的学生的学号和成绩</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多重条件查询"><span class="nav-text">多重条件查询</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查新CS系年龄在20岁以下的学生姓名"><span class="nav-text">查新CS系年龄在20岁以下的学生姓名</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ORDER-BY-子句"><span class="nav-text">ORDER BY 子句</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。"><span class="nav-text">查询选修了3号课程的学生的学号和成绩，查询结果按分数降序排列。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#聚集函数"><span class="nav-text">聚集函数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查询学生总人数"><span class="nav-text">查询学生总人数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查询选修了课程的学生人数"><span class="nav-text">查询选修了课程的学生人数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#计算选修1号课程的学生平均成绩"><span class="nav-text">计算选修1号课程的学生平均成绩</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查新选修1号课程的学生最高分数"><span class="nav-text">查新选修1号课程的学生最高分数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GROUP-BY子句"><span class="nav-text">GROUP BY子句</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#求各个课程号及相应的选课人数"><span class="nav-text">求各个课程号及相应的选课人数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查询平均成绩大于等于90分的学生学号和平均成绩"><span class="nav-text">查询平均成绩大于等于90分的学生学号和平均成绩</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接查询"><span class="nav-text">连接查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#等值于非等值连接查询"><span class="nav-text">等值于非等值连接查询</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查询每个学生及其选修课程情况"><span class="nav-text">查询每个学生及其选修课程情况</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查询选修2号课程且成绩在90分以上的所有学生的学号和姓名"><span class="nav-text">查询选修2号课程且成绩在90分以上的所有学生的学号和姓名</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自身连接"><span class="nav-text">自身连接</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查询每一门课的间接先修课"><span class="nav-text">查询每一门课的间接先修课</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外连接"><span class="nav-text">外连接</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查询每个学生及其选修课程情况-1"><span class="nav-text">查询每个学生及其选修课程情况</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多表连接"><span class="nav-text">多表连接</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查询每个学生的学号，姓名，选修的课程名称及成绩"><span class="nav-text">查询每个学生的学号，姓名，选修的课程名称及成绩</span></a></li></ol></li></div>
             
 
           </div>
-        </section>
+        </div>
       <!--/noindex-->
       
 
@@ -957,21 +1120,27 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2015 &mdash; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; 2015 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-bug"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Richard Gavin</span>
+  <span class="author" itemprop="copyrightHolder">Gavin</span>
+
+  
 
   
 </div>
 
 
 
+
+
+
+
+
+
         
+
 
 
 
@@ -990,11 +1159,16 @@
       </div>
     
 
+    
+
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -1008,7 +1182,6 @@
 
 
 
-  
 
 
 
@@ -1017,84 +1190,7 @@
 
 
 
-  
-  
 
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three.min.js"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
-  
-
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
 
 
 
@@ -1104,8 +1200,49 @@
 
 
   
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
-  <script type="text/javascript">
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+  
+
+  <script>
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -1154,6 +1291,8 @@
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -1187,8 +1326,9 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles
@@ -1357,9 +1497,9 @@
               })
             };
             if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
             } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
             } else {
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
@@ -1433,32 +1573,75 @@
   
 
   
+
   
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-  
-
-
   
 
   
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
 
 </body>
 </html>
