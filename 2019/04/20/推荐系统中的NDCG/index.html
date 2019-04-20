@@ -96,21 +96,18 @@
 
 
 
-  <meta name="description" content="新买了 NS，却发现下载速度慢，切自身无法连接 ss，于是找到了将 macOS 的全局网络在局域网下分享给其他设备的方法。">
-<meta name="keywords" content="ShadowSocks">
+  <meta name="description" content="NDCG则是考虑到评分的排序，说到NDCG就需要从CG开始说起。 CG（cumulative gain，累计增益）可以用于评价基于打分/评分的个性推荐系统。假设我们推荐kk个物品，这个推荐列表的 $CG_k$ 计算公式如下：  C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}">
+<meta name="keywords" content="Statistics,Machine Learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac 局域网共享 ShadowSocks">
-<meta property="og:url" content="http://yoursite.com/2018/02/05/Mac局域网共享ss/index.html">
+<meta property="og:title" content="推荐系统中的NDCG">
+<meta property="og:url" content="http://yoursite.com/2019/04/20/推荐系统中的NDCG/index.html">
 <meta property="og:site_name" content="Gavin&#39;s Blog">
-<meta property="og:description" content="新买了 NS，却发现下载速度慢，切自身无法连接 ss，于是找到了将 macOS 的全局网络在局域网下分享给其他设备的方法。">
+<meta property="og:description" content="NDCG则是考虑到评分的排序，说到NDCG就需要从CG开始说起。 CG（cumulative gain，累计增益）可以用于评价基于打分/评分的个性推荐系统。假设我们推荐kk个物品，这个推荐列表的 $CG_k$ 计算公式如下：  C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://lh3.googleusercontent.com/-wAiXakN3028/WngrqgUkMOI/AAAAAAAAAc4/cEjbWN4WqAswvggvNXrU55HYK047Q6JbQCHMYCw/I/a75c3e80gw1f4urdcywyqj206506imxj.jpg">
-<meta property="og:image" content="https://lh3.googleusercontent.com/-EY2wdqh7lOQ/Wngr3VXdGHI/AAAAAAAAAc8/rUKmtLmMraAVK6rVgQxJyJwWiott_2QigCHMYCw/I/DVQw1YoVQAEq-Ez.jpg">
-<meta property="og:updated_time" content="2018-02-05T10:03:31.863Z">
+<meta property="og:updated_time" content="2019-04-20T11:04:45.818Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac 局域网共享 ShadowSocks">
-<meta name="twitter:description" content="新买了 NS，却发现下载速度慢，切自身无法连接 ss，于是找到了将 macOS 的全局网络在局域网下分享给其他设备的方法。">
-<meta name="twitter:image" content="https://lh3.googleusercontent.com/-wAiXakN3028/WngrqgUkMOI/AAAAAAAAAc4/cEjbWN4WqAswvggvNXrU55HYK047Q6JbQCHMYCw/I/a75c3e80gw1f4urdcywyqj206506imxj.jpg">
+<meta name="twitter:title" content="推荐系统中的NDCG">
+<meta name="twitter:description" content="NDCG则是考虑到评分的排序，说到NDCG就需要从CG开始说起。 CG（cumulative gain，累计增益）可以用于评价基于打分/评分的个性推荐系统。假设我们推荐kk个物品，这个推荐列表的 $CG_k$ 计算公式如下：  C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}">
 
 
 
@@ -119,7 +116,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/02/05/Mac局域网共享ss/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/20/推荐系统中的NDCG/">
 
 
 
@@ -129,7 +126,7 @@
   };
 </script>
 
-  <title>Mac 局域网共享 ShadowSocks | Gavin's Blog</title>
+  <title>推荐系统中的NDCG | Gavin's Blog</title>
   
   <script>
     window.fbAsyncInit = function() {
@@ -414,7 +411,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/05/Mac局域网共享ss/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/20/推荐系统中的NDCG/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gavin">
@@ -431,7 +428,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Mac 局域网共享 ShadowSocks
+          <h1 class="post-title" itemprop="name headline">推荐系统中的NDCG
 
               
             
@@ -457,7 +454,7 @@
                 
               
 
-              <time title="Created: 02-05-2018 16:35:20 / Modified: 18:03:31" itemprop="dateCreated datePublished" datetime="2018-02-05T16:35:20+08:00">02-05-2018</time>
+              <time title="Created: 04-20-2019 19:02:51 / Modified: 19:04:45" itemprop="dateCreated datePublished" datetime="2019-04-20T19:02:51+08:00">04-20-2019</time>
             
 
             
@@ -479,7 +476,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Tutorial/" itemprop="url" rel="index"><span itemprop="name">Tutorial</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a></span>
 
                 
                 
@@ -497,8 +494,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <a href="/2018/02/05/Mac局域网共享ss/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2018/02/05/Mac局域网共享ss/" itemprop="commentCount">0</span>
+                <a href="/2019/04/20/推荐系统中的NDCG/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2019/04/20/推荐系统中的NDCG/" itemprop="commentCount">0</span>
                 </a>
               </span>
             
@@ -526,69 +523,45 @@
       
 
       
-        <p>新买了 NS，却发现下载速度慢，切自身无法连接 ss，于是找到了将 macOS 的全局网络在局域网下分享给其他设备的方法。</p>
-<a id="more"></a>
-<h2 id="安装-ShadowSocks"><a href="#安装-ShadowSocks" class="headerlink" title="安装 ShadowSocks"></a>安装 ShadowSocks</h2><p>安装<strong>ShadowSocks</strong>略过，无论是GUI版还是命令行版都可以，可以参考<a href="http://salogs.com/news/2016/11/02/mac-shadowsocks/" target="_blank" rel="noopener">这里</a>。</p>
-<h2 id="配置-ShadowSocks"><a href="#配置-ShadowSocks" class="headerlink" title="配置 ShadowSocks"></a>配置 ShadowSocks</h2><p>地址端口自行配置，这里要记住的两个地方：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">"local_address":"0.0.0.0",</span><br><span class="line">"local_port":1080,</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>local_address</code> 这里填写 <code>0.0.0.0</code> 表示局域网点的所有机子都可以通过 <code>1080</code> 这个端口代理，也可以就用主机地址 <code>127.0.0.1</code></li>
-<li><code>local_port</code> 端口号不要重复，如果有 <code>HTTPS</code> 代理时尤为注意，同时这个需要记住，之后用到</li>
-</ul>
-<h2 id="Privoxy"><a href="#Privoxy" class="headerlink" title="Privoxy"></a>Privoxy</h2><p>Windows 系统可以通过几个命令，甚至是客户端的选项就可以完成代理<br><img src="https://lh3.googleusercontent.com/-wAiXakN3028/WngrqgUkMOI/AAAAAAAAAc4/cEjbWN4WqAswvggvNXrU55HYK047Q6JbQCHMYCw/I/a75c3e80gw1f4urdcywyqj206506imxj.jpg" alt="a75c3e80gw1f4urdcywyqj206506imxj"></p>
-<p>可惜的是，macOS 没有提供这样的功能，所以我们需要借助像 <a href="http://www.privoxy.org/" target="_blank" rel="noopener">Privoxy</a> 这样的工具来实现Sock5共享。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>这里分享的是使用 <strong>Homebrew</strong> 安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install privoxy</span><br></pre></td></tr></table></figure>
-<p><strong>homebrew </strong>会报错 <code>/usr/local/sbin is not writable</code>，这是因为 <code>/usr/local/</code> 这个目录不属于当前用户，所以 <strong>homebrew</strong> 无法访问。解决方法为：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /usr/<span class="built_in">local</span>/sbin</span><br><span class="line">sudo chown -R `whoami`:admin /usr/<span class="built_in">local</span>/sbin</span><br></pre></td></tr></table></figure>
-<p>之后运行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew link privoxy</span><br></pre></td></tr></table></figure>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/<span class="built_in">local</span>/etc/privoxy/config</span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>在 vim 中搜索 <code>forward-socks5t  /</code> ，去掉注释，将端口改为 <code>local_port</code> 号</p>
-<blockquote>
-<p><code>forward-socks5t / 127.0.0.1:1080</code></p>
-</blockquote>
-</li>
-<li><p>搜索 <code>listen-address 127.0.0.1:8118</code> ，去掉注释，把 <code>127.0.0.1</code> 改为 <code>0.0.0.0</code>，端口号默认或选择一个未占用的端口 </p>
-<blockquote>
-<p><code>listen-address 0.0.0.0:6666</code> </p>
-</blockquote>
-</li>
-<li><p>修改这两处后，保存并退出即可</p>
-</li>
-</ol>
-<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/<span class="built_in">local</span>/sbin/privoxy /usr/<span class="built_in">local</span>/etc/privoxy/config &amp;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>最后的 <code>&amp;</code> 是为了让 privoxy 在后台运行</p>
-<p>参见：</p>
-<p><a href="http://ju.outofmemory.cn/entry/251730" target="_blank" rel="noopener">http://ju.outofmemory.cn/entry/251730</a></p>
-<p><a href="http://my.oschina.net/u/994235/blog/296702" target="_blank" rel="noopener">http://my.oschina.net/u/994235/blog/296702</a></p>
-</blockquote>
-<h3 id="获取本机-IP"><a href="#获取本机-IP" class="headerlink" title="获取本机 IP"></a>获取本机 <code>IP</code></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig | grep <span class="string">'inet'</span></span><br></pre></td></tr></table></figure>
-<p>其中 <code>inet</code> 后即为本机 <code>IP</code></p>
-<h3 id="将-Privoxy-添加到开机启动中"><a href="#将-Privoxy-添加到开机启动中" class="headerlink" title="将 Privoxy 添加到开机启动中"></a>将 Privoxy 添加到开机启动中</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加开机启动:</span></span><br><span class="line">ln -sfv /usr/<span class="built_in">local</span>/opt/privoxy/*.plist ~/Library/LaunchAgents  </span><br><span class="line"><span class="comment"># 启动 Privoxy:</span></span><br><span class="line">launchctl load ~/Library/LaunchAgents/homebrew.mxcl.privoxy.plist  </span><br><span class="line"><span class="comment"># 如果不需要用 launchctl 就直接运行:</span></span><br><span class="line">privoxy /usr/<span class="built_in">local</span>/etc/privoxy/config</span><br></pre></td></tr></table></figure>
-<h3 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h3><h4 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep privoxy</span><br><span class="line"><span class="comment"># 如果返回如下则说明启动成功</span></span><br><span class="line">root             34090   0.0  0.0  4278700   1196   ??  Ss    5:39PM   0:00.01 /usr/<span class="built_in">local</span>/sbin/privoxy /usr/<span class="built_in">local</span>/etc/privoxy/config</span><br></pre></td></tr></table></figure>
-<h4 id="查看端口监听"><a href="#查看端口监听" class="headerlink" title="查看端口监听"></a>查看端口监听</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">netstat -an | grep 6666</span><br><span class="line"><span class="comment"># 如果返回如下则说明启动成功</span></span><br><span class="line">tcp4       0      0  *.6666                 *.*                    LISTEN</span><br></pre></td></tr></table></figure>
-<h3 id="结束进程"><a href="#结束进程" class="headerlink" title="结束进程"></a>结束进程</h3><p>先查看进程ID：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep privoxy</span><br><span class="line"><span class="comment"># 返回 id 为 34090</span></span><br><span class="line">root             34090   0.0  0.0  4278700   1196   ??  Ss    5:39PM   0:00.01 /usr/<span class="built_in">local</span>/sbin/privoxy /usr/<span class="built_in">local</span>/etc/privoxy/config</span><br></pre></td></tr></table></figure>
-<p>然后：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">kill</span> 34090</span><br></pre></td></tr></table></figure>
-<p>当然，也可以直接根据<code>privoxy</code>进程名来关闭Privoxy：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo killall privoxy</span><br></pre></td></tr></table></figure>
-<h3 id="使用快捷短语"><a href="#使用快捷短语" class="headerlink" title="使用快捷短语"></a>使用快捷短语</h3><p>通过给以上命令别名（alias）来快速操作和查看</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ./.bashrc</span><br></pre></td></tr></table></figure>
-<p>如果使用的是 <strong>zsh</strong>，则</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ./.zshrc</span><br></pre></td></tr></table></figure>
-<p>在底部插入如下命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># privoxy</span></span><br><span class="line"><span class="built_in">alias</span> privoxy=<span class="string">"sudo /usr/local/sbin/privoxy /usr/local/etc/privoxy/config;"</span></span><br><span class="line"><span class="built_in">alias</span> privoxy_status=<span class="string">"ps aux | grep privoxy;"</span></span><br><span class="line"><span class="built_in">alias</span> privoxy_port=<span class="string">"netstat -an | grep 6666;"</span></span><br><span class="line"><span class="built_in">alias</span> privoxy_quit=<span class="string">"sudo killall privoxy;"</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>这里为 <code>alias 别名=&quot;命令;&quot;</code> ，别名可以填自己喜欢的，命令需要和之前的一致</p>
-</blockquote>
-<p>之后重启 <strong>Terminal</strong> 就可以通过别名来快速操作了</p>
-<h2 id="在其他设备使用"><a href="#在其他设备使用" class="headerlink" title="在其他设备使用"></a>在其他设备使用</h2><p>支持手动配置代理的设备，在同一个WiFi下，即可手动配置，以NS为例：</p>
-<p><img src="https://lh3.googleusercontent.com/-EY2wdqh7lOQ/Wngr3VXdGHI/AAAAAAAAAc8/rUKmtLmMraAVK6rVgQxJyJwWiott_2QigCHMYCw/I/DVQw1YoVQAEq-Ez.jpg" alt="DVQw1YoVQAEq-Ez"></p>
-<p><strong>Proxy Setting</strong> 下，<code>Server</code> 为主机 <code>IP</code>，<code>Port</code> 为 <code>listen-address</code> 的端口号。同理iPhone，PS4等设备也就可以通过这些配置来实现科学上网了。</p>
+        <p>NDCG则是考虑到评分的排序，说到NDCG就需要从CG开始说起。</p>
+<p>CG（cumulative gain，累计增益）可以用于评价基于打分/评分的个性推荐系统。假设我们推荐kk个物品，这个推荐列表的 $CG_k$ 计算公式如下：</p>
+<script type="math/tex; mode=display">
+C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}</script><a id="more"></a>
+<p>$rel_i$ 表示第 $k$ 个物品的相关性或者评分。假设我们共推荐 $k$ 个电影，$rel_i$ 可以是用户对第 $i$ 部电影的评分。</p>
+<p>比如豆瓣给用户推荐了五部电影，</p>
+<script type="math/tex; mode=display">
+M_{1},\ M_{2},\ M_{3},\ M_{4}, \ M_{5}</script><p>该用户对这五部电影的评分分别是 5, 3, 2, 1, 2</p>
+<p>那么这个推荐列表的CG等于：</p>
+<script type="math/tex; mode=display">
+C G_{5}=5+3+2+1+2=13</script><p>CG没有考虑推荐的次序，在此基础之后我们引入对物品顺序的考虑，就有了DCG(discounted CG)，折扣累积增益。公式如下：</p>
+<script type="math/tex; mode=display">
+D C G_{k}=\sum_{i=1}^{k} \frac{2^{\mathrm{rel}_{i}}-1}{\log _{2}(i+1)}</script><p>比如豆瓣给用户推荐了五部电影，</p>
+<script type="math/tex; mode=display">
+M_{1},\ M_{2},\ M_{3},\ M_{4}, \ M_{5}</script><p>该用户对这五部电影的评分分别是 5, 3, 2, 1, 2</p>
+<p>那么这个推荐列表的DCG等于：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+DCG_5&=\frac{2^5-1}{\log_2 2}+\frac{2^3-1}{\log_2 3}+\frac{2^2-1}{\log_2 4}+\frac{2^1-1}{\log_2 5}+\frac{2^2-1}{\log_2 6}\\
+&=31+4.4+1.5+0.4+1.2\\
+&=38.5
+\end{align}</script><p>DCG没有考虑到推荐列表和每个检索中真正有效结果个数，所以最后我们引入NDCG(normalized discounted CG)，顾名思义就是标准化之后的DCG。</p>
+<script type="math/tex; mode=display">
+NDCG_k=\frac{DCG_k}{IDCG_k}</script><p>其中 $IDCG$ 是指 ideal DCG，也就是完美结果下的 DCG。</p>
+<p>继续上面的例子，如果相关电影一共有7部</p>
+<script type="math/tex; mode=display">
+M_{1},\ M_{2},\ M_{3},\ M_{4}, \ M_{5}, \ M_{6}, \ M_{7}</script><p>该用户对这七部电影的评分分别是</p>
+<p>5, 3, 2, 1, 2 , 4, 0</p>
+<p>把这7部电影按评分排序</p>
+<p>5, 4, 3, 2, 2, 1, 0</p>
+<p>这个情况下的完美DCG是</p>
+<script type="math/tex; mode=display">
+\begin{align}
+IDCG_5&=\frac{2^5-1}{\log_2 2}+\frac{2^4-1}{\log_2 3}+\frac{2^3-1}{\log_2 4}+\frac{2^2-1}{\log_2 5}+\frac{2^2-1}{\log_2 6}\\
+&=31+9.5+3.5+1.3+1.2\\
+&=46.5
+\end{align}</script><p>所以</p>
+<script type="math/tex; mode=display">
+NDCG_5 = \frac{DCG_5}{IDCG_5}=\frac{38.5}{46.5}=0.827</script><p>NDCG是0到1的数，越接近1说明推荐越准确。 </p>
 
       
     </div>
@@ -639,7 +612,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ShadowSocks/" rel="tag"># ShadowSocks</a>
+            <a href="/tags/Statistics/" rel="tag"># Statistics</a>
+          
+            <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
           
         </div>
       
@@ -652,8 +627,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/10/使用Google Drive作为Blog的图床/" rel="next" title="使用Google Drive作为Blog的图床">
-                <i class="fa fa-chevron-left"></i> 使用Google Drive作为Blog的图床
+              <a href="/2019/02/18/Overfitting_and_Underfitting_With_Machine_Learning_Algorithms/" rel="next" title="拟合的力道">
+                <i class="fa fa-chevron-left"></i> 拟合的力道
               </a>
             
           </div>
@@ -661,10 +636,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/18/从正态分布到置信区间/" rel="prev" title="从正态分布到置信区间">
-                从正态分布到置信区间 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -688,7 +659,7 @@
 
   
     <div class="comments" id="comments">
-      <div class="fb-comments" data-href="http://yoursite.com/2018/02/05/Mac局域网共享ss/" data-numposts="10" data-width="100%" data-colorscheme="light">
+      <div class="fb-comments" data-href="http://yoursite.com/2019/04/20/推荐系统中的NDCG/" data-numposts="10" data-width="100%" data-colorscheme="light">
       </div>
     </div>
 
@@ -715,17 +686,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -904,23 +866,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-ShadowSocks"><span class="nav-text">安装 ShadowSocks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-ShadowSocks"><span class="nav-text">配置 ShadowSocks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Privoxy"><span class="nav-text">Privoxy</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行"><span class="nav-text">运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取本机-IP"><span class="nav-text">获取本机 IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将-Privoxy-添加到开机启动中"><span class="nav-text">将 Privoxy 添加到开机启动中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看状态"><span class="nav-text">查看状态</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看进程"><span class="nav-text">查看进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看端口监听"><span class="nav-text">查看端口监听</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结束进程"><span class="nav-text">结束进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用快捷短语"><span class="nav-text">使用快捷短语</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在其他设备使用"><span class="nav-text">在其他设备使用</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
