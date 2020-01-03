@@ -5,9 +5,9 @@
   <subtitle>分享有趣</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://marara.xin/"/>
   <updated>2019-05-18T02:45:33.709Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://marara.xin/</id>
   
   <author>
     <name>Gavin</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title></title>
-    <link href="http://yoursite.com/2019/05/18/test/"/>
-    <id>http://yoursite.com/2019/05/18/test/</id>
+    <link href="https://marara.xin/2019/05/18/test/"/>
+    <id>https://marara.xin/2019/05/18/test/</id>
     <published>2019-05-18T02:45:33.709Z</published>
     <updated>2019-05-18T02:45:33.709Z</updated>
     
@@ -41,8 +41,8 @@ y_i = \alpha + \beta x_i \&lt;/script&gt;
   
   <entry>
     <title>支持向量机（SVM）</title>
-    <link href="http://yoursite.com/2019/04/21/SVM/"/>
-    <id>http://yoursite.com/2019/04/21/SVM/</id>
+    <link href="https://marara.xin/2019/04/21/SVM/"/>
+    <id>https://marara.xin/2019/04/21/SVM/</id>
     <published>2019-04-21T08:39:10.000Z</published>
     <updated>2019-04-22T01:41:28.161Z</updated>
     
@@ -63,19 +63,19 @@ y_i = \alpha + \beta x_i \&lt;/script&gt;
     
     </summary>
     
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+      <category term="Note" scheme="https://marara.xin/categories/Note/"/>
     
     
-      <category term="Statistics" scheme="http://yoursite.com/tags/Statistics/"/>
+      <category term="Statistics" scheme="https://marara.xin/tags/Statistics/"/>
     
-      <category term="Machine Learning" scheme="http://yoursite.com/tags/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="https://marara.xin/tags/Machine-Learning/"/>
     
   </entry>
   
   <entry>
     <title>推荐系统中的NDCG</title>
-    <link href="http://yoursite.com/2019/04/20/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84NDCG/"/>
-    <id>http://yoursite.com/2019/04/20/推荐系统中的NDCG/</id>
+    <link href="https://marara.xin/2019/04/20/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84NDCG/"/>
+    <id>https://marara.xin/2019/04/20/推荐系统中的NDCG/</id>
     <published>2019-04-20T11:02:51.318Z</published>
     <updated>2019-04-20T11:04:45.818Z</updated>
     
@@ -90,19 +90,19 @@ C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}&lt;/script&gt;
     
     </summary>
     
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+      <category term="Note" scheme="https://marara.xin/categories/Note/"/>
     
     
-      <category term="Statistics" scheme="http://yoursite.com/tags/Statistics/"/>
+      <category term="Statistics" scheme="https://marara.xin/tags/Statistics/"/>
     
-      <category term="Machine Learning" scheme="http://yoursite.com/tags/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="https://marara.xin/tags/Machine-Learning/"/>
     
   </entry>
   
   <entry>
     <title>拟合的力道</title>
-    <link href="http://yoursite.com/2019/02/18/Overfitting_and_Underfitting_With_Machine_Learning_Algorithms/"/>
-    <id>http://yoursite.com/2019/02/18/Overfitting_and_Underfitting_With_Machine_Learning_Algorithms/</id>
+    <link href="https://marara.xin/2019/02/18/Overfitting_and_Underfitting_With_Machine_Learning_Algorithms/"/>
+    <id>https://marara.xin/2019/02/18/Overfitting_and_Underfitting_With_Machine_Learning_Algorithms/</id>
     <published>2019-02-18T07:02:57.124Z</published>
     <updated>2019-02-20T10:18:48.716Z</updated>
     
@@ -128,19 +128,19 @@ C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}&lt;/script&gt;
     
     </summary>
     
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+      <category term="Note" scheme="https://marara.xin/categories/Note/"/>
     
     
-      <category term="Statistics" scheme="http://yoursite.com/tags/Statistics/"/>
+      <category term="Statistics" scheme="https://marara.xin/tags/Statistics/"/>
     
-      <category term="Machine Learning" scheme="http://yoursite.com/tags/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="https://marara.xin/tags/Machine-Learning/"/>
     
   </entry>
   
   <entry>
     <title>逻辑回归与代价函数</title>
-    <link href="http://yoursite.com/2019/02/13/Logistic_regression/"/>
-    <id>http://yoursite.com/2019/02/13/Logistic_regression/</id>
+    <link href="https://marara.xin/2019/02/13/Logistic_regression/"/>
+    <id>https://marara.xin/2019/02/13/Logistic_regression/</id>
     <published>2019-02-13T03:39:26.176Z</published>
     <updated>2019-02-17T07:51:12.344Z</updated>
     
@@ -157,19 +157,19 @@ C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}&lt;/script&gt;
     
     </summary>
     
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+      <category term="Note" scheme="https://marara.xin/categories/Note/"/>
     
     
-      <category term="Statistics" scheme="http://yoursite.com/tags/Statistics/"/>
+      <category term="Statistics" scheme="https://marara.xin/tags/Statistics/"/>
     
-      <category term="Machine Learning" scheme="http://yoursite.com/tags/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="https://marara.xin/tags/Machine-Learning/"/>
     
   </entry>
   
   <entry>
     <title>最简单最实用：线性回归</title>
-    <link href="http://yoursite.com/2019/02/11/Linear_Regression_Lecture/"/>
-    <id>http://yoursite.com/2019/02/11/Linear_Regression_Lecture/</id>
+    <link href="https://marara.xin/2019/02/11/Linear_Regression_Lecture/"/>
+    <id>https://marara.xin/2019/02/11/Linear_Regression_Lecture/</id>
     <published>2019-02-11T03:45:02.000Z</published>
     <updated>2019-02-11T05:58:56.882Z</updated>
     
@@ -185,19 +185,19 @@ C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}&lt;/script&gt;
     
     </summary>
     
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+      <category term="Note" scheme="https://marara.xin/categories/Note/"/>
     
     
-      <category term="Statistics" scheme="http://yoursite.com/tags/Statistics/"/>
+      <category term="Statistics" scheme="https://marara.xin/tags/Statistics/"/>
     
-      <category term="Machine Learning" scheme="http://yoursite.com/tags/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="https://marara.xin/tags/Machine-Learning/"/>
     
   </entry>
   
   <entry>
     <title>从正态分布到置信区间</title>
-    <link href="http://yoursite.com/2018/06/18/%E4%BB%8E%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E5%88%B0%E7%BD%AE%E4%BF%A1%E5%8C%BA%E9%97%B4/"/>
-    <id>http://yoursite.com/2018/06/18/从正态分布到置信区间/</id>
+    <link href="https://marara.xin/2018/06/18/%E4%BB%8E%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E5%88%B0%E7%BD%AE%E4%BF%A1%E5%8C%BA%E9%97%B4/"/>
+    <id>https://marara.xin/2018/06/18/从正态分布到置信区间/</id>
     <published>2018-06-18T14:16:25.971Z</published>
     <updated>2019-02-11T05:17:12.306Z</updated>
     
@@ -211,17 +211,17 @@ C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}&lt;/script&gt;
     
     </summary>
     
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+      <category term="Note" scheme="https://marara.xin/categories/Note/"/>
     
     
-      <category term="Statistics" scheme="http://yoursite.com/tags/Statistics/"/>
+      <category term="Statistics" scheme="https://marara.xin/tags/Statistics/"/>
     
   </entry>
   
   <entry>
     <title>Mac 局域网共享 ShadowSocks</title>
-    <link href="http://yoursite.com/2018/02/05/Mac%E5%B1%80%E5%9F%9F%E7%BD%91%E5%85%B1%E4%BA%ABss/"/>
-    <id>http://yoursite.com/2018/02/05/Mac局域网共享ss/</id>
+    <link href="https://marara.xin/2018/02/05/Mac%E5%B1%80%E5%9F%9F%E7%BD%91%E5%85%B1%E4%BA%ABss/"/>
+    <id>https://marara.xin/2018/02/05/Mac局域网共享ss/</id>
     <published>2018-02-05T08:35:20.309Z</published>
     <updated>2018-02-05T10:03:31.863Z</updated>
     
@@ -233,17 +233,17 @@ C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}&lt;/script&gt;
     
     </summary>
     
-      <category term="Tutorial" scheme="http://yoursite.com/categories/Tutorial/"/>
+      <category term="Tutorial" scheme="https://marara.xin/categories/Tutorial/"/>
     
     
-      <category term="ShadowSocks" scheme="http://yoursite.com/tags/ShadowSocks/"/>
+      <category term="ShadowSocks" scheme="https://marara.xin/tags/ShadowSocks/"/>
     
   </entry>
   
   <entry>
     <title>使用Google Drive作为Blog的图床</title>
-    <link href="http://yoursite.com/2017/12/10/%E4%BD%BF%E7%94%A8Google%20Drive%E4%BD%9C%E4%B8%BABlog%E7%9A%84%E5%9B%BE%E5%BA%8A/"/>
-    <id>http://yoursite.com/2017/12/10/使用Google Drive作为Blog的图床/</id>
+    <link href="https://marara.xin/2017/12/10/%E4%BD%BF%E7%94%A8Google%20Drive%E4%BD%9C%E4%B8%BABlog%E7%9A%84%E5%9B%BE%E5%BA%8A/"/>
+    <id>https://marara.xin/2017/12/10/使用Google Drive作为Blog的图床/</id>
     <published>2017-12-10T13:36:30.436Z</published>
     <updated>2018-02-05T10:10:43.053Z</updated>
     
@@ -255,17 +255,17 @@ C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}&lt;/script&gt;
     
     </summary>
     
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+      <category term="Note" scheme="https://marara.xin/categories/Note/"/>
     
     
-      <category term="MarkDown" scheme="http://yoursite.com/tags/MarkDown/"/>
+      <category term="MarkDown" scheme="https://marara.xin/tags/MarkDown/"/>
     
   </entry>
   
   <entry>
     <title>Swift UILabel 属性</title>
-    <link href="http://yoursite.com/2017/12/10/Swift-UILabel-%E5%B1%9E%E6%80%A7/"/>
-    <id>http://yoursite.com/2017/12/10/Swift-UILabel-属性/</id>
+    <link href="https://marara.xin/2017/12/10/Swift-UILabel-%E5%B1%9E%E6%80%A7/"/>
+    <id>https://marara.xin/2017/12/10/Swift-UILabel-属性/</id>
     <published>2017-12-09T16:04:19.261Z</published>
     <updated>2018-02-05T10:11:09.591Z</updated>
     
@@ -277,17 +277,17 @@ C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}&lt;/script&gt;
     
     </summary>
     
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+      <category term="Note" scheme="https://marara.xin/categories/Note/"/>
     
     
-      <category term="Swift" scheme="http://yoursite.com/tags/Swift/"/>
+      <category term="Swift" scheme="https://marara.xin/tags/Swift/"/>
     
   </entry>
   
   <entry>
     <title>全局.gitignore</title>
-    <link href="http://yoursite.com/2017/11/23/gitignore%20global/"/>
-    <id>http://yoursite.com/2017/11/23/gitignore global/</id>
+    <link href="https://marara.xin/2017/11/23/gitignore%20global/"/>
+    <id>https://marara.xin/2017/11/23/gitignore global/</id>
     <published>2017-11-23T08:10:01.054Z</published>
     <updated>2017-11-23T08:10:01.054Z</updated>
     
@@ -303,17 +303,17 @@ C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}&lt;/script&gt;
     
     </summary>
     
-      <category term="Tutorial" scheme="http://yoursite.com/categories/Tutorial/"/>
+      <category term="Tutorial" scheme="https://marara.xin/categories/Tutorial/"/>
     
     
-      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+      <category term="Git" scheme="https://marara.xin/tags/Git/"/>
     
   </entry>
   
   <entry>
     <title>C# 中的委托和事件</title>
-    <link href="http://yoursite.com/2017/11/07/Delegates%20and%20events%20in%20Csharp/"/>
-    <id>http://yoursite.com/2017/11/07/Delegates and events in Csharp/</id>
+    <link href="https://marara.xin/2017/11/07/Delegates%20and%20events%20in%20Csharp/"/>
+    <id>https://marara.xin/2017/11/07/Delegates and events in Csharp/</id>
     <published>2017-11-07T07:04:49.134Z</published>
     <updated>2017-12-12T00:45:56.289Z</updated>
     
@@ -325,21 +325,21 @@ C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}&lt;/script&gt;
     
     </summary>
     
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+      <category term="Note" scheme="https://marara.xin/categories/Note/"/>
     
     
-      <category term="C#" scheme="http://yoursite.com/tags/C/"/>
+      <category term="C#" scheme="https://marara.xin/tags/C/"/>
     
   </entry>
   
   <entry>
     <title>命令行、终端和 Git 的代理设置</title>
-    <link href="http://yoursite.com/2017/10/31/Proxy%20setting%20of%20CMD:Terminal/"/>
-    <id>http://yoursite.com/2017/10/31/Proxy setting of CMD:Terminal/</id>
+    <link href="https://marara.xin/2017/10/31/Proxy%20setting%20of%20CMD:Terminal/"/>
+    <id>https://marara.xin/2017/10/31/Proxy setting of CMD:Terminal/</id>
     <published>2017-10-31T08:19:58.131Z</published>
     <updated>2017-10-31T08:19:58.131Z</updated>
     
-    <content type="html"><![CDATA[<p>本文整理了 Windows 命令行 和 Linux 终端以及 Git 中设置代理的命令。以本地 HTTP/HTTPS 代理 <code>127.0.0.1:8118</code> 和 SOCKS5 代理 <code>127.0.0.1:1080</code> 为例。</p><a id="more"></a><h2 id="Windows-命令行代理设置"><a href="#Windows-命令行代理设置" class="headerlink" title="Windows 命令行代理设置"></a>Windows 命令行代理设置</h2><p>HTTP 代理设置：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set http_proxy=http://127.0.0.1:8118</span><br><span class="line">set https_proxy=http://127.0.0.1:8118</span><br></pre></td></tr></table></figure><p>SOCKS5 代理设置：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set http_proxy=socks5://127.0.0.1:1080</span><br><span class="line">set https_proxy=socks5://127.0.0.1:1080</span><br></pre></td></tr></table></figure><p>可以通过 <code>echo %http_proxy%</code> 命令查看是否设置成功。</p><p>取消代理设置：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set http_proxy=</span><br><span class="line">set https_proxy=</span><br></pre></td></tr></table></figure><h2 id="Linux-终端代理设置"><a href="#Linux-终端代理设置" class="headerlink" title="Linux 终端代理设置"></a>Linux 终端代理设置</h2><h3 id="临时代理设置"><a href="#临时代理设置" class="headerlink" title="临时代理设置"></a>临时代理设置</h3><p>Linux 终端设置 HTTP 代理（只对当前终端有效）：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> export http_proxy=http://127.0.0.1:8118</span><br><span class="line"><span class="meta">$</span> export https_proxy=http://127.0.0.1:8118</span><br></pre></td></tr></table></figure><p>Linux 中设置 SOCKS5 代理（只对当前终端有效）：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> export http_proxy=socks5://127.0.0.1:1080</span><br><span class="line"><span class="meta">$</span> export https_proxy=socks5://127.0.0.1:1080</span><br></pre></td></tr></table></figure><p>设置终端中的 wget、curl 等都走 SOCKS5 代理（只对当前终端有效）：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> export ALL_PROXY=socks5://127.0.0.1:1080</span><br></pre></td></tr></table></figure><p>Linux 终端中取消代理设置：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> unset http_proxy</span><br><span class="line"><span class="meta">$</span> unset https_proxy</span><br><span class="line"><span class="meta">$</span> unset ALL_RPOXY</span><br></pre></td></tr></table></figure><h3 id="永久代理设置"><a href="#永久代理设置" class="headerlink" title="永久代理设置"></a>永久代理设置</h3><p>将代理命令写入配置文件 <code>~/.profile</code> 或 <code>~/.bashrc</code> 或 <code>~/.zshrc</code> 中：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> HTTP 代理设置</span><br><span class="line">export http_proxy=http://127.0.0.1:8118</span><br><span class="line">export https_proxy=http://127.0.0.1:8118</span><br></pre></td></tr></table></figure><p>或</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> SOCKS5 代理设置</span><br><span class="line">export http_proxy=socks5://127.0.0.1:1080</span><br><span class="line">export https_proxy=socks5://127.0.0.1:1080</span><br></pre></td></tr></table></figure><p>或</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 强制终端中的 wget、curl 等都走 SOCKS5 代理</span><br><span class="line">export ALL_PROXY=socks5://127.0.0.1:1080</span><br></pre></td></tr></table></figure><p>或简化操作</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias pc="export ALL_PROXY=socks5://127.0.0.1:1080; echo 'Proxy on';"</span><br></pre></td></tr></table></figure><h2 id="Git-设置代理"><a href="#Git-设置代理" class="headerlink" title="Git 设置代理"></a>Git 设置代理</h2><p>代理格式 <code>[protocol://][user[:password]@]proxyhost[:port]</code><br>参考 <a href="https://git-scm.com/docs/git-config" target="_blank" rel="noopener">https://git-scm.com/docs/git-config</a></p><p>设置 HTTP 代理：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:8118</span><br><span class="line">git config --global https.proxy http://127.0.0.1:8118</span><br></pre></td></tr></table></figure><p>设置 SOCKS5 代理：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy socks5://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy socks5://127.0.0.1:1080</span><br></pre></td></tr></table></figure><p>Git 取消代理设置：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>本文整理了 Windows 命令行 和 Linux 终端以及 Git 中设置代理的命令。以本地 HTTP/HTTPS 代理 <code>127.0.0.1:8118</code> 和 SOCKS5 代理 <code>127.0.0.1:1080</code> 为例。</p><a id="more"></a><h2 id="Windows-命令行代理设置"><a href="#Windows-命令行代理设置" class="headerlink" title="Windows 命令行代理设置"></a>Windows 命令行代理设置</h2><p>HTTP 代理设置：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set http_proxy=http://127.0.0.1:8118</span><br><span class="line">set https_proxy=http://127.0.0.1:8118</span><br></pre></td></tr></table></figure><p>SOCKS5 代理设置：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set http_proxy=socks5://127.0.0.1:1080</span><br><span class="line">set https_proxy=socks5://127.0.0.1:1080</span><br></pre></td></tr></table></figure><p>可以通过 <code>echo %http_proxy%</code> 命令查看是否设置成功。</p><p>取消代理设置：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set http_proxy=</span><br><span class="line">set https_proxy=</span><br></pre></td></tr></table></figure><h2 id="Linux-终端代理设置"><a href="#Linux-终端代理设置" class="headerlink" title="Linux 终端代理设置"></a>Linux 终端代理设置</h2><h3 id="临时代理设置"><a href="#临时代理设置" class="headerlink" title="临时代理设置"></a>临时代理设置</h3><p>Linux 终端设置 HTTP 代理（只对当前终端有效）：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> http_proxy=http://127.0.0.1:8118</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> https_proxy=http://127.0.0.1:8118</span></span><br></pre></td></tr></table></figure><p>Linux 中设置 SOCKS5 代理（只对当前终端有效）：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> http_proxy=socks5://127.0.0.1:1080</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> https_proxy=socks5://127.0.0.1:1080</span></span><br></pre></td></tr></table></figure><p>设置终端中的 wget、curl 等都走 SOCKS5 代理（只对当前终端有效）：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> ALL_PROXY=socks5://127.0.0.1:1080</span></span><br></pre></td></tr></table></figure><p>Linux 终端中取消代理设置：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">unset</span> http_proxy</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">unset</span> https_proxy</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">unset</span> ALL_RPOXY</span></span><br></pre></td></tr></table></figure><h3 id="永久代理设置"><a href="#永久代理设置" class="headerlink" title="永久代理设置"></a>永久代理设置</h3><p>将代理命令写入配置文件 <code>~/.profile</code> 或 <code>~/.bashrc</code> 或 <code>~/.zshrc</code> 中：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> HTTP 代理设置</span></span><br><span class="line">export http_proxy=http://127.0.0.1:8118</span><br><span class="line">export https_proxy=http://127.0.0.1:8118</span><br></pre></td></tr></table></figure><p>或</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> SOCKS5 代理设置</span></span><br><span class="line">export http_proxy=socks5://127.0.0.1:1080</span><br><span class="line">export https_proxy=socks5://127.0.0.1:1080</span><br></pre></td></tr></table></figure><p>或</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 强制终端中的 wget、curl 等都走 SOCKS5 代理</span></span><br><span class="line">export ALL_PROXY=socks5://127.0.0.1:1080</span><br></pre></td></tr></table></figure><p>或简化操作</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias pc="export ALL_PROXY=socks5://127.0.0.1:1080; echo 'Proxy on';"</span><br></pre></td></tr></table></figure><h2 id="Git-设置代理"><a href="#Git-设置代理" class="headerlink" title="Git 设置代理"></a>Git 设置代理</h2><p>代理格式 <code>[protocol://][user[:password]@]proxyhost[:port]</code><br>参考 <a href="https://git-scm.com/docs/git-config" target="_blank" rel="noopener">https://git-scm.com/docs/git-config</a></p><p>设置 HTTP 代理：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:8118</span><br><span class="line">git config --global https.proxy http://127.0.0.1:8118</span><br></pre></td></tr></table></figure><p>设置 SOCKS5 代理：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy socks5://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy socks5://127.0.0.1:1080</span><br></pre></td></tr></table></figure><p>Git 取消代理设置：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -347,19 +347,19 @@ C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}&lt;/script&gt;
     
     </summary>
     
-      <category term="Tutorial" scheme="http://yoursite.com/categories/Tutorial/"/>
+      <category term="Tutorial" scheme="https://marara.xin/categories/Tutorial/"/>
     
     
-      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+      <category term="Git" scheme="https://marara.xin/tags/Git/"/>
     
-      <category term="Terminal" scheme="http://yoursite.com/tags/Terminal/"/>
+      <category term="Terminal" scheme="https://marara.xin/tags/Terminal/"/>
     
   </entry>
   
   <entry>
     <title>初步了解 Swift 中的可选类型和方法函数</title>
-    <link href="http://yoursite.com/2017/10/25/Optional%20types%20and%20method%20functions%20in%20Swift/"/>
-    <id>http://yoursite.com/2017/10/25/Optional types and method functions in Swift/</id>
+    <link href="https://marara.xin/2017/10/25/Optional%20types%20and%20method%20functions%20in%20Swift/"/>
+    <id>https://marara.xin/2017/10/25/Optional types and method functions in Swift/</id>
     <published>2017-10-25T09:19:23.069Z</published>
     <updated>2017-10-25T10:17:38.164Z</updated>
     
@@ -373,17 +373,17 @@ C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}&lt;/script&gt;
     
     </summary>
     
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+      <category term="Note" scheme="https://marara.xin/categories/Note/"/>
     
     
-      <category term="Swift" scheme="http://yoursite.com/tags/Swift/"/>
+      <category term="Swift" scheme="https://marara.xin/tags/Swift/"/>
     
   </entry>
   
   <entry>
     <title>矩阵，向量求导法则</title>
-    <link href="http://yoursite.com/2017/10/12/The%20Derivation%20formula%20of%20matrix%20and%20vector/"/>
-    <id>http://yoursite.com/2017/10/12/The Derivation formula of matrix and vector/</id>
+    <link href="https://marara.xin/2017/10/12/The%20Derivation%20formula%20of%20matrix%20and%20vector/"/>
+    <id>https://marara.xin/2017/10/12/The Derivation formula of matrix and vector/</id>
     <published>2017-10-12T14:55:37.832Z</published>
     <updated>2018-06-19T14:54:12.374Z</updated>
     
@@ -401,19 +401,19 @@ C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}&lt;/script&gt;
     
     </summary>
     
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+      <category term="Note" scheme="https://marara.xin/categories/Note/"/>
     
     
-      <category term="Statistics" scheme="http://yoursite.com/tags/Statistics/"/>
+      <category term="Statistics" scheme="https://marara.xin/tags/Statistics/"/>
     
-      <category term="Machine Learning" scheme="http://yoursite.com/tags/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="https://marara.xin/tags/Machine-Learning/"/>
     
   </entry>
   
   <entry>
     <title>C#中的abstract和virtual</title>
-    <link href="http://yoursite.com/2017/10/12/The%20abstract%20and%20virtual%20in%20CSharp/"/>
-    <id>http://yoursite.com/2017/10/12/The abstract and virtual in CSharp/</id>
+    <link href="https://marara.xin/2017/10/12/The%20abstract%20and%20virtual%20in%20CSharp/"/>
+    <id>https://marara.xin/2017/10/12/The abstract and virtual in CSharp/</id>
     <published>2017-10-12T08:07:11.021Z</published>
     <updated>2017-10-12T15:01:48.390Z</updated>
     
@@ -428,17 +428,17 @@ C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}&lt;/script&gt;
     
     </summary>
     
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+      <category term="Note" scheme="https://marara.xin/categories/Note/"/>
     
     
-      <category term="C#" scheme="http://yoursite.com/tags/C/"/>
+      <category term="C#" scheme="https://marara.xin/tags/C/"/>
     
   </entry>
   
   <entry>
     <title>Scikit-learn的支持向量机（SVM）</title>
-    <link href="http://yoursite.com/2017/10/05/Support%20vector%20machine%20(SVM)%20for%20scikit-learn/"/>
-    <id>http://yoursite.com/2017/10/05/Support vector machine (SVM) for scikit-learn/</id>
+    <link href="https://marara.xin/2017/10/05/Support%20vector%20machine%20(SVM)%20for%20scikit-learn/"/>
+    <id>https://marara.xin/2017/10/05/Support vector machine (SVM) for scikit-learn/</id>
     <published>2017-10-05T09:41:54.682Z</published>
     <updated>2018-06-19T14:58:33.972Z</updated>
     
@@ -469,21 +469,21 @@ C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}&lt;/script&gt;
     
     </summary>
     
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+      <category term="Note" scheme="https://marara.xin/categories/Note/"/>
     
     
-      <category term="Machine Learning" scheme="http://yoursite.com/tags/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="https://marara.xin/tags/Machine-Learning/"/>
     
-      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+      <category term="Python" scheme="https://marara.xin/tags/Python/"/>
     
-      <category term="SVM" scheme="http://yoursite.com/tags/SVM/"/>
+      <category term="SVM" scheme="https://marara.xin/tags/SVM/"/>
     
   </entry>
   
   <entry>
     <title>数据表查询</title>
-    <link href="http://yoursite.com/2017/09/19/Query%20database/"/>
-    <id>http://yoursite.com/2017/09/19/Query database/</id>
+    <link href="https://marara.xin/2017/09/19/Query%20database/"/>
+    <id>https://marara.xin/2017/09/19/Query database/</id>
     <published>2017-09-19T05:53:24.000Z</published>
     <updated>2017-10-30T03:16:04.028Z</updated>
     
@@ -496,19 +496,19 @@ C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}&lt;/script&gt;
     
     </summary>
     
-      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+      <category term="Note" scheme="https://marara.xin/categories/Note/"/>
     
     
-      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://marara.xin/tags/MySQL/"/>
     
-      <category term="DataBase" scheme="http://yoursite.com/tags/DataBase/"/>
+      <category term="DataBase" scheme="https://marara.xin/tags/DataBase/"/>
     
   </entry>
   
   <entry>
     <title>VPS搭载ss实现科学上网</title>
-    <link href="http://yoursite.com/2017/09/18/The%20Usage%20of%20traffic-proxy%20in%20Shadowsocks%20at%20VPS/"/>
-    <id>http://yoursite.com/2017/09/18/The Usage of traffic-proxy in Shadowsocks at VPS/</id>
+    <link href="https://marara.xin/2017/09/18/The%20Usage%20of%20traffic-proxy%20in%20Shadowsocks%20at%20VPS/"/>
+    <id>https://marara.xin/2017/09/18/The Usage of traffic-proxy in Shadowsocks at VPS/</id>
     <published>2017-09-18T13:01:35.000Z</published>
     <updated>2017-09-18T13:17:10.000Z</updated>
     
@@ -521,17 +521,17 @@ C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}&lt;/script&gt;
     
     </summary>
     
-      <category term="Tutorial" scheme="http://yoursite.com/categories/Tutorial/"/>
+      <category term="Tutorial" scheme="https://marara.xin/categories/Tutorial/"/>
     
     
-      <category term="ShadowSocks" scheme="http://yoursite.com/tags/ShadowSocks/"/>
+      <category term="ShadowSocks" scheme="https://marara.xin/tags/ShadowSocks/"/>
     
   </entry>
   
   <entry>
     <title>MySQL修改root用户密码</title>
-    <link href="http://yoursite.com/2017/09/08/Changes%20the%20root%20user%20password%20for%20MySQL/"/>
-    <id>http://yoursite.com/2017/09/08/Changes the root user password for MySQL/</id>
+    <link href="https://marara.xin/2017/09/08/Changes%20the%20root%20user%20password%20for%20MySQL/"/>
+    <id>https://marara.xin/2017/09/08/Changes the root user password for MySQL/</id>
     <published>2017-09-08T12:00:20.000Z</published>
     <updated>2017-09-19T05:56:44.000Z</updated>
     
@@ -544,10 +544,10 @@ C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}&lt;/script&gt;
     
     </summary>
     
-      <category term="Tutorial" scheme="http://yoursite.com/categories/Tutorial/"/>
+      <category term="Tutorial" scheme="https://marara.xin/categories/Tutorial/"/>
     
     
-      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://marara.xin/tags/MySQL/"/>
     
   </entry>
   
