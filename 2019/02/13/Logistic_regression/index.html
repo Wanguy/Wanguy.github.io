@@ -143,7 +143,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">24</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -327,7 +327,7 @@ J(\theta) = \sum_{i=1}^{n}\left[-(1-y^{i})ln(1-h_\theta(x^{i}))-y^{i}ln(h_\theta
 <li>$i=1$ 表示预定，$i=0$ 表示未预定</li>
 <li>$\theta$ 是参数，作为向量的表示方法，因为参数很可能不止一个</li>
 </ul>
-<p>根据这个 <strong><em>Cost Function</em></strong>，寻找能让其最小的 $\theta \in \left { \theta_1 , \theta_2  \right }$，通过使其一阶导数为0，二阶导数为正，从而获取 $min \theta$：</p>
+<p>根据这个 <strong><em>Cost Function</em></strong>，寻找能让其最小的 $\theta \in \left \{ \theta_1 , \theta_2  \right \}$，通过使其一阶导数为0，二阶导数为正，从而获取 $min \theta$：</p>
 <script type="math/tex; mode=display">
 \begin{align}
 \frac{\partial J(\theta)}{\partial \theta_j} 
@@ -358,7 +358,7 @@ J(\theta) = \sum_{i=1}^{n}\left[-(1-y^{i})ln(1-h_\theta(x^{i}))-y^{i}ln(h_\theta
 &=h_\theta (x^{i})\left[1-h_\theta \left(x^{i}\right)\right]
 \end{align}</script><p>对于所有的 $\theta_j$，都需要有：</p>
 <script type="math/tex; mode=display">
-\frac{\partial J(\theta)}{\partial \theta_j}=-\sum_{i=1}^{n}\left[-h_\theta \left(x^{i}\right)+y^{i}\right]x_{j}^{i}\qquad \qquad j=1,2,...</script><p>理论上，可以通过该方程求解各个 $\theta<em>j$，但由于 $h</em>\theta (x^i)$ 的存在，不易求出解析解，需要通过其他方法，计算出 $\theta_j$ 的近似解。</p>
+\frac{\partial J(\theta)}{\partial \theta_j}=-\sum_{i=1}^{n}\left[-h_\theta \left(x^{i}\right)+y^{i}\right]x_{j}^{i}\qquad \qquad j=1,2,...</script><p>理论上，可以通过该方程求解各个 $\theta_j$，但由于 $h_\theta (x^i)$ 的存在，不易求出解析解，需要通过其他方法，计算出 $\theta_j$ 的近似解。</p>
 <h3 id="3-1-使用sklearn自带函数求解逻辑回归参数"><a href="#3-1-使用sklearn自带函数求解逻辑回归参数" class="headerlink" title="3.1. 使用sklearn自带函数求解逻辑回归参数"></a>3.1. 使用<code>sklearn</code>自带函数求解逻辑回归参数</h3><p><code>In[1]</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br><span class="line"></span><br><span class="line">%matplotlib inline</span><br><span class="line">data = pd.read_csv(<span class="string">'Score_Pass.csv'</span>)</span><br><span class="line">X, y = np.array(data[<span class="string">'Score'</span>]), np.array(data[<span class="string">'Pass/N'</span>])</span><br><span class="line">x = X / np.max(X)</span><br><span class="line">lr = LogisticRegression(solver=<span class="string">'lbfgs'</span>)  <span class="comment">#solver 可选默认，可选'newton-cg'，有区别</span></span><br><span class="line">lr.fit(x.reshape(<span class="number">-1</span>, <span class="number">1</span>), y)</span><br><span class="line">print(<span class="string">'slope = %f, interception= %f '</span> % (lr.coef_, lr.intercept_))</span><br><span class="line">pre_y = lr.predict_proba(x.reshape(<span class="number">-1</span>, <span class="number">1</span>))</span><br><span class="line">pre_y_1 = [i[<span class="number">1</span>] <span class="keyword">for</span> i <span class="keyword">in</span> pre_y]</span><br><span class="line">plt.scatter(x, y)</span><br><span class="line">plt.scatter(x, pre_y_1)</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slope = 11.702751, interception= -8.900218</span><br></pre></td></tr></table></figure>
@@ -401,7 +401,7 @@ x_{n+2} &= x_{n+1} - \frac{f(x_{n+1})}{f’(x_{n+1})} \\
 \begin{align}
 x_{n+1} &= x_{n} - \frac{J'(x_{n})}{J''(x_{n})} \\
 x_{n+2} &= x_{n+1} - \frac{J'(x_{n+1})}{J''(x_{n+1})}
-\end{align}</script><p>在多元的情况下，$J’’(x<em>{n})=H</em>{\ell(\hat{\theta})}$ 海塞矩阵：</p>
+\end{align}</script><p>在多元的情况下，$J’’(x_{n})=H_{\ell(\hat{\theta})}$ 海塞矩阵：</p>
 <script type="math/tex; mode=display">
 H_{\ell(\hat{\theta})} = \begin{bmatrix}
 \begin{split}
@@ -502,6 +502,23 @@ h_\theta (x)=\frac{1}{1+e^{-\left ( \theta_1 x+\theta_2 \right )}}
     
         
 
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Gavin
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://marara.xin/2019/02/13/Logistic_regression/" title="逻辑回归与代价函数">https://marara.xin/2019/02/13/Logistic_regression/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+        
+
   <div class="followme">
     <p>Welcome to my other publishing channels</p>
 
@@ -516,14 +533,25 @@ h_\theta (x)=\frac{1}{1+e^{-\left ( \theta_1 x+\theta_2 \right )}}
                 <span class="label">Twitter</span>
               </a>
             </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
     </div>
   </div>
 
 
       <footer class="post-footer">
+          
           <div class="post-tags">
-              <a href="/tags/Statistics/" rel="tag"># Statistics</a>
-              <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
+              <a href="/tags/Statistics/" rel="tag"><i class="fa fa-tag"></i> Statistics</a>
+              <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
           </div>
 
         
@@ -552,6 +580,7 @@ h_\theta (x)=\frac{1}{1+e^{-\left ( \theta_1 x+\theta_2 \right )}}
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -614,7 +643,7 @@ h_\theta (x)=\frac{1}{1+e^{-\left ( \theta_1 x+\theta_2 \right )}}
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -793,11 +822,31 @@ if (document.querySelectorAll('div.pdf').length) {
     MathJax.texReset();
     MathJax.typeset();
   }
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
     
 
   
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '85ce279610ff27b07d1c',
+      clientSecret: '9c42386ae5260c368961a8b4481eb48d72e5448e',
+      repo        : 'Wanguy.github.io',
+      owner       : 'Wanguy',
+      admin       : ['Wanguy'],
+      id          : 'a638337df77242e29ba00aa9d765be68',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

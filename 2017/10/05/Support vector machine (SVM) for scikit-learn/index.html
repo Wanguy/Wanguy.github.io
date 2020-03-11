@@ -139,7 +139,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">24</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -377,7 +377,7 @@
 </blockquote>
 <h2 id="数学原理"><a href="#数学原理" class="headerlink" title="数学原理"></a>数学原理</h2><p>支持向量机的原理是在高维甚至无限维空间中构建一个超平面或者若干超平面组成的集合，并藉此用于分类、回归或其它任务。从直觉上来讲，好的分隔面是由使得函数间隔最大的超平面得到（即该超平面到任何类别最近训练数据点的距离都取得最大值），因为总体上来讲，间隔越大，分类器的泛化误差越小。</p>
 <p><img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_separating_hyperplane_0011.png" alt="sphx_glr_plot_separating_hyperplane_0011"></p>
-<h3 id="SVC"><a href="#SVC" class="headerlink" title="SVC"></a>SVC</h3><p>给定可能属于某两种类别的训练向量 $x_i \in \mathbb{R}, \ i=1,2,…,n$ 和向量 $y \in \left{ 1,-1 \right}^{n}$ ，SVC解决的首要问题是</p>
+<h3 id="SVC"><a href="#SVC" class="headerlink" title="SVC"></a>SVC</h3><p>给定可能属于某两种类别的训练向量 $x_i \in \mathbb{R}, \ i=1,2,…,n$ 和向量 $y \in \left\{ 1,-1 \right\}^{n}$ ，SVC解决的首要问题是</p>
 <script type="math/tex; mode=display">
 \min_{\omega ,b,\zeta} \frac{1}{2}\omega^{T}\omega + C \sum_{i=1}^{n}\zeta_i \\
 subject \ to \ y_i (\omega^{T}\phi(x_i)+b) \geqslant 1-\zeta_i, \\
@@ -433,6 +433,23 @@ subject\ to\ e^{T} (\alpha - \alpha^*) =0\\
     
         
 
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Gavin
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://marara.xin/2017/10/05/Support vector machine (SVM) for scikit-learn/" title="Scikit-learn的支持向量机（SVM）">https://marara.xin/2017/10/05/Support vector machine (SVM) for scikit-learn/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+        
+
   <div class="followme">
     <p>Welcome to my other publishing channels</p>
 
@@ -447,15 +464,26 @@ subject\ to\ e^{T} (\alpha - \alpha^*) =0\\
                 <span class="label">Twitter</span>
               </a>
             </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
     </div>
   </div>
 
 
       <footer class="post-footer">
+          
           <div class="post-tags">
-              <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
-              <a href="/tags/Python/" rel="tag"># Python</a>
-              <a href="/tags/SVM/" rel="tag"># SVM</a>
+              <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/SVM/" rel="tag"><i class="fa fa-tag"></i> SVM</a>
           </div>
 
         
@@ -484,6 +512,7 @@ subject\ to\ e^{T} (\alpha - \alpha^*) =0\\
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -546,7 +575,7 @@ subject\ to\ e^{T} (\alpha - \alpha^*) =0\\
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -725,11 +754,31 @@ if (document.querySelectorAll('div.pdf').length) {
     MathJax.texReset();
     MathJax.typeset();
   }
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
     
 
   
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '85ce279610ff27b07d1c',
+      clientSecret: '9c42386ae5260c368961a8b4481eb48d72e5448e',
+      repo        : 'Wanguy.github.io',
+      owner       : 'Wanguy',
+      admin       : ['Wanguy'],
+      id          : 'cfe103e74c8a623b1f3adb29d6832ece',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

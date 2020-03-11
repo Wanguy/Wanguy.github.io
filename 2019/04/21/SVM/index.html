@@ -158,7 +158,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">24</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -324,7 +324,7 @@ f(x)=w^{T} x+b</script><p>$𝑤$: 权重 </p>
 <ul>
 <li><p>SVM划分的超平面：</p>
 <script type="math/tex; mode=display">
-w^{T} x+b=0</script><p>$\boldsymbol{w}=\left(w<em>{1}, w</em>{2}, \dots, w_{d}\right)$为法向量，决定超平面方向</p>
+w^{T} x+b=0</script><p>$\boldsymbol{w}=\left(w_{1}, w_{2}, \dots, w_{d}\right)$为法向量，决定超平面方向</p>
 </li>
 <li><p>假设超平面将样本正确划分</p>
 </li>
@@ -361,7 +361,7 @@ f\left((1-\alpha) x_{0}+\alpha x_{1}\right) \leq(1-\alpha) f\left(x_{0}\right)+\
 <li>仿射函数（affine function）：$w^{T} x+b$</li>
 <li>二次函数（quadratic function）：$x^{T} A x+b x+c$（$A$ 为半正定矩阵）</li>
 <li>最小平方差函数（least square）：$| | y-A x| |_{2}^{2}$（$A ^T A$ 总是半正定矩阵）</li>
-<li>max 函数：$\max \left(x<em>{1}, x</em>{2}, \ldots, x_{n}\right)$</li>
+<li>max 函数：$\max \left(x_{1}, x_{2}, \ldots, x_{n}\right)$</li>
 </ul>
 <p>有约束条件的凸优化问题：</p>
 <script type="math/tex; mode=display">
@@ -410,8 +410,8 @@ L(x, u, \lambda)=f(x)+\sum_{i=1}^{n} \mu_{i} g_{i}(x)+\sum_{i=1}^{m} \lambda_{j}
 \\ {\mu_{i} g_{i}(x)=0}\end{array}\right.</script><p>构造拉格朗日乘子：</p>
 <script type="math/tex; mode=display">
 \begin{array}{c}{\min _{x} f(x)} \\ {\text { s.t. } g_{i}(x) \leq 0, i=1,2, \ldots, n} \\ {h_{j}(x)=0, j=1,2, \ldots, m}\end{array}</script><script type="math/tex; mode=display">
-L(x, u, \lambda)=f(x)+\sum_{i=1}^{n} \mu_{i} g_{i}(x)+\sum_{i=1}^{m} \lambda_{j} h_{j}(x)\left(\mu_{i} \geq 0\right)</script><p>主问题（primal problem）：$p^{*}=\min <em>{x} \max </em>{\mu, \lambda} L(x, \mu, \lambda)$</p>
-<p>其对偶问题（dual problem）：$d^{*}=\max <em>{\mu, \lambda} \min </em>{x} L(x, \mu, \lambda)$</p>
+L(x, u, \lambda)=f(x)+\sum_{i=1}^{n} \mu_{i} g_{i}(x)+\sum_{i=1}^{m} \lambda_{j} h_{j}(x)\left(\mu_{i} \geq 0\right)</script><p>主问题（primal problem）：$p^{*}=\min _{x} \max _{\mu, \lambda} L(x, \mu, \lambda)$</p>
+<p>其对偶问题（dual problem）：$d^{*}=\max _{\mu, \lambda} \min _{x} L(x, \mu, \lambda)$</p>
 <p>通常：$d^{<em>} \leq p^{</em>}$ 即对偶问题的最优解是原始主问题最优解的下限（弱对偶性）</p>
 <p>但若满足KKT 条件的方程组的解：</p>
 <script type="math/tex; mode=display">
@@ -436,7 +436,7 @@ L(\boldsymbol{w}, b, \boldsymbol{\lambda})=\frac{1}{2}| | \boldsymbol{w}| |^{2}+
 <script type="math/tex; mode=display">
 \begin{array}{c}{\lambda_{i} \geq 0} \\ {1-y_{i} f\left(x_{i}\right) \leq 0} \\ {\lambda_{i}\left(1-y_{i} f\left(x_{i}\right)\right)=0}\end{array}</script><script type="math/tex; mode=display">
 f(\boldsymbol{x})=\boldsymbol{w}^{T} \boldsymbol{x}+b=\sum_{i=1}^{m} \lambda_{i} y_{i} \boldsymbol{x}_{\boldsymbol{i}}^{T} \boldsymbol{x}+b</script><script type="math/tex; mode=display">
-\begin{array}{c}{\lambda_{i} \geq 0} \\ {1-y_{i} f\left(x_{i}\right) \leq 0} \\ {\lambda_{i}\left(1-y_{i} f\left(x_{i}\right)\right)=0}\end{array}</script><p>如果$ y<em>{i} f\left(x</em>{i}\right)&gt;1$, 那么$𝜆 _i = 0$, 对于$𝑓(𝑥)$ 没有贡献</p>
+\begin{array}{c}{\lambda_{i} \geq 0} \\ {1-y_{i} f\left(x_{i}\right) \leq 0} \\ {\lambda_{i}\left(1-y_{i} f\left(x_{i}\right)\right)=0}\end{array}</script><p>如果$ y_{i} f\left(x_{i}\right)&gt;1$, 那么$𝜆 _i = 0$, 对于$𝑓(𝑥)$ 没有贡献</p>
 <h2 id="核函数（Kernel）"><a href="#核函数（Kernel）" class="headerlink" title="核函数（Kernel）"></a>核函数（Kernel）</h2><p>假设有个映射函数从二维空间映射到三维空间：</p>
 <script type="math/tex; mode=display">
 \Phi : \left( \begin{array}{l}{x_{1}} \\ {x_{2}}\end{array}\right) \rightarrow \left( \begin{array}{c}{x_{1}^{2}} \\ {x_{2}^{2}} \\ {\sqrt{2} x_{1} x_{2}}\end{array}\right) \quad \mathbb{R}^{2} \rightarrow \mathbb{R}^{3}</script><p><img src="https://i.loli.net/2019/04/21/5cbc35afdc5c1.png" width="800"></p>
@@ -446,7 +446,7 @@ f(\boldsymbol{x})=\boldsymbol{w}^{T} \boldsymbol{x}+b=\sum_{i=1}^{m} \lambda_{i}
 <script type="math/tex; mode=display">
 \max _{\lambda} W(\lambda)=\sum_{i=1}^{m} \lambda_{i}-\frac{1}{2} \sum_{i=1}^{m} y_{i} y_{j} \lambda_{i} \lambda_{j} \phi\left(x_{i}\right)^{T} \phi\left(x_{j}\right)\\
 \begin{array}{c}{\text { s.t. } \sum_{i=1}^{m} \lambda_{i} y_{i}=0} \\ {\lambda_{i} \geq 0, i=1,2, \dots, m}\end{array}</script><p><img src="https://i.loli.net/2019/04/21/5cbc35afb67ad.png" width="800"></p>
-<p>单独计算映射函数$\phi(x)$以及$\phi\left(x<em>{i}\right)^{T} \phi\left(x</em>{j}\right)$十分困难，现设想构造核函数</p>
+<p>单独计算映射函数$\phi(x)$以及$\phi\left(x_{i}\right)^{T} \phi\left(x_{j}\right)$十分困难，现设想构造核函数</p>
 <p>比如：</p>
 <script type="math/tex; mode=display">
 \Phi : \left( \begin{array}{l}{x_{1}} \\ {x_{2}}\end{array}\right) \rightarrow \left( \begin{array}{c}{x_{1}^{2}} \\ {x_{2}^{2}} \\ {\sqrt{2} x_{1} x_{2}}\end{array}\right) \mathbb{R}^{2} \rightarrow \mathbb{R}^{3}</script><script type="math/tex; mode=display">
@@ -460,11 +460,11 @@ k\left(x_{i}, x_{j}\right)=\phi\left(x_{i}\right)^{T} \phi\left(x_{j}\right)</sc
 <li>训练器不用学习和计算映射函数的显性表达式</li>
 <li>寻找到核函数，然后在原始样本空间做内积，比如 $k(x, z)=\left(x^{T} z\right)^{2}$</li>
 </ul>
-<h3 id="核函数"><a href="#核函数" class="headerlink" title="核函数"></a>核函数</h3><p>线性核函数：$k\left(x<em>{i}, x</em>{j}\right)=x<em>{i}^{T} x</em>{j}$</p>
-<p>多项式核函数：$k\left(x<em>{i}, x</em>{j}\right)=\left(x<em>{i}^{T} x</em>{j}\right)^{d}\quad d&gt;0$</p>
-<p>高斯核函数：$k\left(x<em>{i}, x</em>{j}\right)=e^{\left(-\frac{\left|x<em>{i}-x</em>{i}\right|^{2}}{2 \sigma^{2}}\right)} \quad \sigma&gt;0$</p>
-<p>拉普拉斯核函数：$k\left(x<em>{i}, x</em>{j}\right)=e^{\left(-\frac{\left|x<em>{i}-x</em>{j}\right|}{2 \sigma^{2}}\right)} \quad \sigma&gt;0$</p>
-<p>Sigmoid 核函数：$k\left(x<em>{i}, x</em>{j}\right)=\tanh \left(\beta x<em>{i}^{T} x</em>{j}+\theta\right) \quad \beta&gt;0, \theta&lt;0$</p>
+<h3 id="核函数"><a href="#核函数" class="headerlink" title="核函数"></a>核函数</h3><p>线性核函数：$k\left(x_{i}, x_{j}\right)=x_{i}^{T} x_{j}$</p>
+<p>多项式核函数：$k\left(x_{i}, x_{j}\right)=\left(x_{i}^{T} x_{j}\right)^{d}\quad d&gt;0$</p>
+<p>高斯核函数：$k\left(x_{i}, x_{j}\right)=e^{\left(-\frac{\left|x_{i}-x_{i}\right|^{2}}{2 \sigma^{2}}\right)} \quad \sigma&gt;0$</p>
+<p>拉普拉斯核函数：$k\left(x_{i}, x_{j}\right)=e^{\left(-\frac{\left|x_{i}-x_{j}\right|}{2 \sigma^{2}}\right)} \quad \sigma&gt;0$</p>
+<p>Sigmoid 核函数：$k\left(x_{i}, x_{j}\right)=\tanh \left(\beta x_{i}^{T} x_{j}+\theta\right) \quad \beta&gt;0, \theta&lt;0$</p>
 <h3 id="正则化与软间隔"><a href="#正则化与软间隔" class="headerlink" title="正则化与软间隔"></a>正则化与软间隔</h3><p>针对情况： 如果样本不是完全能够划分开</p>
 <p>解决方法： 允许支持向量机在一些样本出错，定义软间隔</p>
 <p>引入正则化强度参数$C$，损失函数重新定义为：</p>
@@ -498,7 +498,7 @@ L(\boldsymbol{w}, b, \boldsymbol{\xi}, \boldsymbol{\lambda}, \boldsymbol{r})=\fr
 <p>软间隔，对于落在margin以外的点计入损失：</p>
 <script type="math/tex; mode=display">
 \min _{w} \frac{1}{2}| | w| |^{2}+C \sum_{i=1}^{m}\left(\xi_{i}+\xi_{i}^{\prime}\right)\\
-\begin{array}{c}{\text {s.t.w}^{T} x_{i}+b-y_{i} \leq \epsilon+\xi_{i}} \\ {y_{i}-w^{T} x_{i}-b \leq \epsilon+\xi_{i}^{\prime}} \\ {\xi_{i} \geq 0, \xi_{i}^{\prime} \geq 0, i=1,2,3 \dots m}\end{array}</script><h3 id="SVR-对偶问题"><a href="#SVR-对偶问题" class="headerlink" title="SVR 对偶问题"></a>SVR 对偶问题</h3><p>构造拉格朗日函数, 引入拉格朗日乘子 $\lambda<em>{i} \geq 0, \lambda</em>{i}^{\prime} \geq 0, r<em>{i} \geq 0, r</em>{i}^{\prime} \geq 0$</p>
+\begin{array}{c}{\text {s.t.w}^{T} x_{i}+b-y_{i} \leq \epsilon+\xi_{i}} \\ {y_{i}-w^{T} x_{i}-b \leq \epsilon+\xi_{i}^{\prime}} \\ {\xi_{i} \geq 0, \xi_{i}^{\prime} \geq 0, i=1,2,3 \dots m}\end{array}</script><h3 id="SVR-对偶问题"><a href="#SVR-对偶问题" class="headerlink" title="SVR 对偶问题"></a>SVR 对偶问题</h3><p>构造拉格朗日函数, 引入拉格朗日乘子 $\lambda_{i} \geq 0, \lambda_{i}^{\prime} \geq 0, r_{i} \geq 0, r_{i}^{\prime} \geq 0$</p>
 <script type="math/tex; mode=display">
 L\left(\boldsymbol{w}, b, \boldsymbol{\lambda}, \boldsymbol{\lambda}^{\prime}, \boldsymbol{\xi}, \boldsymbol{\xi}^{\prime}, \boldsymbol{r}, \boldsymbol{r}^{\prime}\right)=\frac{1}{2}\|\boldsymbol{w}\|^{2}+C \sum_{i=1}^{m}\left(\xi_{i}+\xi_{i}^{\prime}\right)+\sum_{i=1}^{m} \lambda_{i}\left(f\left(x_{i}\right)-y_{i}-\epsilon-\xi_{i}\right)\\
 +\sum_{i=1}^{m} \lambda_{i}^{\prime}\left(y_{i}-f\left(x_{i}\right)-\epsilon-\xi_{i}^{\prime}\right)-\sum_{i=1}^{m} r_{i} \xi_{i}-\sum_{i=1}^{m} r_{i}^{\prime} \xi_{i}^{\prime}</script><p>对 $w, b, \xi, \xi$ 求偏导则有：</p>
@@ -513,9 +513,9 @@ w=\sum_{i=1}^{m}\left(\lambda_{i}^{\prime}-\lambda_{i}\right) x_{i} \quad 0=\sum
 \left(C-\lambda_{i}\right) \xi_{i}=0,\left(C-\lambda_{i}^{\prime}\right) \xi_{i}^{\prime}=0</script><p>当且仅当：</p>
 <script type="math/tex; mode=display">
 Where \quad f\left(x_{i}\right)-y_{i}-\epsilon-\xi_{i}=0 \mathrm, \quad \lambda_{i} \neq 0\\
-Where  \quad y_{i}-f\left(x_{i}\right)-\epsilon-\xi_{i}^{\prime}=0 \mathrm, \quad \lambda_{i}^{\prime} \neq 0</script><p>也就是当样本落在 $\epsilon$ −间隔带以外，为支持向量，相应的 $\lambda<em>{i}$，$\lambda</em>{i}^{\prime}$ 取非零值</p>
+Where  \quad y_{i}-f\left(x_{i}\right)-\epsilon-\xi_{i}^{\prime}=0 \mathrm, \quad \lambda_{i}^{\prime} \neq 0</script><p>也就是当样本落在 $\epsilon$ −间隔带以外，为支持向量，相应的 $\lambda_{i}$，$\lambda_{i}^{\prime}$ 取非零值</p>
 <script type="math/tex; mode=display">
-f(\boldsymbol{x})=\sum_{i=1}^{m}\left(\lambda_{i}^{\prime}-\lambda_{i}\right) \boldsymbol{x}_{\boldsymbol{i}}^{\boldsymbol{T}} \boldsymbol{x}+\boldsymbol{b}</script><p>对于 $0&lt;\lambda<em>{i}&lt;C, \xi</em>{i}=0$ ，取 $b=y<em>{i}+\epsilon-\sum</em>{i=1}^{m}\left(\lambda<em>{i}^{\prime}-\lambda</em>{i}\right) x_{i}^{T} x$ 的平均值</p>
+f(\boldsymbol{x})=\sum_{i=1}^{m}\left(\lambda_{i}^{\prime}-\lambda_{i}\right) \boldsymbol{x}_{\boldsymbol{i}}^{\boldsymbol{T}} \boldsymbol{x}+\boldsymbol{b}</script><p>对于 $0&lt;\lambda_{i}&lt;C, \xi_{i}=0$ ，取 $b=y_{i}+\epsilon-\sum_{i=1}^{m}\left(\lambda_{i}^{\prime}-\lambda_{i}\right) x_{i}^{T} x$ 的平均值</p>
 <h2 id="支持向量机算法总结"><a href="#支持向量机算法总结" class="headerlink" title="支持向量机算法总结"></a>支持向量机算法总结</h2><ul>
 <li>优点：<ul>
 <li>解决高维特征的分类问题和回归问题很有效，在特征维度大于样本数时依然有很好的效果  </li>
@@ -689,6 +689,23 @@ k(x_1,x_2) = e^{-\frac{|x_1-x_2|^2}{2\sigma^2}} = e^{-\gamma (x_1-x_2)^2}</scrip
     
         
 
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Gavin
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://marara.xin/2019/04/21/SVM/" title="支持向量机（SVM）">https://marara.xin/2019/04/21/SVM/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+        
+
   <div class="followme">
     <p>Welcome to my other publishing channels</p>
 
@@ -703,14 +720,25 @@ k(x_1,x_2) = e^{-\frac{|x_1-x_2|^2}{2\sigma^2}} = e^{-\gamma (x_1-x_2)^2}</scrip
                 <span class="label">Twitter</span>
               </a>
             </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
     </div>
   </div>
 
 
       <footer class="post-footer">
+          
           <div class="post-tags">
-              <a href="/tags/Statistics/" rel="tag"># Statistics</a>
-              <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
+              <a href="/tags/Statistics/" rel="tag"><i class="fa fa-tag"></i> Statistics</a>
+              <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
           </div>
 
         
@@ -736,6 +764,7 @@ k(x_1,x_2) = e^{-\frac{|x_1-x_2|^2}{2\sigma^2}} = e^{-\gamma (x_1-x_2)^2}</scrip
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -798,7 +827,7 @@ k(x_1,x_2) = e^{-\frac{|x_1-x_2|^2}{2\sigma^2}} = e^{-\gamma (x_1-x_2)^2}</scrip
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -977,11 +1006,31 @@ if (document.querySelectorAll('div.pdf').length) {
     MathJax.texReset();
     MathJax.typeset();
   }
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
     
 
   
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '85ce279610ff27b07d1c',
+      clientSecret: '9c42386ae5260c368961a8b4481eb48d72e5448e',
+      repo        : 'Wanguy.github.io',
+      owner       : 'Wanguy',
+      admin       : ['Wanguy'],
+      id          : '3ad84067a94898d8443fe77e92d86dba',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://marara.xin/2019/02/11/Linear_Regression_Lecture/</loc>
+    <lastmod>2020-03-11</lastmod>
+  </url>  <url>
     <loc>https://marara.xin/2019/04/21/SVM/</loc>
     <lastmod>2019-04-22</lastmod>
   </url>  <url>
@@ -13,16 +16,10 @@
     <loc>https://marara.xin/2019/02/13/Logistic_regression/</loc>
     <lastmod>2019-02-17</lastmod>
   </url>  <url>
-    <loc>https://marara.xin/2019/02/11/Linear_Regression_Lecture/</loc>
-    <lastmod>2019-02-11</lastmod>
-  </url>  <url>
     <loc>https://marara.xin/2018/06/18/%E4%BB%8E%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E5%88%B0%E7%BD%AE%E4%BF%A1%E5%8C%BA%E9%97%B4/</loc>
     <lastmod>2019-02-11</lastmod>
   </url>  <url>
     <loc>https://marara.xin/2017/10/05/Support%20vector%20machine%20(SVM)%20for%20scikit-learn/</loc>
-    <lastmod>2018-06-19</lastmod>
-  </url>  <url>
-    <loc>https://marara.xin/2017/10/12/The%20Derivation%20formula%20of%20matrix%20and%20vector/</loc>
     <lastmod>2018-06-19</lastmod>
   </url>  <url>
     <loc>https://marara.xin/2017/12/10/Swift-UILabel-%E5%B1%9E%E6%80%A7/</loc>

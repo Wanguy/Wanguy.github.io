@@ -50,7 +50,7 @@ f(x)=w^{T} x+b</script><p>$𝑤$: 权重 </p>
 <ul>
 <li><p>SVM划分的超平面：</p>
 <script type="math/tex; mode=display">
-w^{T} x+b=0</script><p>$\boldsymbol{w}=\left(w<em>{1}, w</em>{2}, \dots, w_{d}\right)$为法向量，决定超平面方向</p>
+w^{T} x+b=0</script><p>$\boldsymbol{w}=\left(w_{1}, w_{2}, \dots, w_{d}\right)$为法向量，决定超平面方向</p>
 </li>
 <li><p>假设超平面将样本正确划分</p>
 </li>
@@ -87,7 +87,7 @@ f\left((1-\alpha) x_{0}+\alpha x_{1}\right) \leq(1-\alpha) f\left(x_{0}\right)+\
 <li>仿射函数（affine function）：$w^{T} x+b$</li>
 <li>二次函数（quadratic function）：$x^{T} A x+b x+c$（$A$ 为半正定矩阵）</li>
 <li>最小平方差函数（least square）：$| | y-A x| |_{2}^{2}$（$A ^T A$ 总是半正定矩阵）</li>
-<li>max 函数：$\max \left(x<em>{1}, x</em>{2}, \ldots, x_{n}\right)$</li>
+<li>max 函数：$\max \left(x_{1}, x_{2}, \ldots, x_{n}\right)$</li>
 </ul>
 <p>有约束条件的凸优化问题：</p>
 <script type="math/tex; mode=display">
@@ -136,8 +136,8 @@ L(x, u, \lambda)=f(x)+\sum_{i=1}^{n} \mu_{i} g_{i}(x)+\sum_{i=1}^{m} \lambda_{j}
 \\ {\mu_{i} g_{i}(x)=0}\end{array}\right.</script><p>构造拉格朗日乘子：</p>
 <script type="math/tex; mode=display">
 \begin{array}{c}{\min _{x} f(x)} \\ {\text { s.t. } g_{i}(x) \leq 0, i=1,2, \ldots, n} \\ {h_{j}(x)=0, j=1,2, \ldots, m}\end{array}</script><script type="math/tex; mode=display">
-L(x, u, \lambda)=f(x)+\sum_{i=1}^{n} \mu_{i} g_{i}(x)+\sum_{i=1}^{m} \lambda_{j} h_{j}(x)\left(\mu_{i} \geq 0\right)</script><p>主问题（primal problem）：$p^{*}=\min <em>{x} \max </em>{\mu, \lambda} L(x, \mu, \lambda)$</p>
-<p>其对偶问题（dual problem）：$d^{*}=\max <em>{\mu, \lambda} \min </em>{x} L(x, \mu, \lambda)$</p>
+L(x, u, \lambda)=f(x)+\sum_{i=1}^{n} \mu_{i} g_{i}(x)+\sum_{i=1}^{m} \lambda_{j} h_{j}(x)\left(\mu_{i} \geq 0\right)</script><p>主问题（primal problem）：$p^{*}=\min _{x} \max _{\mu, \lambda} L(x, \mu, \lambda)$</p>
+<p>其对偶问题（dual problem）：$d^{*}=\max _{\mu, \lambda} \min _{x} L(x, \mu, \lambda)$</p>
 <p>通常：$d^{<em>} \leq p^{</em>}$ 即对偶问题的最优解是原始主问题最优解的下限（弱对偶性）</p>
 <p>但若满足KKT 条件的方程组的解：</p>
 <script type="math/tex; mode=display">
@@ -162,7 +162,7 @@ L(\boldsymbol{w}, b, \boldsymbol{\lambda})=\frac{1}{2}| | \boldsymbol{w}| |^{2}+
 <script type="math/tex; mode=display">
 \begin{array}{c}{\lambda_{i} \geq 0} \\ {1-y_{i} f\left(x_{i}\right) \leq 0} \\ {\lambda_{i}\left(1-y_{i} f\left(x_{i}\right)\right)=0}\end{array}</script><script type="math/tex; mode=display">
 f(\boldsymbol{x})=\boldsymbol{w}^{T} \boldsymbol{x}+b=\sum_{i=1}^{m} \lambda_{i} y_{i} \boldsymbol{x}_{\boldsymbol{i}}^{T} \boldsymbol{x}+b</script><script type="math/tex; mode=display">
-\begin{array}{c}{\lambda_{i} \geq 0} \\ {1-y_{i} f\left(x_{i}\right) \leq 0} \\ {\lambda_{i}\left(1-y_{i} f\left(x_{i}\right)\right)=0}\end{array}</script><p>如果$ y<em>{i} f\left(x</em>{i}\right)&gt;1$, 那么$𝜆 _i = 0$, 对于$𝑓(𝑥)$ 没有贡献</p>
+\begin{array}{c}{\lambda_{i} \geq 0} \\ {1-y_{i} f\left(x_{i}\right) \leq 0} \\ {\lambda_{i}\left(1-y_{i} f\left(x_{i}\right)\right)=0}\end{array}</script><p>如果$ y_{i} f\left(x_{i}\right)&gt;1$, 那么$𝜆 _i = 0$, 对于$𝑓(𝑥)$ 没有贡献</p>
 <h2 id="核函数（Kernel）"><a href="#核函数（Kernel）" class="headerlink" title="核函数（Kernel）"></a>核函数（Kernel）</h2><p>假设有个映射函数从二维空间映射到三维空间：</p>
 <script type="math/tex; mode=display">
 \Phi : \left( \begin{array}{l}{x_{1}} \\ {x_{2}}\end{array}\right) \rightarrow \left( \begin{array}{c}{x_{1}^{2}} \\ {x_{2}^{2}} \\ {\sqrt{2} x_{1} x_{2}}\end{array}\right) \quad \mathbb{R}^{2} \rightarrow \mathbb{R}^{3}</script><p><img src="https://i.loli.net/2019/04/21/5cbc35afdc5c1.png" width="800"></p>
@@ -172,7 +172,7 @@ f(\boldsymbol{x})=\boldsymbol{w}^{T} \boldsymbol{x}+b=\sum_{i=1}^{m} \lambda_{i}
 <script type="math/tex; mode=display">
 \max _{\lambda} W(\lambda)=\sum_{i=1}^{m} \lambda_{i}-\frac{1}{2} \sum_{i=1}^{m} y_{i} y_{j} \lambda_{i} \lambda_{j} \phi\left(x_{i}\right)^{T} \phi\left(x_{j}\right)\\
 \begin{array}{c}{\text { s.t. } \sum_{i=1}^{m} \lambda_{i} y_{i}=0} \\ {\lambda_{i} \geq 0, i=1,2, \dots, m}\end{array}</script><p><img src="https://i.loli.net/2019/04/21/5cbc35afb67ad.png" width="800"></p>
-<p>单独计算映射函数$\phi(x)$以及$\phi\left(x<em>{i}\right)^{T} \phi\left(x</em>{j}\right)$十分困难，现设想构造核函数</p>
+<p>单独计算映射函数$\phi(x)$以及$\phi\left(x_{i}\right)^{T} \phi\left(x_{j}\right)$十分困难，现设想构造核函数</p>
 <p>比如：</p>
 <script type="math/tex; mode=display">
 \Phi : \left( \begin{array}{l}{x_{1}} \\ {x_{2}}\end{array}\right) \rightarrow \left( \begin{array}{c}{x_{1}^{2}} \\ {x_{2}^{2}} \\ {\sqrt{2} x_{1} x_{2}}\end{array}\right) \mathbb{R}^{2} \rightarrow \mathbb{R}^{3}</script><script type="math/tex; mode=display">
@@ -186,11 +186,11 @@ k\left(x_{i}, x_{j}\right)=\phi\left(x_{i}\right)^{T} \phi\left(x_{j}\right)</sc
 <li>训练器不用学习和计算映射函数的显性表达式</li>
 <li>寻找到核函数，然后在原始样本空间做内积，比如 $k(x, z)=\left(x^{T} z\right)^{2}$</li>
 </ul>
-<h3 id="核函数"><a href="#核函数" class="headerlink" title="核函数"></a>核函数</h3><p>线性核函数：$k\left(x<em>{i}, x</em>{j}\right)=x<em>{i}^{T} x</em>{j}$</p>
-<p>多项式核函数：$k\left(x<em>{i}, x</em>{j}\right)=\left(x<em>{i}^{T} x</em>{j}\right)^{d}\quad d&gt;0$</p>
-<p>高斯核函数：$k\left(x<em>{i}, x</em>{j}\right)=e^{\left(-\frac{\left|x<em>{i}-x</em>{i}\right|^{2}}{2 \sigma^{2}}\right)} \quad \sigma&gt;0$</p>
-<p>拉普拉斯核函数：$k\left(x<em>{i}, x</em>{j}\right)=e^{\left(-\frac{\left|x<em>{i}-x</em>{j}\right|}{2 \sigma^{2}}\right)} \quad \sigma&gt;0$</p>
-<p>Sigmoid 核函数：$k\left(x<em>{i}, x</em>{j}\right)=\tanh \left(\beta x<em>{i}^{T} x</em>{j}+\theta\right) \quad \beta&gt;0, \theta&lt;0$</p>
+<h3 id="核函数"><a href="#核函数" class="headerlink" title="核函数"></a>核函数</h3><p>线性核函数：$k\left(x_{i}, x_{j}\right)=x_{i}^{T} x_{j}$</p>
+<p>多项式核函数：$k\left(x_{i}, x_{j}\right)=\left(x_{i}^{T} x_{j}\right)^{d}\quad d&gt;0$</p>
+<p>高斯核函数：$k\left(x_{i}, x_{j}\right)=e^{\left(-\frac{\left|x_{i}-x_{i}\right|^{2}}{2 \sigma^{2}}\right)} \quad \sigma&gt;0$</p>
+<p>拉普拉斯核函数：$k\left(x_{i}, x_{j}\right)=e^{\left(-\frac{\left|x_{i}-x_{j}\right|}{2 \sigma^{2}}\right)} \quad \sigma&gt;0$</p>
+<p>Sigmoid 核函数：$k\left(x_{i}, x_{j}\right)=\tanh \left(\beta x_{i}^{T} x_{j}+\theta\right) \quad \beta&gt;0, \theta&lt;0$</p>
 <h3 id="正则化与软间隔"><a href="#正则化与软间隔" class="headerlink" title="正则化与软间隔"></a>正则化与软间隔</h3><p>针对情况： 如果样本不是完全能够划分开</p>
 <p>解决方法： 允许支持向量机在一些样本出错，定义软间隔</p>
 <p>引入正则化强度参数$C$，损失函数重新定义为：</p>
@@ -224,7 +224,7 @@ L(\boldsymbol{w}, b, \boldsymbol{\xi}, \boldsymbol{\lambda}, \boldsymbol{r})=\fr
 <p>软间隔，对于落在margin以外的点计入损失：</p>
 <script type="math/tex; mode=display">
 \min _{w} \frac{1}{2}| | w| |^{2}+C \sum_{i=1}^{m}\left(\xi_{i}+\xi_{i}^{\prime}\right)\\
-\begin{array}{c}{\text {s.t.w}^{T} x_{i}+b-y_{i} \leq \epsilon+\xi_{i}} \\ {y_{i}-w^{T} x_{i}-b \leq \epsilon+\xi_{i}^{\prime}} \\ {\xi_{i} \geq 0, \xi_{i}^{\prime} \geq 0, i=1,2,3 \dots m}\end{array}</script><h3 id="SVR-对偶问题"><a href="#SVR-对偶问题" class="headerlink" title="SVR 对偶问题"></a>SVR 对偶问题</h3><p>构造拉格朗日函数, 引入拉格朗日乘子 $\lambda<em>{i} \geq 0, \lambda</em>{i}^{\prime} \geq 0, r<em>{i} \geq 0, r</em>{i}^{\prime} \geq 0$</p>
+\begin{array}{c}{\text {s.t.w}^{T} x_{i}+b-y_{i} \leq \epsilon+\xi_{i}} \\ {y_{i}-w^{T} x_{i}-b \leq \epsilon+\xi_{i}^{\prime}} \\ {\xi_{i} \geq 0, \xi_{i}^{\prime} \geq 0, i=1,2,3 \dots m}\end{array}</script><h3 id="SVR-对偶问题"><a href="#SVR-对偶问题" class="headerlink" title="SVR 对偶问题"></a>SVR 对偶问题</h3><p>构造拉格朗日函数, 引入拉格朗日乘子 $\lambda_{i} \geq 0, \lambda_{i}^{\prime} \geq 0, r_{i} \geq 0, r_{i}^{\prime} \geq 0$</p>
 <script type="math/tex; mode=display">
 L\left(\boldsymbol{w}, b, \boldsymbol{\lambda}, \boldsymbol{\lambda}^{\prime}, \boldsymbol{\xi}, \boldsymbol{\xi}^{\prime}, \boldsymbol{r}, \boldsymbol{r}^{\prime}\right)=\frac{1}{2}\|\boldsymbol{w}\|^{2}+C \sum_{i=1}^{m}\left(\xi_{i}+\xi_{i}^{\prime}\right)+\sum_{i=1}^{m} \lambda_{i}\left(f\left(x_{i}\right)-y_{i}-\epsilon-\xi_{i}\right)\\
 +\sum_{i=1}^{m} \lambda_{i}^{\prime}\left(y_{i}-f\left(x_{i}\right)-\epsilon-\xi_{i}^{\prime}\right)-\sum_{i=1}^{m} r_{i} \xi_{i}-\sum_{i=1}^{m} r_{i}^{\prime} \xi_{i}^{\prime}</script><p>对 $w, b, \xi, \xi$ 求偏导则有：</p>
@@ -239,9 +239,9 @@ w=\sum_{i=1}^{m}\left(\lambda_{i}^{\prime}-\lambda_{i}\right) x_{i} \quad 0=\sum
 \left(C-\lambda_{i}\right) \xi_{i}=0,\left(C-\lambda_{i}^{\prime}\right) \xi_{i}^{\prime}=0</script><p>当且仅当：</p>
 <script type="math/tex; mode=display">
 Where \quad f\left(x_{i}\right)-y_{i}-\epsilon-\xi_{i}=0 \mathrm, \quad \lambda_{i} \neq 0\\
-Where  \quad y_{i}-f\left(x_{i}\right)-\epsilon-\xi_{i}^{\prime}=0 \mathrm, \quad \lambda_{i}^{\prime} \neq 0</script><p>也就是当样本落在 $\epsilon$ −间隔带以外，为支持向量，相应的 $\lambda<em>{i}$，$\lambda</em>{i}^{\prime}$ 取非零值</p>
+Where  \quad y_{i}-f\left(x_{i}\right)-\epsilon-\xi_{i}^{\prime}=0 \mathrm, \quad \lambda_{i}^{\prime} \neq 0</script><p>也就是当样本落在 $\epsilon$ −间隔带以外，为支持向量，相应的 $\lambda_{i}$，$\lambda_{i}^{\prime}$ 取非零值</p>
 <script type="math/tex; mode=display">
-f(\boldsymbol{x})=\sum_{i=1}^{m}\left(\lambda_{i}^{\prime}-\lambda_{i}\right) \boldsymbol{x}_{\boldsymbol{i}}^{\boldsymbol{T}} \boldsymbol{x}+\boldsymbol{b}</script><p>对于 $0&lt;\lambda<em>{i}&lt;C, \xi</em>{i}=0$ ，取 $b=y<em>{i}+\epsilon-\sum</em>{i=1}^{m}\left(\lambda<em>{i}^{\prime}-\lambda</em>{i}\right) x_{i}^{T} x$ 的平均值</p>
+f(\boldsymbol{x})=\sum_{i=1}^{m}\left(\lambda_{i}^{\prime}-\lambda_{i}\right) \boldsymbol{x}_{\boldsymbol{i}}^{\boldsymbol{T}} \boldsymbol{x}+\boldsymbol{b}</script><p>对于 $0&lt;\lambda_{i}&lt;C, \xi_{i}=0$ ，取 $b=y_{i}+\epsilon-\sum_{i=1}^{m}\left(\lambda_{i}^{\prime}-\lambda_{i}\right) x_{i}^{T} x$ 的平均值</p>
 <h2 id="支持向量机算法总结"><a href="#支持向量机算法总结" class="headerlink" title="支持向量机算法总结"></a>支持向量机算法总结</h2><ul>
 <li>优点：<ul>
 <li>解决高维特征的分类问题和回归问题很有效，在特征维度大于样本数时依然有很好的效果  </li>
@@ -516,7 +516,7 @@ NDCG_5 = \frac{DCG_5}{IDCG_5}=\frac{38.5}{46.5}=0.827</script><p>NDCG是0到1的
 <li><p>从限制模型复杂度入手：正则化（regularization）</p>
 </li>
 <li>以线性回归为例：<script type="math/tex; mode=display">
-Loss = \sum_{i=1}^N (y_i - \beta_0 - \sum_{j=1}{p}x_{ij}\beta_j)^2 \\</script>如果 $\beta<em>j$ 被限制在一个较小的范围，那么所对应的 $x</em>{ij}$ 对模型复杂度对影响就会减弱</li>
+Loss = \sum_{i=1}^N (y_i - \beta_0 - \sum_{j=1}{p}x_{ij}\beta_j)^2 \\</script>如果 $\beta_j$ 被限制在一个较小的范围，那么所对应的 $x_{ij}$ 对模型复杂度对影响就会减弱</li>
 </ul>
 <ul>
 <li><p>L2 norm: $Ridge\ Method$</p>
@@ -680,15 +680,15 @@ E[Loss]&=\int \left[y(x)-h(x)+h(x)-t(x)\right]^2p(x,t(x))dtdx\\
 </li>
 <li><p>$h(x)​$ 是全样本在x=x的期望，不会随抽样不同而改变</p>
 </li>
-<li><p>取样本集 $ {D1,D2,D3,D4}$ 的 $y(x;D_i)$ 的期望</p>
+<li><p>取样本集 $ \{D1,D2,D3,D4\}$ 的 $y(x;D_i)$ 的期望</p>
 <script type="math/tex; mode=display">
 \mathbb{E}_D[y(x;D)] = expectation \ of \ y(x) \ over \ different \ sample \ sets \{D1,D2,D3,D4\}</script></li>
-<li><p>将 $E_D[y(x;D]​$ 引入 ${y(x;D)-h(x)}^2​$</p>
+<li><p>将 $E_D[y(x;D]​$ 引入 $\{y(x;D)-h(x)\}^2​$</p>
 </li>
 </ul>
 <p><img src="https://i.loli.net/2019/02/18/5c6a5765b61ea.png" width="500"></p>
 <ul>
-<li><p>对不同的数据集 $ {D1,D2,D3,D4 …}$ 求期望<br><img src="https://i.loli.net/2019/02/18/5c6a5765b5c21.png" width="500"></p>
+<li><p>对不同的数据集 $ \{D1,D2,D3,D4 …\}$ 求期望<br><img src="https://i.loli.net/2019/02/18/5c6a5765b5c21.png" width="500"></p>
 </li>
 <li><p>代回$E[L]$<br><img src="https://i.loli.net/2019/02/18/5c6a576610347.png" width="500"></p>
 </li>
@@ -790,7 +790,7 @@ J(\theta) = \sum_{i=1}^{n}\left[-(1-y^{i})ln(1-h_\theta(x^{i}))-y^{i}ln(h_\theta
 <li>$i=1$ 表示预定，$i=0$ 表示未预定</li>
 <li>$\theta$ 是参数，作为向量的表示方法，因为参数很可能不止一个</li>
 </ul>
-<p>根据这个 <strong><em>Cost Function</em></strong>，寻找能让其最小的 $\theta \in \left { \theta_1 , \theta_2  \right }$，通过使其一阶导数为0，二阶导数为正，从而获取 $min \theta$：</p>
+<p>根据这个 <strong><em>Cost Function</em></strong>，寻找能让其最小的 $\theta \in \left \{ \theta_1 , \theta_2  \right \}$，通过使其一阶导数为0，二阶导数为正，从而获取 $min \theta$：</p>
 <script type="math/tex; mode=display">
 \begin{align}
 \frac{\partial J(\theta)}{\partial \theta_j} 
@@ -821,7 +821,7 @@ J(\theta) = \sum_{i=1}^{n}\left[-(1-y^{i})ln(1-h_\theta(x^{i}))-y^{i}ln(h_\theta
 &=h_\theta (x^{i})\left[1-h_\theta \left(x^{i}\right)\right]
 \end{align}</script><p>对于所有的 $\theta_j$，都需要有：</p>
 <script type="math/tex; mode=display">
-\frac{\partial J(\theta)}{\partial \theta_j}=-\sum_{i=1}^{n}\left[-h_\theta \left(x^{i}\right)+y^{i}\right]x_{j}^{i}\qquad \qquad j=1,2,...</script><p>理论上，可以通过该方程求解各个 $\theta<em>j$，但由于 $h</em>\theta (x^i)$ 的存在，不易求出解析解，需要通过其他方法，计算出 $\theta_j$ 的近似解。</p>
+\frac{\partial J(\theta)}{\partial \theta_j}=-\sum_{i=1}^{n}\left[-h_\theta \left(x^{i}\right)+y^{i}\right]x_{j}^{i}\qquad \qquad j=1,2,...</script><p>理论上，可以通过该方程求解各个 $\theta_j$，但由于 $h_\theta (x^i)$ 的存在，不易求出解析解，需要通过其他方法，计算出 $\theta_j$ 的近似解。</p>
 <h3 id="3-1-使用sklearn自带函数求解逻辑回归参数"><a href="#3-1-使用sklearn自带函数求解逻辑回归参数" class="headerlink" title="3.1. 使用sklearn自带函数求解逻辑回归参数"></a>3.1. 使用<code>sklearn</code>自带函数求解逻辑回归参数</h3><p><code>In[1]</code></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br><span class="line"></span><br><span class="line">%matplotlib inline</span><br><span class="line">data = pd.read_csv(<span class="string">'Score_Pass.csv'</span>)</span><br><span class="line">X, y = np.array(data[<span class="string">'Score'</span>]), np.array(data[<span class="string">'Pass/N'</span>])</span><br><span class="line">x = X / np.max(X)</span><br><span class="line">lr = LogisticRegression(solver=<span class="string">'lbfgs'</span>)  <span class="comment">#solver 可选默认，可选'newton-cg'，有区别</span></span><br><span class="line">lr.fit(x.reshape(<span class="number">-1</span>, <span class="number">1</span>), y)</span><br><span class="line">print(<span class="string">'slope = %f, interception= %f '</span> % (lr.coef_, lr.intercept_))</span><br><span class="line">pre_y = lr.predict_proba(x.reshape(<span class="number">-1</span>, <span class="number">1</span>))</span><br><span class="line">pre_y_1 = [i[<span class="number">1</span>] <span class="keyword">for</span> i <span class="keyword">in</span> pre_y]</span><br><span class="line">plt.scatter(x, y)</span><br><span class="line">plt.scatter(x, pre_y_1)</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">slope = 11.702751, interception= -8.900218</span><br></pre></td></tr></table></figure>
@@ -864,7 +864,7 @@ x_{n+2} &= x_{n+1} - \frac{f(x_{n+1})}{f’(x_{n+1})} \\
 \begin{align}
 x_{n+1} &= x_{n} - \frac{J'(x_{n})}{J''(x_{n})} \\
 x_{n+2} &= x_{n+1} - \frac{J'(x_{n+1})}{J''(x_{n+1})}
-\end{align}</script><p>在多元的情况下，$J’’(x<em>{n})=H</em>{\ell(\hat{\theta})}$ 海塞矩阵：</p>
+\end{align}</script><p>在多元的情况下，$J’’(x_{n})=H_{\ell(\hat{\theta})}$ 海塞矩阵：</p>
 <script type="math/tex; mode=display">
 H_{\ell(\hat{\theta})} = \begin{bmatrix}
 \begin{split}
@@ -1100,8 +1100,6 @@ right intercept = 598.762664, slope = 0.001878
 & = \frac{Cov(x,y)}{\sqrt{Var(x) }\sqrt{Var(y)}}\frac{\sqrt{Var(y)}} {\sqrt{Var(x)} }\\
 & ={Corr(x,y)}\frac{\sqrt{Var(y)}}{\sqrt{Var(x)}}
 \end{align}</script></li>
-</ul>
-<ul>
 <li><p>在假设检验的框架下，衡量回归参数符号的<strong>不确定性</strong></p>
 </li>
 <li><p>$\hat{\beta}$随样本变化而变化，是总体回归参数$\beta$的估计量，具有均值和方差</p>
@@ -1834,19 +1832,6 @@ P(\vert 一次抽样的均值 - 客观存在的均值 \vert < 常数)=1-\alpha</
       </tags>
   </entry>
   <entry>
-    <title>矩阵，向量求导法则</title>
-    <url>/2017/10/12/The%20Derivation%20formula%20of%20matrix%20and%20vector/</url>
-    <content><![CDATA[<div class="pdf" target="http://files.cnblogs.com/files/leoleo/matrix_rules.pdf" height=""></div>
-]]></content>
-      <categories>
-        <category>Note</category>
-      </categories>
-      <tags>
-        <tag>Statistics</tag>
-        <tag>Machine Learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C#中的abstract和virtual</title>
     <url>/2017/10/12/The%20abstract%20and%20virtual%20in%20CSharp/</url>
     <content><![CDATA[<h2 id="abstract-new和override"><a href="#abstract-new和override" class="headerlink" title="abstract, new和override"></a><code>abstract</code>, <code>new</code>和<code>override</code></h2><ul>
@@ -1990,7 +1975,7 @@ P(\vert 一次抽样的均值 - 客观存在的均值 \vert < 常数)=1-\alpha</
 </blockquote>
 <h2 id="数学原理"><a href="#数学原理" class="headerlink" title="数学原理"></a>数学原理</h2><p>支持向量机的原理是在高维甚至无限维空间中构建一个超平面或者若干超平面组成的集合，并藉此用于分类、回归或其它任务。从直觉上来讲，好的分隔面是由使得函数间隔最大的超平面得到（即该超平面到任何类别最近训练数据点的距离都取得最大值），因为总体上来讲，间隔越大，分类器的泛化误差越小。</p>
 <p><img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_separating_hyperplane_0011.png" alt="sphx_glr_plot_separating_hyperplane_0011"></p>
-<h3 id="SVC"><a href="#SVC" class="headerlink" title="SVC"></a>SVC</h3><p>给定可能属于某两种类别的训练向量 $x_i \in \mathbb{R}, \ i=1,2,…,n$ 和向量 $y \in \left{ 1,-1 \right}^{n}$ ，SVC解决的首要问题是</p>
+<h3 id="SVC"><a href="#SVC" class="headerlink" title="SVC"></a>SVC</h3><p>给定可能属于某两种类别的训练向量 $x_i \in \mathbb{R}, \ i=1,2,…,n$ 和向量 $y \in \left\{ 1,-1 \right\}^{n}$ ，SVC解决的首要问题是</p>
 <script type="math/tex; mode=display">
 \min_{\omega ,b,\zeta} \frac{1}{2}\omega^{T}\omega + C \sum_{i=1}^{n}\zeta_i \\
 subject \ to \ y_i (\omega^{T}\phi(x_i)+b) \geqslant 1-\zeta_i, \\

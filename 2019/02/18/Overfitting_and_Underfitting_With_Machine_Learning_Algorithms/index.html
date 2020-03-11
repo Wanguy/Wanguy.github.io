@@ -154,7 +154,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">24</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -319,7 +319,7 @@
 <li><p>从限制模型复杂度入手：正则化（regularization）</p>
 </li>
 <li>以线性回归为例：<script type="math/tex; mode=display">
-Loss = \sum_{i=1}^N (y_i - \beta_0 - \sum_{j=1}{p}x_{ij}\beta_j)^2 \\</script>如果 $\beta<em>j$ 被限制在一个较小的范围，那么所对应的 $x</em>{ij}$ 对模型复杂度对影响就会减弱</li>
+Loss = \sum_{i=1}^N (y_i - \beta_0 - \sum_{j=1}{p}x_{ij}\beta_j)^2 \\</script>如果 $\beta_j$ 被限制在一个较小的范围，那么所对应的 $x_{ij}$ 对模型复杂度对影响就会减弱</li>
 </ul>
 <ul>
 <li><p>L2 norm: $Ridge\ Method$</p>
@@ -483,15 +483,15 @@ E[Loss]&=\int \left[y(x)-h(x)+h(x)-t(x)\right]^2p(x,t(x))dtdx\\
 </li>
 <li><p>$h(x)​$ 是全样本在x=x的期望，不会随抽样不同而改变</p>
 </li>
-<li><p>取样本集 $ {D1,D2,D3,D4}$ 的 $y(x;D_i)$ 的期望</p>
+<li><p>取样本集 $ \{D1,D2,D3,D4\}$ 的 $y(x;D_i)$ 的期望</p>
 <script type="math/tex; mode=display">
 \mathbb{E}_D[y(x;D)] = expectation \ of \ y(x) \ over \ different \ sample \ sets \{D1,D2,D3,D4\}</script></li>
-<li><p>将 $E_D[y(x;D]​$ 引入 ${y(x;D)-h(x)}^2​$</p>
+<li><p>将 $E_D[y(x;D]​$ 引入 $\{y(x;D)-h(x)\}^2​$</p>
 </li>
 </ul>
 <p><img src="https://i.loli.net/2019/02/18/5c6a5765b61ea.png" width="500"></p>
 <ul>
-<li><p>对不同的数据集 $ {D1,D2,D3,D4 …}$ 求期望<br><img src="https://i.loli.net/2019/02/18/5c6a5765b5c21.png" width="500"></p>
+<li><p>对不同的数据集 $ \{D1,D2,D3,D4 …\}$ 求期望<br><img src="https://i.loli.net/2019/02/18/5c6a5765b5c21.png" width="500"></p>
 </li>
 <li><p>代回$E[L]$<br><img src="https://i.loli.net/2019/02/18/5c6a576610347.png" width="500"></p>
 </li>
@@ -524,6 +524,23 @@ E(loss) = \int \{E_D[y(x;D)]-h(x)\}^2p(x)dx + \int E_D[\{y(x;D)-E_D[y(x;D)\}^2]p
     
         
 
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Gavin
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://marara.xin/2019/02/18/Overfitting_and_Underfitting_With_Machine_Learning_Algorithms/" title="拟合的力道">https://marara.xin/2019/02/18/Overfitting_and_Underfitting_With_Machine_Learning_Algorithms/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+        
+
   <div class="followme">
     <p>Welcome to my other publishing channels</p>
 
@@ -538,14 +555,25 @@ E(loss) = \int \{E_D[y(x;D)]-h(x)\}^2p(x)dx + \int E_D[\{y(x;D)-E_D[y(x;D)\}^2]p
                 <span class="label">Twitter</span>
               </a>
             </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
     </div>
   </div>
 
 
       <footer class="post-footer">
+          
           <div class="post-tags">
-              <a href="/tags/Statistics/" rel="tag"># Statistics</a>
-              <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
+              <a href="/tags/Statistics/" rel="tag"><i class="fa fa-tag"></i> Statistics</a>
+              <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
           </div>
 
         
@@ -574,6 +602,7 @@ E(loss) = \int \{E_D[y(x;D)]-h(x)\}^2p(x)dx + \int E_D[\{y(x;D)-E_D[y(x;D)\}^2]p
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -636,7 +665,7 @@ E(loss) = \int \{E_D[y(x;D)]-h(x)\}^2p(x)dx + \int E_D[\{y(x;D)-E_D[y(x;D)\}^2]p
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -815,11 +844,31 @@ if (document.querySelectorAll('div.pdf').length) {
     MathJax.texReset();
     MathJax.typeset();
   }
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
     
 
   
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '85ce279610ff27b07d1c',
+      clientSecret: '9c42386ae5260c368961a8b4481eb48d72e5448e',
+      repo        : 'Wanguy.github.io',
+      owner       : 'Wanguy',
+      admin       : ['Wanguy'],
+      id          : 'fd06f066babe73ebac2981dba15db080',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>
