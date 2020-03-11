@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/180.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/16.png">
@@ -21,20 +21,20 @@
     var CONFIG = {"hostname":"marara.xin","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="可选类型和解包Swift中，在数组的方括号内必须写上类型，或者在Array后面的尖括号&amp;lt;&amp;gt;内写上类型。 对于字典而言，你一共需要提供两个类型，一个用于键，而另一个用于值。 Swift要求所有的变量和常量都必须有值。你可以在声明它们的时候给它们指定一个值，也可以通过init方法给它们分配值。">
-<meta name="keywords" content="Swift">
+  <meta name="description" content="可选类型和解包Swift中，在数组的方括号内必须写上类型，或者在Array后面的尖括号&lt;&gt;内写上类型。 对于字典而言，你一共需要提供两个类型，一个用于键，而另一个用于值。 Swift要求所有的变量和常量都必须有值。你可以在声明它们的时候给它们指定一个值，也可以通过init方法给它们分配值。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="初步了解 Swift 中的可选类型和方法函数">
-<meta property="og:url" content="https://marara.xin/2017/10/25/Optional types and method functions in Swift/index.html">
+<meta property="og:url" content="https://marara.xin/2017/10/25/Optional%20types%20and%20method%20functions%20in%20Swift/index.html">
 <meta property="og:site_name" content="Gavin&#39;s Blog">
-<meta property="og:description" content="可选类型和解包Swift中，在数组的方括号内必须写上类型，或者在Array后面的尖括号&amp;lt;&amp;gt;内写上类型。 对于字典而言，你一共需要提供两个类型，一个用于键，而另一个用于值。 Swift要求所有的变量和常量都必须有值。你可以在声明它们的时候给它们指定一个值，也可以通过init方法给它们分配值。">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-10-25T10:17:38.164Z">
+<meta property="og:description" content="可选类型和解包Swift中，在数组的方括号内必须写上类型，或者在Array后面的尖括号&lt;&gt;内写上类型。 对于字典而言，你一共需要提供两个类型，一个用于键，而另一个用于值。 Swift要求所有的变量和常量都必须有值。你可以在声明它们的时候给它们指定一个值，也可以通过init方法给它们分配值。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-10-25T09:19:23.070Z">
+<meta property="article:modified_time" content="2017-10-25T10:17:38.164Z">
+<meta property="article:author" content="Gavin">
+<meta property="article:tag" content="Swift">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初步了解 Swift 中的可选类型和方法函数">
-<meta name="twitter:description" content="可选类型和解包Swift中，在数组的方括号内必须写上类型，或者在Array后面的尖括号&amp;lt;&amp;gt;内写上类型。 对于字典而言，你一共需要提供两个类型，一个用于键，而另一个用于值。 Swift要求所有的变量和常量都必须有值。你可以在声明它们的时候给它们指定一个值，也可以通过init方法给它们分配值。">
 
-<link rel="canonical" href="https://marara.xin/2017/10/25/Optional types and method functions in Swift/">
+<link rel="canonical" href="https://marara.xin/2017/10/25/Optional%20types%20and%20method%20functions%20in%20Swift/">
 
 
 <script id="page-configurations">
@@ -75,8 +75,9 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
+<link rel="alternate" href="/atom.xml" title="Gavin's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -200,7 +201,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://marara.xin/2017/10/25/Optional types and method functions in Swift/">
+    <link itemprop="mainEntityOfPage" href="https://marara.xin/2017/10/25/Optional%20types%20and%20method%20functions%20in%20Swift/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/IMG_5946.png">
@@ -252,7 +253,7 @@
 <p>Swift要求所有的变量和常量都必须有值。你可以在声明它们的时候给它们指定一个值，也可以通过<code>init</code>方法给它们分配值。</p>
 <a id="more"></a>
 <p>有时，你需要一个变量可以没有值，这种情况，你需要将变量声明为可选型：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> checklistToEdit: <span class="type">Checklist</span>?</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> checklistToEdit: <span class="type">Checklist?</span></span><br></pre></td></tr></table></figure>
 <p>可是你不能直接使用这种类型的变量，你必须在使用它们之前，侦测一下其中是否有值，这个行为就叫做可选型解包：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> checklist = checklistToEdit &#123;</span><br><span class="line">  	<span class="comment">// “checklist” now contains the real object</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  	<span class="comment">// the optional was nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>下面例子中的变量<code>age</code>就是一个可选型，因为没有任何保证说字典中存在一个名为”Jony Ive”的键，所以<code>age</code>的类型是<code>Int?</code>，而不是<code>Int</code>：</p>
@@ -267,7 +268,7 @@
 <p>位于问号后面的任何东西，都会在<code>navigationController</code>为<code>nil</code>时把它忽视掉。这个使用问号强制解包的语句等价于下面的语句：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> navigationController != <span class="literal">nil</span> &#123;</span><br><span class="line">  	navigationController!.delegate = <span class="keyword">self</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在声明可选型的时候，也可以用感叹号来代替问号，这样就是一个隐式解包可选型了：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dataModel: <span class="type">DataModel</span>!</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dataModel: <span class="type">DataModel!</span></span><br></pre></td></tr></table></figure>
 <p>这样的变量会带来潜在的危险，因为你可以如同使用常规变量那样直接使用它，并不需要先解包。一旦如果它的值为空，那么app就挂了。而当使用的常规变量为空时，编译器则会提示你该怎么做。</p>
 <p>可选型平时被包裹起来，以避免app崩溃，但是使用了感叹号以后，就解除了可选型的安全级别。</p>
 <p>然而，有时使用<strong>隐式解包可选型</strong>比使用<strong>可选型</strong>要方便一些。当你无法给一个变量初始值，也无法用<code>init</code>方法对其初始化的时候，你就会需要到这种隐式解包可选型。</p>
@@ -279,7 +280,7 @@
 <h3 id="方法的调用"><a href="#方法的调用" class="headerlink" title="方法的调用"></a>方法的调用</h3><p>方法就是属于某一特定对象的函数，Swift中也存在独立的函数，比如<code>print()</code>或者<code>arc4random_uniform()</code>。</p>
 <p>函数和方法的工作原理一样，一个可重复使用的功能块，但是函数不属于任何对象。像这种函数也被称为自由函数或者全局函数。</p>
 <p>下面是一些关于方法的例子：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这个方法没有返回值及参数的方法</span></span><br><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个方法有一个slider参数，但是一样没有返回值</span></span><br><span class="line"><span class="comment">// 关键字@IBAction意味着这个方法可以被连接到界面建造器的控件上</span></span><br><span class="line"><span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">sliderMoved</span><span class="params">(<span class="number">_</span> slider: UISlider)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个方法没有参数，但是有一个Int型的返回值</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">countUncheckedItems</span><span class="params">()</span></span> -&gt; <span class="type">Int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个方法有两个参数，cell和item，但是没有返回值</span></span><br><span class="line"><span class="comment">// 注意一下，第一个参数有一个外部名称for，而第二个参数有一个外部名称with</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">configureCheckmarkFor</span><span class="params">(<span class="keyword">for</span> cell: UITableViewCell,</span></span></span><br><span class="line"><span class="function"><span class="params">                           with item: ChecklistItem)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个方法有两个参数, tableView和section. 并且有一个Int型的返回值。</span></span><br><span class="line"><span class="comment">// 第一个参数前的下划线代表这个参数没有外部名称。</span></span><br><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView,</span></span></span><br><span class="line"><span class="function"><span class="params">                        numberOfRowsInSection section: Int)</span></span> -&gt; <span class="type">Int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个方法有两个参数, tableView和indexPath.</span></span><br><span class="line"><span class="comment">// 问号代表它返回一个为可选型的IndexPath对象。</span></span><br><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView,</span></span></span><br><span class="line"><span class="function"><span class="params">                    willSelectRowAt indexPath: IndexPath)</span></span> -&gt; <span class="type">IndexPath</span>?</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这个方法没有返回值及参数的方法</span></span><br><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个方法有一个slider参数，但是一样没有返回值</span></span><br><span class="line"><span class="comment">// 关键字@IBAction意味着这个方法可以被连接到界面建造器的控件上</span></span><br><span class="line"><span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">sliderMoved</span><span class="params">(<span class="number">_</span> slider: UISlider)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个方法没有参数，但是有一个Int型的返回值</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">countUncheckedItems</span><span class="params">()</span></span> -&gt; <span class="type">Int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个方法有两个参数，cell和item，但是没有返回值</span></span><br><span class="line"><span class="comment">// 注意一下，第一个参数有一个外部名称for，而第二个参数有一个外部名称with</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">configureCheckmarkFor</span><span class="params">(<span class="keyword">for</span> cell: UITableViewCell,</span></span></span><br><span class="line"><span class="function"><span class="params">                           with item: ChecklistItem)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个方法有两个参数, tableView和section. 并且有一个Int型的返回值。</span></span><br><span class="line"><span class="comment">// 第一个参数前的下划线代表这个参数没有外部名称。</span></span><br><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView,</span></span></span><br><span class="line"><span class="function"><span class="params">                        numberOfRowsInSection section: Int)</span></span> -&gt; <span class="type">Int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个方法有两个参数, tableView和indexPath.</span></span><br><span class="line"><span class="comment">// 问号代表它返回一个为可选型的IndexPath对象。</span></span><br><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView,</span></span></span><br><span class="line"><span class="function"><span class="params">                    willSelectRowAt indexPath: IndexPath)</span></span> -&gt; <span class="type">IndexPath?</span></span><br></pre></td></tr></table></figure>
 <p>在一个对象上调用一个方法，语法是<code>object.method(parameters)</code>。例如：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Calling a method on the lists object:</span></span><br><span class="line">lists.append(checklist)</span><br><span class="line"><span class="comment">// Calling a method with more than one parameter:</span></span><br><span class="line">tableView.insertRows(at: indexPaths, with: .fade)</span><br></pre></td></tr></table></figure>
 <p>你可以把调用方法想象为从一个对象向另一个对象传递消息：“嗨 lists，我从checklist对象中向你发送了append的消息。”</p>
@@ -421,7 +422,7 @@
 <p>还存在一个<code>contiue</code>语句，和<code>break</code>的作用正好相反。它的作用是立即跳到下一个迭代中，当你使用<code>contiue</code>时，你的意思就是“目前这个item已经结束了，我们去看看下一个吧！”</p>
 <h4 id="其他语句"><a href="#其他语句" class="headerlink" title="其他语句"></a>其他语句</h4><p>在函数编程中，循环经常会被<code>map</code>，<code>filter</code>或者<code>reduce</code>替代。它们是一些操作集合的函数，对集合中每一个元素执行一段代码，并且返回一个新的集合作为结果。</p>
 <p>例如，在数组上使用<code>filter</code>，会保留符合某些条件的元素。比如要得到未激活对勾符号的ChecklistItem对象，你可以这样写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var uncheckedItems = items.filter &#123; item in !item.checked&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var uncheckedItems &#x3D; items.filter &#123; item in !item.checked&#125;</span><br></pre></td></tr></table></figure>
 <p>这样写比循环看起来要简单多了。函数编程是一个非常大的话题，所以在这里我们不会展开太多。</p>
 <h2 id="对象（Objects）"><a href="#对象（Objects）" class="headerlink" title="对象（Objects）"></a>对象（Objects）</h2><p>将功能和数据结合在一起的可重用单元，都是对象。</p>
 <p>数据是由对象中的实例变量和实例常量组成。我们经常以对象的属性形式引用它们。功能由对象的方法提供。</p>
@@ -488,7 +489,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://marara.xin/2017/10/25/Optional types and method functions in Swift/" title="初步了解 Swift 中的可选类型和方法函数">https://marara.xin/2017/10/25/Optional types and method functions in Swift/</a>
+    <a href="https://marara.xin/2017/10/25/Optional%20types%20and%20method%20functions%20in%20Swift/" title="初步了解 Swift 中的可选类型和方法函数">https://marara.xin/2017/10/25/Optional types and method functions in Swift/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -538,11 +539,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2017/10/12/The abstract and virtual in CSharp/" rel="prev" title="C#中的abstract和virtual">
+    <a href="/2017/10/12/The%20abstract%20and%20virtual%20in%20CSharp/" rel="prev" title="C#中的abstract和virtual">
       <i class="fa fa-chevron-left"></i> C#中的abstract和virtual
     </a></div>
       <div class="post-nav-item">
-    <a href="/2017/10/31/Proxy setting of CMD:Terminal/" rel="next" title="命令行、终端和 Git 的代理设置">
+    <a href="/2017/10/31/Proxy%20setting%20of%20CMD:Terminal/" rel="next" title="命令行、终端和 Git 的代理设置">
       命令行、终端和 Git 的代理设置 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -702,9 +703,17 @@
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/muse.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 
@@ -722,7 +731,9 @@
 
 
 
-  <script src="/js/local-search.js"></script>
+  
+<script src="/js/local-search.js"></script>
+
 
 
 
@@ -771,7 +782,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'Wanguy.github.io',
       owner       : 'Wanguy',
       admin       : ['Wanguy'],
-      id          : 'b0b04d2da5d2dbed986571206eeaacb7',
+      id          : '868ae13689981fb938fe19c3e8183659',
         language: '',
       distractionFreeMode: true
     });

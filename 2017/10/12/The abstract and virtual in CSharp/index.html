@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/180.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/16.png">
@@ -22,19 +22,19 @@
   </script>
 
   <meta name="description" content="abstract, new和override 抽象（abstract）方法必须在抽象类中定义，且没有方法的实现。 基类中的抽象（abstract）方法必须在派生类中重写（override）。 抽象类无法创建基实例，只能继承后创建。 派生类中如果重新定义和基类同名的方法，使用new关键字。 派生类中如果要重写基类中同名已经实现的方法，则基类中的方法用virtual关键字，派生类中的同名方法用over">
-<meta name="keywords" content="C#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C#中的abstract和virtual">
-<meta property="og:url" content="https://marara.xin/2017/10/12/The abstract and virtual in CSharp/index.html">
+<meta property="og:url" content="https://marara.xin/2017/10/12/The%20abstract%20and%20virtual%20in%20CSharp/index.html">
 <meta property="og:site_name" content="Gavin&#39;s Blog">
 <meta property="og:description" content="abstract, new和override 抽象（abstract）方法必须在抽象类中定义，且没有方法的实现。 基类中的抽象（abstract）方法必须在派生类中重写（override）。 抽象类无法创建基实例，只能继承后创建。 派生类中如果重新定义和基类同名的方法，使用new关键字。 派生类中如果要重写基类中同名已经实现的方法，则基类中的方法用virtual关键字，派生类中的同名方法用over">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-10-12T15:01:48.390Z">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-10-12T08:07:11.021Z">
+<meta property="article:modified_time" content="2017-10-12T15:01:48.391Z">
+<meta property="article:author" content="Gavin">
+<meta property="article:tag" content="C#">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C#中的abstract和virtual">
-<meta name="twitter:description" content="abstract, new和override 抽象（abstract）方法必须在抽象类中定义，且没有方法的实现。 基类中的抽象（abstract）方法必须在派生类中重写（override）。 抽象类无法创建基实例，只能继承后创建。 派生类中如果重新定义和基类同名的方法，使用new关键字。 派生类中如果要重写基类中同名已经实现的方法，则基类中的方法用virtual关键字，派生类中的同名方法用over">
 
-<link rel="canonical" href="https://marara.xin/2017/10/12/The abstract and virtual in CSharp/">
+<link rel="canonical" href="https://marara.xin/2017/10/12/The%20abstract%20and%20virtual%20in%20CSharp/">
 
 
 <script id="page-configurations">
@@ -75,8 +75,9 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
+<link rel="alternate" href="/atom.xml" title="Gavin's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -200,7 +201,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://marara.xin/2017/10/12/The abstract and virtual in CSharp/">
+    <link itemprop="mainEntityOfPage" href="https://marara.xin/2017/10/12/The%20abstract%20and%20virtual%20in%20CSharp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/IMG_5946.png">
@@ -273,7 +274,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://marara.xin/2017/10/12/The abstract and virtual in CSharp/" title="C#中的abstract和virtual">https://marara.xin/2017/10/12/The abstract and virtual in CSharp/</a>
+    <a href="https://marara.xin/2017/10/12/The%20abstract%20and%20virtual%20in%20CSharp/" title="C#中的abstract和virtual">https://marara.xin/2017/10/12/The abstract and virtual in CSharp/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -323,11 +324,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2017/10/05/Support vector machine (SVM) for scikit-learn/" rel="prev" title="Scikit-learn的支持向量机（SVM）">
+    <a href="/2017/10/05/Support%20vector%20machine%20(SVM)%20for%20scikit-learn/" rel="prev" title="Scikit-learn的支持向量机（SVM）">
       <i class="fa fa-chevron-left"></i> Scikit-learn的支持向量机（SVM）
     </a></div>
       <div class="post-nav-item">
-    <a href="/2017/10/25/Optional types and method functions in Swift/" rel="next" title="初步了解 Swift 中的可选类型和方法函数">
+    <a href="/2017/10/25/Optional%20types%20and%20method%20functions%20in%20Swift/" rel="next" title="初步了解 Swift 中的可选类型和方法函数">
       初步了解 Swift 中的可选类型和方法函数 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -487,9 +488,17 @@
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/muse.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 
@@ -507,7 +516,9 @@
 
 
 
-  <script src="/js/local-search.js"></script>
+  
+<script src="/js/local-search.js"></script>
+
 
 
 
@@ -556,7 +567,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'Wanguy.github.io',
       owner       : 'Wanguy',
       admin       : ['Wanguy'],
-      id          : '6c615ba84b4e520662339270190031a5',
+      id          : 'e53a5b7827f8272b1996b80e0298798a',
         language: '',
       distractionFreeMode: true
     });

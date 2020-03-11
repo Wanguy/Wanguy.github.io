@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/180.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/16.png">
@@ -21,20 +21,21 @@
     var CONFIG = {"hostname":"marara.xin","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="数据查询是数据库操作的核心操作。SQL提供了SELECT语句进行数据查询，其一般格式为： SELECT [ALL | DISTINCT] &amp;lt;目标列表达式&amp;gt; FROM &amp;lt;表名或视图名&amp;gt; (&amp;lt;SELECT 语句&amp;gt;) [AS] &amp;lt;别名&amp;gt; [WHERE&amp;lt;条件表达式&amp;gt;]">
-<meta name="keywords" content="MySQL,DataBase">
+  <meta name="description" content="数据查询是数据库操作的核心操作。SQL提供了SELECT语句进行数据查询，其一般格式为： SELECT [ALL | DISTINCT] &lt;目标列表达式&gt; FROM &lt;表名或视图名&gt; (&lt;SELECT 语句&gt;) [AS] &lt;别名&gt; [WHERE&lt;条件表达式&gt;]">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据表查询">
-<meta property="og:url" content="https://marara.xin/2017/09/19/Query database/index.html">
+<meta property="og:url" content="https://marara.xin/2017/09/19/Query%20database/index.html">
 <meta property="og:site_name" content="Gavin&#39;s Blog">
-<meta property="og:description" content="数据查询是数据库操作的核心操作。SQL提供了SELECT语句进行数据查询，其一般格式为： SELECT [ALL | DISTINCT] &amp;lt;目标列表达式&amp;gt; FROM &amp;lt;表名或视图名&amp;gt; (&amp;lt;SELECT 语句&amp;gt;) [AS] &amp;lt;别名&amp;gt; [WHERE&amp;lt;条件表达式&amp;gt;]">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-10-30T03:16:04.028Z">
+<meta property="og:description" content="数据查询是数据库操作的核心操作。SQL提供了SELECT语句进行数据查询，其一般格式为： SELECT [ALL | DISTINCT] &lt;目标列表达式&gt; FROM &lt;表名或视图名&gt; (&lt;SELECT 语句&gt;) [AS] &lt;别名&gt; [WHERE&lt;条件表达式&gt;]">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-09-19T05:53:24.000Z">
+<meta property="article:modified_time" content="2017-10-30T03:16:04.029Z">
+<meta property="article:author" content="Gavin">
+<meta property="article:tag" content="MySQL">
+<meta property="article:tag" content="DataBase">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据表查询">
-<meta name="twitter:description" content="数据查询是数据库操作的核心操作。SQL提供了SELECT语句进行数据查询，其一般格式为： SELECT [ALL | DISTINCT] &amp;lt;目标列表达式&amp;gt; FROM &amp;lt;表名或视图名&amp;gt; (&amp;lt;SELECT 语句&amp;gt;) [AS] &amp;lt;别名&amp;gt; [WHERE&amp;lt;条件表达式&amp;gt;]">
 
-<link rel="canonical" href="https://marara.xin/2017/09/19/Query database/">
+<link rel="canonical" href="https://marara.xin/2017/09/19/Query%20database/">
 
 
 <script id="page-configurations">
@@ -75,8 +76,9 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
+<link rel="alternate" href="/atom.xml" title="Gavin's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -200,7 +202,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://marara.xin/2017/09/19/Query database/">
+    <link itemprop="mainEntityOfPage" href="https://marara.xin/2017/09/19/Query%20database/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/IMG_5946.png">
@@ -429,7 +431,7 @@
 </blockquote>
 <h6 id="查询学号为’201215121’的学生的详细情况"><a href="#查询学号为’201215121’的学生的详细情况" class="headerlink" title="查询学号为’201215121’的学生的详细情况"></a>查询学号为’201215121’的学生的详细情况</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * </span><br><span class="line"><span class="keyword">from</span> Student </span><br><span class="line"><span class="keyword">where</span> SNO <span class="keyword">like</span> <span class="string">'201215121'</span>;</span><br></pre></td></tr></table></figure>
 <h6 id="查询所有姓’Liu’的学生姓名，学号和性别"><a href="#查询所有姓’Liu’的学生姓名，学号和性别" class="headerlink" title="查询所有姓’Liu’的学生姓名，学号和性别"></a>查询所有姓’Liu’的学生姓名，学号和性别</h6><figure class="highlight sql"><figcaption><span>lite</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> SNAME, SNO, SSEX </span><br><span class="line"><span class="keyword">from</span> Student</span><br><span class="line"><span class="keyword">where</span> SNAME <span class="keyword">like</span> <span class="string">'Liu%'</span>;</span><br></pre></td></tr></table></figure>
-<h6 id="查询DB-Design课程的课程号和学分"><a href="#查询DB-Design课程的课程号和学分" class="headerlink" title="查询DB_Design课程的课程号和学分"></a>查询DB_Design课程的课程号和学分</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> CNO, CCREDIT </span><br><span class="line"><span class="keyword">from</span> Course </span><br><span class="line"><span class="keyword">where</span> CNAME <span class="keyword">like</span> <span class="string">'DB\_Design'</span> escape <span class="string">'\';</span></span><br></pre></td></tr></table></figure>
+<h6 id="查询DB-Design课程的课程号和学分"><a href="#查询DB-Design课程的课程号和学分" class="headerlink" title="查询DB_Design课程的课程号和学分"></a>查询DB_Design课程的课程号和学分</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> CNO, CCREDIT </span><br><span class="line"><span class="keyword">from</span> Course </span><br><span class="line"><span class="keyword">where</span> CNAME <span class="keyword">like</span> <span class="string">'DB\_Design'</span> escape <span class="string">'\'</span>;</span><br></pre></td></tr></table></figure>
 <h5 id="涉及空值的查询"><a href="#涉及空值的查询" class="headerlink" title="涉及空值的查询"></a>涉及空值的查询</h5><h6 id="查询所有有成绩的学生的学号和成绩"><a href="#查询所有有成绩的学生的学号和成绩" class="headerlink" title="查询所有有成绩的学生的学号和成绩"></a>查询所有有成绩的学生的学号和成绩</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> SNO, GRADE </span><br><span class="line"><span class="keyword">from</span> SC </span><br><span class="line"><span class="keyword">where</span> GRADE <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
 <h5 id="多重条件查询"><a href="#多重条件查询" class="headerlink" title="多重条件查询"></a>多重条件查询</h5><h6 id="查新CS系年龄在20岁以下的学生姓名"><a href="#查新CS系年龄在20岁以下的学生姓名" class="headerlink" title="查新CS系年龄在20岁以下的学生姓名"></a>查新CS系年龄在20岁以下的学生姓名</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> SNAME </span><br><span class="line"><span class="keyword">from</span> SC</span><br><span class="line"><span class="keyword">where</span> SAGE&lt;<span class="number">20</span> <span class="keyword">and</span> SDEPT=<span class="string">'CS'</span>;</span><br></pre></td></tr></table></figure>
 <h3 id="ORDER-BY-子句"><a href="#ORDER-BY-子句" class="headerlink" title="ORDER BY 子句"></a>ORDER BY 子句</h3><p>可以用<code>ORDER BY</code>子句对查询结果进行升序（<code>ASC</code>）或降序（<code>DESC</code>）排列。默认为升序。</p>
@@ -505,7 +507,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://marara.xin/2017/09/19/Query database/" title="数据表查询">https://marara.xin/2017/09/19/Query database/</a>
+    <a href="https://marara.xin/2017/09/19/Query%20database/" title="数据表查询">https://marara.xin/2017/09/19/Query database/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -556,11 +558,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2017/09/18/The Usage of traffic-proxy in Shadowsocks at VPS/" rel="prev" title="VPS搭载ss实现科学上网">
+    <a href="/2017/09/18/The%20Usage%20of%20traffic-proxy%20in%20Shadowsocks%20at%20VPS/" rel="prev" title="VPS搭载ss实现科学上网">
       <i class="fa fa-chevron-left"></i> VPS搭载ss实现科学上网
     </a></div>
       <div class="post-nav-item">
-    <a href="/2017/10/05/Support vector machine (SVM) for scikit-learn/" rel="next" title="Scikit-learn的支持向量机（SVM）">
+    <a href="/2017/10/05/Support%20vector%20machine%20(SVM)%20for%20scikit-learn/" rel="next" title="Scikit-learn的支持向量机（SVM）">
       Scikit-learn的支持向量机（SVM） <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -720,9 +722,17 @@
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/muse.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 
@@ -740,7 +750,9 @@
 
 
 
-  <script src="/js/local-search.js"></script>
+  
+<script src="/js/local-search.js"></script>
+
 
 
 
@@ -789,7 +801,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'Wanguy.github.io',
       owner       : 'Wanguy',
       admin       : ['Wanguy'],
-      id          : 'd5dec034e33d8fe5e6f491e80843a46d',
+      id          : '2cfff32b5ae339dd4ed57b10f1d4f3d2',
         language: '',
       distractionFreeMode: true
     });

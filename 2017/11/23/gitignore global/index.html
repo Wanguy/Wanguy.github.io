@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/180.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/16.png">
@@ -21,20 +21,20 @@
     var CONFIG = {"hostname":"marara.xin","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="以.DS_Store文件为例： 创建 ~/.gitignore_global 文件，将需要忽略的文件类型写入文件1touch .gitignore_global 在.gitconfig 中引用打开~/.gitconfig，输入： 12[core] 	excludesfile = /Users/reon/.gitignore_global 或是通过： 1git config --global cor">
-<meta name="keywords" content="Git">
+  <meta name="description" content="以.DS_Store文件为例： 创建 ~&#x2F;.gitignore_global 文件，将需要忽略的文件类型写入文件1touch .gitignore_global 在.gitconfig 中引用打开~&#x2F;.gitconfig，输入： 12[core] 	excludesfile &#x3D; &#x2F;Users&#x2F;reon&#x2F;.gitignore_global 或是通过： 1git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="全局.gitignore">
-<meta property="og:url" content="https://marara.xin/2017/11/23/gitignore global/index.html">
+<meta property="og:url" content="https://marara.xin/2017/11/23/gitignore%20global/index.html">
 <meta property="og:site_name" content="Gavin&#39;s Blog">
-<meta property="og:description" content="以.DS_Store文件为例： 创建 ~/.gitignore_global 文件，将需要忽略的文件类型写入文件1touch .gitignore_global 在.gitconfig 中引用打开~/.gitconfig，输入： 12[core] 	excludesfile = /Users/reon/.gitignore_global 或是通过： 1git config --global cor">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-11-23T08:10:01.054Z">
+<meta property="og:description" content="以.DS_Store文件为例： 创建 ~&#x2F;.gitignore_global 文件，将需要忽略的文件类型写入文件1touch .gitignore_global 在.gitconfig 中引用打开~&#x2F;.gitconfig，输入： 12[core] 	excludesfile &#x3D; &#x2F;Users&#x2F;reon&#x2F;.gitignore_global 或是通过： 1git">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-11-23T08:10:01.054Z">
+<meta property="article:modified_time" content="2017-11-23T08:10:01.054Z">
+<meta property="article:author" content="Gavin">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="全局.gitignore">
-<meta name="twitter:description" content="以.DS_Store文件为例： 创建 ~/.gitignore_global 文件，将需要忽略的文件类型写入文件1touch .gitignore_global 在.gitconfig 中引用打开~/.gitconfig，输入： 12[core] 	excludesfile = /Users/reon/.gitignore_global 或是通过： 1git config --global cor">
 
-<link rel="canonical" href="https://marara.xin/2017/11/23/gitignore global/">
+<link rel="canonical" href="https://marara.xin/2017/11/23/gitignore%20global/">
 
 
 <script id="page-configurations">
@@ -75,8 +75,9 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</noscript>
 
+<link rel="alternate" href="/atom.xml" title="Gavin's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -200,7 +201,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="https://marara.xin/2017/11/23/gitignore global/">
+    <link itemprop="mainEntityOfPage" href="https://marara.xin/2017/11/23/gitignore%20global/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/IMG_5946.png">
@@ -249,7 +250,7 @@
         <p>以<code>.DS_Store</code>文件为例：</p>
 <h3 id="创建-gitignore-global-文件，将需要忽略的文件类型写入文件"><a href="#创建-gitignore-global-文件，将需要忽略的文件类型写入文件" class="headerlink" title="创建 ~/.gitignore_global 文件，将需要忽略的文件类型写入文件"></a>创建 <code>~/.gitignore_global</code> 文件，将需要忽略的文件类型写入文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch .gitignore_global</span><br></pre></td></tr></table></figure>
 <h3 id="在-gitconfig-中引用"><a href="#在-gitconfig-中引用" class="headerlink" title="在.gitconfig 中引用"></a>在<code>.gitconfig</code> 中引用</h3><p>打开<code>~/.gitconfig</code>，输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[core] </span><br><span class="line">	excludesfile = /Users/reon/.gitignore_global</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[core] </span><br><span class="line">	excludesfile &#x3D; &#x2F;Users&#x2F;reon&#x2F;.gitignore_global</span><br></pre></td></tr></table></figure>
 <p>或是通过：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.excludesfile/Users/reon/.gitignore_global</span><br></pre></td></tr></table></figure>
 <p>命令来实现。</p>
@@ -268,7 +269,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://marara.xin/2017/11/23/gitignore global/" title="全局.gitignore">https://marara.xin/2017/11/23/gitignore global/</a>
+    <a href="https://marara.xin/2017/11/23/gitignore%20global/" title="全局.gitignore">https://marara.xin/2017/11/23/gitignore global/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -318,11 +319,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2017/11/07/Delegates and events in Csharp/" rel="prev" title="C# 中的委托和事件">
+    <a href="/2017/11/07/Delegates%20and%20events%20in%20Csharp/" rel="prev" title="C# 中的委托和事件">
       <i class="fa fa-chevron-left"></i> C# 中的委托和事件
     </a></div>
       <div class="post-nav-item">
-    <a href="/2017/12/10/Swift-UILabel-属性/" rel="next" title="Swift UILabel 属性">
+    <a href="/2017/12/10/Swift-UILabel-%E5%B1%9E%E6%80%A7/" rel="next" title="Swift UILabel 属性">
       Swift UILabel 属性 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -385,7 +386,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-gitignore-global-文件，将需要忽略的文件类型写入文件"><span class="nav-text">创建 ~/.gitignore_global 文件，将需要忽略的文件类型写入文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在-gitconfig-中引用"><span class="nav-text">在.gitconfig 中引用</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-gitignore-global-文件，将需要忽略的文件类型写入文件"><span class="nav-text">创建 ~&#x2F;.gitignore_global 文件，将需要忽略的文件类型写入文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在-gitconfig-中引用"><span class="nav-text">在.gitconfig 中引用</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -482,9 +483,17 @@
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/muse.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 
@@ -502,7 +511,9 @@
 
 
 
-  <script src="/js/local-search.js"></script>
+  
+<script src="/js/local-search.js"></script>
+
 
 
 
@@ -551,7 +562,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'Wanguy.github.io',
       owner       : 'Wanguy',
       admin       : ['Wanguy'],
-      id          : 'fb0be2ca7dda717867bcbe96006e750f',
+      id          : '787390211bec806025763a5001d1afd7',
         language: '',
       distractionFreeMode: true
     });
