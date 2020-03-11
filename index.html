@@ -310,10 +310,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 04-20-2019 19:02:51 / Modified: 19:04:45" itemprop="dateCreated datePublished" datetime="2019-04-20T19:02:51+08:00">04-20-2019</time>
+              <time title="Created: 04-20-2019 19:02:51" itemprop="dateCreated datePublished" datetime="2019-04-20T19:02:51+08:00">04-20-2019</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 03-11-2020 14:31:46" itemprop="dateModified" datetime="2020-03-11T14:31:46+08:00">03-11-2020</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -336,7 +342,7 @@
 
       
           <p>NDCG则是考虑到评分的排序，说到NDCG就需要从CG开始说起。</p>
-<p>CG（cumulative gain，累计增益）可以用于评价基于打分/评分的个性推荐系统。假设我们推荐kk个物品，这个推荐列表的 $CG_k$ 计算公式如下：</p>
+<p>CG（cumulative gain，累计增益）可以用于评价基于打分/评分的个性推荐系统。假设我们推荐 $k$ 个物品，这个推荐列表的 $CG_k$ 计算公式如下：</p>
 <script type="math/tex; mode=display">
 C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}</script>
           <!--noindex-->
@@ -1262,7 +1268,7 @@ if (document.querySelectorAll('div.pdf').length) {
     };
     (function () {
       var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
       script.defer = true;
       document.head.appendChild(script);
     })();

@@ -21,18 +21,18 @@
     var CONFIG = {"hostname":"marara.xin","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="NDCG则是考虑到评分的排序，说到NDCG就需要从CG开始说起。 CG（cumulative gain，累计增益）可以用于评价基于打分/评分的个性推荐系统。假设我们推荐kk个物品，这个推荐列表的 $CG_k$ 计算公式如下：  C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}">
+  <meta name="description" content="NDCG则是考虑到评分的排序，说到NDCG就需要从CG开始说起。 CG（cumulative gain，累计增益）可以用于评价基于打分/评分的个性推荐系统。假设我们推荐 $k$ 个物品，这个推荐列表的 $CG_k$ 计算公式如下：  C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}">
 <meta name="keywords" content="Statistics,Machine Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="推荐系统中的NDCG">
 <meta property="og:url" content="https://marara.xin/2019/04/20/推荐系统中的NDCG/index.html">
 <meta property="og:site_name" content="Gavin&#39;s Blog">
-<meta property="og:description" content="NDCG则是考虑到评分的排序，说到NDCG就需要从CG开始说起。 CG（cumulative gain，累计增益）可以用于评价基于打分/评分的个性推荐系统。假设我们推荐kk个物品，这个推荐列表的 $CG_k$ 计算公式如下：  C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}">
+<meta property="og:description" content="NDCG则是考虑到评分的排序，说到NDCG就需要从CG开始说起。 CG（cumulative gain，累计增益）可以用于评价基于打分/评分的个性推荐系统。假设我们推荐 $k$ 个物品，这个推荐列表的 $CG_k$ 计算公式如下：  C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-20T11:04:45.818Z">
+<meta property="og:updated_time" content="2020-03-11T06:31:46.906Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="推荐系统中的NDCG">
-<meta name="twitter:description" content="NDCG则是考虑到评分的排序，说到NDCG就需要从CG开始说起。 CG（cumulative gain，累计增益）可以用于评价基于打分/评分的个性推荐系统。假设我们推荐kk个物品，这个推荐列表的 $CG_k$ 计算公式如下：  C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}">
+<meta name="twitter:description" content="NDCG则是考虑到评分的排序，说到NDCG就需要从CG开始说起。 CG（cumulative gain，累计增益）可以用于评价基于打分/评分的个性推荐系统。假设我们推荐 $k$ 个物品，这个推荐列表的 $CG_k$ 计算公式如下：  C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}">
 
 <link rel="canonical" href="https://marara.xin/2019/04/20/推荐系统中的NDCG/">
 
@@ -221,10 +221,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 04-20-2019 19:02:51 / Modified: 19:04:45" itemprop="dateCreated datePublished" datetime="2019-04-20T19:02:51+08:00">04-20-2019</time>
+              <time title="Created: 04-20-2019 19:02:51" itemprop="dateCreated datePublished" datetime="2019-04-20T19:02:51+08:00">04-20-2019</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 03-11-2020 14:31:46" itemprop="dateModified" datetime="2020-03-11T14:31:46+08:00">03-11-2020</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -247,7 +253,7 @@
 
       
         <p>NDCG则是考虑到评分的排序，说到NDCG就需要从CG开始说起。</p>
-<p>CG（cumulative gain，累计增益）可以用于评价基于打分/评分的个性推荐系统。假设我们推荐kk个物品，这个推荐列表的 $CG_k$ 计算公式如下：</p>
+<p>CG（cumulative gain，累计增益）可以用于评价基于打分/评分的个性推荐系统。假设我们推荐 $k$ 个物品，这个推荐列表的 $CG_k$ 计算公式如下：</p>
 <script type="math/tex; mode=display">
 C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}</script><a id="more"></a>
 <p>$rel_i$ 表示第 $k$ 个物品的相关性或者评分。假设我们共推荐 $k$ 个电影，$rel_i$ 可以是用户对第 $i$ 部电影的评分。</p>
@@ -603,7 +609,7 @@ if (document.querySelectorAll('div.pdf').length) {
     };
     (function () {
       var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
       script.defer = true;
       document.head.appendChild(script);
     })();
