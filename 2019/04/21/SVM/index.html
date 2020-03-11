@@ -1,100 +1,25 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="en">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html lang="en">
+<head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16.png">
+  <link rel="mask-icon" href="/images/s.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
-
-<link rel="stylesheet" href="/css/main.css?v=6.7.0">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/180.png?v=6.7.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/32.png?v=6.7.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/16.png?v=6.7.0">
-
-
-  <link rel="mask-icon" href="/images/s.svg?v=6.7.0" color="#222">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '6.7.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
-
-
-
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"marara.xin","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
   <meta name="description" content="简介 支持向量机与上世纪90年代正式由Vapnik和Cortes正式发表，在文本分类任务中显示 出卓越性能，很快成为机器学习主流技术，直接掀起了2000年前后统计学习的高潮。 支持向量机思想直观，但细节复杂，涵盖凸优化，核函数，拉格朗日算子等理论 支持向量机 （support vector machine）：  二分类模型，也可用于回归分析 学习策略： 最大间隔化  凸优化，对偶，KKT条件">
 <meta name="keywords" content="Statistics,Machine Learning">
@@ -134,48 +59,20 @@
 <meta name="twitter:description" content="简介 支持向量机与上世纪90年代正式由Vapnik和Cortes正式发表，在文本分类任务中显示 出卓越性能，很快成为机器学习主流技术，直接掀起了2000年前后统计学习的高潮。 支持向量机思想直观，但细节复杂，涵盖凸优化，核函数，拉格朗日算子等理论 支持向量机 （support vector machine）：  二分类模型，也可用于回归分析 学习策略： 最大间隔化  凸优化，对偶，KKT条件">
 <meta name="twitter:image" content="https://i.loli.net/2019/04/21/5cbc35afcaf15.png">
 
+<link rel="canonical" href="https://marara.xin/2019/04/21/SVM/">
 
 
-  <link rel="alternate" href="/atom.xml" title="Gavin's Blog" type="application/atom+xml">
-
-
-
-
-  <link rel="canonical" href="https://marara.xin/2019/04/21/SVM/">
-
-
-
-<script id="page.configurations">
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
+    isHome : false,
+    isPost : true
   };
 </script>
 
   <title>支持向量机（SVM） | Gavin's Blog</title>
   
-  <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId  : '',
-        xfbml  : true,
-        version: 'v2.10'
-      });
-    };
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) {return;}
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-  </script>
-
-
-
-
-
-
-
 
 
 
@@ -184,7 +81,6 @@
 
   <noscript>
   <style>
-  .use-motion .motion-element,
   .use-motion .brand,
   .use-motion .menu-item,
   .sidebar-inner,
@@ -193,9 +89,8 @@
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -209,352 +104,177 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
-
-  
-  
-    
-  
-
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-    
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
 
-    <div class="custom-logo-site-title">
+  <div class="site-meta">
+
+    <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Gavin's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-      
         <p class="site-subtitle">分享有趣</p>
-      
-    
-    
   </div>
 
-  <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
   </div>
 </div>
-
 
 
 <nav class="site-nav">
   
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
 
-    
-    
-    
-      
-    
-
-    
-      
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
+        <li class="menu-item menu-item-tags">
 
-    
-    
-    
-      
-    
-
-    
-      
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags<span class="badge">16</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">16</span></a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
+        <li class="menu-item menu-item-categories">
 
-    
-    
-    
-      
-    
-
-    
-      
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">2</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">2</span></a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
+        <li class="menu-item menu-item-archives">
 
-    
-    
-    
-      
-    
-
-    
-      
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">24</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">24</span></a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
+        <li class="menu-item menu-item-about">
 
-    
-    
-    
-      
-    
-
-    
-      
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
 
-      
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
-        </li>
-      
-    </ul>
-  
-
-  
-    
-
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
-    </div>
+</nav>
+  <div class="site-search">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
   </div>
-  <div id="local-search-result"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
 </div>
 
+  </div>
+</div>
 
-
-    </div>
-  
-</nav>
-
-
-
-  
-
-
-
+  </div>
 </div>
     </header>
 
     
-  
-  
-  
-  
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
-  
-
-  <a href="https://github.com/Wanguy" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+  <a href="https://github.com/Wanguy" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
-
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
           
-          <div id="content" class="content">
+
+          <div class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
+  <div class="posts-expand">
+      
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
     <link itemprop="mainEntityOfPage" href="https://marara.xin/2019/04/21/SVM/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/IMG_5946.png">
       <meta itemprop="name" content="Gavin">
       <meta itemprop="description" content="Make it, Fake it.">
-      <meta itemprop="image" content="/images/IMG_5946.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Gavin's Blog">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">支持向量机（SVM）
-
-              
-            
-          </h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          支持向量机（SVM）
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">Posted on</span>
 
               <time title="Created: 04-21-2019 16:39:10" itemprop="dateCreated datePublished" datetime="2019-04-21T16:39:10+08:00">04-21-2019</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
+            </span>
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
+                <span class="post-meta-item-text">Edited on</span>
                 <time title="Modified: 04-22-2019 09:41:28" itemprop="dateModified" datetime="2019-04-22T09:41:28+08:00">04-22-2019</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
+              </span>
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
                 </span>
-                <a href="/2019/04/21/SVM/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count fb-comments-count" data-href="https://marara.xin/2019/04/21/SVM/" itemprop="commentCount">0</span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
+            </span>
 
           
 
         </div>
       </header>
-    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-      
 
       
         <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
@@ -604,7 +324,7 @@ f(x)=w^{T} x+b</script><p>$𝑤$: 权重 </p>
 <ul>
 <li><p>SVM划分的超平面：</p>
 <script type="math/tex; mode=display">
-w^{T} x+b=0</script><p>$\boldsymbol{w}=\left(w_{1}, w_{2}, \dots, w_{d}\right)$为法向量，决定超平面方向</p>
+w^{T} x+b=0</script><p>$\boldsymbol{w}=\left(w<em>{1}, w</em>{2}, \dots, w_{d}\right)$为法向量，决定超平面方向</p>
 </li>
 <li><p>假设超平面将样本正确划分</p>
 </li>
@@ -641,7 +361,7 @@ f\left((1-\alpha) x_{0}+\alpha x_{1}\right) \leq(1-\alpha) f\left(x_{0}\right)+\
 <li>仿射函数（affine function）：$w^{T} x+b$</li>
 <li>二次函数（quadratic function）：$x^{T} A x+b x+c$（$A$ 为半正定矩阵）</li>
 <li>最小平方差函数（least square）：$| | y-A x| |_{2}^{2}$（$A ^T A$ 总是半正定矩阵）</li>
-<li>max 函数：$\max \left(x_{1}, x_{2}, \ldots, x_{n}\right)$</li>
+<li>max 函数：$\max \left(x<em>{1}, x</em>{2}, \ldots, x_{n}\right)$</li>
 </ul>
 <p>有约束条件的凸优化问题：</p>
 <script type="math/tex; mode=display">
@@ -690,8 +410,8 @@ L(x, u, \lambda)=f(x)+\sum_{i=1}^{n} \mu_{i} g_{i}(x)+\sum_{i=1}^{m} \lambda_{j}
 \\ {\mu_{i} g_{i}(x)=0}\end{array}\right.</script><p>构造拉格朗日乘子：</p>
 <script type="math/tex; mode=display">
 \begin{array}{c}{\min _{x} f(x)} \\ {\text { s.t. } g_{i}(x) \leq 0, i=1,2, \ldots, n} \\ {h_{j}(x)=0, j=1,2, \ldots, m}\end{array}</script><script type="math/tex; mode=display">
-L(x, u, \lambda)=f(x)+\sum_{i=1}^{n} \mu_{i} g_{i}(x)+\sum_{i=1}^{m} \lambda_{j} h_{j}(x)\left(\mu_{i} \geq 0\right)</script><p>主问题（primal problem）：$p^{*}=\min _{x} \max _{\mu, \lambda} L(x, \mu, \lambda)$</p>
-<p>其对偶问题（dual problem）：$d^{*}=\max _{\mu, \lambda} \min _{x} L(x, \mu, \lambda)$</p>
+L(x, u, \lambda)=f(x)+\sum_{i=1}^{n} \mu_{i} g_{i}(x)+\sum_{i=1}^{m} \lambda_{j} h_{j}(x)\left(\mu_{i} \geq 0\right)</script><p>主问题（primal problem）：$p^{*}=\min <em>{x} \max </em>{\mu, \lambda} L(x, \mu, \lambda)$</p>
+<p>其对偶问题（dual problem）：$d^{*}=\max <em>{\mu, \lambda} \min </em>{x} L(x, \mu, \lambda)$</p>
 <p>通常：$d^{<em>} \leq p^{</em>}$ 即对偶问题的最优解是原始主问题最优解的下限（弱对偶性）</p>
 <p>但若满足KKT 条件的方程组的解：</p>
 <script type="math/tex; mode=display">
@@ -716,7 +436,7 @@ L(\boldsymbol{w}, b, \boldsymbol{\lambda})=\frac{1}{2}| | \boldsymbol{w}| |^{2}+
 <script type="math/tex; mode=display">
 \begin{array}{c}{\lambda_{i} \geq 0} \\ {1-y_{i} f\left(x_{i}\right) \leq 0} \\ {\lambda_{i}\left(1-y_{i} f\left(x_{i}\right)\right)=0}\end{array}</script><script type="math/tex; mode=display">
 f(\boldsymbol{x})=\boldsymbol{w}^{T} \boldsymbol{x}+b=\sum_{i=1}^{m} \lambda_{i} y_{i} \boldsymbol{x}_{\boldsymbol{i}}^{T} \boldsymbol{x}+b</script><script type="math/tex; mode=display">
-\begin{array}{c}{\lambda_{i} \geq 0} \\ {1-y_{i} f\left(x_{i}\right) \leq 0} \\ {\lambda_{i}\left(1-y_{i} f\left(x_{i}\right)\right)=0}\end{array}</script><p>如果$ y_{i} f\left(x_{i}\right)&gt;1$, 那么$𝜆 _i = 0$, 对于$𝑓(𝑥)$ 没有贡献</p>
+\begin{array}{c}{\lambda_{i} \geq 0} \\ {1-y_{i} f\left(x_{i}\right) \leq 0} \\ {\lambda_{i}\left(1-y_{i} f\left(x_{i}\right)\right)=0}\end{array}</script><p>如果$ y<em>{i} f\left(x</em>{i}\right)&gt;1$, 那么$𝜆 _i = 0$, 对于$𝑓(𝑥)$ 没有贡献</p>
 <h2 id="核函数（Kernel）"><a href="#核函数（Kernel）" class="headerlink" title="核函数（Kernel）"></a>核函数（Kernel）</h2><p>假设有个映射函数从二维空间映射到三维空间：</p>
 <script type="math/tex; mode=display">
 \Phi : \left( \begin{array}{l}{x_{1}} \\ {x_{2}}\end{array}\right) \rightarrow \left( \begin{array}{c}{x_{1}^{2}} \\ {x_{2}^{2}} \\ {\sqrt{2} x_{1} x_{2}}\end{array}\right) \quad \mathbb{R}^{2} \rightarrow \mathbb{R}^{3}</script><p><img src="https://i.loli.net/2019/04/21/5cbc35afdc5c1.png" width="800"></p>
@@ -726,7 +446,7 @@ f(\boldsymbol{x})=\boldsymbol{w}^{T} \boldsymbol{x}+b=\sum_{i=1}^{m} \lambda_{i}
 <script type="math/tex; mode=display">
 \max _{\lambda} W(\lambda)=\sum_{i=1}^{m} \lambda_{i}-\frac{1}{2} \sum_{i=1}^{m} y_{i} y_{j} \lambda_{i} \lambda_{j} \phi\left(x_{i}\right)^{T} \phi\left(x_{j}\right)\\
 \begin{array}{c}{\text { s.t. } \sum_{i=1}^{m} \lambda_{i} y_{i}=0} \\ {\lambda_{i} \geq 0, i=1,2, \dots, m}\end{array}</script><p><img src="https://i.loli.net/2019/04/21/5cbc35afb67ad.png" width="800"></p>
-<p>单独计算映射函数$\phi(x)$以及$\phi\left(x_{i}\right)^{T} \phi\left(x_{j}\right)$十分困难，现设想构造核函数</p>
+<p>单独计算映射函数$\phi(x)$以及$\phi\left(x<em>{i}\right)^{T} \phi\left(x</em>{j}\right)$十分困难，现设想构造核函数</p>
 <p>比如：</p>
 <script type="math/tex; mode=display">
 \Phi : \left( \begin{array}{l}{x_{1}} \\ {x_{2}}\end{array}\right) \rightarrow \left( \begin{array}{c}{x_{1}^{2}} \\ {x_{2}^{2}} \\ {\sqrt{2} x_{1} x_{2}}\end{array}\right) \mathbb{R}^{2} \rightarrow \mathbb{R}^{3}</script><script type="math/tex; mode=display">
@@ -740,11 +460,11 @@ k\left(x_{i}, x_{j}\right)=\phi\left(x_{i}\right)^{T} \phi\left(x_{j}\right)</sc
 <li>训练器不用学习和计算映射函数的显性表达式</li>
 <li>寻找到核函数，然后在原始样本空间做内积，比如 $k(x, z)=\left(x^{T} z\right)^{2}$</li>
 </ul>
-<h3 id="核函数"><a href="#核函数" class="headerlink" title="核函数"></a>核函数</h3><p>线性核函数：$k\left(x_{i}, x_{j}\right)=x_{i}^{T} x_{j}$</p>
-<p>多项式核函数：$k\left(x_{i}, x_{j}\right)=\left(x_{i}^{T} x_{j}\right)^{d}\quad d&gt;0$</p>
-<p>高斯核函数：$k\left(x_{i}, x_{j}\right)=e^{\left(-\frac{\left|x_{i}-x_{i}\right|^{2}}{2 \sigma^{2}}\right)} \quad \sigma&gt;0$</p>
-<p>拉普拉斯核函数：$k\left(x_{i}, x_{j}\right)=e^{\left(-\frac{\left|x_{i}-x_{j}\right|}{2 \sigma^{2}}\right)} \quad \sigma&gt;0$</p>
-<p>Sigmoid 核函数：$k\left(x_{i}, x_{j}\right)=\tanh \left(\beta x_{i}^{T} x_{j}+\theta\right) \quad \beta&gt;0, \theta&lt;0$</p>
+<h3 id="核函数"><a href="#核函数" class="headerlink" title="核函数"></a>核函数</h3><p>线性核函数：$k\left(x<em>{i}, x</em>{j}\right)=x<em>{i}^{T} x</em>{j}$</p>
+<p>多项式核函数：$k\left(x<em>{i}, x</em>{j}\right)=\left(x<em>{i}^{T} x</em>{j}\right)^{d}\quad d&gt;0$</p>
+<p>高斯核函数：$k\left(x<em>{i}, x</em>{j}\right)=e^{\left(-\frac{\left|x<em>{i}-x</em>{i}\right|^{2}}{2 \sigma^{2}}\right)} \quad \sigma&gt;0$</p>
+<p>拉普拉斯核函数：$k\left(x<em>{i}, x</em>{j}\right)=e^{\left(-\frac{\left|x<em>{i}-x</em>{j}\right|}{2 \sigma^{2}}\right)} \quad \sigma&gt;0$</p>
+<p>Sigmoid 核函数：$k\left(x<em>{i}, x</em>{j}\right)=\tanh \left(\beta x<em>{i}^{T} x</em>{j}+\theta\right) \quad \beta&gt;0, \theta&lt;0$</p>
 <h3 id="正则化与软间隔"><a href="#正则化与软间隔" class="headerlink" title="正则化与软间隔"></a>正则化与软间隔</h3><p>针对情况： 如果样本不是完全能够划分开</p>
 <p>解决方法： 允许支持向量机在一些样本出错，定义软间隔</p>
 <p>引入正则化强度参数$C$，损失函数重新定义为：</p>
@@ -778,7 +498,7 @@ L(\boldsymbol{w}, b, \boldsymbol{\xi}, \boldsymbol{\lambda}, \boldsymbol{r})=\fr
 <p>软间隔，对于落在margin以外的点计入损失：</p>
 <script type="math/tex; mode=display">
 \min _{w} \frac{1}{2}| | w| |^{2}+C \sum_{i=1}^{m}\left(\xi_{i}+\xi_{i}^{\prime}\right)\\
-\begin{array}{c}{\text {s.t.w}^{T} x_{i}+b-y_{i} \leq \epsilon+\xi_{i}} \\ {y_{i}-w^{T} x_{i}-b \leq \epsilon+\xi_{i}^{\prime}} \\ {\xi_{i} \geq 0, \xi_{i}^{\prime} \geq 0, i=1,2,3 \dots m}\end{array}</script><h3 id="SVR-对偶问题"><a href="#SVR-对偶问题" class="headerlink" title="SVR 对偶问题"></a>SVR 对偶问题</h3><p>构造拉格朗日函数, 引入拉格朗日乘子 $\lambda_{i} \geq 0, \lambda_{i}^{\prime} \geq 0, r_{i} \geq 0, r_{i}^{\prime} \geq 0$</p>
+\begin{array}{c}{\text {s.t.w}^{T} x_{i}+b-y_{i} \leq \epsilon+\xi_{i}} \\ {y_{i}-w^{T} x_{i}-b \leq \epsilon+\xi_{i}^{\prime}} \\ {\xi_{i} \geq 0, \xi_{i}^{\prime} \geq 0, i=1,2,3 \dots m}\end{array}</script><h3 id="SVR-对偶问题"><a href="#SVR-对偶问题" class="headerlink" title="SVR 对偶问题"></a>SVR 对偶问题</h3><p>构造拉格朗日函数, 引入拉格朗日乘子 $\lambda<em>{i} \geq 0, \lambda</em>{i}^{\prime} \geq 0, r<em>{i} \geq 0, r</em>{i}^{\prime} \geq 0$</p>
 <script type="math/tex; mode=display">
 L\left(\boldsymbol{w}, b, \boldsymbol{\lambda}, \boldsymbol{\lambda}^{\prime}, \boldsymbol{\xi}, \boldsymbol{\xi}^{\prime}, \boldsymbol{r}, \boldsymbol{r}^{\prime}\right)=\frac{1}{2}\|\boldsymbol{w}\|^{2}+C \sum_{i=1}^{m}\left(\xi_{i}+\xi_{i}^{\prime}\right)+\sum_{i=1}^{m} \lambda_{i}\left(f\left(x_{i}\right)-y_{i}-\epsilon-\xi_{i}\right)\\
 +\sum_{i=1}^{m} \lambda_{i}^{\prime}\left(y_{i}-f\left(x_{i}\right)-\epsilon-\xi_{i}^{\prime}\right)-\sum_{i=1}^{m} r_{i} \xi_{i}-\sum_{i=1}^{m} r_{i}^{\prime} \xi_{i}^{\prime}</script><p>对 $w, b, \xi, \xi$ 求偏导则有：</p>
@@ -793,9 +513,9 @@ w=\sum_{i=1}^{m}\left(\lambda_{i}^{\prime}-\lambda_{i}\right) x_{i} \quad 0=\sum
 \left(C-\lambda_{i}\right) \xi_{i}=0,\left(C-\lambda_{i}^{\prime}\right) \xi_{i}^{\prime}=0</script><p>当且仅当：</p>
 <script type="math/tex; mode=display">
 Where \quad f\left(x_{i}\right)-y_{i}-\epsilon-\xi_{i}=0 \mathrm, \quad \lambda_{i} \neq 0\\
-Where  \quad y_{i}-f\left(x_{i}\right)-\epsilon-\xi_{i}^{\prime}=0 \mathrm, \quad \lambda_{i}^{\prime} \neq 0</script><p>也就是当样本落在 $\epsilon$ −间隔带以外，为支持向量，相应的 $\lambda_{i}$，$\lambda_{i}^{\prime}$ 取非零值</p>
+Where  \quad y_{i}-f\left(x_{i}\right)-\epsilon-\xi_{i}^{\prime}=0 \mathrm, \quad \lambda_{i}^{\prime} \neq 0</script><p>也就是当样本落在 $\epsilon$ −间隔带以外，为支持向量，相应的 $\lambda<em>{i}$，$\lambda</em>{i}^{\prime}$ 取非零值</p>
 <script type="math/tex; mode=display">
-f(\boldsymbol{x})=\sum_{i=1}^{m}\left(\lambda_{i}^{\prime}-\lambda_{i}\right) \boldsymbol{x}_{\boldsymbol{i}}^{\boldsymbol{T}} \boldsymbol{x}+\boldsymbol{b}</script><p>对于 $0&lt;\lambda_{i}&lt;C, \xi_{i}=0$ ，取 $b=y_{i}+\epsilon-\sum_{i=1}^{m}\left(\lambda_{i}^{\prime}-\lambda_{i}\right) x_{i}^{T} x$ 的平均值</p>
+f(\boldsymbol{x})=\sum_{i=1}^{m}\left(\lambda_{i}^{\prime}-\lambda_{i}\right) \boldsymbol{x}_{\boldsymbol{i}}^{\boldsymbol{T}} \boldsymbol{x}+\boldsymbol{b}</script><p>对于 $0&lt;\lambda<em>{i}&lt;C, \xi</em>{i}=0$ ，取 $b=y<em>{i}+\epsilon-\sum</em>{i=1}^{m}\left(\lambda<em>{i}^{\prime}-\lambda</em>{i}\right) x_{i}^{T} x$ 的平均值</p>
 <h2 id="支持向量机算法总结"><a href="#支持向量机算法总结" class="headerlink" title="支持向量机算法总结"></a>支持向量机算法总结</h2><ul>
 <li>优点：<ul>
 <li>解决高维特征的分类问题和回归问题很有效，在特征维度大于样本数时依然有很好的效果  </li>
@@ -846,13 +566,13 @@ f(\boldsymbol{x})=\sum_{i=1}^{m}\left(\lambda_{i}^{\prime}-\lambda_{i}\right) \b
 </li>
 <li><p>kernel : 和函数，输入值是string,  默认值是 “rbf”（高斯），亦或是</p>
 <ol>
-<li><p>“linear”： 线性$  k(x_1,x_2) = x_1^Tx_2$  </p>
+<li><p>“linear”： 线性$\ \ k(x_1,x_2) = x_1^Tx_2$  </p>
 </li>
-<li><p>“poly”： 多项式 $ k(x_1,x_2) = (x_1^Tx_2 + r)^d $  </p>
+<li><p>“poly”： 多项式 $\ k(x_1,x_2) = (x_1^Tx_2 + r)^d $  </p>
 </li>
-<li><p>“rbf”: 高斯$   k(x_1,x_2) = e^{-\frac{|x_1-x_2|^2}{2\sigma^2}} = e^{-\gamma (x_1-x_2)^2}$  </p>
+<li><p>“rbf”: 高斯$\ \ \ k(x_1,x_2) = e^{-\frac{|x_1-x_2|^2}{2\sigma^2}} = e^{-\gamma (x_1-x_2)^2}$  </p>
 </li>
-<li><p>”sigmoid“$    k(x_1,x_2) = tanh(\beta x_1^Tx_2 + \theta), \beta &gt;0, \theta &lt;0$</p>
+<li><p>”sigmoid“$\ \ \ \ k(x_1,x_2) = tanh(\beta x_1^Tx_2 + \theta), \beta &gt;0, \theta &lt;0$</p>
 </li>
 </ol>
 </li>
@@ -962,365 +682,185 @@ k(x_1,x_2) = e^{-\frac{|x_1-x_2|^2}{2\sigma^2}} = e^{-\gamma (x_1-x_2)^2}</scrip
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># SVR 拟合数据</span></span><br><span class="line">C = <span class="number">1e3</span></span><br><span class="line">svr_rbf = SVR(kernel=<span class="string">'rbf'</span>, C = C, gamma = <span class="number">0.1</span>)</span><br><span class="line">svr_lin = SVR(kernel=<span class="string">'linear'</span>, C = C)</span><br><span class="line">svr_poly = SVR(kernel=<span class="string">'poly'</span>, C = C, degree = <span class="number">2</span>, gamma=<span class="string">'auto'</span>)</span><br><span class="line">y_rbf = svr_rbf.fit(X, y).predict(X)</span><br><span class="line">y_lin = svr_lin.fit(X, y).predict(X)</span><br><span class="line">y_poly = svr_poly.fit(X, y).predict(X)</span><br><span class="line"></span><br><span class="line">lw = <span class="number">4</span></span><br><span class="line">plt.figure(figsize = (<span class="number">10</span>,<span class="number">5</span>))</span><br><span class="line">plt.scatter(X, y, color=<span class="string">'darkorange'</span>, label=<span class="string">'data'</span>)</span><br><span class="line">plt.plot(X, y_rbf, color=<span class="string">'navy'</span>, lw = lw, label=<span class="string">'RBF model'</span>)</span><br><span class="line">plt.plot(X, y_lin, color=<span class="string">'c'</span>, lw = lw, label=<span class="string">'Linear model'</span>)</span><br><span class="line">plt.plot(X, y_poly, color=<span class="string">'cornflowerblue'</span>, lw=lw, label=<span class="string">'Polynomial model'</span>)</span><br><span class="line">plt.xlabel(<span class="string">'data'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'target'</span>)</span><br><span class="line">plt.title(<span class="string">'Support Vector Regression'</span>)</span><br><span class="line">plt.legend(loc = <span class="string">'lower left'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/04/21/5cbc310c1e34e.png" alt="png"></p>
 
-      
     </div>
 
     
+    
+    
+        
 
-    
-    
-    
+  <div class="followme">
+    <p>Welcome to my other publishing channels</p>
 
-    
+    <div class="social-list">
 
-    
-      
-    
-    
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="https://twitter.com/rp_Wang">
+                <span class="icon">
+                  <i class="fa fa-twitter"></i>
+                </span>
 
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Statistics/" rel="tag"># Statistics</a>
-          
-            <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/04/20/推荐系统中的NDCG/" rel="next" title="推荐系统中的NDCG">
-                <i class="fa fa-chevron-left"></i> 推荐系统中的NDCG
+                <span class="label">Twitter</span>
               </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+            </div>
+    </div>
   </div>
-  
-  
-  
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Statistics/" rel="tag"># Statistics</a>
+              <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/04/20/推荐系统中的NDCG/" rel="prev" title="推荐系统中的NDCG">
+      <i class="fa fa-chevron-left"></i> 推荐系统中的NDCG
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
-
+  
+  
+  
 
   </div>
 
 
           </div>
           
-
-  
-    <div class="comments" id="comments">
-      <div class="fb-comments" data-href="https://marara.xin/2019/04/21/SVM/" data-numposts="10" data-width="100%" data-colorscheme="light">
-      </div>
-    </div>
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="/images/IMG_5946.png" alt="Gavin">
-            
-              <p class="site-author-name" itemprop="name">Gavin</p>
-              <p class="site-description motion-element" itemprop="description">Make it, Fake it.</p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">24</span>
-                    <span class="site-state-item-name">posts</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  <a href="/categories/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">2</span>
-                    <span class="site-state-item-name">categories</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">16</span>
-                    <span class="site-state-item-name">tags</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/Wanguy" title="Github &rarr; https://github.com/Wanguy" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="mailto:w020283852@gmail.com" title="E-Mail &rarr; mailto:w020283852@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://twitter.com/rp_Wang" title="Twitter &rarr; https://twitter.com/rp_Wang" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://www.instagram.com/sephirothgavin/" title="Instagram &rarr; https://www.instagram.com/sephirothgavin/" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
-                </span>
-              
-            </div>
-          
-
-          
-             <div class="cc-license motion-element" itemprop="license">
-              
-                
-              
-              
-              
-              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-             </div>
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </div>
-
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习算法分类"><span class="nav-text">机器学习算法分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性分类"><span class="nav-text">线性分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何决定最好的参数：-𝑤-amp-𝑏"><span class="nav-text">如何决定最好的参数：$𝑤$ &amp; $𝑏$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#凸函数"><span class="nav-text">凸函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#凸优化"><span class="nav-text">凸优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拉格朗日对偶"><span class="nav-text">拉格朗日对偶</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#拉格朗日乘子：等式约束"><span class="nav-text">拉格朗日乘子：等式约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拉格朗日乘子：不等式约束"><span class="nav-text">拉格朗日乘子：不等式约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拉格朗日对偶-1"><span class="nav-text">拉格朗日对偶</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支持向量机的对偶问题"><span class="nav-text">支持向量机的对偶问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核函数（Kernel）"><span class="nav-text">核函数（Kernel）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#核函数"><span class="nav-text">核函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则化与软间隔"><span class="nav-text">正则化与软间隔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软间隔支持向量机"><span class="nav-text">软间隔支持向量机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支持向量机分类与回归"><span class="nav-text">支持向量机分类与回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#支持向量机回归分析（SVR）"><span class="nav-text">支持向量机回归分析（SVR）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVR-对偶问题"><span class="nav-text">SVR 对偶问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支持向量机算法总结"><span class="nav-text">支持向量机算法总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实例"><span class="nav-text">代码实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SVC-Support-Vector-Classificaiton-支持向量分类"><span class="nav-text">SVC: Support Vector Classificaiton 支持向量分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Linear-SVM"><span class="nav-text">Linear SVM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVM-with-rbf-kernel"><span class="nav-text">SVM with rbf kernel</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#SVM-高斯核函数参数1-C"><span class="nav-text">SVM 高斯核函数参数1: C</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SVM-高斯核函数参数2-gamma"><span class="nav-text">SVM 高斯核函数参数2: gamma</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不同SVM核函数对比"><span class="nav-text">不同SVM核函数对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多类分类：multiclass-classficiation"><span class="nav-text">多类分类：multiclass classficiation</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVR-Support-Vector-Regression-支持向量回归"><span class="nav-text">SVR: Support Vector Regression 支持向量回归</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; 2015 – <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-bug"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Gavin</span>
-
-  
-
-  
-</div>
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
-    
-
-    
-  </div>
-
-  
 
 <script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
   }
 </script>
 
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习算法分类"><span class="nav-text">机器学习算法分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性分类"><span class="nav-text">线性分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何决定最好的参数：-𝑤-amp-𝑏"><span class="nav-text">如何决定最好的参数：$𝑤$ &amp; $𝑏$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#凸函数"><span class="nav-text">凸函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#凸优化"><span class="nav-text">凸优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拉格朗日对偶"><span class="nav-text">拉格朗日对偶</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#拉格朗日乘子：等式约束"><span class="nav-text">拉格朗日乘子：等式约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拉格朗日乘子：不等式约束"><span class="nav-text">拉格朗日乘子：不等式约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拉格朗日对偶-1"><span class="nav-text">拉格朗日对偶</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支持向量机的对偶问题"><span class="nav-text">支持向量机的对偶问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核函数（Kernel）"><span class="nav-text">核函数（Kernel）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#核函数"><span class="nav-text">核函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则化与软间隔"><span class="nav-text">正则化与软间隔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软间隔支持向量机"><span class="nav-text">软间隔支持向量机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支持向量机分类与回归"><span class="nav-text">支持向量机分类与回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#支持向量机回归分析（SVR）"><span class="nav-text">支持向量机回归分析（SVR）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVR-对偶问题"><span class="nav-text">SVR 对偶问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支持向量机算法总结"><span class="nav-text">支持向量机算法总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实例"><span class="nav-text">代码实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SVC-Support-Vector-Classificaiton-支持向量分类"><span class="nav-text">SVC: Support Vector Classificaiton 支持向量分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Linear-SVM"><span class="nav-text">Linear SVM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVM-with-rbf-kernel"><span class="nav-text">SVM with rbf kernel</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#SVM-高斯核函数参数1-C"><span class="nav-text">SVM 高斯核函数参数1: C</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SVM-高斯核函数参数2-gamma"><span class="nav-text">SVM 高斯核函数参数2: gamma</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不同SVM核函数对比"><span class="nav-text">不同SVM核函数对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多类分类：multiclass-classficiation"><span class="nav-text">多类分类：multiclass classficiation</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVR-Support-Vector-Regression-支持向量回归"><span class="nav-text">SVR: Support Vector Regression 支持向量回归</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Gavin"
+      src="/images/IMG_5946.png">
+  <p class="site-author-name" itemprop="name">Gavin</p>
+  <div class="site-description" itemprop="description">Make it, Fake it.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Wanguy" title="Github → https://github.com/Wanguy" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>Github</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:w020283852@gmail.com" title="E-Mail → mailto:w020283852@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/rp_Wang" title="Twitter → https://twitter.com/rp_Wang" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/sephirothgavin/" title="Instagram → https://www.instagram.com/sephirothgavin/" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-bug"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gavin</span>
+</div>
+
+        
 
 
 
@@ -1329,6 +869,28 @@ k(x_1,x_2) = e^{-\frac{|x_1-x_2|^2}{2\sigma^2}} = e^{-\gamma (x_1-x_2)^2}</scrip
 
 
 
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
 
 
 
@@ -1337,468 +899,89 @@ k(x_1,x_2) = e^{-\frac{|x_1-x_2|^2}{2\sigma^2}} = e^{-\gamma (x_1-x_2)^2}</scrip
 
 
 
-
-
-
-
-
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes : 0,
+          toolbar  : 0,
+          statusbar: 0,
+          pagemode : 'thumbs',
+          view     : 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height   : element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
 
 
 
 
   
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/js/src/utils.js?v=6.7.0"></script>
-
-  <script src="/js/src/motion.js?v=6.7.0"></script>
-
-
-
-  
-  
-
-  
-  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
-<script src="/js/src/post-details.js?v=6.7.0"></script>
-
-
-
-  
-
-
-  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  <script>
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
       
 
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
               }
             });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
+          }, '', false]
         }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
       }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-
-  
-    
-      <script type="text/x-mathjax-config">
-  
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-      for (i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-  });
-</script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<style>
-.MathJax_Display {
-  overflow: auto hidden;
-}
-</style><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
     
-  
-
 
   
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-
-  
-
 
 </body>
 </html>
