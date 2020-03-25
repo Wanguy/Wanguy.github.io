@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/03/25/1axoynFzqRLHrDU.png">
 <meta property="og:image" content="https://i.loli.net/2020/03/25/voTFn6ObRtExImw.png">
 <meta property="article:published_time" content="2020-03-25T13:47:59.350Z">
-<meta property="article:modified_time" content="2020-03-25T14:30:27.970Z">
+<meta property="article:modified_time" content="2020-03-25T14:49:58.910Z">
 <meta property="article:author" content="Gavin">
 <meta property="article:tag" content="Terminal">
 <meta property="article:tag" content="Linux">
@@ -139,7 +139,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">26</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">24</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -229,7 +229,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 03-25-2020 21:47:59 / Modified: 22:30:27" itemprop="dateCreated datePublished" datetime="2020-03-25T21:47:59+08:00">03-25-2020</time>
+              <time title="Created: 03-25-2020 21:47:59 / Modified: 22:49:58" itemprop="dateCreated datePublished" datetime="2020-03-25T21:47:59+08:00">03-25-2020</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -324,16 +324,84 @@
 </ul>
 <p><img src="https://i.loli.net/2020/03/25/voTFn6ObRtExImw.png" alt="voTFn6ObRtExImw" style="zoom:75%;"></p>
 <h3 id="systemd-unit"><a href="#systemd-unit" class="headerlink" title="systemd unit"></a>systemd unit</h3><p>systemd 将各种系统启动和运行相关的对象， 表示为各种不同类型的单元<code>unit</code>， 并提供了 处理不同单元之间依赖关系的能力。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">type</th>
+<th style="text-align:left">name</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Service unit</td>
+<td style="text-align:left">.service</td>
+<td style="text-align:left">用于封装一个后台服务进程</td>
+</tr>
+<tr>
+<td style="text-align:left">Target unit</td>
+<td style="text-align:left">.target</td>
+<td style="text-align:left">用于将多个单元在逻辑上组合在一起。</td>
+</tr>
+<tr>
+<td style="text-align:left">Device unit</td>
+<td style="text-align:left">.device</td>
+<td style="text-align:left">用于定义内核识别的设备，在 sysfs(5) 里面作为 udev(7) 设备树展示</td>
+</tr>
+<tr>
+<td style="text-align:left">Socket unit</td>
+<td style="text-align:left">.socket</td>
+<td style="text-align:left">用于标识进程间通信用到的socket文件</td>
+</tr>
+<tr>
+<td style="text-align:left">Snapshot unit</td>
+<td style="text-align:left">.snapshot</td>
+<td style="text-align:left">管理系统快照</td>
+</tr>
+<tr>
+<td style="text-align:left">Swap unit</td>
+<td style="text-align:left">.swap</td>
+<td style="text-align:left">用于标识swap 文件或设备</td>
+</tr>
+<tr>
+<td style="text-align:left">Mount unit</td>
+<td style="text-align:left">.mount</td>
+<td style="text-align:left">用于封装一个文件系统挂载点(也向后兼容传统的 /etc/fstab 文件)</td>
+</tr>
+<tr>
+<td style="text-align:left">Automount unit</td>
+<td style="text-align:left">.automount</td>
+<td style="text-align:left">用于封装一个文件系统自动挂载点</td>
+</tr>
+<tr>
+<td style="text-align:left">Path unit</td>
+<td style="text-align:left">.path</td>
+<td style="text-align:left">用于根据文件系统上特定对象的变化来启动其他服务。</td>
+</tr>
+<tr>
+<td style="text-align:left">Time unit</td>
+<td style="text-align:left">.timer</td>
+<td style="text-align:left">用于封装一个基于时间触发的动作。取代传统的 crond 等任务计划服务</td>
+</tr>
+<tr>
+<td style="text-align:left">Slice unit</td>
+<td style="text-align:left">*.slice</td>
+<td style="text-align:left">用于控制特定 CGroup 内所有进程的总体资源占用。</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>需要注意的是 systemd 只在内存中加载最小化的一组单元。 只有至少满足下列条件之一的单元，才会被加载到内存中：</p>
 <ul>
-<li>处于 活动(active)、启动中(activating)、停止中(deactivating)、失败(failed) 状态之一(也就是停止(inactive)之外的状态)</li>
+<li>处于活动（active）、启动中（activating）、停止中（deactivating）、失败（failed）状态之一。（也就是停止「inactive」之外的状态）</li>
 <li>至少有一个作业正在作业队列中</li>
 <li>至少有一个其他已经加载到内存中的单元依赖于它</li>
-<li>仍然占有某些资源 (例如一个已停止的服务单元的进程忽略了终止请求，仍在逗留)</li>
+<li>仍然占有某些资源（例如一个已停止的服务单元的进程忽略了终止请求，仍在逗留）</li>
 <li>被 D-Bus 调用以程序化的方式固定到了内存中</li>
 </ul>
 <blockquote>
-<p>只要有需要，systemd 就会自动从磁盘加载所需的单元。 因此实际上用户并不能显而易见的看到某个单元是否已被加载到内存。 使用 <strong>systemctl list-units –all</strong> 命令可以显示当前已加载到内存中的所有单元。 不满足加载条件(见上文)的单元会被立即从内存中卸载，并且它的记帐数据(accounting data)也会被清空。 不过，因为每当一个单元关闭时，都会生成一条日志记录声明该单元所消耗的资源， 所以这些数据通常不会彻底消失。</p>
+<p>只要有需要，systemd 就会自动从磁盘加载所需的单元。 因此实际上用户并不能显而易见的看到某个单元是否已被加载到内存。 使用 <code>systemctl list-units –all</code> 命令可以显示当前已加载到内存中的所有单元。 不满足加载条件（见上文）的单元会被立即从内存中卸载，并且它的记帐数据(accounting data)也会被清空。 不过，因为每当一个单元关闭时，都会生成一条日志记录声明该单元所消耗的资源， 所以这些数据通常不会彻底消失。</p>
 </blockquote>
 <h3 id="systemd-unit-配置文件"><a href="#systemd-unit-配置文件" class="headerlink" title="systemd unit 配置文件"></a>systemd unit 配置文件</h3><ul>
 <li>在 CentOS/RedHat 发行版中 <code>man systemd.unit</code></li>
@@ -361,7 +429,7 @@
 <h3 id="链接文件"><a href="#链接文件" class="headerlink" title="链接文件"></a>链接文件</h3><p>当我们使用 reboot 、poweroff 、shutdown 等命令的时候，其实并不是执行该命令本身，背后是调用的 systemctl 命令。systemctl 命令会将 reboot 这些命令作为 $1 参数传递进去。所以执行 reboot 和 systemctl reboot 本质上是一样的。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">╭─root@gitlab &#x2F;sbin</span><br><span class="line">╰─# ls -alh &#x2F;usr&#x2F;bin &#x2F;sbin &#x2F;bin &#x2F;usr&#x2F;local&#x2F;bin  | grep systemctl</span><br><span class="line">-rwxr-xr-x  1 root root 179K Feb  5 01:07 systemctl</span><br><span class="line">lrwxrwxrwx  1 root root      14 Feb  5 01:07 halt -&gt; &#x2F;bin&#x2F;systemctl</span><br><span class="line">lrwxrwxrwx  1 root root      14 Feb  5 01:07 poweroff -&gt; &#x2F;bin&#x2F;systemctl</span><br><span class="line">lrwxrwxrwx  1 root root      14 Feb  5 01:07 reboot -&gt; &#x2F;bin&#x2F;systemctl</span><br><span class="line">lrwxrwxrwx  1 root root      14 Feb  5 01:07 runlevel -&gt; &#x2F;bin&#x2F;systemctl</span><br><span class="line">lrwxrwxrwx  1 root root      14 Feb  5 01:07 shutdown -&gt; &#x2F;bin&#x2F;systemctl</span><br><span class="line">lrwxrwxrwx  1 root root      14 Feb  5 01:07 telinit -&gt; &#x2F;bin&#x2F;systemctl</span><br></pre></td></tr></table></figure>
 <p>还有前文提到的有一点就是绝大多数使用 systemd 的发行版都设置了一个软连接，由 <code>/sbin/init -&gt; /lib/systemd/systemd</code>。</p>
-<h3 id="systemd-启动流程"><a href="#systemd-启动流程" class="headerlink" title="systemd 启动流程"></a>systemd 启动流程</h3><p>回到 Linux 启动流程，当内核加载到内存中后开始执行 systemd 。根据 dmesg 的日志我们可以了解到 systemd 启动后执行了哪一些操作。</p>
+<h3 id="systemd-启动流程"><a href="#systemd-启动流程" class="headerlink" title="systemd 启动流程"></a>systemd 启动流程</h3><p>回到 Linux 启动流程，当内核加载到内存中后开始执行 systemd。根据 dmesg 的日志我们可以了解到 systemd 启动后执行了哪一些操作。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[    2.516258] Run &#x2F;sbin&#x2F;init as init process</span><br><span class="line">[    3.992535] systemd[1]: systemd 237 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 +SECCOMP +BLKID +ELFUTILS +KMOD -IDN2 +IDN -PCRE2 default-hierarchy&#x3D;hybrid)</span><br><span class="line">[    4.002297] systemd[1]: Detected virtualization kvm.</span><br><span class="line">[    4.004593] systemd[1]: Detected architecture x86-64.</span><br><span class="line">[    4.031531] systemd[1]: Set hostname to &lt;blog&gt;.</span><br><span class="line">[    5.343604] systemd[1]: Reached target Swap.</span><br><span class="line">[    5.355156] systemd[1]: Started Dispatch Password Requests to Console Directory Watch.</span><br><span class="line">[    5.367360] systemd[1]: Created slice User and Session Slice.</span><br><span class="line">[    5.379321] systemd[1]: Set up automount Arbitrary Executable File Formats File System Automount Point.</span><br><span class="line">[    5.395189] systemd[1]: Started Forward Password Requests to Wall Directory Watch.</span><br><span class="line">[    5.411078] systemd[1]: Reached target Local Encrypted Volumes.</span><br><span class="line">[    5.644759] EXT4-fs (sda1): re-mounted. Opts: (null)</span><br><span class="line">[    5.702603] RPC: Registered named UNIX socket transport module.</span><br><span class="line">[    5.704115] RPC: Registered udp transport module.</span><br><span class="line">[    5.705318] RPC: Registered tcp transport module.</span><br><span class="line">[    5.706573] RPC: Registered tcp NFSv4.1 backchannel transport module.</span><br><span class="line">[    5.825727] Loading iSCSI transport class v2.0-870.</span><br><span class="line">[    5.912079] iscsi: registered transport (tcp)</span><br><span class="line">[    5.942499] systemd-journald[196]: Received request to flush runtime journal from PID 1</span><br><span class="line">[    5.973269] systemd-journald[196]: File &#x2F;var&#x2F;log&#x2F;journal&#x2F;7bc72ce3e0aa559e38159aa4fa0547f9&#x2F;system.journal corrupted or uncleanly shut down, renaming and replacing.</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>下面的图表解释了 这些具有特定含义的 target 单元之间的依赖关系 以及各自在启动流程中的位置。图中的箭头表示了单元之间的依赖关系与先后顺序， 整个图表按照自上而下的时间顺序执行。</p>
@@ -508,13 +576,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/25/%E6%8E%A2%E7%B4%A2systemd%20copy/" rel="prev" title="探索 systemd1">
-      <i class="fa fa-chevron-left"></i> 探索 systemd1
+    <a href="/2019/04/21/SVM/" rel="prev" title="支持向量机（SVM）">
+      <i class="fa fa-chevron-left"></i> 支持向量机（SVM）
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/25/te/" rel="next" title="te">
-      te <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -591,7 +656,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

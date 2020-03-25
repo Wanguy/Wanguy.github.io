@@ -1,108 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>te</title>
-    <url>/2020/03/25/te/</url>
-    <content><![CDATA[<h1 id="w"><a href="#w" class="headerlink" title="w"></a>w</h1><p>te</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>a</th>
-<th>a</th>
-<th>a</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>a</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>type</th>
-<th>name</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Service unit</td>
-<td>.service</td>
-<td>用于封装一个后台服务进程</td>
-</tr>
-<tr>
-<td>Target unit</td>
-<td>.target</td>
-<td>用于将多个单元在逻辑上组合在一起。</td>
-</tr>
-<tr>
-<td>Device unit</td>
-<td>.device</td>
-<td>用于定义内核识别的设备，在 sysfs(5) 里面作为 udev(7) 设备树展示</td>
-</tr>
-<tr>
-<td>Socket unit</td>
-<td>.socket</td>
-<td>用于标识进程间通信用到的socket文件</td>
-</tr>
-<tr>
-<td>Snapshot unit</td>
-<td>.snapshot</td>
-<td>管理系统快照</td>
-</tr>
-<tr>
-<td>Swap unit</td>
-<td>.swap</td>
-<td>用于标识swap 文件或设备</td>
-</tr>
-<tr>
-<td>Mount unit</td>
-<td>.mount</td>
-<td>用于封装一个文件系统挂载点(也向后兼容传统的 /etc/fstab 文件)</td>
-</tr>
-<tr>
-<td>Automount unit</td>
-<td>.automount</td>
-<td>用于封装一个文件系统自动挂载点</td>
-</tr>
-<tr>
-<td>Path unit</td>
-<td>.path</td>
-<td>用于根据文件系统上特定对象的变化来启动其他服务。</td>
-</tr>
-<tr>
-<td>Time unit</td>
-<td>.timer</td>
-<td>用于封装一个基于时间触发的动作。取代传统的 crond 等任务计划服务</td>
-</tr>
-<tr>
-<td>Slice unit</td>
-<td>*.slice</td>
-<td>用于控制特定 CGroup 内所有进程的总体资源占用。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>需要注意的是 systemd 只在内存中加载最小化的一组单元。 只有至少满足下列条件之一的单元，才会被加载到内存中：</p>
-]]></content>
-  </entry>
-  <entry>
     <title>探索 systemd</title>
     <url>/2020/03/25/%E6%8E%A2%E7%B4%A2systemd/</url>
     <content><![CDATA[<p>Linux一直以来采用 <code>init</code> 进程。例如下面的命令用来启动服务：<code>sudo/etc/init.d/apache2start</code> 或者 <code>service apache2 start</code>，但是 <code>init</code> 有两个缺点。一是启动时间长。由于 <code>init</code> 进程是串行启动，只有前一个进程启动完，才会启动下一个进程。其次启动脚本复杂。<code>init</code> 进程只是执行启动脚本，不管其他事情。脚本需要自己处理各种情况，这使得脚本变得很长而且复杂。</p>
@@ -177,16 +75,84 @@
 </ul>
 <p><img src="https://i.loli.net/2020/03/25/voTFn6ObRtExImw.png" alt="voTFn6ObRtExImw" style="zoom:75%;"></p>
 <h3 id="systemd-unit"><a href="#systemd-unit" class="headerlink" title="systemd unit"></a>systemd unit</h3><p>systemd 将各种系统启动和运行相关的对象， 表示为各种不同类型的单元<code>unit</code>， 并提供了 处理不同单元之间依赖关系的能力。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">type</th>
+<th style="text-align:left">name</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Service unit</td>
+<td style="text-align:left">.service</td>
+<td style="text-align:left">用于封装一个后台服务进程</td>
+</tr>
+<tr>
+<td style="text-align:left">Target unit</td>
+<td style="text-align:left">.target</td>
+<td style="text-align:left">用于将多个单元在逻辑上组合在一起。</td>
+</tr>
+<tr>
+<td style="text-align:left">Device unit</td>
+<td style="text-align:left">.device</td>
+<td style="text-align:left">用于定义内核识别的设备，在 sysfs(5) 里面作为 udev(7) 设备树展示</td>
+</tr>
+<tr>
+<td style="text-align:left">Socket unit</td>
+<td style="text-align:left">.socket</td>
+<td style="text-align:left">用于标识进程间通信用到的socket文件</td>
+</tr>
+<tr>
+<td style="text-align:left">Snapshot unit</td>
+<td style="text-align:left">.snapshot</td>
+<td style="text-align:left">管理系统快照</td>
+</tr>
+<tr>
+<td style="text-align:left">Swap unit</td>
+<td style="text-align:left">.swap</td>
+<td style="text-align:left">用于标识swap 文件或设备</td>
+</tr>
+<tr>
+<td style="text-align:left">Mount unit</td>
+<td style="text-align:left">.mount</td>
+<td style="text-align:left">用于封装一个文件系统挂载点(也向后兼容传统的 /etc/fstab 文件)</td>
+</tr>
+<tr>
+<td style="text-align:left">Automount unit</td>
+<td style="text-align:left">.automount</td>
+<td style="text-align:left">用于封装一个文件系统自动挂载点</td>
+</tr>
+<tr>
+<td style="text-align:left">Path unit</td>
+<td style="text-align:left">.path</td>
+<td style="text-align:left">用于根据文件系统上特定对象的变化来启动其他服务。</td>
+</tr>
+<tr>
+<td style="text-align:left">Time unit</td>
+<td style="text-align:left">.timer</td>
+<td style="text-align:left">用于封装一个基于时间触发的动作。取代传统的 crond 等任务计划服务</td>
+</tr>
+<tr>
+<td style="text-align:left">Slice unit</td>
+<td style="text-align:left">*.slice</td>
+<td style="text-align:left">用于控制特定 CGroup 内所有进程的总体资源占用。</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>需要注意的是 systemd 只在内存中加载最小化的一组单元。 只有至少满足下列条件之一的单元，才会被加载到内存中：</p>
 <ul>
-<li>处于 活动(active)、启动中(activating)、停止中(deactivating)、失败(failed) 状态之一(也就是停止(inactive)之外的状态)</li>
+<li>处于活动（active）、启动中（activating）、停止中（deactivating）、失败（failed）状态之一。（也就是停止「inactive」之外的状态）</li>
 <li>至少有一个作业正在作业队列中</li>
 <li>至少有一个其他已经加载到内存中的单元依赖于它</li>
-<li>仍然占有某些资源 (例如一个已停止的服务单元的进程忽略了终止请求，仍在逗留)</li>
+<li>仍然占有某些资源（例如一个已停止的服务单元的进程忽略了终止请求，仍在逗留）</li>
 <li>被 D-Bus 调用以程序化的方式固定到了内存中</li>
 </ul>
 <blockquote>
-<p>只要有需要，systemd 就会自动从磁盘加载所需的单元。 因此实际上用户并不能显而易见的看到某个单元是否已被加载到内存。 使用 <strong>systemctl list-units –all</strong> 命令可以显示当前已加载到内存中的所有单元。 不满足加载条件(见上文)的单元会被立即从内存中卸载，并且它的记帐数据(accounting data)也会被清空。 不过，因为每当一个单元关闭时，都会生成一条日志记录声明该单元所消耗的资源， 所以这些数据通常不会彻底消失。</p>
+<p>只要有需要，systemd 就会自动从磁盘加载所需的单元。 因此实际上用户并不能显而易见的看到某个单元是否已被加载到内存。 使用 <code>systemctl list-units –all</code> 命令可以显示当前已加载到内存中的所有单元。 不满足加载条件（见上文）的单元会被立即从内存中卸载，并且它的记帐数据(accounting data)也会被清空。 不过，因为每当一个单元关闭时，都会生成一条日志记录声明该单元所消耗的资源， 所以这些数据通常不会彻底消失。</p>
 </blockquote>
 <h3 id="systemd-unit-配置文件"><a href="#systemd-unit-配置文件" class="headerlink" title="systemd unit 配置文件"></a>systemd unit 配置文件</h3><ul>
 <li>在 CentOS/RedHat 发行版中 <code>man systemd.unit</code></li>
@@ -214,7 +180,7 @@
 <h3 id="链接文件"><a href="#链接文件" class="headerlink" title="链接文件"></a>链接文件</h3><p>当我们使用 reboot 、poweroff 、shutdown 等命令的时候，其实并不是执行该命令本身，背后是调用的 systemctl 命令。systemctl 命令会将 reboot 这些命令作为 $1 参数传递进去。所以执行 reboot 和 systemctl reboot 本质上是一样的。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">╭─root@gitlab &#x2F;sbin</span><br><span class="line">╰─# ls -alh &#x2F;usr&#x2F;bin &#x2F;sbin &#x2F;bin &#x2F;usr&#x2F;local&#x2F;bin  | grep systemctl</span><br><span class="line">-rwxr-xr-x  1 root root 179K Feb  5 01:07 systemctl</span><br><span class="line">lrwxrwxrwx  1 root root      14 Feb  5 01:07 halt -&gt; &#x2F;bin&#x2F;systemctl</span><br><span class="line">lrwxrwxrwx  1 root root      14 Feb  5 01:07 poweroff -&gt; &#x2F;bin&#x2F;systemctl</span><br><span class="line">lrwxrwxrwx  1 root root      14 Feb  5 01:07 reboot -&gt; &#x2F;bin&#x2F;systemctl</span><br><span class="line">lrwxrwxrwx  1 root root      14 Feb  5 01:07 runlevel -&gt; &#x2F;bin&#x2F;systemctl</span><br><span class="line">lrwxrwxrwx  1 root root      14 Feb  5 01:07 shutdown -&gt; &#x2F;bin&#x2F;systemctl</span><br><span class="line">lrwxrwxrwx  1 root root      14 Feb  5 01:07 telinit -&gt; &#x2F;bin&#x2F;systemctl</span><br></pre></td></tr></table></figure>
 <p>还有前文提到的有一点就是绝大多数使用 systemd 的发行版都设置了一个软连接，由 <code>/sbin/init -&gt; /lib/systemd/systemd</code>。</p>
-<h3 id="systemd-启动流程"><a href="#systemd-启动流程" class="headerlink" title="systemd 启动流程"></a>systemd 启动流程</h3><p>回到 Linux 启动流程，当内核加载到内存中后开始执行 systemd 。根据 dmesg 的日志我们可以了解到 systemd 启动后执行了哪一些操作。</p>
+<h3 id="systemd-启动流程"><a href="#systemd-启动流程" class="headerlink" title="systemd 启动流程"></a>systemd 启动流程</h3><p>回到 Linux 启动流程，当内核加载到内存中后开始执行 systemd。根据 dmesg 的日志我们可以了解到 systemd 启动后执行了哪一些操作。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[    2.516258] Run &#x2F;sbin&#x2F;init as init process</span><br><span class="line">[    3.992535] systemd[1]: systemd 237 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 +SECCOMP +BLKID +ELFUTILS +KMOD -IDN2 +IDN -PCRE2 default-hierarchy&#x3D;hybrid)</span><br><span class="line">[    4.002297] systemd[1]: Detected virtualization kvm.</span><br><span class="line">[    4.004593] systemd[1]: Detected architecture x86-64.</span><br><span class="line">[    4.031531] systemd[1]: Set hostname to &lt;blog&gt;.</span><br><span class="line">[    5.343604] systemd[1]: Reached target Swap.</span><br><span class="line">[    5.355156] systemd[1]: Started Dispatch Password Requests to Console Directory Watch.</span><br><span class="line">[    5.367360] systemd[1]: Created slice User and Session Slice.</span><br><span class="line">[    5.379321] systemd[1]: Set up automount Arbitrary Executable File Formats File System Automount Point.</span><br><span class="line">[    5.395189] systemd[1]: Started Forward Password Requests to Wall Directory Watch.</span><br><span class="line">[    5.411078] systemd[1]: Reached target Local Encrypted Volumes.</span><br><span class="line">[    5.644759] EXT4-fs (sda1): re-mounted. Opts: (null)</span><br><span class="line">[    5.702603] RPC: Registered named UNIX socket transport module.</span><br><span class="line">[    5.704115] RPC: Registered udp transport module.</span><br><span class="line">[    5.705318] RPC: Registered tcp transport module.</span><br><span class="line">[    5.706573] RPC: Registered tcp NFSv4.1 backchannel transport module.</span><br><span class="line">[    5.825727] Loading iSCSI transport class v2.0-870.</span><br><span class="line">[    5.912079] iscsi: registered transport (tcp)</span><br><span class="line">[    5.942499] systemd-journald[196]: Received request to flush runtime journal from PID 1</span><br><span class="line">[    5.973269] systemd-journald[196]: File &#x2F;var&#x2F;log&#x2F;journal&#x2F;7bc72ce3e0aa559e38159aa4fa0547f9&#x2F;system.journal corrupted or uncleanly shut down, renaming and replacing.</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>下面的图表解释了 这些具有特定含义的 target 单元之间的依赖关系 以及各自在启动流程中的位置。图中的箭头表示了单元之间的依赖关系与先后顺序， 整个图表按照自上而下的时间顺序执行。</p>
@@ -296,129 +262,6 @@
 <p>[8]Jung, S. J., Bae, Y. M., &amp; Soh, W. (2017). Analysis of Linux Service Management System According to Boot Process Change. <em>The Journal of Advanced Navigation Technology</em>, <em>21</em>(1), 78-83.</p>
 <p>[9]Poettering, L., Leemhuis, T., &amp; Sievers, K. (2017). Control Centre: The systemd Linux init system. The H, 2012.</p>
 ]]></content>
-      <categories>
-        <category>Note</category>
-      </categories>
-      <tags>
-        <tag>Terminal</tag>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>探索 systemd1</title>
-    <url>/2020/03/25/%E6%8E%A2%E7%B4%A2systemd%20copy/</url>
-    <content><![CDATA[<p>Linux一直以来采用 <code>init</code> 进程。例如下面的命令用来启动服务：<code>sudo/etc/init.d/apache2start</code> 或者 <code>service apache2 start</code>，但是 <code>init</code> 有两个缺点。一是启动时间长。由于 <code>init</code> 进程是串行启动，只有前一个进程启动完，才会启动下一个进程。其次启动脚本复杂。<code>init</code> 进程只是执行启动脚本，不管其他事情。脚本需要自己处理各种情况，这使得脚本变得很长而且复杂。</p>
-<p>systemd 为了解决上文的问题而诞生。它的目标是为系统的启动和管理提供一套完整的解决方案。根据 Linux 的惯例，字母 d 是守护进程（daemon）的缩写。systemd 名字的含义就是守护整个系统。逐渐 systemd 代替了 <code>init</code>，成为了大多数系统的第一个进程。</p>
-<a id="more"></a>
-<h2 id="Linux-启动流程"><a href="#Linux-启动流程" class="headerlink" title="Linux 启动流程"></a>Linux 启动流程</h2><p>提到 systemd 不得不提一下 Linux 的启动流程，这样才能清楚 systemd 在 Linux 系统中的地位和作用。所以就简明扼要的介绍一下 Linux 启动的流程。</p>
-<p>Linux 从按下电源键到进入用户交互界面整个启动流程大致可以分为四个阶段：</p>
-<ul>
-<li>BIOS 阶段</li>
-<li>BootLoader 阶段</li>
-<li>kernel 加载阶段</li>
-<li>init：systemd/sysvinit 初始化阶段</li>
-</ul>
-<h3 id="BIOS-EFI-阶段"><a href="#BIOS-EFI-阶段" class="headerlink" title="BIOS/EFI 阶段"></a>BIOS/EFI 阶段</h3><p>BIOS 主要就是做一些基本的硬件自检准备以及加载 bootloader 程序。在按下电源电源键（冷启动）后， CPU 的程序计数器被初始化为一个特定的内存地址，存储在只读存储器（ROM）中的 BIOS 就是从这个特定的內存地址开始执行。<strong>所以没有 CPU 是无法启动主板上的 BIOS 的</strong> ，应该（小声。注意：对于嵌入式系统中的 CPU ，将会加载引导区去启动 flash/ROM 中已知地址的程序。</p>
-<p>BIOS 启动后就开始执行硬件的基本初始化也称之为（POST: 上电自检），并根据引导设备的优先级将系统控制权交给硬件启动项（比如硬盘/网络/U盘等）。也就是我们 BIOS 上的启动菜单，这一步是可以被打断的。当我们按下 F12 或者 ESC 键（根据主板芯片组而异）就会弹出选择启动项的界面，而且这些按键高度依赖硬件。</p>
-<p>BIOS 选择好硬件启动项之后就开始执行硬件设备上的初级引导程序代码，对于 MBR 硬盘来讲是最开始的一个扇区（512字节）將被加载到內存，並执行行其中的初始化代码来加载下一阶段的 Bootloader 。</p>
-<blockquote>
-<p>MBR <strong>主引导记录</strong>是一个 512 字节的扇区，位于硬盘的第一扇区（0道0柱1扇区）。</p>
-</blockquote>
-<p>可以使用 dd 命令读取 MBR 里的内容 <code>dd if=/dev/sda of=mbr.bin bs=512 count=1</code></p>
-<p>使用 od 命令来查看 <code>od -xa mbr.bin</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># od -xa mbr.bin</span><br><span class="line">0000000    63eb    0090    0000    0000    0000    0000    0000    0000</span><br><span class="line">          k   c dle nul nul nul nul nul nul nul nul nul nul nul nul nul</span><br><span class="line">0000020    0000    0000    0000    0000    0000    0000    0000    0000</span><br><span class="line">        nul nul nul nul nul nul nul nul nul nul nul nul nul nul nul nul</span><br><span class="line">*</span><br><span class="line">0000120    0000    0000    0000    0000    0000    8000    0800    0000</span><br><span class="line">        nul nul nul nul nul nul nul nul nul nul nul nul nul  bs nul nul</span><br><span class="line">0000140    0000    0000    faff    9090    c2f6    7480    f605    70c2</span><br><span class="line">        nul nul nul nul del   z dle dle   v   B nul   t enq   v   B   p</span><br><span class="line">0000160    0274    80b2    79ea    007c    3100    8ec0    8ed8    bcd0</span><br><span class="line">          t stx   2 nul   j   y   | nul nul   1   @  so   X  so   P   &lt;</span><br><span class="line">0000200    2000    a0fb    7c64    ff3c    0274    c288    bb52    0417</span><br><span class="line">        nul  sp   &#123;  sp   d   |   &lt; del   t stx  bs   B   R   ; etb eot</span><br><span class="line">0000220    07f6    7403    be06    7d88    17e8    be01    7c05    41b4</span><br><span class="line">          v bel etx   t ack   &gt;  bs   &#125;   h etb soh   &gt; enq   |   4   A</span><br><span class="line">0000240    aabb    cd55    5a13    7252    813d    55fb    75aa    8337</span><br><span class="line">……………………</span><br></pre></td></tr></table></figure>
-<h3 id="ootLoader-阶段"><a href="#ootLoader-阶段" class="headerlink" title="ootLoader 阶段"></a>ootLoader 阶段</h3><p>主引导记录加载完 Bootloader（主要为GRUB）到 RAM 中之后，GRUB 会根据需求显示一个可用的内核列表（定义在 <code>/etc/grub.conf</code>，以及 <code>/etc/grub/menu.lst</code> 和 <code>/etc/grub.conf</code> 的软连接）。根据 GRUB 的配置加载默认内核镜像和 initrd 镜像到内存中，当所有镜像准备好后，即跳转到内核镜像。</p>
-<h3 id="kernel-阶段"><a href="#kernel-阶段" class="headerlink" title="kernel 阶段"></a>kernel 阶段</h3><p>BootLoader 阶段完成之后内核镜像加载到内存中，系统的控制权就交给内核镜像，由此内核阶段开始了。内核镜像不是一个可以执行的内核，而是一个被压缩的内核镜像 （zImage 或 bzImage）。在内核镜像的头部有一个小型程序 routine ，其做少量的硬件设置，然后自解压压缩的内核镜像并放到高端内存。如果存在初始磁盘镜像（initrd），routine 将拷贝 initrd 以供稍后安装使用，然后 routine 将调用内核开始内核启动。</p>
-<blockquote>
-<p>在内核引导过程中，初始 RAM 磁盘（initrd）是由 BootLoader 加载到内存中的，它会被复制到 RAM 中并挂载到系统上。这个 initrd 作为 RAM 中的临时根文件系统使用，并允许内核在没有挂载任何物理磁盘的情况下完整地实现引导。由于与外围设备进行交互所需要的模块可是 initrd 的一部分，因此内核可以非常小，但是仍然支持大量可能的硬件配置。在内核启动后，就可以正式装备根文件系统了（通过 pivot_root），此时会将 initrd 根文件系统卸载掉，并挂载真正的根文件系统。<br>initrd 函数让我们可以创建一个小型的 Linux 内核，其中包括作为可加载模块编译的驱动程序。这些可加载的模块为内核提供了访问磁盘和磁盘上的文件系统的方法，并为其他硬件提供了驱动程序。由于根文件系统是磁盘上的一个文件系统，因此 initrd 函数会提供一种启动方法来获得对磁盘的访问，并挂载真正的根文件系统。在没有硬盘的嵌入式目标中，initrd 可以是最终的根文件系统，或者也可以通过网络文件系统（NFS）来挂载最终的根文件系统。</p>
-</blockquote>
-<p>可以使用 dmesg 来查看从加载内核后的流程</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">╭─root@blog &#x2F;home&#x2F;ubuntu</span><br><span class="line">╰─# dmesg</span><br><span class="line">[    0.000000] Linux version 5.0.0-1031-gcp (buildd@lcy01-amd64-020) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #32-Ubuntu SMP Tue Feb 11 03:55:48 UTC 2020 (Ubuntu 5.0.0-1031.32-gcp 5.0.21)</span><br><span class="line">[    0.000000] Command line: BOOT_IMAGE&#x3D;&#x2F;boot&#x2F;vmlinuz-5.0.0-1031-gcp root&#x3D;PARTUUID&#x3D;9b22aacc-c8b9-497a-9583-a20c1be968c4 ro scsi_mod.use_blk_mq&#x3D;Y console&#x3D;ttyS0</span><br><span class="line">[    0.000000] KERNEL supported cpus:</span><br><span class="line">[    0.000000]   Intel GenuineIntel</span><br><span class="line">[    0.000000]   AMD AuthenticAMD</span><br><span class="line">[    0.000000]   Hygon HygonGenuine</span><br><span class="line">[    0.000000]   Centaur CentaurHauls</span><br><span class="line">……………………………………………………………………………………………………</span><br><span class="line">[    2.486896] Write protecting the kernel read-only data: 22528k</span><br><span class="line">[    2.489395] Freeing unused kernel image memory: 2016K</span><br><span class="line">[    2.490937] Freeing unused kernel image memory: 1708K</span><br><span class="line">[    2.500867] x86&#x2F;mm: Checked W+X mappings: passed, no W+X pages found.</span><br><span class="line">[    2.503126] x86&#x2F;mm: Checking user space page tables</span><br><span class="line">[    2.513767] x86&#x2F;mm: Checked W+X mappings: passed, no W+X pages found.</span><br><span class="line">[    2.516258] Run &#x2F;sbin&#x2F;init as init process</span><br><span class="line">[    3.992535] systemd[1]: systemd 237 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 +SECCOMP +BLKID +ELFUTILS +KMOD -IDN2 +IDN -PCRE2 default-hierarchy&#x3D;hybrid)</span><br><span class="line">[    4.002297] systemd[1]: Detected virtualization kvm.</span><br><span class="line">[    4.004593] systemd[1]: Detected architecture x86-64.</span><br><span class="line">[    4.031531] systemd[1]: Set hostname to &lt;blog&gt;.</span><br><span class="line">[    5.343604] systemd[1]: Reached target Swap.</span><br><span class="line">[    5.355156] systemd[1]: Started Dispatch Password Requests to Console Directory Watch.</span><br><span class="line">[    5.367360] systemd[1]: Created slice User and Session Slice.</span><br><span class="line">[    5.379321] systemd[1]: Set up automount Arbitrary Executable File Formats File System Automount Point.</span><br><span class="line">[    5.395189] systemd[1]: Started Forward Password Requests to Wall Directory Watch.</span><br><span class="line">[    5.411078] systemd[1]: Reached target Local Encrypted Volumes.</span><br><span class="line">[    5.644759] EXT4-fs (sda1): re-mounted. Opts: (null)</span><br><span class="line">[   11.663490] bpfilter: Loaded bpfilter_umh pid 456</span><br></pre></td></tr></table></figure>
-<h3 id="init-初始化阶段"><a href="#init-初始化阶段" class="headerlink" title="init 初始化阶段"></a>init 初始化阶段</h3><p>一旦内核自解压完成，启动并初始化后，内核启动第一个<strong>用户空间应用程序</strong>，即 systemd 进程（其是老式 System V 系统的 init 程序的替代品)，并转移控制权到 systemd。这是调用的第一个使用标准 C 库编译的程序，在此进程之前，还没有执行任何标准的 C 应用程序。至此整个系统引导过程的结束，kernel和 systemd 处于运行状态，接下来就由 systemd 来启动各项程序。</p>
-<p>从 dmesg 的输出日志我们可以看到，直到 2.516258 秒才开始执行 <code>/sbin/init</code> 命令，而对于采用 systemd 的发行版来说，<code>/sbin/init</code> 是指向 <code>/sbin/init -&gt; /lib/systemd/systemd</code> ，的链接文件，实际上就是在启动 systemd。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[    2.516258] Run &#x2F;sbin&#x2F;init as init process</span><br><span class="line">[    3.992535] systemd[1]: systemd 237 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 +SECCOMP +BLKID +ELFUTILS +KMOD -IDN2 +IDN -PCRE2 default-hierarchy&#x3D;hybrid)</span><br></pre></td></tr></table></figure>
-<h2 id="回到-systemd"><a href="#回到-systemd" class="headerlink" title="回到 systemd"></a>回到 systemd</h2><p>为什么文章题名为 <strong>Linux 的小伙伴 systemd</strong> 呐，其实广义上来讲 Linux 是众多 Linux 系统发行版的集合，但严格来讲 Linux 仅仅是一个 OS 的 kernel 而已，仅仅有一个内核是无法组成一个系统的，所以 Linux kernel 还需要他的几个兄弟比如 GNU 、 systemd 、X Window 、GNOME 、 KDE 、Xfce 等等其他用户层面的程序来构建出一套完整的操作系统出来。</p>
-<p>将 Debian 哲学与方法论，GNU 工具集、Linux 内核，以及其他重要的自由软件结合在一起所构成的独特的软件发行版称为「Debian GNU/Linux」。当你将 Debian 的安装镜像刻录到 U 盘之后显示的名称就是「Debian GNU/Linux」。</p>
-<blockquote>
-<p>关于 GNU 和 Linux 的故事可以去看 <a href="https://zh.wikipedia.org/zh-cn/操作系统革命" target="_blank" rel="noopener">操作系统革命</a> 纪录片，以及 RMS 的自传《若为自由故：自由软件之父理查德·斯托曼传》以及 Linus 的自传《只是为了好玩儿》。</p>
-</blockquote>
-<h3 id="systemd-简介"><a href="#systemd-简介" class="headerlink" title="systemd 简介"></a>systemd 简介</h3><p>讲完了 Linux 系统启动的流程，接下来就到了本文的主角 <code>systemd</code> 。根据 <a href="archlinux.org">archlinux.org</a> 上的文档：</p>
-<blockquote>
-<p><em>systemd</em> 是一个 Linux 系统基础组件的集合，提供了一个系统和服务管理器，运行为 PID 1 并负责启动其它程序。功能包括：</p>
-<ul>
-<li>支持并行化任务；</li>
-<li>同时采用 socket 式与 <a href="https://wiki.archlinux.org/index.php/D-Bus_(简体中文" target="_blank" rel="noopener">D-Bus</a>) 总线式激活服务；</li>
-<li>按需启动守护进程（daemon）；</li>
-<li>利用 Linux 的 <a href="https://wiki.archlinux.org/index.php/Cgroups" target="_blank" rel="noopener">cgroups</a> 监视进程； # 本文开篇讲到的 systemctl 显示 CPU 和 Mem 信息就是基于此哦。</li>
-<li>支持快照和系统恢复；</li>
-<li>维护挂载点和自动挂载点；</li>
-<li>各服务间基于依赖关系进行精密控制。</li>
-<li>systemd* 支持 SysV 和 LSB 初始脚本，可以替代 sysvinit。</li>
-<li>除此之外，功能还包括日志进程、控制基础系统配置，维护登陆用户列表以及系统账户、运行时目录和设置，可以运行容器和虚拟机，可以简单的管理网络配置、网络时间同步、日志转发和名称解析等。</li>
-</ul>
-</blockquote>
-<p>还有一段摘自 <a href="https://systemd.io/" target="_blank" rel="noopener">systemd.io</a></p>
-<blockquote>
-<p>systemd is a suite of basic building blocks for a Linux system. It provides a system and service manager that runs as PID 1 and starts the rest of the system.</p>
-<p>systemd provides aggressive parallelization capabilities, uses socket and D-Bus activation for starting services, offers on-demand starting of daemons, keeps track of processes using Linux control groups, maintains mount and automount points, and implements an elaborate transactional dependency-based service control logic. systemd supports SysV and LSB init scripts and works as a replacement for sysvinit.</p>
-<p>Other parts include a logging daemon, utilities to control basic system configuration like the hostname, date, locale, maintain a list of logged-in users and running containers and virtual machines, system accounts, runtime directories and settings, and daemons to manage simple network configuration, network time synchronization, log forwarding, and name resolution.</p>
-</blockquote>
-<h3 id="systemd-设计目标"><a href="#systemd-设计目标" class="headerlink" title="systemd 设计目标"></a>systemd 设计目标</h3><ul>
-<li>改进效能。使用二进制代码替换松散的SYSV启动脚本，减少频繁的进程创建，库加载，内核/用户切换。</li>
-<li>利用 Dbus 进程间通讯与 socket 激活机制，解决任务启动时的依赖问题，实现启动并行化。</li>
-<li>实现任务（daemons）的精确控制。使用内核的 cgroup 机制，不依赖 pid 来追踪进程，即使是两次 fork之后生成的守护进程也不会脱离 systemd 的控制。</li>
-<li>统一任务定义。用户不需要自行编写 shell 脚本，而仅依据 systemd 制定的 unit 规则。</li>
-</ul>
-<h3 id="systemd-体系架构"><a href="#systemd-体系架构" class="headerlink" title="systemd 体系架构"></a>systemd 体系架构</h3><p><img src="https://i.loli.net/2020/03/25/1axoynFzqRLHrDU.png" alt="1axoynFzqRLHrDU"></p>
-<ul>
-<li>最底层：systemd 内核层面依赖 cgroup、autofs、kdbus</li>
-<li>第二层：systemd libraries 是 systemd 依赖库</li>
-<li>第三层：systemd Core 是 systemd 自己的库</li>
-<li>第四层：systemd daemons 以及 targets 是自带的一些基本 unit、target，类似于 sysvinit 中自带的脚本</li>
-<li>最上层就是和 systemd 交互的一些工具</li>
-</ul>
-<p><img src="https://i.loli.net/2020/03/25/voTFn6ObRtExImw.png" alt="voTFn6ObRtExImw"></p>
-<h3 id="systemd-unit"><a href="#systemd-unit" class="headerlink" title="systemd unit"></a>systemd unit</h3><p>systemd 将各种系统启动和运行相关的对象，表示为各种不同类型的单元<code>unit</code>， 并提供了处理不同单元之间依赖关系的能力。需要注意的是 systemd 只在内存中加载最小化的一组单元。 只有至少满足下列条件之一的单元，才会被加载到内存中：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<ul>
-<li>处于 活动(active)、启动中(activating)、停止中(deactivating)、失败(failed) 状态之一(也就是停止(inactive)之外的状态)</li>
-<li>至少有一个作业正在作业队列中</li>
-<li>至少有一个其他已经加载到内存中的单元依赖于它</li>
-<li>仍然占有某些资源 (例如一个已停止的服务单元的进程忽略了终止请求，仍在逗留)</li>
-<li>被 D-Bus 调用以程序化的方式固定到了内存中</li>
-</ul>
-<blockquote>
-<p>只要有需要，systemd 就会自动从磁盘加载所需的单元。 因此实际上用户并不能显而易见的看到某个单元是否已被加载到内存。 使用 <strong>systemctl list-units –all</strong> 命令可以显示当前已加载到内存中的所有单元。 不满足加载条件(见上文)的单元会被立即从内存中卸载，并且它的记帐数据(accounting data)也会被清空。 不过，因为每当一个单元关闭时，都会生成一条日志记录声明该单元所消耗的资源， 所以这些数据通常不会彻底消失。</p>
-</blockquote>
-<h3 id="链接文件"><a href="#链接文件" class="headerlink" title="链接文件"></a>链接文件</h3><p>当我们使用 reboot 、poweroff 、shutdown 等命令的时候，其实并不是执行该命令本身，背后是调用的 systemctl 命令。systemctl 命令会将 reboot 这些命令作为 $1 参数传递进去。所以执行 reboot 和 systemctl reboot 本质上是一样的。</p>
-<p>还有前文提到的有一点就是绝大多数使用 systemd 的发行版都设置了一个软连接，由 <code>/sbin/init -&gt; /lib/systemd/systemd</code>。</p>
-<h3 id=""><a href="#" class="headerlink" title=" "></a> </h3>]]></content>
       <categories>
         <category>Note</category>
       </categories>
