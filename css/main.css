@@ -1254,7 +1254,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #edc8f5;
+  background: #7e946e;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2935,6 +2935,23 @@ blockquote.question {
   border-bottom-color: #ff6363;
   color: #ff6363;
 }
+.sidebar a:hover,
+.sidebar span.exturl:hover {
+  font-size: 18px;
+}
+.sidebar-toggle,
+.back-to-top:hover {
+  color: #ff6363;
+}
+.sidebar-toggle:hover .toggle-line {
+  background: #ff6363;
+}
+.sidebar-toggle {
+  background: #555;
+}
+.back-to-top {
+  background: #555;
+}
 body {
   background: #f4f4f4;
 }
@@ -3044,6 +3061,12 @@ body {
     color: #fff;
     border-bottom: none;
     border-bottom: 1.5px solid #fff;
+  }
+  .sidebar-toggle {
+    background: #373737;
+  }
+  .back-to-top {
+    background: #373737;
   }
 }
 @-moz-keyframes shake-it {
