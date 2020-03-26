@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>探索 systemd</title>
-    <url>/2020/03/25/%E6%8E%A2%E7%B4%A2systemd/</url>
+    <url>/archives/21750.html</url>
     <content><![CDATA[<p>Linux一直以来采用 <code>init</code> 进程。例如下面的命令用来启动服务：<code>sudo/etc/init.d/apache2start</code> 或者 <code>service apache2 start</code>，但是 <code>init</code> 有两个缺点。一是启动时间长。由于 <code>init</code> 进程是串行启动，只有前一个进程启动完，才会启动下一个进程。其次启动脚本复杂。<code>init</code> 进程只是执行启动脚本，不管其他事情。脚本需要自己处理各种情况，这使得脚本变得很长而且复杂。</p>
 <p>systemd 为了解决上文的问题而诞生。它的目标是为系统的启动和管理提供一套完整的解决方案。根据 Linux 的惯例，字母 d 是守护进程（daemon）的缩写。systemd 名字的含义就是守护整个系统。逐渐 systemd 代替了 <code>init</code>，成为了大多数系统的第一个进程。</p>
 <a id="more"></a>
@@ -274,7 +274,7 @@
   </entry>
   <entry>
     <title>支持向量机（SVM）</title>
-    <url>/2019/04/21/SVM/</url>
+    <url>/archives/35994.html</url>
     <content><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
 <li>支持向量机与上世纪90年代正式由Vapnik和Cortes正式发表，在文本分类任务中显示 出卓越性能，很快成为机器学习主流技术，直接掀起了2000年前后统计学习的高潮。</li>
 <li>支持向量机思想直观，但细节复杂，涵盖凸优化，核函数，拉格朗日算子等理论</li>
@@ -690,7 +690,7 @@ k(x_1,x_2) = e^{-\frac{|x_1-x_2|^2}{2\sigma^2}} = e^{-\gamma (x_1-x_2)^2}</scrip
   </entry>
   <entry>
     <title>推荐系统中的NDCG</title>
-    <url>/2019/04/20/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84NDCG/</url>
+    <url>/archives/46687.html</url>
     <content><![CDATA[<p>NDCG则是考虑到评分的排序，说到NDCG就需要从CG开始说起。</p>
 <p>CG（cumulative gain，累计增益）可以用于评价基于打分/评分的个性推荐系统。假设我们推荐 $k$ 个物品，这个推荐列表的 $CG_k$ 计算公式如下：</p>
 <script type="math/tex; mode=display">
@@ -741,7 +741,7 @@ NDCG_5 = \frac{DCG_5}{IDCG_5}=\frac{38.5}{46.5}=0.827</script><p>NDCG是0到1的
   </entry>
   <entry>
     <title>拟合的力道</title>
-    <url>/2019/02/18/Overfitting_and_Underfitting_With_Machine_Learning_Algorithms/</url>
+    <url>/archives/34110.html</url>
     <content><![CDATA[<h2 id="模型的拟合"><a href="#模型的拟合" class="headerlink" title="模型的拟合"></a>模型的拟合</h2><ol>
 <li>拟合与过拟合</li>
 <li>对抗过拟合：<ul>
@@ -996,7 +996,7 @@ E(loss) = \int \{E_D[y(x;D)]-h(x)\}^2p(x)dx + \int E_D[\{y(x;D)-E_D[y(x;D)\}^2]p
   </entry>
   <entry>
     <title>逻辑回归与代价函数</title>
-    <url>/2019/02/13/Logistic_regression/</url>
+    <url>/archives/27785.html</url>
     <content><![CDATA[<h2 id="逻辑回归与线性回归"><a href="#逻辑回归与线性回归" class="headerlink" title="逻辑回归与线性回归"></a><em>逻辑回归与线性回归</em></h2><ul>
 <li>线性回归：预测连续数值变量（明天上海的地面温度？）</li>
 <li>逻辑回归：预测分类 (classification)（今天会不会考试？）</li>
@@ -1240,7 +1240,7 @@ h_\theta (x)=\frac{1}{1+e^{-\left ( \theta_1 x+\theta_2 \right )}}
   </entry>
   <entry>
     <title>最简单最实用：线性回归</title>
-    <url>/2019/02/11/Linear_Regression_Lecture/</url>
+    <url>/archives/63622.html</url>
     <content><![CDATA[<h2 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a><em>线性回归</em></h2><ul>
 <li>在解决连续变量的预测问题里，线性回归最简单</li>
 <li>对于很多问题，在一定范围内是有效的</li>
@@ -1471,7 +1471,7 @@ R^2 = \frac{SSR}{SST}=1-\frac{SSE}{SST}
   </entry>
   <entry>
     <title>从正态分布到置信区间</title>
-    <url>/2018/06/18/%E4%BB%8E%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E5%88%B0%E7%BD%AE%E4%BF%A1%E5%8C%BA%E9%97%B4/</url>
+    <url>/archives/53269.html</url>
     <content><![CDATA[<h2 id="先从人均收入说起"><a href="#先从人均收入说起" class="headerlink" title="先从人均收入说起"></a>先从人均收入说起</h2><p>我们通常会统计一个地区的人均收入水平，以此来反应这个地区的经济发展水平。假设现在从一个地区，随机抽取1000人，统计他们的年收入，求和后除以1000，得到一个平均年收入：</p>
 <script type="math/tex; mode=display">
 \overline{X}=\frac{1}{1000}\sum_{i=1}^{1000}X_i \qquad（X_i为第i个人的年收入）</script><p>但是这里有一个显而易见的问题，由于每次随机抽取的样本不尽相同，导致算出的算术平均值每次都可能不同。例如第一次$\overline{X_1}=6200$，第二次$\overline{X_2}=6000$，第三次$\overline{X_3}=6100$……，这样得到的数据，让人不知道该相信哪个。</p>
@@ -1525,7 +1525,7 @@ P(\vert 一次抽样的均值 - 客观存在的均值 \vert < 常数)=1-\alpha</
   </entry>
   <entry>
     <title>Mac 局域网共享 ShadowSocks</title>
-    <url>/2018/02/05/Mac%E5%B1%80%E5%9F%9F%E7%BD%91%E5%85%B1%E4%BA%ABss/</url>
+    <url>/archives/60646.html</url>
     <content><![CDATA[<p>新买了 NS，却发现下载速度慢，切自身无法连接 ss，于是找到了将 macOS 的全局网络在局域网下分享给其他设备的方法。</p>
 <a id="more"></a>
 <h2 id="安装-ShadowSocks"><a href="#安装-ShadowSocks" class="headerlink" title="安装 ShadowSocks"></a>安装 ShadowSocks</h2><p>安装<strong>ShadowSocks</strong>略过，无论是GUI版还是命令行版都可以，可以参考<a href="http://salogs.com/news/2016/11/02/mac-shadowsocks/" target="_blank" rel="noopener">这里</a>。</p>
@@ -1599,7 +1599,7 @@ P(\vert 一次抽样的均值 - 客观存在的均值 \vert < 常数)=1-\alpha</
   </entry>
   <entry>
     <title>使用Google Drive作为Blog的图床</title>
-    <url>/2017/12/10/%E4%BD%BF%E7%94%A8Google%20Drive%E4%BD%9C%E4%B8%BABlog%E7%9A%84%E5%9B%BE%E5%BA%8A/</url>
+    <url>/archives/8384.html</url>
     <content><![CDATA[<p>有时候会碰到需要在blog或者GitHub写一些东西的时候需要用到图片，微博图床总是失效，于是想到可以使用Google Drive作为图床使用。</p>
 <a id="more"></a>
 <p>登陆Google Drive上传图片之后点击获取链接，我们会得到一个如下的URL地址</p>
@@ -1618,7 +1618,7 @@ P(\vert 一次抽样的均值 - 客观存在的均值 \vert < 常数)=1-\alpha</
   </entry>
   <entry>
     <title>Swift UILabel 属性</title>
-    <url>/2017/12/10/Swift-UILabel-%E5%B1%9E%E6%80%A7/</url>
+    <url>/archives/36269.html</url>
     <content><![CDATA[<p>Swift 中的 UILabel 属性</p>
 <a id="more"></a>
 <figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">       <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置标签x坐标：10，y坐标：20，长：300，宽：100</span></span><br><span class="line">        <span class="keyword">let</span> label = <span class="type">UILabel</span>(frame:<span class="type">CGRectMake</span>(<span class="number">10</span>,<span class="number">20</span>, <span class="number">300</span>, <span class="number">100</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//    显示文本【需要显示什么就设置这个 text 的属性即可】</span></span><br><span class="line">      label.text=<span class="string">" Welcome to study Swift ！"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// label的字体颜色</span></span><br><span class="line">        label.textColor=<span class="type">UIColor</span>.redColor() <span class="comment">//红色文字</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// label的背景颜色</span></span><br><span class="line">        label.backgroundColor=<span class="type">UIColor</span>.blackColor() <span class="comment">//黑色背景</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">        <span class="comment">// label的文字对齐方式</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">          case Left（左对齐）</span></span><br><span class="line"><span class="comment">          case Center（居中）</span></span><br><span class="line"><span class="comment">          case Right（右对齐）</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">         </span><br><span class="line">        label.textAlignment=<span class="type">NSTextAlignment</span>.<span class="type">Right</span> <span class="comment">//文字右对齐</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//    label阴影颜色【要设置偏移位置】(字体的阴影颜色)</span></span><br><span class="line">        label.shadowColor=<span class="type">UIColor</span>.grayColor()  <span class="comment">//灰色阴影</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">        <span class="comment">//    label阴影偏移位置</span></span><br><span class="line">        label.shadowOffset=<span class="type">CGSizeMake</span>(-<span class="number">5</span>,<span class="number">5</span>)   <span class="comment">//阴影的偏移量</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//    多行显示，默认是一行的,0表示的多行显示（与高度有关）Label自适应自动换行</span></span><br><span class="line">        label.numberOfLines=<span class="number">0</span>   <span class="comment">//显示两行文字（默认只显示一行，设为0表示没有行数限制）</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">        <span class="comment">//    自适应（不建议使用）</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">/**</span></span><br><span class="line"><span class="comment">              1、没有设置多行显示：宽度自适应</span></span><br><span class="line"><span class="comment">              2、设置有多行显示：高度使用</span></span><br><span class="line"><span class="comment">              */</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 文本有多大,窗口有多大</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 细节: 不管高度宽度是否足够，都显示相应的高度</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 细节: numberOfLines为1,那么就是单行显示</span></span><br><span class="line"></span><br><span class="line">        label.adjustsFontSizeToFitWidth=<span class="literal">true</span> <span class="comment">//当文字超出标签宽度时，自动调整文字大小，使其不被截断</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设置label文本高亮</span></span><br><span class="line">        label.highlighted = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设置label文本高亮颜色</span></span><br><span class="line">        label.highlightedTextColor = <span class="type">UIColor</span>.greenColor()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// label圆角属性</span></span><br><span class="line">        label.layer.masksToBounds = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">        <span class="comment">// label圆角半径</span></span><br><span class="line">        label.layer.cornerRadius = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">        <span class="comment">// label圆角边框颜色</span></span><br><span class="line">        label.layer.borderColor = <span class="type">UIColor</span>.blueColor().<span class="type">CGColor</span>;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">        <span class="comment">// label圆角边框宽度</span></span><br><span class="line">        label.layer.borderWidth = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">        <span class="comment">//  label的字体大小</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         systemFontOfSize(20) -&gt; UIFont         (文字大小)</span></span><br><span class="line"><span class="comment">         boldSystemFontOfSize(20) -&gt; UIFont     (加粗类型)</span></span><br><span class="line"><span class="comment">         italicSystemFontOfSize(20) -&gt; UIFont    (斜体类型)</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line"></span><br><span class="line">        label.font = <span class="type">UIFont</span>.systemFontOfSize(<span class="number">50</span>)</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设置字体时，同时设置大小</span></span><br><span class="line">        label.font = <span class="type">UIFont</span>(name:<span class="string">"您好！"</span>, size:<span class="number">50</span>)</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">   </span><br><span class="line">        <span class="comment">// label的特殊属性</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         case ByWordWrapping // Wrap at word boundaries, default</span></span><br><span class="line"><span class="comment">         case ByCharWrapping // Wrap at character boundaries</span></span><br><span class="line"><span class="comment">         case ByClipping // Simply clip</span></span><br><span class="line"><span class="comment">         case ByTruncatingHead // Truncate at head of line: "...wxyz"</span></span><br><span class="line"><span class="comment">         case ByTruncatingTail // Truncate at tail of line: "abcd..."</span></span><br><span class="line"><span class="comment">         case ByTruncatingMiddle // Truncate middle of line:  "ab...yz"</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line"></span><br><span class="line">label.lineBreakMode=<span class="type">NSLineBreakMode</span>.<span class="type">ByTruncatingTail</span>  <span class="comment">//隐藏尾部并显示省略号</span></span><br><span class="line">       label.lineBreakMode=<span class="type">NSLineBreakMode</span>.<span class="type">ByTruncatingMiddle</span>  <span class="comment">//隐藏中间部分并显示省略号</span></span><br><span class="line"></span><br><span class="line">   label.lineBreakMode=<span class="type">NSLineBreakMode</span>.<span class="type">ByTruncatingHead</span>  <span class="comment">//隐藏头部并显示省略号</span></span><br><span class="line"></span><br><span class="line">        label.lineBreakMode=<span class="type">NSLineBreakMode</span>.<span class="type">ByClipping</span> <span class="comment">//截去多余部分也不显示省略号</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">　　 <span class="comment">// 将视图添加到(self.view--&gt;父视图)界面中;  </span></span><br><span class="line">        <span class="keyword">self</span>.view.addSubview(label);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">     <span class="comment">// 富文本设置</span></span><br><span class="line">        <span class="keyword">let</span> attributeString = <span class="type">NSMutableAttributedString</span>(string:<span class="string">"Welcome to study Swift ！"</span>)</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">     </span><br><span class="line">     </span><br><span class="line">     <span class="comment">// 从文本0开始6个字符字体HelveticaNeue-Bold,16号字体大小</span></span><br><span class="line">        attributeString.addAttribute(<span class="type">NSFontAttributeName</span>, value: <span class="type">UIFont</span>(name: <span class="string">"HelveticaNeue-Bold"</span>, size: <span class="number">16</span>)!,range: <span class="type">NSMakeRange</span>(<span class="number">0</span>,<span class="number">6</span>))</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">     <span class="comment">// 设置字体颜色       </span></span><br><span class="line">    attributeString.addAttribute(<span class="type">NSForegroundColorAttributeName</span>, value: <span class="type">UIColor</span>.blueColor(),range: <span class="type">NSMakeRange</span>(<span class="number">0</span>, <span class="number">3</span>))</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">     </span><br><span class="line">     <span class="comment">// 设置文字背景颜色       attributeString.addAttribute(NSBackgroundColorAttributeName, value: UIColor.greenColor(),range: NSMakeRange(3,3))</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">        label.attributedText = attributeString</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">didReceiveMemoryWarning</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.didReceiveMemoryWarning()</span><br><span class="line">        <span class="comment">// Dispose of any resources that can be recreated.</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1632,7 +1632,7 @@ P(\vert 一次抽样的均值 - 客观存在的均值 \vert < 常数)=1-\alpha</
   </entry>
   <entry>
     <title>全局.gitignore</title>
-    <url>/2017/11/23/gitignore%20global/</url>
+    <url>/archives/60650.html</url>
     <content><![CDATA[<p>以<code>.DS_Store</code>文件为例：</p>
 <h3 id="创建-gitignore-global-文件，将需要忽略的文件类型写入文件"><a href="#创建-gitignore-global-文件，将需要忽略的文件类型写入文件" class="headerlink" title="创建 ~/.gitignore_global 文件，将需要忽略的文件类型写入文件"></a>创建 <code>~/.gitignore_global</code> 文件，将需要忽略的文件类型写入文件</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">touch .gitignore_global</span><br></pre></td></tr></table></figure>
 <h3 id="在-gitconfig-中引用"><a href="#在-gitconfig-中引用" class="headerlink" title="在.gitconfig 中引用"></a>在<code>.gitconfig</code> 中引用</h3><p>打开<code>~/.gitconfig</code>，输入：</p>
@@ -1650,7 +1650,7 @@ P(\vert 一次抽样的均值 - 客观存在的均值 \vert < 常数)=1-\alpha</
   </entry>
   <entry>
     <title>C# 中的委托和事件</title>
-    <url>/2017/11/07/Delegates%20and%20events%20in%20Csharp/</url>
+    <url>/archives/6578.html</url>
     <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p><code>delegate</code> 和 <code>event</code>在 .Net Framework中的应用非常广泛，然而，较好地理解委托和事件对很多接触C#时间不长的人来说并不容易。本文中，我将通过两个范例由浅入深地讲述什么是委托、为什么要使用委托、事件的由来、.Net Framework中的委托和事件、委托和事件对Observer设计模式的意义，对它们的中间代码也做了讨论。</p>
 <a id="more"></a>
 <h2 id="将方法作为方法的参数"><a href="#将方法作为方法的参数" class="headerlink" title="将方法作为方法的参数"></a>将方法作为方法的参数</h2><p>我们先不管这个标题如何的绕口，也不管委托究竟是个什么东西，来看下面这两个最简单的方法，它们不过是在屏幕上输出一句问候的话语：</p>
@@ -1825,7 +1825,7 @@ P(\vert 一次抽样的均值 - 客观存在的均值 \vert < 常数)=1-\alpha</
   </entry>
   <entry>
     <title>命令行、终端和 Git 的代理设置</title>
-    <url>/2017/10/31/Proxy%20setting%20of%20CMD:Terminal/</url>
+    <url>/archives/21737.html</url>
     <content><![CDATA[<p>本文整理了 Windows 命令行 和 Linux 终端以及 Git 中设置代理的命令。以本地 HTTP/HTTPS 代理 <code>127.0.0.1:8118</code> 和 SOCKS5 代理 <code>127.0.0.1:1080</code> 为例。</p>
 <a id="more"></a>
 <h2 id="Windows-命令行代理设置"><a href="#Windows-命令行代理设置" class="headerlink" title="Windows 命令行代理设置"></a>Windows 命令行代理设置</h2><p>HTTP 代理设置：</p>
@@ -1868,7 +1868,7 @@ P(\vert 一次抽样的均值 - 客观存在的均值 \vert < 常数)=1-\alpha</
   </entry>
   <entry>
     <title>初步了解 Swift 中的可选类型和方法函数</title>
-    <url>/2017/10/25/Optional%20types%20and%20method%20functions%20in%20Swift/</url>
+    <url>/archives/3950.html</url>
     <content><![CDATA[<h2 id="可选类型和解包"><a href="#可选类型和解包" class="headerlink" title="可选类型和解包"></a>可选类型和解包</h2><p>Swift中，在数组的方括号内必须写上类型，或者在<code>Array</code>后面的尖括号<code>&lt;&gt;</code>内写上类型。</p>
 <p>对于字典而言，你一共需要提供两个类型，一个用于键，而另一个用于值。</p>
 <p>Swift要求所有的变量和常量都必须有值。你可以在声明它们的时候给它们指定一个值，也可以通过<code>init</code>方法给它们分配值。</p>
@@ -2105,7 +2105,7 @@ P(\vert 一次抽样的均值 - 客观存在的均值 \vert < 常数)=1-\alpha</
   </entry>
   <entry>
     <title>C#中的abstract和virtual</title>
-    <url>/2017/10/12/The%20abstract%20and%20virtual%20in%20CSharp/</url>
+    <url>/archives/51446.html</url>
     <content><![CDATA[<h2 id="abstract-new和override"><a href="#abstract-new和override" class="headerlink" title="abstract, new和override"></a><code>abstract</code>, <code>new</code>和<code>override</code></h2><ul>
 <li>抽象（<code>abstract</code>）方法<strong>必须</strong>在抽象类中定义，且没有方法的实现。</li>
 <li>基类中的抽象（<code>abstract</code>）方法<strong>必须</strong>在派生类中重写（<code>override</code>）。</li>
@@ -2127,7 +2127,7 @@ P(\vert 一次抽样的均值 - 客观存在的均值 \vert < 常数)=1-\alpha</
   </entry>
   <entry>
     <title>Scikit-learn的支持向量机（SVM）</title>
-    <url>/2017/10/05/Support%20vector%20machine%20(SVM)%20for%20scikit-learn/</url>
+    <url>/archives/39451.html</url>
     <content><![CDATA[<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
 <p><strong>支持向量机（SVM）</strong>是用于分类，回归和异常值检测的监督学习方法。</p>
@@ -2307,7 +2307,7 @@ subject\ to\ e^{T} (\alpha - \alpha^*) =0\\
   </entry>
   <entry>
     <title>数据表查询</title>
-    <url>/2017/09/19/Query%20database/</url>
+    <url>/archives/53410.html</url>
     <content><![CDATA[<p>数据查询是数据库操作的核心操作。SQL提供了<code>SELECT</code>语句进行数据查询，其一般格式为：</p>
 <p><code>SELECT [ALL | DISTINCT] &lt;目标列表达式&gt; FROM &lt;表名或视图名&gt; (&lt;SELECT 语句&gt;) [AS] &lt;别名&gt; [WHERE&lt;条件表达式&gt;]</code></p>
 <a id="more"></a>
@@ -2556,7 +2556,7 @@ subject\ to\ e^{T} (\alpha - \alpha^*) =0\\
   </entry>
   <entry>
     <title>VPS搭载ss实现科学上网</title>
-    <url>/2017/09/18/The%20Usage%20of%20traffic-proxy%20in%20Shadowsocks%20at%20VPS/</url>
+    <url>/archives/36965.html</url>
     <content><![CDATA[<p>简而言之，想使用shadowsocks翻墙，需要一个客户端和一个服务端。</p>
 <p>这篇文章主要是如何在VPS上配置shadowsocks，并使用代理实现科学上网。</p>
 <a id="more"></a>
@@ -2613,7 +2613,7 @@ subject\ to\ e^{T} (\alpha - \alpha^*) =0\\
   </entry>
   <entry>
     <title>MySQL修改root用户密码</title>
-    <url>/2017/09/08/Changes%20the%20root%20user%20password%20for%20MySQL/</url>
+    <url>/archives/45978.html</url>
     <content><![CDATA[<p>新安装了MySQL，安装之后粗心把密码给搞丢了，进入MySQL时报错：ERROR 1045 (28000): Access denied for user ‘root’@’localhost’ (using password: NO).</p>
 <p>通过以下步骤修改密码。</p>
 <a id="more"></a>
@@ -2647,7 +2647,7 @@ subject\ to\ e^{T} (\alpha - \alpha^*) =0\\
   </entry>
   <entry>
     <title>Git 快速开始简明教程</title>
-    <url>/2017/03/19/The%20introductory%20of%20Git/</url>
+    <url>/archives/45240.html</url>
     <content><![CDATA[<p>Git 是一个分布式版本管理系统，即每个终端都有一套完整的项目代码（包括历史文件）。为了使用 Git，先要安装 Git。可以在 Command Line 或者 Terminal 中输入<code>git</code>命令检查是否已经安装。</p>
 <a id="more"></a>
 <blockquote>
@@ -2702,7 +2702,7 @@ subject\ to\ e^{T} (\alpha - \alpha^*) =0\\
   </entry>
   <entry>
     <title>Ubuntu 配置 Apache, MySQL, PHP 以及 phpMyAdmin 过程记录</title>
-    <url>/2017/03/17/The%20process%20of%20configures%20Apache,%20MySQL,%20PHP,%20and%20phpMyAdmin%20at%20Ubuntu/</url>
+    <url>/archives/13321.html</url>
     <content><![CDATA[<h2 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo apt-get install apache2</span></span><br></pre></td></tr></table></figure>
 <p>装好后，配置文件应该位于<code>/etc/apache2</code>中，默认情况下无需修改即可使用。默认的网站目录为<code>/var/www/</code>。</p>
 <a id="more"></a>
@@ -2772,7 +2772,7 @@ subject\ to\ e^{T} (\alpha - \alpha^*) =0\\
   </entry>
   <entry>
     <title>用纯 CSS 为 HTML checkbox 添加自定义样式及动画效果</title>
-    <url>/2017/03/17/Add%20custom%20style%20and%20animation%20effects%20to%20HTML%20checkbox%20with%20CSS/</url>
+    <url>/archives/54686.html</url>
     <content><![CDATA[<p>一般情况下，<code>`元素（也包括一部分其他</code>input<code>元素）是由操作系统（而非浏览器）进行渲染的。在不同操作系统下，这类特殊元素的样式往往和系统本身的风格一致，和浏览器无关。也正是由于这种机制，开发者无法像一般元素那样使用 CSS 来修饰这类元素。这里介绍一种利用纯 CSS 实现自定义 checkbox 样式的方法。思路很简单：由于控件所对应的</code>label<code>元素是可以点击并切换控件状态的，而</code>label<code>元素的样式又可以自由设定，因此我们可将</code>input<code>元素隐藏，通过</code>label`元素实现交互。</p>
 <a id="more"></a>
 <p>HTML 代码如下：</p>
@@ -2802,7 +2802,7 @@ subject\ to\ e^{T} (\alpha - \alpha^*) =0\\
   </entry>
   <entry>
     <title>C++ string 字符串函数详解</title>
-    <url>/2017/03/17/The%20details%20of%20string%20function%20of%20Cpp/</url>
+    <url>/archives/45726.html</url>
     <content><![CDATA[<blockquote>
 <h2 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h2></blockquote>
 <ol>
@@ -2860,7 +2860,7 @@ subject\ to\ e^{T} (\alpha - \alpha^*) =0\\
   </entry>
   <entry>
     <title>Mac OS X Terminal 101：终端使用初级教程</title>
-    <url>/2017/03/17/The%20introductory%20of%20macOS%20Terminal/</url>
+    <url>/archives/41111.html</url>
     <content><![CDATA[<p>最近学习苹果认证的《Mac OS X Support Essentials》教程，看到 Command Line 一节有很多实用的知识，下面选取一部分翻译 + 笔记，整理成此文。</p>
 <a id="more"></a>
 <blockquote>
@@ -2919,18 +2919,18 @@ subject\ to\ e^{T} (\alpha - \alpha^*) =0\\
 <h3 id="查看隐藏文件"><a href="#查看隐藏文件" class="headerlink" title="查看隐藏文件"></a>查看隐藏文件</h3><p>为了简化工作，command line 和 Finder 都会隐藏许多文件和文件夹，这些内容通常是系统需要的。不借助第三方工具让 Finder 显示隐藏文件比较困难，但是在 command line 中却非常简单。首先，许多隐藏文件的隐藏是通过隐藏属性在 Finder 中隐藏的，而 command line 会忽略这些属性，所以这些文件会在 command line 中显示。另外，<code>ls</code>命令会隐藏文件名以<code>.</code>开头的文件，但是这些文件却可以被显示出来，方法是利用<code>-a</code>选项。例如：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">michelle$</span><span class="bash"> ls -la</span></span><br></pre></td></tr></table></figure>
 <p>我们还添加了<code>-l</code>选项，目的是控制输出格式。如果你注意输出内容的话，会发现还包括<code>.</code>和<code>..</code>两项，它们分别表示当前文件夹和父文件夹（如图）。如果你不想显示这两项，只需要把<code>-a</code>改成<code>-A</code>即可。</p>
-<p><img src="/.xin//sephiroth/Downloads/terminal729.png" alt="terminal729"></p>
+<p><img src="/archives/41111/sephiroth/Downloads/terminal729.png" alt="terminal729"></p>
 <h3 id="前往其他卷"><a href="#前往其他卷" class="headerlink" title="前往其他卷"></a>前往其他卷</h3><p>在 command line 中，系统卷（也称为 root volume）是由开始的一个正斜杠表示的。然而也许听起来不可思议，在 command line 中其他卷看起来就在文件系统中一个叫做 Volumes 的文件夹中。下面的命令清晰地显示出这种逻辑关系：我从我的 home folder 出发，最终前往一个叫 Time Machine 的卷，该卷是外接在 Mac 上的。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bogon:~ renfei$ pwd</span><br><span class="line">&#x2F;Users&#x2F;renfei</span><br><span class="line">bogon:~ renfei$ cd &#x2F;Volumes&#x2F;</span><br><span class="line">bogon:Volumes renfei$ pwd</span><br><span class="line">&#x2F;Volumes</span><br><span class="line">bogon:Volumes renfei$ ls</span><br><span class="line">Macintosh SSD &amp;nbsp; &amp;nbsp; &amp;nbsp;Time Machine</span><br><span class="line">bogon:Volumes renfei$ cd Time\ Machine&#x2F;</span><br><span class="line">bogon:Time Machine renfei$ pwd</span><br><span class="line">&#x2F;Volumes&#x2F;Time Machine</span><br></pre></td></tr></table></figure>
 <h2 id="用Command-Line管理文件"><a href="#用Command-Line管理文件" class="headerlink" title="用Command-Line管理文件"></a>用Command-Line管理文件</h2><h3 id="检视文件"><a href="#检视文件" class="headerlink" title="检视文件"></a>检视文件</h3><p>有许多基础命令用来定位、检视文件和文件夹，包括<code>cat</code>, <code>less</code>, <code>which</code>, <code>file</code>以及<code>find</code>。别忘了，你可以利用<code>man</code>命令来查阅每个命令的使用指南。</p>
 <h4 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h4><p><code>cat</code>是“concatenate”的意思，会按顺序读取文件并输出到 Terminal 窗口，语法为<code>cat</code>后接你需要查看的文件的路径。<code>cat</code>命令也可以用<code>&gt;&gt;</code>来增加文本文件的内容，例如命令<code>cat ../textOne.txt &gt;&gt; textTwo.txt</code>会把 textOne.txt 的内容添加到 textTwo.txt 的结尾。这个<code>&gt;&gt;</code>就属于上一篇提到的“Extras”。</p>
 <h4 id="less"><a href="#less" class="headerlink" title="less"></a>less</h4><p>这个命令更适合用来查看长文本文件，因为它会允许你查找文本。语法为 <code>less</code>后接文件路径，和<code>cat</code>一样。用<code>less</code>命令打开的文件其实和你查看命令使用指南的时候使用的是一个查看器，所以操作是相同的，同样可以使用▲（上箭头）或▼（下箭头）来上下移动文本，使用 空格 来翻页，输入<code>/</code>和关键字来按照关键字搜索，按Q来退出使用指南页面。除此之外，按V键来使用<code>vi</code>文本编辑器。</p>
 <h4 id="which"><a href="#which" class="headerlink" title="which"></a>which</h4><p>这个命令会定位某个命令的文件路径。换言之，它会告诉你你执行某个具体命令的时候，在使用哪个文件。语法为<code>which</code>后接某个命令。如图：</p>
-<p><img src="/.xin//sephiroth/Downloads/屏幕快照-2012-07-29-13.53.59.png" alt="屏幕快照-2012-07-29-13.53.59"></p>
+<p><img src="/archives/41111/sephiroth/Downloads/屏幕快照-2012-07-29-13.53.59.png" alt="屏幕快照-2012-07-29-13.53.59"></p>
 <h4 id="file"><a href="#file" class="headerlink" title="file"></a>file</h4><p>这个命令会尝试根据文件的内容输出文件类型。如果一个文件缺失了扩展名，那么这个命令可能会非常有用。语法为<code>file</code>后接文件路径。如图，此例为一个 PNG 文件，还给出了它的尺寸、颜色数等信息。</p>
-<p><img src="/.xin//sephiroth/Downloads/屏幕快照-2012-07-29-14.04.51.png" alt="屏幕快照-2012-07-29-14.04.51"></p>
+<p><img src="/archives/41111/sephiroth/Downloads/屏幕快照-2012-07-29-14.04.51.png" alt="屏幕快照-2012-07-29-14.04.51"></p>
 <h4 id="find"><a href="#find" class="headerlink" title="find"></a>find</h4><p>这个命令用来根据搜索关键词定位文件路径。 <code>find</code>命令不使用 Spotlight 搜索服务，但是它允许你设置非常具体的搜索条件，以及通配符（稍后介绍）。语法为<code>find</code>后接搜索的起始路径，后接定义搜索的选项，后接搜索内容（包含在引号里）。例如：</p>
-<p><img src="/.xin//sephiroth/Downloads/屏幕快照-2012-07-29-14.12.49.png" alt="屏幕快照-2012-07-29-14.12.49"></p>
+<p><img src="/archives/41111/sephiroth/Downloads/屏幕快照-2012-07-29-14.12.49.png" alt="屏幕快照-2012-07-29-14.12.49"></p>
 <p><strong>注意</strong></p>
 <ol>
 <li>如果你要搜索根目录，也许你想使用<code>-x</code>选项来避免搜索 /Volumes 文件夹。</li>
@@ -2944,7 +2944,7 @@ subject\ to\ e^{T} (\alpha - \alpha^*) =0\\
 </ul>
 <p>配合使用上面三种通配符可以大大提高效率。</p>
 <h3 id="使用递归命令"><a href="#使用递归命令" class="headerlink" title="使用递归命令"></a>使用递归命令</h3><p>简单来说，递归命令可以允许命令不执行于一个特定文件，而是指定的路径下的所有文件。大多数命令包含一个<code>-r</code>或者<code>-R</code>选项，来设定你想递归地执行这个命令。例如下面的例子，展示了添加<code>-R</code>后<code>ls</code>命令的执行方式：</p>
-<p><img src="/.xin//sephiroth/Downloads/屏幕快照-2012-07-29-14.39.00.png" alt="屏幕快照-2012-07-29-14.39.00"></p>
+<p><img src="/archives/41111/sephiroth/Downloads/屏幕快照-2012-07-29-14.39.00.png" alt="屏幕快照-2012-07-29-14.39.00"></p>
 <h3 id="编辑文件和文件夹"><a href="#编辑文件和文件夹" class="headerlink" title="编辑文件和文件夹"></a>编辑文件和文件夹</h3><p>有许多基础的命令用来编辑文件和文件夹，包括<code>mkdir</code>, <code>cp</code>, <code>mv</code>, <code>rm</code>, <code>rmdir</code>以及<code>vi</code>。下面我们来简要地介绍一下这些命令。</p>
 <h4 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h4><p>“make diretory”的缩写，用来创建文件夹，语法为<code>mkdir</code>后接新文件夹的目录。可以用<code>-p</code>选项，来一起创建路径中不存在的文件夹（这样你就不用挨层创建了）。</p>
 <h4 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h4><p>“copy”的缩写，用来把文件从一处复制到另一处。语法为<code>cp</code>后接原始路径，后接目标路径。如果你想复制整个文件夹和所有内容，需要添加<code>-R</code>选项。如果指定的目标路径不含文件名，则 cp 命令会按原名复制。如果指定的目标路径包括文件名，则会复制为你指定的文件名。如果仅指定新文件名，则会在原处以新名称创建文件副本。注意，系统会自动替换同名文件而不出现提示。</p>
