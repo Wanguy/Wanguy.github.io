@@ -1309,7 +1309,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #d9ff9a;
+  background: #ff54ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -3079,6 +3079,9 @@ body {
   .posts-expand {
     margin: auto;
   }
+  .comments {
+    padding: 0 15px 0 15px;
+  }
 }
 @media (max-width: 767px) {
   .post-body {
@@ -3098,11 +3101,6 @@ body {
   padding-left: 0px;
   margin-left: 0px;
   border-left: none;
-}
-@media (max-width: 767px) {
-  .comments {
-    padding: 0 15px 0 15px;
-  }
 }
 @media (prefers-color-scheme: dark) {
   .menu .menu-item .badge {
