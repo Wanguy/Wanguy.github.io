@@ -311,7 +311,7 @@
 <script type="math/tex; mode=display">
 h_{\theta}(x)=\frac{1}{1+e^{-f(x)}}</script><script type="math/tex; mode=display">
 P(y=1 | x ; \theta)=h_{\theta}(x)</script><script type="math/tex; mode=display">
-P(y=0 | x ; \theta)=1-h_{\theta}(x)</script><p><img src="https://i.loli.net/2019/04/21/5cbc35afcaf15.png" width="500"></p>
+P(y=0 | x ; \theta)=1-h_{\theta}(x)</script><p><img src="https://i.loli.net/2019/04/21/5cbc35afcaf15.png" width="400"></p>
 <script type="math/tex; mode=display">
 f(x)=w^{T} x+b</script><p>$𝑤$: 权重 </p>
 <p>$𝑏$: 截距（位移）</p>
@@ -333,7 +333,7 @@ w^{T} x+b=0</script><p>$\boldsymbol{w}=\left(w_{1}, w_{2}, \dots, w_{d}\right)$�
 <li>距离超平面最近的几个点叫做支持向量</li>
 <li>间隔（margin）：$r=\frac{2}{| | w| |}$</li>
 </ul>
-<p><img src="https://i.loli.net/2019/04/21/5cbc35afd510f.png" width="500"></p>
+<p><img src="https://i.loli.net/2019/04/21/5cbc35afd510f.png" width="400"></p>
 <ul>
 <li>支持向量机： 最大间隔化</li>
 <li>约束条件:</li>
@@ -349,7 +349,7 @@ D=\left\{\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right), \ldots,\left(x_{n}
 <p>何实数$𝛼 0 &lt; 𝛼 &lt; 1 $以及 $S$ 中的不同两点 $x$ , $y$ , 均有：</p>
 <script type="math/tex; mode=display">
 f\left((1-\alpha) x_{0}+\alpha x_{1}\right) \leq(1-\alpha) f\left(x_{0}\right)+\alpha f\left(x_{1}\right)</script><p>那么， $𝑓(𝑥)$ 为定义在凸集 $S$ 上的凸函数</p>
-<p><img src="https://i.loli.net/2019/04/21/5cbc35bdb1598.png" width="500"></p>
+<p><img src="https://i.loli.net/2019/04/21/5cbc35bdb1598.png" width="400"></p>
 <p><img src="https://i.loli.net/2019/04/21/5cbc35afb6756.png" width="500"></p>
 <blockquote>
 <p>左边为凸函数，右边为非凸函数</p>
@@ -426,7 +426,7 @@ g_{i}(\boldsymbol{w})=1-y_{i}\left(\boldsymbol{w}^{T} x_{i}+b\right) \leq 0</scr
 L(\boldsymbol{w}, b, \boldsymbol{\lambda})=\frac{1}{2}| | \boldsymbol{w}| |^{2}+\sum_{i=1}^{m} \lambda_{i}\left(1-y_{i}\left(\boldsymbol{w}^{T} \boldsymbol{x}_{\boldsymbol{i}}+b\right)\right)</script><p>找到对偶问题的形式：</p>
 <script type="math/tex; mode=display">
 \nabla_{w} L(\boldsymbol{w}, b, \boldsymbol{\lambda})=0 \Rightarrow \boldsymbol{w}=\sum_{i=1}^{m} \lambda_{i} y_{i} \boldsymbol{x}_{i}</script><script type="math/tex; mode=display">
-\nabla_{b} L(\boldsymbol{w}, b, \lambda)=0 \Rightarrow 0=\sum_{i=1}^{m} \lambda_{i} y_{i}</script><p><img src="https://i.loli.net/2019/04/21/5cbc35bd8e91c.png" width="500"></p>
+\nabla_{b} L(\boldsymbol{w}, b, \lambda)=0 \Rightarrow 0=\sum_{i=1}^{m} \lambda_{i} y_{i}</script><p><img src="https://i.loli.net/2019/04/21/5cbc35bd8e91c.png" width="300"></p>
 <p>那么代入拉格朗日函数可以得到其对偶问题：</p>
 <script type="math/tex; mode=display">
 \max _{\lambda} W(\lambda)=\max _{\lambda} \min _{w, b} L(w, b, \lambda)=\sum_{i=1}^{m} \lambda_{i}-\frac{1}{2} \sum_{i=1}^{m} y_{i} y_{j} \lambda_{i} \lambda_{j} x_{i}^{T} x_{j}\\
@@ -437,13 +437,13 @@ f(\boldsymbol{x})=\boldsymbol{w}^{T} \boldsymbol{x}+b=\sum_{i=1}^{m} \lambda_{i}
 \begin{array}{c}{\lambda_{i} \geq 0} \\ {1-y_{i} f\left(x_{i}\right) \leq 0} \\ {\lambda_{i}\left(1-y_{i} f\left(x_{i}\right)\right)=0}\end{array}</script><p>如果$ y_{i} f\left(x_{i}\right)&gt;1$, 那么$𝜆 _i = 0$, 对于$𝑓(𝑥)$ 没有贡献</p>
 <h2 id="核函数（Kernel）"><a href="#核函数（Kernel）" class="headerlink" title="核函数（Kernel）"></a>核函数（Kernel）</h2><p>假设有个映射函数从二维空间映射到三维空间：</p>
 <script type="math/tex; mode=display">
-\Phi : \left( \begin{array}{l}{x_{1}} \\ {x_{2}}\end{array}\right) \rightarrow \left( \begin{array}{c}{x_{1}^{2}} \\ {x_{2}^{2}} \\ {\sqrt{2} x_{1} x_{2}}\end{array}\right) \quad \mathbb{R}^{2} \rightarrow \mathbb{R}^{3}</script><p><img src="https://i.loli.net/2019/04/21/5cbc35afdc5c1.png" width="800"></p>
+\Phi : \left( \begin{array}{l}{x_{1}} \\ {x_{2}}\end{array}\right) \rightarrow \left( \begin{array}{c}{x_{1}^{2}} \\ {x_{2}^{2}} \\ {\sqrt{2} x_{1} x_{2}}\end{array}\right) \quad \mathbb{R}^{2} \rightarrow \mathbb{R}^{3}</script><p><img src="https://i.loli.net/2019/04/21/5cbc35afdc5c1.png" width="600"></p>
 <p>优化问题变为：</p>
 <script type="math/tex; mode=display">
 \begin{array}{c}{\min _{w, b} \frac{1}{2}\|w\|^{2}} \\ {\text {s.t.} y_{i}\left(w^{T} \phi\left(x_{i}\right)+b\right) \geq 1}\end{array}</script><p>对偶问题为：</p>
 <script type="math/tex; mode=display">
 \max _{\lambda} W(\lambda)=\sum_{i=1}^{m} \lambda_{i}-\frac{1}{2} \sum_{i=1}^{m} y_{i} y_{j} \lambda_{i} \lambda_{j} \phi\left(x_{i}\right)^{T} \phi\left(x_{j}\right)\\
-\begin{array}{c}{\text { s.t. } \sum_{i=1}^{m} \lambda_{i} y_{i}=0} \\ {\lambda_{i} \geq 0, i=1,2, \dots, m}\end{array}</script><p><img src="https://i.loli.net/2019/04/21/5cbc35afb67ad.png" width="800"></p>
+\begin{array}{c}{\text { s.t. } \sum_{i=1}^{m} \lambda_{i} y_{i}=0} \\ {\lambda_{i} \geq 0, i=1,2, \dots, m}\end{array}</script><p><img src="https://i.loli.net/2019/04/21/5cbc35afb67ad.png" width="600"></p>
 <p>单独计算映射函数$\phi(x)$以及$\phi\left(x_{i}\right)^{T} \phi\left(x_{j}\right)$十分困难，现设想构造核函数</p>
 <p>比如：</p>
 <script type="math/tex; mode=display">
@@ -599,7 +599,7 @@ f(\boldsymbol{x})=\sum_{i=1}^{m}\left(\lambda_{i}^{\prime}-\lambda_{i}\right) \b
 <p><code>In[10]</code></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">plt.scatter(X[:,<span class="number">0</span>], X[:, <span class="number">1</span>], c = y)</span><br><span class="line">plt.xlabel(<span class="string">"x1"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"x2"</span>)</span><br></pre></td></tr></table></figure>
 <pre><code>Text(0, 0.5, &#39;x2&#39;)
-</code></pre><p><img src="https://i.loli.net/2019/04/21/5cbc310c18910.png" alt="png"></p>
+</code></pre><p><img src="https://i.loli.net/2019/04/21/5cbc310c18910.png" alt="Support Vector Classificaiton" style="zoom:70%;"></p>
 <h4 id="Linear-SVM"><a href="#Linear-SVM" class="headerlink" title="Linear SVM"></a>Linear SVM</h4><p><code>In[11]</code></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 线性核函数的支持向量机去训练样本</span></span><br><span class="line">C = <span class="number">0.1</span></span><br><span class="line">clf = SVC(kernel = <span class="string">"linear"</span>, C = C)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在训练之前对数据进行normalization</span></span><br><span class="line">X = StandardScaler().fit_transform(X)</span><br><span class="line"></span><br><span class="line">print(X.shape, y.shape)</span><br></pre></td></tr></table></figure>
 <pre><code>(200, 2) (200,)
@@ -619,7 +619,7 @@ Confusion matrix is :
  [15 84]]
 </code></pre><p><code>In[15]</code></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">plot_decision_regions(X, y, clf = clf, colors = <span class="string">'orange,navy'</span>)</span><br><span class="line">plt.title(<span class="string">"SVM with linear kernel"</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/04/21/5cbc310bf2d06.png" alt="png"></p>
+<p><img src="https://i.loli.net/2019/04/21/5cbc310bf2d06.png" alt="Linear SVM" style="zoom:70%;"></p>
 <h4 id="SVM-with-rbf-kernel"><a href="#SVM-with-rbf-kernel" class="headerlink" title="SVM with rbf kernel"></a>SVM with rbf kernel</h4><p><code>In[16]</code></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">C = <span class="number">0.1</span></span><br><span class="line"><span class="comment">#clf = SVC(kernel = "rbf", gamma = 2., C = C)</span></span><br><span class="line">clf = SVC(gamma = <span class="number">2.</span>, C = C)</span><br><span class="line"></span><br><span class="line">clf.fit(X, y)</span><br><span class="line">y_pred = clf.predict(X)</span><br><span class="line"></span><br><span class="line">prec = precision_score(y_true = y, y_pred = y_pred, pos_label = <span class="number">1</span>)</span><br><span class="line">rec = recall_score(y_true = y, y_pred = y_pred, pos_label = <span class="number">1</span>)</span><br><span class="line">f1 = f1_score(y_true = y, y_pred = y_pred, pos_label = <span class="number">1</span>)</span><br><span class="line">print(<span class="string">"Precision score is : &#123;:.2f&#125;"</span>.format(prec))</span><br><span class="line">print(<span class="string">"Recall score is : &#123;:.2f&#125;"</span>.format(rec))</span><br><span class="line">print(<span class="string">"f1 score is : &#123;:.2f&#125;"</span>.format(f1))</span><br><span class="line">print(<span class="string">"Confusion matrix is :"</span>) </span><br><span class="line">print(confusion_matrix(y_pred = y_pred, y_true = y))</span><br><span class="line"></span><br><span class="line">plot_decision_regions(X, y, clf = clf, colors = <span class="string">'orange,navy'</span>)</span><br><span class="line">plt.title(<span class="string">"SVM with rbf kernel"</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <pre><code>Precision score is : 0.85
@@ -628,7 +628,7 @@ f1 score is : 0.85
 Confusion matrix is :
 [[86 15]
  [14 85]]
-</code></pre><p><img src="https://i.loli.net/2019/04/21/5cbc310bf38ed.png" alt="png"></p>
+</code></pre><p><img src="https://i.loli.net/2019/04/21/5cbc310bf38ed.png" alt="SVM with rbf kernel" style="zoom:70%;"></p>
 <p>接下来定义不同参数，对比不同的结果</p>
 <p><code>In[17]</code></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">C_list = [<span class="number">0.1</span>, <span class="number">1.</span>, <span class="number">10.</span>]</span><br><span class="line">gamma_list = [<span class="number">0.2</span>, <span class="number">2.</span>, <span class="number">20.</span>]</span><br></pre></td></tr></table></figure>
@@ -661,7 +661,7 @@ k(x_1,x_2) = e^{-\frac{|x_1-x_2|^2}{2\sigma^2}} = e^{-\gamma (x_1-x_2)^2}</scrip
 <p><img src="https://i.loli.net/2019/04/21/5cbc310c26fd3.png" alt="不同参数 gamma"></p></div></div></div>
 <h4 id="不同SVM核函数对比"><a href="#不同SVM核函数对比" class="headerlink" title="不同SVM核函数对比"></a>不同SVM核函数对比</h4><p><code>In[18]</code></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">names = [ <span class="string">"Linear SVM"</span>, <span class="string">"rbf SVM"</span>, <span class="string">"Poly SVM"</span>, <span class="string">"Sigmoid SVM"</span>]</span><br><span class="line"></span><br><span class="line">models = [</span><br><span class="line">            SVC(kernel = <span class="string">"linear"</span>, C = C), </span><br><span class="line">            SVC(kernel = <span class="string">"rbf"</span>, gamma = <span class="number">2</span>, C = C), <span class="comment"># or SVC(gamma = 2, C = 1)</span></span><br><span class="line">            SVC(kernel = <span class="string">"poly"</span>, degree = <span class="number">5</span>, C = C),</span><br><span class="line">            SVC(kernel = <span class="string">"sigmoid"</span>, C = C)</span><br><span class="line">         ]</span><br><span class="line"></span><br><span class="line">figure = plt.figure(figsize=(<span class="number">10</span>, <span class="number">10</span>))</span><br><span class="line"><span class="keyword">assert</span> len(names) == len(models)</span><br><span class="line"><span class="keyword">for</span> i, (clf_name, clf) <span class="keyword">in</span> enumerate(zip(names, models)):</span><br><span class="line">    plt.subplot((len(models)+<span class="number">1</span>)/<span class="number">2</span>, <span class="number">2</span>, i + <span class="number">1</span>)</span><br><span class="line">    clf.fit(X, y)</span><br><span class="line">    plot_decision_regions(X, y, clf)</span><br><span class="line">    plt.title(clf_name, fontsize = <span class="number">12</span>)</span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/04/21/5cbc310c31cb7.png" alt="png"></p>
+<p><img src="https://i.loli.net/2019/04/21/5cbc310c31cb7.png" alt="不同SVM核函数对比" style="zoom:70%;"></p>
 <h4 id="多类分类：multiclass-classficiation"><a href="#多类分类：multiclass-classficiation" class="headerlink" title="多类分类：multiclass classficiation"></a>多类分类：multiclass classficiation</h4><ul>
 <li>OVO</li>
 <li>OVR</li>
@@ -674,20 +674,20 @@ k(x_1,x_2) = e^{-\frac{|x_1-x_2|^2}{2\sigma^2}} = e^{-\gamma (x_1-x_2)^2}</scrip
 <pre><code>[0 1 2 3 4]
 </code></pre><p><code>In[21]</code></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">plt.scatter(X2[:,<span class="number">0</span>], X2[:,<span class="number">1</span>], c = Y2)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/04/21/5cbc310c1a556.png" alt="png"></p>
+<p><img src="https://i.loli.net/2019/04/21/5cbc310c1a556.png" alt="multiclass classficiation" style="zoom: 70%;"></p>
 <p><code>In[22]</code></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">rbf_ovr = SVC(kernel = <span class="string">'rbf'</span>, decision_function_shape = <span class="string">"ovr"</span>, gamma=<span class="string">'auto'</span>)</span><br><span class="line"><span class="comment">#rbf_ovo = SVC(kernel = 'rbf', decision_function_shape = "ovo")</span></span><br><span class="line">rbf_ovo = OneVsOneClassifier(SVC(kernel = <span class="string">"rbf"</span>, gamma=<span class="string">'auto'</span>))</span><br><span class="line">linear_ovr = SVC(kernel = <span class="string">'linear'</span>, decision_function_shape = <span class="string">"ovr"</span>, gamma=<span class="string">'auto'</span>)</span><br><span class="line"><span class="comment">#linear_ovo = SVC(kernel = 'linear', decision_function_shape = "ovo")</span></span><br><span class="line">linear_ovo = OneVsOneClassifier(SVC(kernel = <span class="string">"linear"</span>))</span><br></pre></td></tr></table></figure>
 <p><code>In[23]</code></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">gs = gridspec.GridSpec(<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">fig = plt.figure(figsize=(<span class="number">10</span>, <span class="number">8</span>))</span><br><span class="line"></span><br><span class="line">clfs = [rbf_ovr, rbf_ovo, linear_ovr, linear_ovo]</span><br><span class="line">names = [<span class="string">"RBF SVM OVR"</span>, <span class="string">"RBF SVM OVO"</span>, <span class="string">"Linear SVM OVR"</span>, <span class="string">"Linear SVM OVO"</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> clf, lab, grd <span class="keyword">in</span> zip(clfs, names, itertools.product([<span class="number">0</span>, <span class="number">1</span>], repeat=<span class="number">2</span>)):</span><br><span class="line">    ax = plt.subplot(gs[grd[<span class="number">0</span>], grd[<span class="number">1</span>]])</span><br><span class="line">    clf.fit(X2, Y2)</span><br><span class="line">    fig = plot_decision_regions(X=X2, y=Y2, clf=clf, legend=<span class="number">2</span>)</span><br><span class="line">    plt.title(lab)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/04/21/5cbc310c41c4c.png" alt="png"></p>
+<p><img src="https://i.loli.net/2019/04/21/5cbc310c41c4c.png" alt="multiclass classficiation" style="zoom:70%;"></p>
 <h3 id="SVR-Support-Vector-Regression-支持向量回归"><a href="#SVR-Support-Vector-Regression-支持向量回归" class="headerlink" title="SVR: Support Vector Regression 支持向量回归"></a>SVR: Support Vector Regression 支持向量回归</h3><p><code>In[24]</code></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVR</span><br></pre></td></tr></table></figure>
 <p><code>In[25]</code></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 数据</span></span><br><span class="line">X = np.sort(<span class="number">5</span> * np.random.rand(<span class="number">40</span>, <span class="number">1</span>), axis=<span class="number">0</span>)</span><br><span class="line">y = np.sin(X).ravel()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 人为增加一些噪声</span></span><br><span class="line">y[::<span class="number">5</span>] += <span class="number">3</span> * (<span class="number">0.5</span> - np.random.rand(<span class="number">8</span>))</span><br><span class="line"></span><br><span class="line">plt.scatter(X, y)</span><br><span class="line">plt.xlabel(<span class="string">"X"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"y"</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/04/21/5cbc310bd8e38.png" alt="png"></p>
+<p><img src="https://i.loli.net/2019/04/21/5cbc310bd8e38.png" alt="Support Vector Regression" style="zoom:70%;"></p>
 <p><code>In[26]</code></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># SVR 拟合数据</span></span><br><span class="line">C = <span class="number">1e3</span></span><br><span class="line">svr_rbf = SVR(kernel=<span class="string">'rbf'</span>, C = C, gamma = <span class="number">0.1</span>)</span><br><span class="line">svr_lin = SVR(kernel=<span class="string">'linear'</span>, C = C)</span><br><span class="line">svr_poly = SVR(kernel=<span class="string">'poly'</span>, C = C, degree = <span class="number">2</span>, gamma=<span class="string">'auto'</span>)</span><br><span class="line">y_rbf = svr_rbf.fit(X, y).predict(X)</span><br><span class="line">y_lin = svr_lin.fit(X, y).predict(X)</span><br><span class="line">y_poly = svr_poly.fit(X, y).predict(X)</span><br><span class="line"></span><br><span class="line">lw = <span class="number">4</span></span><br><span class="line">plt.figure(figsize = (<span class="number">10</span>,<span class="number">5</span>))</span><br><span class="line">plt.scatter(X, y, color=<span class="string">'darkorange'</span>, label=<span class="string">'data'</span>)</span><br><span class="line">plt.plot(X, y_rbf, color=<span class="string">'navy'</span>, lw = lw, label=<span class="string">'RBF model'</span>)</span><br><span class="line">plt.plot(X, y_lin, color=<span class="string">'c'</span>, lw = lw, label=<span class="string">'Linear model'</span>)</span><br><span class="line">plt.plot(X, y_poly, color=<span class="string">'cornflowerblue'</span>, lw=lw, label=<span class="string">'Polynomial model'</span>)</span><br><span class="line">plt.xlabel(<span class="string">'data'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'target'</span>)</span><br><span class="line">plt.title(<span class="string">'Support Vector Regression'</span>)</span><br><span class="line">plt.legend(loc = <span class="string">'lower left'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/04/21/5cbc310c1e34e.png" alt="png"></p>
+<p><img src="https://i.loli.net/2019/04/21/5cbc310c1e34e.png" style="zoom:70%;"></p>
 ]]></content>
       <categories>
         <category>Note</category>
@@ -2135,6 +2135,38 @@ P(\vert 一次抽样的均值 - 客观存在的均值 \vert < 常数)=1-\alpha</
       </tags>
   </entry>
   <entry>
+    <title>Slice of Python</title>
+    <url>/archives/33632.html</url>
+    <content><![CDATA[<p>对于一个切片函数<code>L[x:y:z]</code>，其中，</p>
+<p><code>x</code>：开始元素</p>
+<p><code>y</code>：最后元素</p>
+<p><code>z</code>：取元素间隔</p>
+<p>取一个list的部分元素是非常常见的操作。比如，一个list如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">L = [<span class="string">'Adam'</span>, <span class="string">'Lisa'</span>, <span class="string">'Bart'</span>, <span class="string">'Paul'</span>]</span><br></pre></td></tr></table></figure>
+<p>Python提供了切片（Slice）操作符，能大大简化这种操作。</p>
+<p>对应上面的问题，取前3个元素，用一行代码就可以完成切片：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[<span class="number">0</span>:<span class="number">3</span>]</span><br><span class="line">[<span class="string">'Adam'</span>, <span class="string">'Lisa'</span>, <span class="string">'Bart'</span>]</span><br></pre></td></tr></table></figure>
+<p>L[0:3]表示，从索引0开始取，直到索引3为止，但不包括索引3。即索引0，1，2，正好是3个元素。</p>
+<p>如果第一个索引是0，还可以省略：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[:<span class="number">3</span>]</span><br><span class="line">[<span class="string">'Adam'</span>, <span class="string">'Lisa'</span>, <span class="string">'Bart'</span>]</span><br></pre></td></tr></table></figure>
+<p>也可以从索引1开始，取出2个元素出来：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[<span class="number">1</span>:<span class="number">3</span>]</span><br><span class="line">[<span class="string">'Lisa'</span>, <span class="string">'Bart'</span>]</span><br></pre></td></tr></table></figure>
+<p>只用一个 <strong>:</strong> ，表示从头到尾：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[:]</span><br><span class="line">[<span class="string">'Adam'</span>, <span class="string">'Lisa'</span>, <span class="string">'Bart'</span>, <span class="string">'Paul'</span>]</span><br></pre></td></tr></table></figure>
+<p>因此，L[:]实际上复制出了一个新list。</p>
+<p>切片操作还可以指定第三个参数：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[::<span class="number">2</span>]</span><br><span class="line">[<span class="string">'Adam'</span>, <span class="string">'Bart'</span>]</span><br></pre></td></tr></table></figure>
+<p>第三个参数表示每N个取一个，上面的 L[::2] 会每两个元素取出一个来，也就是隔一个取一个。</p>
+<p>把list换成tuple，切片操作完全相同，只是切片的结果也变成了tuple。</p>
+]]></content>
+      <categories>
+        <category>Tutorial</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Scikit-learn的支持向量机（SVM）</title>
     <url>/archives/39451.html</url>
     <content><![CDATA[<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
@@ -2810,64 +2842,6 @@ subject\ to\ e^{T} (\alpha - \alpha^*) =0\\
       </tags>
   </entry>
   <entry>
-    <title>C++ string 字符串函数详解</title>
-    <url>/archives/45726.html</url>
-    <content><![CDATA[<blockquote>
-<h2 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h2></blockquote>
-<ol>
-<li><p>+ 和 +=：连接字符串</p>
-</li>
-<li><p>=：字符串赋值</p>
-</li>
-<li><p>>、&gt;=、&lt; 和 &lt;=：字符串比较（例如a &lt; b, aa &lt; ab）</p>
-</li>
-<li><p>==、!=：比较字符串</p>
-</li>
-<li><p>&lt;&lt;、&gt;&gt;：输出、输入字符串</p>
-<a id="more"></a>
-</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> str = <span class="string">"cat"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"apple"</span> + <span class="string">"boy"</span> + str; <span class="comment">// illegal!</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">string</span> str;</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; str;</span><br><span class="line"></span><br><span class="line">str.<span class="built_in">find</span>(<span class="string">"ab"</span>);<span class="comment">//返回字符串 ab 在 str 的位置</span></span><br><span class="line">str.<span class="built_in">find</span>(<span class="string">"ab"</span>, <span class="number">2</span>);<span class="comment">//在 str[2]~str[n-1] 范围内查找并返回字符串 ab 在 str 的位置</span></span><br><span class="line">str.rfind(<span class="string">"ab"</span>, <span class="number">2</span>);<span class="comment">//在 str[0]~str[2] 范围内查找并返回字符串 ab 在 str 的位置</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//first 系列函数</span></span><br><span class="line">str.find_first_of(<span class="string">"apple"</span>);<span class="comment">//返回 apple 中任何一个字符首次在 str 中出现的位置</span></span><br><span class="line">str.find_first_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回 apple 中任何一个字符首次在 str[2]~str[n-1] 范围中出现的位置</span></span><br><span class="line">str.find_first_not_of(<span class="string">"apple"</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str 中首次出现的位置</span></span><br><span class="line">str.find_first_not_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str[2]~str[n-1] 范围中首次出现的位置</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//last 系列函数</span></span><br><span class="line">str.find_last_of(<span class="string">"apple"</span>);<span class="comment">//返回 apple 中任何一个字符最后一次在 str 中出现的位置</span></span><br><span class="line">str.find_last_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回 apple 中任何一个字符最后一次在 str[0]~str[2] 范围中出现的位置</span></span><br><span class="line">str.find_last_not_of(<span class="string">"apple"</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str 中最后一次出现的位置</span></span><br><span class="line">str.find_last_not_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str[0]~str[2] 范围中最后一次出现的位置</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//以上函数如果没有找到，均返回string::npos</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="built_in">string</span>::npos;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="子串"><a href="#子串" class="headerlink" title="子串"></a>子串</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">str.substr(<span class="number">3</span>); <span class="comment">//返回 [3] 及以后的子串</span></span><br><span class="line">str.substr(<span class="number">2</span>, <span class="number">4</span>); <span class="comment">//返回 str[2]~str[2+(4-1)] 子串(即从[2]开始4个字符组成的字符串)</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">str.replace(<span class="number">2</span>, <span class="number">4</span>, <span class="string">"sz"</span>);<span class="comment">//返回把 [2]~[2+(4-1)] 的内容替换为 "sz" 后的新字符串</span></span><br><span class="line">str.replace(<span class="number">2</span>, <span class="number">4</span>, <span class="string">"abcd"</span>, <span class="number">3</span>);<span class="comment">//返回把 [2]~[2+(4-1)] 的内容替换为 "abcd" 的前3个字符后的新字符串</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">str.insert(<span class="number">2</span>, <span class="string">"sz"</span>);<span class="comment">//从 [2] 位置开始添加字符串 "sz"，并返回形成的新字符串</span></span><br><span class="line">str.insert(<span class="number">2</span>, <span class="string">"abcd"</span>, <span class="number">3</span>);<span class="comment">//从 [2] 位置开始添加字符串 "abcd" 的前 3 个字符，并返回形成的新字符串</span></span><br><span class="line">str.insert(<span class="number">2</span>, <span class="string">"abcd"</span>, <span class="number">1</span>, <span class="number">3</span>);<span class="comment">//从 [2] 位置开始添加字符串 "abcd" 的前 [2]~[2+(3-1)] 个字符，并返回形成的新字符串</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="追加"><a href="#追加" class="headerlink" title="追加"></a>追加</h2></blockquote>
-<p>除了用重载的 <code>+</code> 操作符，还可以使用函数来完成。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">str.push_back(<span class="string">'a'</span>);<span class="comment">//在 str 末尾添加字符'a'</span></span><br><span class="line">str.append(<span class="string">"abc"</span>);<span class="comment">//在 str 末尾添加字符串"abc"</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">str.erase(<span class="number">3</span>);<span class="comment">//删除 [3] 及以后的字符，并返回新字符串</span></span><br><span class="line">str.erase(<span class="number">3</span>, <span class="number">5</span>);<span class="comment">//删除从 [3] 开始的 5 个字符，并返回新字符串</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="交换"><a href="#交换" class="headerlink" title="交换"></a>交换</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">str1.swap(str2);<span class="comment">//把 str1 与 str2 交换</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2></blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">str.<span class="built_in">size</span>();<span class="comment">//返回字符串长度</span></span><br><span class="line">str.length();<span class="comment">//返回字符串长度</span></span><br><span class="line">str.empty();<span class="comment">//检查 str 是否为空，为空返回 1，否则返回 0</span></span><br><span class="line">str[n];<span class="comment">//存取 str 第 n + 1 个字符</span></span><br><span class="line">str.at(n);<span class="comment">//存取 str 第 n + 1 个字符（如果溢出会抛出异常）</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2></blockquote>
-<h3 id="查找给定字符串并把相应子串替换为另一给定字符串"><a href="#查找给定字符串并把相应子串替换为另一给定字符串" class="headerlink" title="查找给定字符串并把相应子串替换为另一给定字符串"></a>查找给定字符串并把相应子串替换为另一给定字符串</h3><p>string 并没有提供这样的函数，所以我们自己来实现。由于给定字符串可能出现多次，所以需要用到 <code>find()</code> 成员函数的第二个参数，每次查找之后，从找到位置往后继续搜索。直接看代码（这个函数返回替换的次数，如果返回值是 0 说明没有替换）：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_replace</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> &amp;src, <span class="keyword">const</span> <span class="built_in">string</span> &amp;dest)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> ((pos = str.<span class="built_in">find</span>(src, pos)) != <span class="built_in">string</span>::npos) &#123;</span><br><span class="line">        str.replace(pos, src.<span class="built_in">size</span>(), dest);</span><br><span class="line">        ++counter;</span><br><span class="line">        pos += dest.<span class="built_in">size</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> counter;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="从给定字符串中删除一给定字串"><a href="#从给定字符串中删除一给定字串" class="headerlink" title="从给定字符串中删除一给定字串"></a>从给定字符串中删除一给定字串</h3><p>方法和上面相似，内部使用 <code>erase()</code> 完成。代码：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_erase</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> src)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> ((pos = str.<span class="built_in">find</span>(src, pos)) != <span class="built_in">string</span>::npos) &#123;</span><br><span class="line">        str.erase(pos, src.<span class="built_in">size</span>());</span><br><span class="line">        ++counter;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> counter;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="给定一字符串和一字符集，从字符串剔除字符集中的任意字符"><a href="#给定一字符串和一字符集，从字符串剔除字符集中的任意字符" class="headerlink" title="给定一字符串和一字符集，从字符串剔除字符集中的任意字符"></a>给定一字符串和一字符集，从字符串剔除字符集中的任意字符</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_wash</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> src)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> ((pos = str.find_first_of(src, pos)) != <span class="built_in">string</span>::npos) &#123;</span><br><span class="line">        str.erase(pos, <span class="number">1</span>);</span><br><span class="line">        ++counter;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> counter;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Note</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Mac OS X Terminal 101：终端使用初级教程</title>
     <url>/archives/41111.html</url>
     <content><![CDATA[<p>最近学习苹果认证的《Mac OS X Support Essentials》教程，看到 Command Line 一节有很多实用的知识，下面选取一部分翻译 + 笔记，整理成此文。</p>
@@ -2988,6 +2962,64 @@ subject\ to\ e^{T} (\alpha - \alpha^*) =0\\
       </categories>
       <tags>
         <tag>Terminal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ string 字符串函数详解</title>
+    <url>/archives/45726.html</url>
+    <content><![CDATA[<blockquote>
+<h2 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h2></blockquote>
+<ol>
+<li><p>+ 和 +=：连接字符串</p>
+</li>
+<li><p>=：字符串赋值</p>
+</li>
+<li><p>>、&gt;=、&lt; 和 &lt;=：字符串比较（例如a &lt; b, aa &lt; ab）</p>
+</li>
+<li><p>==、!=：比较字符串</p>
+</li>
+<li><p>&lt;&lt;、&gt;&gt;：输出、输入字符串</p>
+<a id="more"></a>
+</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> str = <span class="string">"cat"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"apple"</span> + <span class="string">"boy"</span> + str; <span class="comment">// illegal!</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">string</span> str;</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; str;</span><br><span class="line"></span><br><span class="line">str.<span class="built_in">find</span>(<span class="string">"ab"</span>);<span class="comment">//返回字符串 ab 在 str 的位置</span></span><br><span class="line">str.<span class="built_in">find</span>(<span class="string">"ab"</span>, <span class="number">2</span>);<span class="comment">//在 str[2]~str[n-1] 范围内查找并返回字符串 ab 在 str 的位置</span></span><br><span class="line">str.rfind(<span class="string">"ab"</span>, <span class="number">2</span>);<span class="comment">//在 str[0]~str[2] 范围内查找并返回字符串 ab 在 str 的位置</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//first 系列函数</span></span><br><span class="line">str.find_first_of(<span class="string">"apple"</span>);<span class="comment">//返回 apple 中任何一个字符首次在 str 中出现的位置</span></span><br><span class="line">str.find_first_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回 apple 中任何一个字符首次在 str[2]~str[n-1] 范围中出现的位置</span></span><br><span class="line">str.find_first_not_of(<span class="string">"apple"</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str 中首次出现的位置</span></span><br><span class="line">str.find_first_not_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str[2]~str[n-1] 范围中首次出现的位置</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//last 系列函数</span></span><br><span class="line">str.find_last_of(<span class="string">"apple"</span>);<span class="comment">//返回 apple 中任何一个字符最后一次在 str 中出现的位置</span></span><br><span class="line">str.find_last_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回 apple 中任何一个字符最后一次在 str[0]~str[2] 范围中出现的位置</span></span><br><span class="line">str.find_last_not_of(<span class="string">"apple"</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str 中最后一次出现的位置</span></span><br><span class="line">str.find_last_not_of(<span class="string">"apple"</span>, <span class="number">2</span>);<span class="comment">//返回除 apple 以外的任何一个字符在 str[0]~str[2] 范围中最后一次出现的位置</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//以上函数如果没有找到，均返回string::npos</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="built_in">string</span>::npos;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="子串"><a href="#子串" class="headerlink" title="子串"></a>子串</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">str.substr(<span class="number">3</span>); <span class="comment">//返回 [3] 及以后的子串</span></span><br><span class="line">str.substr(<span class="number">2</span>, <span class="number">4</span>); <span class="comment">//返回 str[2]~str[2+(4-1)] 子串(即从[2]开始4个字符组成的字符串)</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">str.replace(<span class="number">2</span>, <span class="number">4</span>, <span class="string">"sz"</span>);<span class="comment">//返回把 [2]~[2+(4-1)] 的内容替换为 "sz" 后的新字符串</span></span><br><span class="line">str.replace(<span class="number">2</span>, <span class="number">4</span>, <span class="string">"abcd"</span>, <span class="number">3</span>);<span class="comment">//返回把 [2]~[2+(4-1)] 的内容替换为 "abcd" 的前3个字符后的新字符串</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">str.insert(<span class="number">2</span>, <span class="string">"sz"</span>);<span class="comment">//从 [2] 位置开始添加字符串 "sz"，并返回形成的新字符串</span></span><br><span class="line">str.insert(<span class="number">2</span>, <span class="string">"abcd"</span>, <span class="number">3</span>);<span class="comment">//从 [2] 位置开始添加字符串 "abcd" 的前 3 个字符，并返回形成的新字符串</span></span><br><span class="line">str.insert(<span class="number">2</span>, <span class="string">"abcd"</span>, <span class="number">1</span>, <span class="number">3</span>);<span class="comment">//从 [2] 位置开始添加字符串 "abcd" 的前 [2]~[2+(3-1)] 个字符，并返回形成的新字符串</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="追加"><a href="#追加" class="headerlink" title="追加"></a>追加</h2></blockquote>
+<p>除了用重载的 <code>+</code> 操作符，还可以使用函数来完成。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">str.push_back(<span class="string">'a'</span>);<span class="comment">//在 str 末尾添加字符'a'</span></span><br><span class="line">str.append(<span class="string">"abc"</span>);<span class="comment">//在 str 末尾添加字符串"abc"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">str.erase(<span class="number">3</span>);<span class="comment">//删除 [3] 及以后的字符，并返回新字符串</span></span><br><span class="line">str.erase(<span class="number">3</span>, <span class="number">5</span>);<span class="comment">//删除从 [3] 开始的 5 个字符，并返回新字符串</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="交换"><a href="#交换" class="headerlink" title="交换"></a>交换</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">str1.swap(str2);<span class="comment">//把 str1 与 str2 交换</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2></blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">str.<span class="built_in">size</span>();<span class="comment">//返回字符串长度</span></span><br><span class="line">str.length();<span class="comment">//返回字符串长度</span></span><br><span class="line">str.empty();<span class="comment">//检查 str 是否为空，为空返回 1，否则返回 0</span></span><br><span class="line">str[n];<span class="comment">//存取 str 第 n + 1 个字符</span></span><br><span class="line">str.at(n);<span class="comment">//存取 str 第 n + 1 个字符（如果溢出会抛出异常）</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2></blockquote>
+<h3 id="查找给定字符串并把相应子串替换为另一给定字符串"><a href="#查找给定字符串并把相应子串替换为另一给定字符串" class="headerlink" title="查找给定字符串并把相应子串替换为另一给定字符串"></a>查找给定字符串并把相应子串替换为另一给定字符串</h3><p>string 并没有提供这样的函数，所以我们自己来实现。由于给定字符串可能出现多次，所以需要用到 <code>find()</code> 成员函数的第二个参数，每次查找之后，从找到位置往后继续搜索。直接看代码（这个函数返回替换的次数，如果返回值是 0 说明没有替换）：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_replace</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> &amp;src, <span class="keyword">const</span> <span class="built_in">string</span> &amp;dest)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> ((pos = str.<span class="built_in">find</span>(src, pos)) != <span class="built_in">string</span>::npos) &#123;</span><br><span class="line">        str.replace(pos, src.<span class="built_in">size</span>(), dest);</span><br><span class="line">        ++counter;</span><br><span class="line">        pos += dest.<span class="built_in">size</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> counter;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="从给定字符串中删除一给定字串"><a href="#从给定字符串中删除一给定字串" class="headerlink" title="从给定字符串中删除一给定字串"></a>从给定字符串中删除一给定字串</h3><p>方法和上面相似，内部使用 <code>erase()</code> 完成。代码：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_erase</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> src)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> ((pos = str.<span class="built_in">find</span>(src, pos)) != <span class="built_in">string</span>::npos) &#123;</span><br><span class="line">        str.erase(pos, src.<span class="built_in">size</span>());</span><br><span class="line">        ++counter;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> counter;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="给定一字符串和一字符集，从字符串剔除字符集中的任意字符"><a href="#给定一字符串和一字符集，从字符串剔除字符集中的任意字符" class="headerlink" title="给定一字符串和一字符集，从字符串剔除字符集中的任意字符"></a>给定一字符串和一字符集，从字符串剔除字符集中的任意字符</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">str_wash</span><span class="params">(<span class="built_in">string</span> &amp;str, <span class="keyword">const</span> <span class="built_in">string</span> src)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> ((pos = str.find_first_of(src, pos)) != <span class="built_in">string</span>::npos) &#123;</span><br><span class="line">        str.erase(pos, <span class="number">1</span>);</span><br><span class="line">        ++counter;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> counter;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Note</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
       </tags>
   </entry>
 </search>
