@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/04/14/yjl1zcI7FmGuHKE.png">
 <meta property="og:image" content="https://i.loli.net/2020/04/14/faq9uGKBtAhjEkD.png">
 <meta property="article:published_time" content="2020-04-14T11:28:31.467Z">
-<meta property="article:modified_time" content="2020-04-14T12:39:32.452Z">
+<meta property="article:modified_time" content="2020-04-14T12:42:07.747Z">
 <meta property="article:author" content="Gavin">
 <meta property="article:tag" content="Algorithm">
 <meta property="article:tag" content="Data Structure">
@@ -228,7 +228,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 04-14-2020 19:28:31 / Modified: 20:39:32" itemprop="dateCreated datePublished" datetime="2020-04-14T19:28:31+08:00">04-14-2020</time>
+              <time title="Created: 04-14-2020 19:28:31 / Modified: 20:42:07" itemprop="dateCreated datePublished" datetime="2020-04-14T19:28:31+08:00">04-14-2020</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -260,6 +260,7 @@
 <li>Switch them.</li>
 <li>Repeat until the pointers cross. </li>
 </ol>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SELECT(A, i, j, k)</span><br><span class="line">    if j - i &lt;&#x3D; 150</span><br><span class="line">        then sort the list A[i] ... A[j] and obtain the rank k element</span><br><span class="line">	else</span><br><span class="line">		pick a pivot element p</span><br><span class="line">		partition A[i] ... A[j] with pivot element p</span><br><span class="line">		cout the number of elements in the low side of the partition, call this number m</span><br><span class="line">		if k &lt;&#x3D; m then SELECT(A, i, j +m, k)</span><br><span class="line">		else	       SELECT(A, i + m, j, k - m)</span><br></pre></td></tr></table></figure>
 <h3 id="Smart-way-to-choose-a-pivot-element-p"><a href="#Smart-way-to-choose-a-pivot-element-p" class="headerlink" title="Smart way to choose a pivot element p:"></a>Smart way to choose a <code>pivot</code> element p:</h3><ol>
 <li>Divide the list <code>A[i]</code> … <code>A[j]</code> into separate $5$ element sets.        <font color="red"> O(n)  </font></li>

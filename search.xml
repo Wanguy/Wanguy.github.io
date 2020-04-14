@@ -12,6 +12,7 @@
 <li>Switch them.</li>
 <li>Repeat until the pointers cross. </li>
 </ol>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT(A, i, j, k)</span><br><span class="line">    if j - i &lt;&#x3D; 150</span><br><span class="line">        then sort the list A[i] ... A[j] and obtain the rank k element</span><br><span class="line">	else</span><br><span class="line">		pick a pivot element p</span><br><span class="line">		partition A[i] ... A[j] with pivot element p</span><br><span class="line">		cout the number of elements in the low side of the partition, call this number m</span><br><span class="line">		if k &lt;&#x3D; m then SELECT(A, i, j +m, k)</span><br><span class="line">		else	       SELECT(A, i + m, j, k - m)</span><br></pre></td></tr></table></figure>
 <h3 id="Smart-way-to-choose-a-pivot-element-p"><a href="#Smart-way-to-choose-a-pivot-element-p" class="headerlink" title="Smart way to choose a pivot element p:"></a>Smart way to choose a <code>pivot</code> element p:</h3><ol>
 <li>Divide the list <code>A[i]</code> … <code>A[j]</code> into separate $5$ element sets.        <font color="red"> O(n)  </font></li>
