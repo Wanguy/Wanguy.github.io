@@ -19,8 +19,9 @@
 <li>Find the median of each $5$ element set, and let <code>B[1], B[2], ..., B[q]</code> be a list of all such medians of $5$ element sets.    <font color="red">O(n)</font></li>
 <li>Call $S E L E C T\left(B, 1, q, \left \lceil \frac{q}{2}\right \rceil\right)$ to find the median of this median list and let $P$, the <code>pivot</code>, be this value.     <font color="red">T(n/5)</font></li>
 </ol>
-<p>We will prove: $T(n) \leq T\left(\left \lceil \frac{n}{5}\right \rceil\right)+T\left(\frac{7 n}{10}+6\right)+c n, \quad \text { for some } c&gt;0$</p>
-<div class="note info">
+<p>We will prove: </p>
+<script type="math/tex; mode=display">
+T(n) \leq T\left(\left \lceil \frac{n}{5}\right \rceil\right)+T\left(\frac{7 n}{10}+6\right)+c n, \quad \text { for some } c>0</script><div class="note info">
             <p>After partitoning with “median of median” element, neither the LOW side nor the HIGH side has more than $\frac{7 n}{10}+6$ elements.</p>
           </div>
 <p><img src="https://i.loli.net/2020/04/14/faq9uGKBtAhjEkD.png" style="zoom:30%;"></p>
