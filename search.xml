@@ -21,7 +21,7 @@
 </ol>
 <p>We will prove: </p>
 <script type="math/tex; mode=display">
-T(n) \leq T\left(\left \lceil \frac{n}{5}\right \rceil\right)+T\left(\frac{7 n}{10}+6\right)+c n, \quad \text { for some } c>0</script><div class="note info">
+T(n) \leq T\left(\left \lceil \frac{n}{5}\right \rceil\right)+T\left(\frac{7 n}{10}+6\right)+c n,\ \text { for some } c>0</script><div class="note info">
             <p>After partitoning with “median of median” element, neither the LOW side nor the HIGH side has more than $\frac{7 n}{10}+6$ elements.</p>
           </div>
 <p><img src="https://i.loli.net/2020/04/14/faq9uGKBtAhjEkD.png" style="zoom:30%;"></p>
