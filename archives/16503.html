@@ -21,20 +21,25 @@
     var CONFIG = {"hostname":"marara.xin","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="以.DS_Store文件为例： 创建 ~&#x2F;.gitignore_global 文件，将需要忽略的文件类型写入文件1touch .gitignore_global 在.gitconfig 中引用打开~&#x2F;.gitconfig，输入： 12[core] 	excludesfile &#x3D; &#x2F;Users&#x2F;reon&#x2F;.gitignore_global 或是通过： 1git">
+  <meta name="description" content="PARTITION THE ARRAY We choose $5$ to be pivot:LOW side of the list is everything $\leqslant $ pivot. HIGH side of the list is everything $\geqslant $ pivot. Partition the array:  Move front pointer to">
 <meta property="og:type" content="article">
-<meta property="og:title" content="全局.gitignore">
-<meta property="og:url" content="https://marara.xin/archives/60650.html">
+<meta property="og:title" content="FIND MEDIAN">
+<meta property="og:url" content="https://marara.xin/archives/16503.html">
 <meta property="og:site_name" content="Gavin&#39;s Blog">
-<meta property="og:description" content="以.DS_Store文件为例： 创建 ~&#x2F;.gitignore_global 文件，将需要忽略的文件类型写入文件1touch .gitignore_global 在.gitconfig 中引用打开~&#x2F;.gitconfig，输入： 12[core] 	excludesfile &#x3D; &#x2F;Users&#x2F;reon&#x2F;.gitignore_global 或是通过： 1git">
+<meta property="og:description" content="PARTITION THE ARRAY We choose $5$ to be pivot:LOW side of the list is everything $\leqslant $ pivot. HIGH side of the list is everything $\geqslant $ pivot. Partition the array:  Move front pointer to">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2017-11-23T08:10:01.054Z">
-<meta property="article:modified_time" content="2020-03-25T15:32:59.008Z">
+<meta property="og:image" content="https://i.loli.net/2020/04/14/bC3hVX7gpsxuaiD.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/14/yjl1zcI7FmGuHKE.png">
+<meta property="og:image" content="https://i.loli.net/2020/04/14/faq9uGKBtAhjEkD.png">
+<meta property="article:published_time" content="2020-04-14T11:28:31.467Z">
+<meta property="article:modified_time" content="2020-04-14T12:39:32.452Z">
 <meta property="article:author" content="Gavin">
-<meta property="article:tag" content="Git">
+<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="Data Structure">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/04/14/bC3hVX7gpsxuaiD.png">
 
-<link rel="canonical" href="https://marara.xin/archives/60650.html">
+<link rel="canonical" href="https://marara.xin/archives/16503.html">
 
 
 <script id="page-configurations">
@@ -47,7 +52,7 @@
   };
 </script>
 
-  <title>全局.gitignore | Gavin's Blog</title>
+  <title>FIND MEDIAN | Gavin's Blog</title>
   
 
 
@@ -199,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://marara.xin/archives/60650.html">
+    <link itemprop="mainEntityOfPage" href="https://marara.xin/archives/16503.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/IMG_5946.png">
@@ -212,7 +217,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          全局.gitignore
+          FIND MEDIAN
         </h1>
 
         <div class="post-meta">
@@ -221,23 +226,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 11-23-2017 16:10:01" itemprop="dateCreated datePublished" datetime="2017-11-23T16:10:01+08:00">11-23-2017</time>
+              <time title="Created: 04-14-2020 19:28:31 / Modified: 20:39:32" itemprop="dateCreated datePublished" datetime="2020-04-14T19:28:31+08:00">04-14-2020</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 03-25-2020 23:32:59" itemprop="dateModified" datetime="2020-03-25T23:32:59+08:00">03-25-2020</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tutorial/" itemprop="url" rel="index"><span itemprop="name">Tutorial</span></a>
+                  <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
                 </span>
             </span>
 
@@ -252,14 +251,61 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>以<code>.DS_Store</code>文件为例：</p>
-<h3 id="创建-gitignore-global-文件，将需要忽略的文件类型写入文件"><a href="#创建-gitignore-global-文件，将需要忽略的文件类型写入文件" class="headerlink" title="创建 ~/.gitignore_global 文件，将需要忽略的文件类型写入文件"></a>创建 <code>~/.gitignore_global</code> 文件，将需要忽略的文件类型写入文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch .gitignore_global</span><br></pre></td></tr></table></figure>
-<h3 id="在-gitconfig-中引用"><a href="#在-gitconfig-中引用" class="headerlink" title="在.gitconfig 中引用"></a>在<code>.gitconfig</code> 中引用</h3><p>打开<code>~/.gitconfig</code>，输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[core] </span><br><span class="line">	excludesfile &#x3D; &#x2F;Users&#x2F;reon&#x2F;.gitignore_global</span><br></pre></td></tr></table></figure>
-<p>或是通过：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.excludesfile/Users/reon/.gitignore_global</span><br></pre></td></tr></table></figure>
-<p>命令来实现。</p>
-
+        <h2 id="PARTITION-THE-ARRAY"><a href="#PARTITION-THE-ARRAY" class="headerlink" title="PARTITION THE ARRAY"></a>PARTITION THE ARRAY</h2><p><img src="https://i.loli.net/2020/04/14/bC3hVX7gpsxuaiD.png" alt=""></p>
+<h3 id="We-choose-5-to-be-pivot"><a href="#We-choose-5-to-be-pivot" class="headerlink" title="We choose $5$ to be pivot:"></a>We choose $5$ to be <code>pivot</code>:</h3><p>LOW side of the list is everything $\leqslant $ <code>pivot</code>.</p>
+<p>HIGH side of the list is everything $\geqslant $ <code>pivot</code>.</p>
+<h3 id="Partition-the-array"><a href="#Partition-the-array" class="headerlink" title="Partition the array:"></a>Partition the array:</h3><p><img src="https://i.loli.net/2020/04/14/yjl1zcI7FmGuHKE.png" alt="PARTITION THE ARRAY"></p>
+<ol>
+<li>Move front pointer to first object $&gt;$ <code>pivot</code> and then back point to the left to first object $\leqslant $ <code>pivot</code>.</li>
+<li>Switch them.</li>
+<li>Repeat until the pointers cross. </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SELECT(A, i, j, k)</span><br><span class="line">    if j - i &lt;&#x3D; 150</span><br><span class="line">        then sort the list A[i] ... A[j] and obtain the rank k element</span><br><span class="line">	else</span><br><span class="line">		pick a pivot element p</span><br><span class="line">		partition A[i] ... A[j] with pivot element p</span><br><span class="line">		cout the number of elements in the low side of the partition, call this number m</span><br><span class="line">		if k &lt;&#x3D; m then SELECT(A, i, j +m, k)</span><br><span class="line">		else	       SELECT(A, i + m, j, k - m)</span><br></pre></td></tr></table></figure>
+<h3 id="Smart-way-to-choose-a-pivot-element-p"><a href="#Smart-way-to-choose-a-pivot-element-p" class="headerlink" title="Smart way to choose a pivot element p:"></a>Smart way to choose a <code>pivot</code> element p:</h3><ol>
+<li>Divide the list <code>A[i]</code> … <code>A[j]</code> into separate $5$ element sets.        <font color="red"> O(n)  </font></li>
+<li>Find the median of each $5$ element set, and let <code>B[1], B[2], ..., B[q]</code> be a list of all such medians of $5$ element sets.    <font color="red">O(n)</font></li>
+<li>Call $S E L E C T\left(B, 1, q, \left \lceil \frac{q}{2}\right \rceil\right)$ to find the median of this median list and let $P$, the <code>pivot</code>, be this value.     <font color="red">T(n/5)</font></li>
+</ol>
+<p>We will prove: $T(n) \leq T\left(\left \lceil \frac{n}{5}\right \rceil\right)+T\left(\frac{7 n}{10}+6\right)+c n, \quad \text { for some } c&gt;0$</p>
+<div class="note info">
+            <p>After partitoning with “median of median” element, neither the LOW side nor the HIGH side has more than $\frac{7 n}{10}+6$ elements.</p>
+          </div>
+<p><img src="https://i.loli.net/2020/04/14/faq9uGKBtAhjEkD.png" style="zoom:30%;"></p>
+<script type="math/tex; mode=display">
+m=\left \lceil \frac{n}{5} \right \rceil \text { sets. } \text {So,the median is of } \left \lceil\frac{m}{2}\right \rceil \text { rank. }</script><blockquote>
+<p>In the picture, each set is sorted in increasing order from top to bottom.</p>
+<p>Also, the sets are sorted by their median value from left to right. (The smallish set may not be at the end.)</p>
+</blockquote>
+<p>How many, by this analysis, must go to the LOW side?</p>
+<p>The LOW side must include elements from $\left \lceil\frac{m}{2}\right \rceil $ sets, as the median-of-median has rank $\left \lceil\frac{m}{2}\right \rceil $.</p>
+<p>The HIGH side must include elements from $\left \lceil\frac{m}{2}\right \rceil $ set.</p>
+<p>Therefore, both the LOW and HIGH sides include at least $3\cdot\left(\left \lceil\frac{m}{2}\right \rceil - 2 \right)$ elements. That is, we subtract $2$ as there may be two sets with less than $3$ elements.</p>
+<p>Therefore, at most $n - 3\cdot\left(\left \lceil\frac{m}{2}\right \rceil - 2 \right)$ elements go to either the HIGH side or LOW side in the partitioning by the “median-of-median” element.</p>
+<p>That is, as $m=\left \lceil \frac{n}{5} \right \rceil$, at most:</p>
+<script type="math/tex; mode=display">
+n-3 \cdot\left(\left \lceil\frac{ \left \lceil\frac{n}{5}\right \rceil}{2}\right \rceil-2\right) \leqslant  n-3 \cdot\left(\frac{n}{10}-2\right)=\frac{7 n}{10}+6</script><p>so,</p>
+<script type="math/tex; mode=display">
+T(n) \leq T\left( \left \lceil \frac{n}{5} \right \rceil\right)+T\left(\frac{7 n}{10}+6\right)+a n,\qquad \text { for some constant } a>0</script><p>We prove that for some fixed constant $c &gt; 0,\ T\left(n\right) \leqslant cn$ by induction on n.</p>
+<h4 id="Basic-Step"><a href="#Basic-Step" class="headerlink" title="Basic Step"></a>Basic Step</h4><p>For all $n \leqslant 150$, Clearly, for all inputs of length at most any constant d, the upper bound on the time is also constant.</p>
+<p>So, there is a constant $c &gt; 0$, such that, for all $n \leqslant 150,\ T\left(n\right)\leqslant cn$.</p>
+<h4 id="Inductive-Step"><a href="#Inductive-Step" class="headerlink" title="Inductive Step"></a>Inductive Step</h4><p>Assume that for all $n^{\prime}&lt;n,\ T\left(n^{\prime}\right) \leqslant c n^{\prime}$.</p>
+<p>We need to show that $T(n) \leqslant cn$.</p>
+<p>We know:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+T(n) & \leqslant T\left(\left \lceil \frac{n}{5} \right \rceil\right)+T\left(\frac{7 n}{10}+6\right)+a n \\
+& \leqslant T\left(\frac{n}{5}+1\right)+T\left(\frac{7 n}{10}+6\right)+a n \\
+& \leqslant c\left(\frac{n}{5}+1\right)+c\left(\frac{7 n}{10}+6\right)+a n \\
+&=9\left(\frac{c n}{10}\right)+7 c+a n \\
+& \leqslant c n \qquad \text { provided } 7 c+a n \leq \frac{c n}{10}
+\end{aligned}</script><script type="math/tex; mode=display">
+\begin{aligned}
+&\begin{aligned}
+7 c+a n \leqslant \frac{c n}{10} & \Leftrightarrow a n \leqslant \frac{c n}{10}-7 c \Leftrightarrow 10 a n \leqslant c(n-70) \\
+& \Leftrightarrow c \geqslant \frac{10 a n}{n-70}
+\end{aligned}\\
+&\text {Note: } \frac{n}{n-70} \leqslant 2, \text { for } n \geqslant 140, \text { so we need } c \geqslant 20 a
+\end{aligned}</script>
     </div>
 
     
@@ -274,7 +320,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://marara.xin/archives/60650.html" title="全局.gitignore">https://marara.xin/archives/60650.html</a>
+    <a href="https://marara.xin/archives/16503.html" title="FIND MEDIAN">https://marara.xin/archives/16503.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -325,7 +371,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
+              <a href="/tags/Algorithm/" rel="tag"><i class="fa fa-tag"></i> Algorithm</a>
+              <a href="/tags/Data-Structure/" rel="tag"><i class="fa fa-tag"></i> Data Structure</a>
           </div>
 
         
@@ -334,13 +381,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/archives/6578.html" rel="prev" title="C# 中的委托和事件">
-      <i class="fa fa-chevron-left"></i> C# 中的委托和事件
+    <a href="/archives/21750.html" rel="prev" title="探索 systemd">
+      <i class="fa fa-chevron-left"></i> 探索 systemd
     </a></div>
-      <div class="post-nav-item">
-    <a href="/archives/36269.html" rel="next" title="Swift UILabel 属性">
-      Swift UILabel 属性 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -400,7 +444,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-gitignore-global-文件，将需要忽略的文件类型写入文件"><span class="nav-text">创建 ~&#x2F;.gitignore_global 文件，将需要忽略的文件类型写入文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在-gitconfig-中引用"><span class="nav-text">在.gitconfig 中引用</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PARTITION-THE-ARRAY"><span class="nav-text">PARTITION THE ARRAY</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#We-choose-5-to-be-pivot"><span class="nav-text">We choose $5$ to be pivot:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Partition-the-array"><span class="nav-text">Partition the array:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Smart-way-to-choose-a-pivot-element-p"><span class="nav-text">Smart way to choose a pivot element p:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Basic-Step"><span class="nav-text">Basic Step</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Inductive-Step"><span class="nav-text">Inductive Step</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -579,7 +623,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'Wanguy.github.io',
       owner       : 'Wanguy',
       admin       : ['Wanguy'],
-      id          : '177af6914a43997e5e5ab54efacbf891',
+      id          : '8c6b0175a78897f112085050b27d3bd1',
         language: '',
       distractionFreeMode: true
     });

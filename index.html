@@ -121,7 +121,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">17</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">19</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -131,7 +131,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">25</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">26</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -191,6 +191,127 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://marara.xin/archives/16503.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/IMG_5946.png">
+      <meta itemprop="name" content="Gavin">
+      <meta itemprop="description" content="Make it, Fake it.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/archives/16503.html" class="post-title-link" itemprop="url">FIND MEDIAN</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 04-14-2020 19:28:31 / Modified: 20:39:32" itemprop="dateCreated datePublished" datetime="2020-04-14T19:28:31+08:00">04-14-2020</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="PARTITION-THE-ARRAY"><a href="#PARTITION-THE-ARRAY" class="headerlink" title="PARTITION THE ARRAY"></a>PARTITION THE ARRAY</h2><p><img src="https://i.loli.net/2020/04/14/bC3hVX7gpsxuaiD.png" alt=""></p>
+<h3 id="We-choose-5-to-be-pivot"><a href="#We-choose-5-to-be-pivot" class="headerlink" title="We choose $5$ to be pivot:"></a>We choose $5$ to be <code>pivot</code>:</h3><p>LOW side of the list is everything $\leqslant $ <code>pivot</code>.</p>
+<p>HIGH side of the list is everything $\geqslant $ <code>pivot</code>.</p>
+<h3 id="Partition-the-array"><a href="#Partition-the-array" class="headerlink" title="Partition the array:"></a>Partition the array:</h3><p><img src="https://i.loli.net/2020/04/14/yjl1zcI7FmGuHKE.png" alt="PARTITION THE ARRAY"></p>
+<ol>
+<li>Move front pointer to first object $&gt;$ <code>pivot</code> and then back point to the left to first object $\leqslant $ <code>pivot</code>.</li>
+<li>Switch them.</li>
+<li>Repeat until the pointers cross. </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SELECT(A, i, j, k)</span><br><span class="line">    if j - i &lt;&#x3D; 150</span><br><span class="line">        then sort the list A[i] ... A[j] and obtain the rank k element</span><br><span class="line">	else</span><br><span class="line">		pick a pivot element p</span><br><span class="line">		partition A[i] ... A[j] with pivot element p</span><br><span class="line">		cout the number of elements in the low side of the partition, call this number m</span><br><span class="line">		if k &lt;&#x3D; m then SELECT(A, i, j +m, k)</span><br><span class="line">		else	       SELECT(A, i + m, j, k - m)</span><br></pre></td></tr></table></figure>
+<h3 id="Smart-way-to-choose-a-pivot-element-p"><a href="#Smart-way-to-choose-a-pivot-element-p" class="headerlink" title="Smart way to choose a pivot element p:"></a>Smart way to choose a <code>pivot</code> element p:</h3><ol>
+<li>Divide the list <code>A[i]</code> … <code>A[j]</code> into separate $5$ element sets.        <font color="red"> O(n)  </font></li>
+<li>Find the median of each $5$ element set, and let <code>B[1], B[2], ..., B[q]</code> be a list of all such medians of $5$ element sets.    <font color="red">O(n)</font></li>
+<li>Call $S E L E C T\left(B, 1, q, \left \lceil \frac{q}{2}\right \rceil\right)$ to find the median of this median list and let $P$, the <code>pivot</code>, be this value.     <font color="red">T(n/5)</font></li>
+</ol>
+<p>We will prove: $T(n) \leq T\left(\left \lceil \frac{n}{5}\right \rceil\right)+T\left(\frac{7 n}{10}+6\right)+c n, \quad \text { for some } c&gt;0$</p>
+<div class="note info">
+            <p>After partitoning with “median of median” element, neither the LOW side nor the HIGH side has more than $\frac{7 n}{10}+6$ elements.</p>
+          </div>
+<p><img src="https://i.loli.net/2020/04/14/faq9uGKBtAhjEkD.png" style="zoom:30%;"></p>
+<script type="math/tex; mode=display">
+m=\left \lceil \frac{n}{5} \right \rceil \text { sets. } \text {So,the median is of } \left \lceil\frac{m}{2}\right \rceil \text { rank. }</script><blockquote>
+<p>In the picture, each set is sorted in increasing order from top to bottom.</p>
+<p>Also, the sets are sorted by their median value from left to right. (The smallish set may not be at the end.)</p>
+</blockquote>
+<p>How many, by this analysis, must go to the LOW side?</p>
+<p>The LOW side must include elements from $\left \lceil\frac{m}{2}\right \rceil $ sets, as the median-of-median has rank $\left \lceil\frac{m}{2}\right \rceil $.</p>
+<p>The HIGH side must include elements from $\left \lceil\frac{m}{2}\right \rceil $ set.</p>
+<p>Therefore, both the LOW and HIGH sides include at least $3\cdot\left(\left \lceil\frac{m}{2}\right \rceil - 2 \right)$ elements. That is, we subtract $2$ as there may be two sets with less than $3$ elements.</p>
+<p>Therefore, at most $n - 3\cdot\left(\left \lceil\frac{m}{2}\right \rceil - 2 \right)$ elements go to either the HIGH side or LOW side in the partitioning by the “median-of-median” element.</p>
+<p>That is, as $m=\left \lceil \frac{n}{5} \right \rceil$, at most:</p>
+<script type="math/tex; mode=display">
+n-3 \cdot\left(\left \lceil\frac{ \left \lceil\frac{n}{5}\right \rceil}{2}\right \rceil-2\right) \leqslant  n-3 \cdot\left(\frac{n}{10}-2\right)=\frac{7 n}{10}+6</script><p>so,</p>
+<script type="math/tex; mode=display">
+T(n) \leq T\left( \left \lceil \frac{n}{5} \right \rceil\right)+T\left(\frac{7 n}{10}+6\right)+a n,\qquad \text { for some constant } a>0</script><p>We prove that for some fixed constant $c &gt; 0,\ T\left(n\right) \leqslant cn$ by induction on n.</p>
+<h4 id="Basic-Step"><a href="#Basic-Step" class="headerlink" title="Basic Step"></a>Basic Step</h4><p>For all $n \leqslant 150$, Clearly, for all inputs of length at most any constant d, the upper bound on the time is also constant.</p>
+<p>So, there is a constant $c &gt; 0$, such that, for all $n \leqslant 150,\ T\left(n\right)\leqslant cn$.</p>
+<h4 id="Inductive-Step"><a href="#Inductive-Step" class="headerlink" title="Inductive Step"></a>Inductive Step</h4><p>Assume that for all $n^{\prime}&lt;n,\ T\left(n^{\prime}\right) \leqslant c n^{\prime}$.</p>
+<p>We need to show that $T(n) \leqslant cn$.</p>
+<p>We know:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+T(n) & \leqslant T\left(\left \lceil \frac{n}{5} \right \rceil\right)+T\left(\frac{7 n}{10}+6\right)+a n \\
+& \leqslant T\left(\frac{n}{5}+1\right)+T\left(\frac{7 n}{10}+6\right)+a n \\
+& \leqslant c\left(\frac{n}{5}+1\right)+c\left(\frac{7 n}{10}+6\right)+a n \\
+&=9\left(\frac{c n}{10}\right)+7 c+a n \\
+& \leqslant c n \qquad \text { provided } 7 c+a n \leq \frac{c n}{10}
+\end{aligned}</script><script type="math/tex; mode=display">
+\begin{aligned}
+&\begin{aligned}
+7 c+a n \leqslant \frac{c n}{10} & \Leftrightarrow a n \leqslant \frac{c n}{10}-7 c \Leftrightarrow 10 a n \leqslant c(n-70) \\
+& \Leftrightarrow c \geqslant \frac{10 a n}{n-70}
+\end{aligned}\\
+&\text {Note: } \frac{n}{n-70} \leqslant 2, \text { for } n \geqslant 140, \text { so we need } c \geqslant 20 a
+\end{aligned}</script>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -952,87 +1073,6 @@ C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}</script>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://marara.xin/archives/36269.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/IMG_5946.png">
-      <meta itemprop="name" content="Gavin">
-      <meta itemprop="description" content="Make it, Fake it.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gavin's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/36269.html" class="post-title-link" itemprop="url">Swift UILabel 属性</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 12-10-2017 00:04:19" itemprop="dateCreated datePublished" datetime="2017-12-10T00:04:19+08:00">12-10-2017</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 03-25-2020 23:32:59" itemprop="dateModified" datetime="2020-03-25T23:32:59+08:00">03-25-2020</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Swift 中的 UILabel 属性</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/archives/36269.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1104,7 +1144,7 @@ C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}</script>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1117,7 +1157,7 @@ C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}</script>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

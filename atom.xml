@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://marara.xin/"/>
-  <updated>2020-03-25T15:32:59.010Z</updated>
+  <updated>2020-04-14T12:39:32.452Z</updated>
   <id>https://marara.xin/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FIND MEDIAN</title>
+    <link href="https://marara.xin/archives/16503.html"/>
+    <id>https://marara.xin/archives/16503.html</id>
+    <published>2020-04-14T11:28:31.467Z</published>
+    <updated>2020-04-14T12:39:32.452Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="PARTITION-THE-ARRAY"><a href="#PARTITION-THE-ARRAY" class="headerlink" title="PARTITION THE ARRAY"></a>PARTITION THE ARRAY</h2><p><img src="https://i.loli.net/2020/04/14/bC3hVX7gpsxuaiD.png" alt=""></p><h3 id="We-choose-5-to-be-pivot"><a href="#We-choose-5-to-be-pivot" class="headerlink" title="We choose $5$ to be pivot:"></a>We choose $5$ to be <code>pivot</code>:</h3><p>LOW side of the list is everything $\leqslant $ <code>pivot</code>.</p><p>HIGH side of the list is everything $\geqslant $ <code>pivot</code>.</p><h3 id="Partition-the-array"><a href="#Partition-the-array" class="headerlink" title="Partition the array:"></a>Partition the array:</h3><p><img src="https://i.loli.net/2020/04/14/yjl1zcI7FmGuHKE.png" alt="PARTITION THE ARRAY"></p><ol><li>Move front pointer to first object $&gt;$ <code>pivot</code> and then back point to the left to first object $\leqslant $ <code>pivot</code>.</li><li>Switch them.</li><li>Repeat until the pointers cross. </li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SELECT(A, i, j, k)</span><br><span class="line">    if j - i &lt;&#x3D; 150</span><br><span class="line">        then sort the list A[i] ... A[j] and obtain the rank k element</span><br><span class="line">else</span><br><span class="line">pick a pivot element p</span><br><span class="line">partition A[i] ... A[j] with pivot element p</span><br><span class="line">cout the number of elements in the low side of the partition, call this number m</span><br><span class="line">if k &lt;&#x3D; m then SELECT(A, i, j +m, k)</span><br><span class="line">else       SELECT(A, i + m, j, k - m)</span><br></pre></td></tr></table></figure><h3 id="Smart-way-to-choose-a-pivot-element-p"><a href="#Smart-way-to-choose-a-pivot-element-p" class="headerlink" title="Smart way to choose a pivot element p:"></a>Smart way to choose a <code>pivot</code> element p:</h3><ol><li>Divide the list <code>A[i]</code> … <code>A[j]</code> into separate $5$ element sets.        <font color="red"> O(n)  </font></li><li>Find the median of each $5$ element set, and let <code>B[1], B[2], ..., B[q]</code> be a list of all such medians of $5$ element sets.    <font color="red">O(n)</font></li><li>Call $S E L E C T\left(B, 1, q, \left \lceil \frac{q}{2}\right \rceil\right)$ to find the median of this median list and let $P$, the <code>pivot</code>, be this value.     <font color="red">T(n/5)</font></li></ol><p>We will prove: $T(n) \leq T\left(\left \lceil \frac{n}{5}\right \rceil\right)+T\left(\frac{7 n}{10}+6\right)+c n, \quad \text { for some } c&gt;0$</p><div class="note info">            <p>After partitoning with “median of median” element, neither the LOW side nor the HIGH side has more than $\frac{7 n}{10}+6$ elements.</p>          </div><p><img src="https://i.loli.net/2020/04/14/faq9uGKBtAhjEkD.png" style="zoom:30%;"></p><script type="math/tex; mode=display">m=\left \lceil \frac{n}{5} \right \rceil \text { sets. } \text {So,the median is of } \left \lceil\frac{m}{2}\right \rceil \text { rank. }</script><blockquote><p>In the picture, each set is sorted in increasing order from top to bottom.</p><p>Also, the sets are sorted by their median value from left to right. (The smallish set may not be at the end.)</p></blockquote><p>How many, by this analysis, must go to the LOW side?</p><p>The LOW side must include elements from $\left \lceil\frac{m}{2}\right \rceil $ sets, as the median-of-median has rank $\left \lceil\frac{m}{2}\right \rceil $.</p><p>The HIGH side must include elements from $\left \lceil\frac{m}{2}\right \rceil $ set.</p><p>Therefore, both the LOW and HIGH sides include at least $3\cdot\left(\left \lceil\frac{m}{2}\right \rceil - 2 \right)$ elements. That is, we subtract $2$ as there may be two sets with less than $3$ elements.</p><p>Therefore, at most $n - 3\cdot\left(\left \lceil\frac{m}{2}\right \rceil - 2 \right)$ elements go to either the HIGH side or LOW side in the partitioning by the “median-of-median” element.</p><p>That is, as $m=\left \lceil \frac{n}{5} \right \rceil$, at most:</p><script type="math/tex; mode=display">n-3 \cdot\left(\left \lceil\frac{ \left \lceil\frac{n}{5}\right \rceil}{2}\right \rceil-2\right) \leqslant  n-3 \cdot\left(\frac{n}{10}-2\right)=\frac{7 n}{10}+6</script><p>so,</p><script type="math/tex; mode=display">T(n) \leq T\left( \left \lceil \frac{n}{5} \right \rceil\right)+T\left(\frac{7 n}{10}+6\right)+a n,\qquad \text { for some constant } a>0</script><p>We prove that for some fixed constant $c &gt; 0,\ T\left(n\right) \leqslant cn$ by induction on n.</p><h4 id="Basic-Step"><a href="#Basic-Step" class="headerlink" title="Basic Step"></a>Basic Step</h4><p>For all $n \leqslant 150$, Clearly, for all inputs of length at most any constant d, the upper bound on the time is also constant.</p><p>So, there is a constant $c &gt; 0$, such that, for all $n \leqslant 150,\ T\left(n\right)\leqslant cn$.</p><h4 id="Inductive-Step"><a href="#Inductive-Step" class="headerlink" title="Inductive Step"></a>Inductive Step</h4><p>Assume that for all $n^{\prime}&lt;n,\ T\left(n^{\prime}\right) \leqslant c n^{\prime}$.</p><p>We need to show that $T(n) \leqslant cn$.</p><p>We know:</p><script type="math/tex; mode=display">\begin{aligned}T(n) & \leqslant T\left(\left \lceil \frac{n}{5} \right \rceil\right)+T\left(\frac{7 n}{10}+6\right)+a n \\& \leqslant T\left(\frac{n}{5}+1\right)+T\left(\frac{7 n}{10}+6\right)+a n \\& \leqslant c\left(\frac{n}{5}+1\right)+c\left(\frac{7 n}{10}+6\right)+a n \\&=9\left(\frac{c n}{10}\right)+7 c+a n \\& \leqslant c n \qquad \text { provided } 7 c+a n \leq \frac{c n}{10}\end{aligned}</script><script type="math/tex; mode=display">\begin{aligned}&\begin{aligned}7 c+a n \leqslant \frac{c n}{10} & \Leftrightarrow a n \leqslant \frac{c n}{10}-7 c \Leftrightarrow 10 a n \leqslant c(n-70) \\& \Leftrightarrow c \geqslant \frac{10 a n}{n-70}\end{aligned}\\&\text {Note: } \frac{n}{n-70} \leqslant 2, \text { for } n \geqslant 140, \text { so we need } c \geqslant 20 a\end{aligned}</script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;PARTITION-THE-ARRAY&quot;&gt;&lt;a href=&quot;#PARTITION-THE-ARRAY&quot; class=&quot;headerlink&quot; title=&quot;PARTITION THE ARRAY&quot;&gt;&lt;/a&gt;PARTITION THE ARRAY&lt;/h2&gt;&lt;p&gt;&lt;i
+      
+    
+    </summary>
+    
+    
+      <category term="Note" scheme="https://marara.xin/categories/Note/"/>
+    
+    
+      <category term="Algorithm" scheme="https://marara.xin/tags/Algorithm/"/>
+    
+      <category term="Data Structure" scheme="https://marara.xin/tags/Data-Structure/"/>
+    
+  </entry>
   
   <entry>
     <title>探索 systemd</title>
@@ -545,30 +573,6 @@ C G_{k}=\sum_{i=1}^{k} \mathrm{rel}_{i}&lt;/script&gt;
     
     
       <category term="ShadowSocks" scheme="https://marara.xin/tags/ShadowSocks/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL修改root用户密码</title>
-    <link href="https://marara.xin/archives/45978.html"/>
-    <id>https://marara.xin/archives/45978.html</id>
-    <published>2017-09-08T12:00:20.000Z</published>
-    <updated>2020-03-25T15:32:58.991Z</updated>
-    
-    <content type="html"><![CDATA[<p>新安装了MySQL，安装之后粗心把密码给搞丢了，进入MySQL时报错：ERROR 1045 (28000): Access denied for user ‘root’@’localhost’ (using password: NO).</p><p>通过以下步骤修改密码。</p><a id="more"></a><h3 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h3><p>关闭MySQL服务</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/mysql/support-files/mysql.server stop</span><br></pre></td></tr></table></figure><blockquote><p>① 通过DMG安装的MySQL通过’<code>&#39;System Prefrences&#39; &gt; MySQL &gt; &#39;Stop MySQL Server&#39;</code>来结束MySQL服务。</p><p>如果报错：ERROR! MySQL server PID file could not be found! 则直接用 ① 的方法关闭即可。</p><p>同理打开服务为：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/mysql/support-files/mysql.server start</span><br></pre></td></tr></table></figure></blockquote><h3 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h3><p>使用安全模式启动MySQL</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/mysql/bin/mysqld_safe --skip-grant-tables</span><br></pre></td></tr></table></figure><h3 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h3><p>在新的Terminal中输入：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root</span><br></pre></td></tr></table></figure><p>在打开的MySQL命令行窗口依次输入：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UPDATE mysql.user SET authentication_string&#x3D;PASSWORD(&#39;YOUR_NEW_PASSWORD&#39;) WHERE User&#x3D;&#39;root&#39;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line">\q</span><br></pre></td></tr></table></figure><blockquote><p>这里注意结尾的 <code>;</code>不能少。</p><p><code>YOUR_NEW_PASSWORD</code> 是你的新密码</p><p>5.7之前的版本，mysql.user表里面的<code>authentication_string</code>字段改成了：<code>password</code></p></blockquote><h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>重启MySQL后运行以下命令测试密码是否修改成功</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;新安装了MySQL，安装之后粗心把密码给搞丢了，进入MySQL时报错：ERROR 1045 (28000): Access denied for user ‘root’@’localhost’ (using password: NO).&lt;/p&gt;
-&lt;p&gt;通过以下步骤修改密码。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Tutorial" scheme="https://marara.xin/categories/Tutorial/"/>
-    
-    
-      <category term="MySQL" scheme="https://marara.xin/tags/MySQL/"/>
     
   </entry>
   
