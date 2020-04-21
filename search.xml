@@ -64,8 +64,8 @@ T(n) & \leqslant T\left(\left \lceil \frac{n}{5} \right \rceil\right)+T\left(\fr
         <category>Note</category>
       </categories>
       <tags>
-        <tag>Algorithm</tag>
         <tag>Data Structure</tag>
+        <tag>Algorithm</tag>
       </tags>
   </entry>
   <entry>
