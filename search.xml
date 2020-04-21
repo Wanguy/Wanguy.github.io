@@ -39,7 +39,7 @@ m=\left \lceil \frac{n}{5} \right \rceil \text { sets. } \text {So,the median is
 <script type="math/tex; mode=display">
 n-3 \cdot\left(\left \lceil\frac{ \left \lceil\frac{n}{5}\right \rceil}{2}\right \rceil-2\right) \leqslant  n-3 \cdot\left(\frac{n}{10}-2\right)=\frac{7 n}{10}+6</script><p>so,</p>
 <script type="math/tex; mode=display">
-T(n) \leq T\left( \left \lceil \frac{n}{5} \right \rceil\right)+T\left(\frac{7 n}{10}+6\right)+a n,\qquad \text { for some constant } a>0</script><p>We prove that for some fixed constant $c &gt; 0,\ T\left(n\right) \leqslant cn$ by induction on n.</p>
+T(n) \leq T\left( \left \lceil \frac{n}{5} \right \rceil\right)+T\left(\frac{7 n}{10}+6\right)+a n,\ \text { for some constant } a>0</script><p>We prove that for some fixed constant $c &gt; 0,\ T\left(n\right) \leqslant cn$ by induction on n.</p>
 <h4 id="Basic-Step"><a href="#Basic-Step" class="headerlink" title="Basic Step"></a>Basic Step</h4><p>For all $n \leqslant 150$, Clearly, for all inputs of length at most any constant d, the upper bound on the time is also constant.</p>
 <p>So, there is a constant $c &gt; 0$, such that, for all $n \leqslant 150,\ T\left(n\right)\leqslant cn$.</p>
 <h4 id="Inductive-Step"><a href="#Inductive-Step" class="headerlink" title="Inductive Step"></a>Inductive Step</h4><p>Assume that for all $n^{\prime}&lt;n,\ T\left(n^{\prime}\right) \leqslant c n^{\prime}$.</p>
