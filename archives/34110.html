@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.4.0">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/180.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/16.png">
@@ -13,18 +15,16 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
+
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"marara.xin","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
-
-  <meta name="description" content="模型的拟合 拟合与过拟合 对抗过拟合： 交叉检验 正则化L1,L2   python实现 pipeline 方差的分解： 离差平方总和 &#x3D; 回归平方和+残差平方和 （ SST &#x3D; SSR + SSE ）   bias and variance分解（这里的bias和variance跟过拟合的bias和variance不一样）">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"iotop.top","root":"/","images":"/images","scheme":"Muse","version":"8.6.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="模型的拟合 拟合与过拟合 对抗过拟合： 交叉检验 正则化L1,L2   python实现 pipeline 方差的分解： 离差平方总和 &#x3D; 回归平方和+残差平方和 （ SST &#x3D; SSR + SSE ）   bias and variance分解（这里的bias和variance跟过拟合的bias和variance不一样）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="拟合的力道">
-<meta property="og:url" content="https://marara.xin/archives/34110.html">
+<meta property="og:url" content="https://iotop.top/archives/34110.html">
 <meta property="og:site_name" content="Gavin&#39;s Blog">
 <meta property="og:description" content="模型的拟合 拟合与过拟合 对抗过拟合： 交叉检验 正则化L1,L2   python实现 pipeline 方差的分解： 离差平方总和 &#x3D; 回归平方和+残差平方和 （ SST &#x3D; SSR + SSE ）   bias and variance分解（这里的bias和variance跟过拟合的bias和variance不一样）">
 <meta property="og:locale" content="en_US">
@@ -56,73 +56,46 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2019/02/18/5c6a57658396b.gif">
 
-<link rel="canonical" href="https://marara.xin/archives/34110.html">
+
+<link rel="canonical" href="https://iotop.top/archives/34110.html">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'en'
-  };
-</script>
 
-  <title>拟合的力道 | Gavin's Blog</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://iotop.top/archives/34110.html","path":"archives/34110.html","title":"拟合的力道"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>拟合的力道 | Gavin's Blog</title>
   
 
 
 
 
-
-
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 <link rel="alternate" href="/atom.xml" title="Gavin's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
 
+  <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
+      <i class="logo-line"></i>
       <h1 class="site-title">Gavin's Blog</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">愿你继续成长</p>
   </div>
@@ -136,34 +109,13 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">26</span></a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">19</span></a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">2</span></a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
-
-  </li>
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">19</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">2</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">26</span></a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
@@ -174,23 +126,22 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="Searching..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
@@ -198,30 +149,119 @@
   </div>
 
 </div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8B%9F%E5%90%88"><span class="nav-text">模型的拟合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%8B%9F%E5%90%88%E4%B8%8E%E8%BF%87%E6%8B%9F%E5%90%88"><span class="nav-text">1. 拟合与过拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E6%8B%9F%E5%90%88%EF%BC%9A"><span class="nav-text">1.1 拟合：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E6%AC%A0%E6%8B%9F%E5%90%88%EF%BC%9A"><span class="nav-text">1.2. 欠拟合：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E8%BF%87%E6%8B%9F%E5%90%88%EF%BC%9A"><span class="nav-text">1.3. 过拟合：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%AF%B9%E6%8A%97%E8%BF%87%E6%8B%9F%E5%90%88"><span class="nav-text">2. 对抗过拟合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-python%E5%AE%9E%E7%8E%B0"><span class="nav-text">3. python实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E5%AF%B9%E6%AF%94%E4%B8%8D%E5%90%8C%E6%A8%A1%E5%9E%8B%E7%9A%84cross-validation%E7%BB%93%E6%9E%9C"><span class="nav-text">3.1. 对比不同模型的cross-validation结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E6%AD%A3%E5%88%99%E5%8C%96regularization"><span class="nav-text">3.2. 正则化regularization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-Ridge"><span class="nav-text">3.3. Ridge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-Lasso"><span class="nav-text">3.4. Lasso</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-pipeline"><span class="nav-text">4. pipeline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%96%B9%E5%B7%AE%E7%9A%84%E5%88%86%E8%A7%A3"><span class="nav-text">5. 方差的分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-bias%E4%B8%8Evariance%E7%9A%84%E5%88%86%E8%A7%A3"><span class="nav-text">6. bias与variance的分解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bias%E4%B8%8EVariance%E7%9A%84%E4%B8%A4%E9%9A%BE%E4%B9%8B%E9%97%B4"><span class="nav-text">Bias与Variance的两难之间</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Gavin"
+      src="/images/IMG_5946.png">
+  <p class="site-author-name" itemprop="name">Gavin</p>
+  <div class="site-description" itemprop="description">Make it, Fake it.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Wanguy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Wanguy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:w020283852@gmail.com" title="E-Mail → mailto:w020283852@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/rp_Wang" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;rp_Wang" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/rpgavin" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;rpgavin" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/ContactGavin_bot/" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;ContactGavin_bot&#x2F;" rel="noopener" target="_blank"><i class="fab fa-telegram-plane fa-fw"></i>Telegram</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
     </header>
 
     
-  <div class="back-to-top">
+  <div class="back-to-top" role="button" aria-label="Back to top">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
 
   <a href="https://github.com/Wanguy" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
 
-          <div class="content post posts-expand">
-            
+    <div class="main-inner post posts-expand">
 
-    
+
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://marara.xin/archives/34110.html">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://iotop.top/archives/34110.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/IMG_5946.png">
@@ -237,33 +277,35 @@
           拟合的力道
         </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 02-18-2019 15:02:57" itemprop="dateCreated datePublished" datetime="2019-02-18T15:02:57+08:00">02-18-2019</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 03-25-2020 23:32:58" itemprop="dateModified" datetime="2020-03-25T23:32:58+08:00">03-25-2020</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
-                </span>
-            </span>
+      <time title="Created: 02-18-2019 15:02:57" itemprop="dateCreated datePublished" datetime="2019-02-18T15:02:57+08:00">02-18-2019</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 03-25-2020 23:32:58" itemprop="dateModified" datetime="2020-03-25T23:32:58+08:00">03-25-2020</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a>
+        </span>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -272,8 +314,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
         <h2 id="模型的拟合"><a href="#模型的拟合" class="headerlink" title="模型的拟合"></a>模型的拟合</h2><ol>
 <li>拟合与过拟合</li>
 <li>对抗过拟合：<ul>
@@ -289,7 +329,7 @@
 </li>
 <li>bias and variance分解（这里的bias和variance跟过拟合的bias和variance不一样）</li>
 </ol>
-<a id="more"></a>
+<span id="more"></span>
 <h2 id="1-拟合与过拟合"><a href="#1-拟合与过拟合" class="headerlink" title="1. 拟合与过拟合"></a>1. 拟合与过拟合</h2><ul>
 <li>在训练模型时，涉及到选择与比较不同的模型在训练集和测试集的预测结果</li>
 <li>这里有Bias与Variance</li>
@@ -348,12 +388,12 @@ subject \ to \ \sum_{j=1}^N \left \|{\beta_j}\right \| \leqslant t,</script></li
 <p><code>In[1]</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> KFold</span><br></pre></td></tr></table></figure>
 <p><code>In[2]</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">datasets.load_wine</span><br><span class="line">wine_data = datasets.load_wine()</span><br><span class="line">print((wine_data.feature_names))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">datasets.load_wine</span><br><span class="line">wine_data = datasets.load_wine()</span><br><span class="line"><span class="built_in">print</span>((wine_data.feature_names))</span><br></pre></td></tr></table></figure>
 <pre><code>[&#39;alcohol&#39;, &#39;malic_acid&#39;, &#39;ash&#39;, &#39;alcalinity_of_ash&#39;, &#39;magnesium&#39;, &#39;total_phenols&#39;, &#39;flavanoids&#39;, &#39;nonflavanoid_phenols&#39;, &#39;proanthocyanins&#39;, &#39;color_intensity&#39;, &#39;hue&#39;, &#39;od280/od315_of_diluted_wines&#39;, &#39;proline&#39;]
 </code></pre><p><code>In[3]</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data_input = wine_data.data</span><br><span class="line">data_output = wine_data.target</span><br></pre></td></tr></table></figure>
 <p><code>In[4]</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> f1_score, log_loss, classification_report</span><br><span class="line">kf = KFold(<span class="number">4</span>, shuffle=<span class="literal">True</span>)</span><br><span class="line">kf.get_n_splits(data_input)</span><br><span class="line">lr = LogisticRegression()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> train_index, test_index <span class="keyword">in</span> kf.split(data_input, data_output):</span><br><span class="line">    <span class="comment">#print(train_index, test_index)</span></span><br><span class="line">    lr.fit(data_input[train_index], data_output[train_index])</span><br><span class="line">    y_pre_lr = lr.predict(data_input[test_index])</span><br><span class="line">    y = data_output[test_index]</span><br><span class="line">    print((f1_score(y, y_pre_lr, average=<span class="literal">None</span>)))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> f1_score, log_loss, classification_report</span><br><span class="line">kf = KFold(<span class="number">4</span>, shuffle=<span class="literal">True</span>)</span><br><span class="line">kf.get_n_splits(data_input)</span><br><span class="line">lr = LogisticRegression()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> train_index, test_index <span class="keyword">in</span> kf.split(data_input, data_output):</span><br><span class="line">    <span class="comment">#print(train_index, test_index)</span></span><br><span class="line">    lr.fit(data_input[train_index], data_output[train_index])</span><br><span class="line">    y_pre_lr = lr.predict(data_input[test_index])</span><br><span class="line">    y = data_output[test_index]</span><br><span class="line">    <span class="built_in">print</span>((f1_score(y, y_pre_lr, average=<span class="literal">None</span>)))</span><br></pre></td></tr></table></figure>
 <pre><code>[0.97142857 0.96296296 1.        ]
 [1.         0.95       0.92307692]
 [0.96296296 0.93023256 0.88888889]
@@ -361,23 +401,23 @@ subject \ to \ \sum_{j=1}^N \left \|{\beta_j}\right \| \leqslant t,</script></li
 </code></pre><h3 id="3-1-对比不同模型的cross-validation结果"><a href="#3-1-对比不同模型的cross-validation结果" class="headerlink" title="3.1. 对比不同模型的cross-validation结果"></a>3.1. 对比不同模型的cross-validation结果</h3><p><code>In[5]</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> svm</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_score</span><br><span class="line">rf_class = RandomForestClassifier(n_estimators=<span class="number">10</span>)</span><br><span class="line">log_class = LogisticRegression()</span><br><span class="line">svm_class = svm.LinearSVC()</span><br></pre></td></tr></table></figure>
 <p><code>In[6]</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print((cross_val_score(</span><br><span class="line">    rf_class, data_input, data_output, scoring=<span class="string">'accuracy'</span>, cv=<span class="number">4</span>)))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>((cross_val_score(</span><br><span class="line">    rf_class, data_input, data_output, scoring=<span class="string">&#x27;accuracy&#x27;</span>, cv=<span class="number">4</span>)))</span><br></pre></td></tr></table></figure>
 <pre><code>[0.8        0.95555556 1.         1.        ]
 </code></pre><p><code>In[7]</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">accuracy = cross_val_score(</span><br><span class="line">    rf_class, data_input, data_output, scoring=<span class="string">'accuracy'</span>, cv=<span class="number">4</span>).mean() * <span class="number">100</span></span><br><span class="line">print((<span class="string">"Accuracy of Random Forests is: "</span>, accuracy))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">accuracy = cross_val_score(</span><br><span class="line">    rf_class, data_input, data_output, scoring=<span class="string">&#x27;accuracy&#x27;</span>, cv=<span class="number">4</span>).mean() * <span class="number">100</span></span><br><span class="line"><span class="built_in">print</span>((<span class="string">&quot;Accuracy of Random Forests is: &quot;</span>, accuracy))</span><br></pre></td></tr></table></figure>
 <pre><code>(&#39;Accuracy of Random Forests is: &#39;, 95.0)
 </code></pre><p><code>In[8]</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">accuracy = cross_val_score(</span><br><span class="line">    log_class, data_input, data_output, scoring=<span class="string">'accuracy'</span>, cv=<span class="number">4</span>).mean() * <span class="number">100</span></span><br><span class="line">print((<span class="string">"Accuracy of logistic is: "</span>, accuracy))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">accuracy = cross_val_score(</span><br><span class="line">    log_class, data_input, data_output, scoring=<span class="string">&#x27;accuracy&#x27;</span>, cv=<span class="number">4</span>).mean() * <span class="number">100</span></span><br><span class="line"><span class="built_in">print</span>((<span class="string">&quot;Accuracy of logistic is: &quot;</span>, accuracy))</span><br></pre></td></tr></table></figure>
 <pre><code>(&#39;Accuracy of logistic is: &#39;, 96.11111111111111)
 </code></pre><p><code>In[9]</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">accuracy = cross_val_score(</span><br><span class="line">    svm_class, data_input, data_output, scoring=<span class="string">'accuracy'</span>, cv=<span class="number">4</span>).mean() * <span class="number">100</span></span><br><span class="line">print((<span class="string">"Accuracy of SVM is: "</span>, accuracy))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">accuracy = cross_val_score(</span><br><span class="line">    svm_class, data_input, data_output, scoring=<span class="string">&#x27;accuracy&#x27;</span>, cv=<span class="number">4</span>).mean() * <span class="number">100</span></span><br><span class="line"><span class="built_in">print</span>((<span class="string">&quot;Accuracy of SVM is: &quot;</span>, accuracy))</span><br></pre></td></tr></table></figure>
 <pre><code>(&#39;Accuracy of SVM is: &#39;, 89.44444444444444)
 </code></pre><h3 id="3-2-正则化regularization"><a href="#3-2-正则化regularization" class="headerlink" title="3.2. 正则化regularization"></a>3.2. 正则化regularization</h3><p><code>In[10]</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br><span class="line">%config InlineBackend.figure_format = <span class="string">'retina'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> matplotlib.pylab <span class="keyword">import</span> rcParams</span><br><span class="line">rcParams[<span class="string">'figure.figsize'</span>] = <span class="number">10</span>, <span class="number">8</span></span><br><span class="line"></span><br><span class="line">x = np.array([<span class="number">1.4</span> * i * np.pi / <span class="number">180</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">300</span>, <span class="number">4</span>)])</span><br><span class="line">np.random.seed(<span class="number">20</span>)  <span class="comment">#随机数</span></span><br><span class="line">y = np.sin(x) + np.random.normal(<span class="number">0</span>, <span class="number">0.2</span>, len(x))</span><br><span class="line">data = pd.DataFrame(np.column_stack([x, y]), columns=[<span class="string">'x'</span>, <span class="string">'y'</span>])</span><br><span class="line">plt.plot(data[<span class="string">'x'</span>], data[<span class="string">'y'</span>], <span class="string">'.'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br><span class="line">%config InlineBackend.figure_format = <span class="string">&#x27;retina&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> matplotlib.pylab <span class="keyword">import</span> rcParams</span><br><span class="line">rcParams[<span class="string">&#x27;figure.figsize&#x27;</span>] = <span class="number">10</span>, <span class="number">8</span></span><br><span class="line"></span><br><span class="line">x = np.array([<span class="number">1.4</span> * i * np.pi / <span class="number">180</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">300</span>, <span class="number">4</span>)])</span><br><span class="line">np.random.seed(<span class="number">20</span>)  <span class="comment">#随机数</span></span><br><span class="line">y = np.sin(x) + np.random.normal(<span class="number">0</span>, <span class="number">0.2</span>, <span class="built_in">len</span>(x))</span><br><span class="line">data = pd.DataFrame(np.column_stack([x, y]), columns=[<span class="string">&#x27;x&#x27;</span>, <span class="string">&#x27;y&#x27;</span>])</span><br><span class="line">plt.plot(data[<span class="string">&#x27;x&#x27;</span>], data[<span class="string">&#x27;y&#x27;</span>], <span class="string">&#x27;.&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p><code>Out[10]</code></p>
 <p><img src="https://i.loli.net/2019/02/18/5c6a5765942b1.png" width="500"></p>
 <p><code>In[11]</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, <span class="number">16</span>):  <span class="comment">#power of 1 is already there</span></span><br><span class="line">    colname = <span class="string">'x_%d'</span> % i  <span class="comment">#new var will be x_power</span></span><br><span class="line">    data[colname] = data[<span class="string">'x'</span>]**i</span><br><span class="line">print((data.head()))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="number">16</span>):  <span class="comment">#power of 1 is already there</span></span><br><span class="line">    colname = <span class="string">&#x27;x_%d&#x27;</span> % i  <span class="comment">#new var will be x_power</span></span><br><span class="line">    data[colname] = data[<span class="string">&#x27;x&#x27;</span>]**i</span><br><span class="line"><span class="built_in">print</span>((data.head()))</span><br></pre></td></tr></table></figure>
 <pre><code>          x         y       x_2       x_3       x_4       x_5           x_6  \
 0  0.000000  0.176779  0.000000  0.000000  0.000000  0.000000  0.000000e+00   
 1  0.097738  0.136756  0.009553  0.000934  0.000091  0.000009  8.717508e-07   
@@ -399,22 +439,22 @@ subject \ to \ \sum_{j=1}^N \left \|{\beta_j}\right \| \leqslant t,</script></li
 3  4.038683e-07  1.184204e-07  3.472267e-08  1.018122e-08  
 4  1.274984e-05  4.984597e-06  1.948747e-06  7.618699e-07  
 </code></pre><p><code>In[12]</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 复杂度可变</span></span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">linear_regression</span><span class="params">(data, power, models_to_plot)</span>:</span></span><br><span class="line">    <span class="comment">#initialize predictors:</span></span><br><span class="line">    predictors = [<span class="string">'x'</span>]</span><br><span class="line">    <span class="keyword">if</span> power &gt;= <span class="number">2</span>:</span><br><span class="line">        predictors.extend([<span class="string">'x_%d'</span> % i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, power + <span class="number">1</span>)])</span><br><span class="line"></span><br><span class="line">    <span class="comment">#Fit the model</span></span><br><span class="line">    linreg = LinearRegression(normalize=<span class="literal">True</span>)</span><br><span class="line">    linreg.fit(data[predictors], data[<span class="string">'y'</span>])</span><br><span class="line">    y_pred = linreg.predict(data[predictors])</span><br><span class="line"></span><br><span class="line">    <span class="comment">#Check if a plot is to be made for the entered power</span></span><br><span class="line">    <span class="keyword">if</span> power <span class="keyword">in</span> models_to_plot:</span><br><span class="line">        plt.subplot(models_to_plot[power])</span><br><span class="line">        plt.tight_layout()</span><br><span class="line">        plt.plot(data[<span class="string">'x'</span>], y_pred)</span><br><span class="line">        plt.plot(data[<span class="string">'x'</span>], data[<span class="string">'y'</span>], <span class="string">'.'</span>)</span><br><span class="line">        plt.title(<span class="string">'Plot for power: %d'</span> % power)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#Return the result in pre-defined format</span></span><br><span class="line">    rss = sum((y_pred - data[<span class="string">'y'</span>])**<span class="number">2</span>)</span><br><span class="line">    ret = [rss]</span><br><span class="line">    ret.extend([linreg.intercept_])</span><br><span class="line">    ret.extend(linreg.coef_)</span><br><span class="line">    <span class="keyword">return</span> ret</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 复杂度可变</span></span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">linear_regression</span>(<span class="params">data, power, models_to_plot</span>):</span></span><br><span class="line">    <span class="comment">#initialize predictors:</span></span><br><span class="line">    predictors = [<span class="string">&#x27;x&#x27;</span>]</span><br><span class="line">    <span class="keyword">if</span> power &gt;= <span class="number">2</span>:</span><br><span class="line">        predictors.extend([<span class="string">&#x27;x_%d&#x27;</span> % i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, power + <span class="number">1</span>)])</span><br><span class="line"></span><br><span class="line">    <span class="comment">#Fit the model</span></span><br><span class="line">    linreg = LinearRegression(normalize=<span class="literal">True</span>)</span><br><span class="line">    linreg.fit(data[predictors], data[<span class="string">&#x27;y&#x27;</span>])</span><br><span class="line">    y_pred = linreg.predict(data[predictors])</span><br><span class="line"></span><br><span class="line">    <span class="comment">#Check if a plot is to be made for the entered power</span></span><br><span class="line">    <span class="keyword">if</span> power <span class="keyword">in</span> models_to_plot:</span><br><span class="line">        plt.subplot(models_to_plot[power])</span><br><span class="line">        plt.tight_layout()</span><br><span class="line">        plt.plot(data[<span class="string">&#x27;x&#x27;</span>], y_pred)</span><br><span class="line">        plt.plot(data[<span class="string">&#x27;x&#x27;</span>], data[<span class="string">&#x27;y&#x27;</span>], <span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">        plt.title(<span class="string">&#x27;Plot for power: %d&#x27;</span> % power)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#Return the result in pre-defined format</span></span><br><span class="line">    rss = <span class="built_in">sum</span>((y_pred - data[<span class="string">&#x27;y&#x27;</span>])**<span class="number">2</span>)</span><br><span class="line">    ret = [rss]</span><br><span class="line">    ret.extend([linreg.intercept_])</span><br><span class="line">    ret.extend(linreg.coef_)</span><br><span class="line">    <span class="keyword">return</span> ret</span><br></pre></td></tr></table></figure>
 <p><code>In[13]</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">col = [<span class="string">'rss'</span>, <span class="string">'intercept'</span>] + [<span class="string">'coef_x_%d'</span> % i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">16</span>)]</span><br><span class="line">ind = [<span class="string">'model_pow_%d'</span> % i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">16</span>)]</span><br><span class="line">coef_matrix_simple = pd.DataFrame(index=ind, columns=col)</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义作图的位置与模型的复杂度</span></span><br><span class="line">models_to_plot = &#123;<span class="number">1</span>: <span class="number">231</span>, <span class="number">3</span>: <span class="number">232</span>, <span class="number">6</span>: <span class="number">233</span>, <span class="number">8</span>: <span class="number">234</span>, <span class="number">11</span>: <span class="number">235</span>, <span class="number">14</span>: <span class="number">236</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#画出来</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">16</span>):</span><br><span class="line">    coef_matrix_simple.iloc[i - <span class="number">1</span>, <span class="number">0</span>:i + <span class="number">2</span>] = linear_regression(</span><br><span class="line">        data, power=i, models_to_plot=models_to_plot)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">col = [<span class="string">&#x27;rss&#x27;</span>, <span class="string">&#x27;intercept&#x27;</span>] + [<span class="string">&#x27;coef_x_%d&#x27;</span> % i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">16</span>)]</span><br><span class="line">ind = [<span class="string">&#x27;model_pow_%d&#x27;</span> % i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">16</span>)]</span><br><span class="line">coef_matrix_simple = pd.DataFrame(index=ind, columns=col)</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义作图的位置与模型的复杂度</span></span><br><span class="line">models_to_plot = &#123;<span class="number">1</span>: <span class="number">231</span>, <span class="number">3</span>: <span class="number">232</span>, <span class="number">6</span>: <span class="number">233</span>, <span class="number">8</span>: <span class="number">234</span>, <span class="number">11</span>: <span class="number">235</span>, <span class="number">14</span>: <span class="number">236</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#画出来</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">16</span>):</span><br><span class="line">    coef_matrix_simple.iloc[i - <span class="number">1</span>, <span class="number">0</span>:i + <span class="number">2</span>] = linear_regression(</span><br><span class="line">        data, power=i, models_to_plot=models_to_plot)</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/02/18/5c6a57980ef71.png" alt="png"></p>
 <h3 id="3-3-Ridge"><a href="#3-3-Ridge" class="headerlink" title="3.3. Ridge"></a>3.3. Ridge</h3><p><code>In[14]</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Ridge</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ridge_regression</span><span class="params">(data, predictors, alpha, models_to_plot=&#123;&#125;)</span>:</span></span><br><span class="line">    <span class="comment">#Fit the model</span></span><br><span class="line">    ridgereg = Ridge(alpha=alpha, normalize=<span class="literal">True</span>)</span><br><span class="line">    ridgereg.fit(data[predictors], data[<span class="string">'y'</span>])</span><br><span class="line">    y_pred = ridgereg.predict(data[predictors])</span><br><span class="line"></span><br><span class="line">    <span class="comment">#Check if a plot is to be made for the entered alpha</span></span><br><span class="line">    <span class="keyword">if</span> alpha <span class="keyword">in</span> models_to_plot:</span><br><span class="line">        plt.subplot(models_to_plot[alpha])</span><br><span class="line">        plt.tight_layout()</span><br><span class="line">        plt.plot(data[<span class="string">'x'</span>], y_pred)</span><br><span class="line">        plt.plot(data[<span class="string">'x'</span>], data[<span class="string">'y'</span>], <span class="string">'.'</span>)</span><br><span class="line">        plt.title(<span class="string">r'Plot for $\alpha$: %.3g'</span> % alpha)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#Return the result in pre-defined format</span></span><br><span class="line">    rss = sum((y_pred - data[<span class="string">'y'</span>])**<span class="number">2</span>)</span><br><span class="line">    ret = [rss]</span><br><span class="line">    ret.extend([ridgereg.intercept_])</span><br><span class="line">    ret.extend(ridgereg.coef_)</span><br><span class="line">    <span class="keyword">return</span> ret</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Ridge</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ridge_regression</span>(<span class="params">data, predictors, alpha, models_to_plot=&#123;&#125;</span>):</span></span><br><span class="line">    <span class="comment">#Fit the model</span></span><br><span class="line">    ridgereg = Ridge(alpha=alpha, normalize=<span class="literal">True</span>)</span><br><span class="line">    ridgereg.fit(data[predictors], data[<span class="string">&#x27;y&#x27;</span>])</span><br><span class="line">    y_pred = ridgereg.predict(data[predictors])</span><br><span class="line"></span><br><span class="line">    <span class="comment">#Check if a plot is to be made for the entered alpha</span></span><br><span class="line">    <span class="keyword">if</span> alpha <span class="keyword">in</span> models_to_plot:</span><br><span class="line">        plt.subplot(models_to_plot[alpha])</span><br><span class="line">        plt.tight_layout()</span><br><span class="line">        plt.plot(data[<span class="string">&#x27;x&#x27;</span>], y_pred)</span><br><span class="line">        plt.plot(data[<span class="string">&#x27;x&#x27;</span>], data[<span class="string">&#x27;y&#x27;</span>], <span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">        plt.title(<span class="string">r&#x27;Plot for $\alpha$: %.3g&#x27;</span> % alpha)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#Return the result in pre-defined format</span></span><br><span class="line">    rss = <span class="built_in">sum</span>((y_pred - data[<span class="string">&#x27;y&#x27;</span>])**<span class="number">2</span>)</span><br><span class="line">    ret = [rss]</span><br><span class="line">    ret.extend([ridgereg.intercept_])</span><br><span class="line">    ret.extend(ridgereg.coef_)</span><br><span class="line">    <span class="keyword">return</span> ret</span><br></pre></td></tr></table></figure>
 <p><code>In[15]</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">predictors = [<span class="string">'x'</span>]</span><br><span class="line">predictors.extend([<span class="string">'x_%d'</span> % i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, <span class="number">16</span>)])</span><br><span class="line"></span><br><span class="line"><span class="comment">#Set the different values of alpha to be tested</span></span><br><span class="line">alpha_ridge = [<span class="number">1e-15</span>, <span class="number">1e-10</span>, <span class="number">1e-8</span>, <span class="number">1e-4</span>, <span class="number">1e-3</span>, <span class="number">1e-2</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">20</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#Initialize the dataframe for storing coefficients.</span></span><br><span class="line">col = [<span class="string">'rss'</span>, <span class="string">'intercept'</span>] + [<span class="string">'coef_x_%d'</span> % i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">16</span>)]</span><br><span class="line">ind = [<span class="string">'alpha_%.2g'</span> % alpha_ridge[i] <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">10</span>)]</span><br><span class="line">coef_matrix_ridge = pd.DataFrame(index=ind, columns=col)</span><br><span class="line"></span><br><span class="line">models_to_plot = &#123;</span><br><span class="line">    <span class="number">1e-15</span>: <span class="number">231</span>,</span><br><span class="line">    <span class="number">1e-10</span>: <span class="number">232</span>,</span><br><span class="line">    <span class="number">1e-4</span>: <span class="number">233</span>,</span><br><span class="line">    <span class="number">1e-3</span>: <span class="number">234</span>,</span><br><span class="line">    <span class="number">1e-2</span>: <span class="number">235</span>,</span><br><span class="line">    <span class="number">5</span>: <span class="number">236</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    coef_matrix_ridge.iloc[i, ] = ridge_regression(</span><br><span class="line">        data, predictors, alpha_ridge[i], models_to_plot)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">predictors = [<span class="string">&#x27;x&#x27;</span>]</span><br><span class="line">predictors.extend([<span class="string">&#x27;x_%d&#x27;</span> % i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="number">16</span>)])</span><br><span class="line"></span><br><span class="line"><span class="comment">#Set the different values of alpha to be tested</span></span><br><span class="line">alpha_ridge = [<span class="number">1e-15</span>, <span class="number">1e-10</span>, <span class="number">1e-8</span>, <span class="number">1e-4</span>, <span class="number">1e-3</span>, <span class="number">1e-2</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">20</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#Initialize the dataframe for storing coefficients.</span></span><br><span class="line">col = [<span class="string">&#x27;rss&#x27;</span>, <span class="string">&#x27;intercept&#x27;</span>] + [<span class="string">&#x27;coef_x_%d&#x27;</span> % i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">16</span>)]</span><br><span class="line">ind = [<span class="string">&#x27;alpha_%.2g&#x27;</span> % alpha_ridge[i] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">10</span>)]</span><br><span class="line">coef_matrix_ridge = pd.DataFrame(index=ind, columns=col)</span><br><span class="line"></span><br><span class="line">models_to_plot = &#123;</span><br><span class="line">    <span class="number">1e-15</span>: <span class="number">231</span>,</span><br><span class="line">    <span class="number">1e-10</span>: <span class="number">232</span>,</span><br><span class="line">    <span class="number">1e-4</span>: <span class="number">233</span>,</span><br><span class="line">    <span class="number">1e-3</span>: <span class="number">234</span>,</span><br><span class="line">    <span class="number">1e-2</span>: <span class="number">235</span>,</span><br><span class="line">    <span class="number">5</span>: <span class="number">236</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    coef_matrix_ridge.iloc[i, ] = ridge_regression(</span><br><span class="line">        data, predictors, alpha_ridge[i], models_to_plot)</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/02/18/5c6a576623edc.png" alt="png"></p>
 <h3 id="3-4-Lasso"><a href="#3-4-Lasso" class="headerlink" title="3.4. Lasso"></a>3.4. Lasso</h3><p><code>In[16]</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Lasso</span><br><span class="line">s = <span class="string">r'$\alpha$'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lasso_regression</span><span class="params">(data, predictors, alpha, models_to_plot=&#123;&#125;)</span>:</span></span><br><span class="line">    <span class="comment">#Fit the model</span></span><br><span class="line">    lassoreg = Lasso(alpha=alpha, normalize=<span class="literal">True</span>, max_iter=<span class="number">1e5</span>)</span><br><span class="line">    lassoreg.fit(data[predictors], data[<span class="string">'y'</span>])</span><br><span class="line">    y_pred = lassoreg.predict(data[predictors])</span><br><span class="line"></span><br><span class="line">    <span class="comment">#Check if a plot is to be made for the entered alpha</span></span><br><span class="line">    <span class="keyword">if</span> alpha <span class="keyword">in</span> models_to_plot:</span><br><span class="line">        plt.subplot(models_to_plot[alpha])</span><br><span class="line">        plt.tight_layout()</span><br><span class="line">        plt.plot(data[<span class="string">'x'</span>], y_pred)</span><br><span class="line">        plt.plot(data[<span class="string">'x'</span>], data[<span class="string">'y'</span>], <span class="string">'.'</span>)</span><br><span class="line">        plt.title(<span class="string">r'Plot for $\alpha$: %.3g'</span> % alpha)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#Return the result in pre-defined format</span></span><br><span class="line">    rss = sum((y_pred - data[<span class="string">'y'</span>])**<span class="number">2</span>)</span><br><span class="line">    ret = [rss]</span><br><span class="line">    ret.extend([lassoreg.intercept_])</span><br><span class="line">    ret.extend(lassoreg.coef_)</span><br><span class="line">    <span class="keyword">return</span> ret</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Lasso</span><br><span class="line">s = <span class="string">r&#x27;$\alpha$&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lasso_regression</span>(<span class="params">data, predictors, alpha, models_to_plot=&#123;&#125;</span>):</span></span><br><span class="line">    <span class="comment">#Fit the model</span></span><br><span class="line">    lassoreg = Lasso(alpha=alpha, normalize=<span class="literal">True</span>, max_iter=<span class="number">1e5</span>)</span><br><span class="line">    lassoreg.fit(data[predictors], data[<span class="string">&#x27;y&#x27;</span>])</span><br><span class="line">    y_pred = lassoreg.predict(data[predictors])</span><br><span class="line"></span><br><span class="line">    <span class="comment">#Check if a plot is to be made for the entered alpha</span></span><br><span class="line">    <span class="keyword">if</span> alpha <span class="keyword">in</span> models_to_plot:</span><br><span class="line">        plt.subplot(models_to_plot[alpha])</span><br><span class="line">        plt.tight_layout()</span><br><span class="line">        plt.plot(data[<span class="string">&#x27;x&#x27;</span>], y_pred)</span><br><span class="line">        plt.plot(data[<span class="string">&#x27;x&#x27;</span>], data[<span class="string">&#x27;y&#x27;</span>], <span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">        plt.title(<span class="string">r&#x27;Plot for $\alpha$: %.3g&#x27;</span> % alpha)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#Return the result in pre-defined format</span></span><br><span class="line">    rss = <span class="built_in">sum</span>((y_pred - data[<span class="string">&#x27;y&#x27;</span>])**<span class="number">2</span>)</span><br><span class="line">    ret = [rss]</span><br><span class="line">    ret.extend([lassoreg.intercept_])</span><br><span class="line">    ret.extend(lassoreg.coef_)</span><br><span class="line">    <span class="keyword">return</span> ret</span><br></pre></td></tr></table></figure>
 <p><code>In[17]</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">predictors = [<span class="string">'x'</span>]</span><br><span class="line">predictors.extend([<span class="string">'x_%d'</span> % i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, <span class="number">16</span>)])</span><br><span class="line"></span><br><span class="line"><span class="comment">#Define the alpha values to test</span></span><br><span class="line">alpha_lasso = [<span class="number">1e-15</span>, <span class="number">1e-10</span>, <span class="number">1e-8</span>, <span class="number">1e-5</span>, <span class="number">1e-4</span>, <span class="number">1e-3</span>, <span class="number">1e-2</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#Initialize the dataframe to store coefficients</span></span><br><span class="line">col = [<span class="string">'rss'</span>, <span class="string">'intercept'</span>] + [<span class="string">'coef_x_%d'</span> % i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">16</span>)]</span><br><span class="line">ind = [<span class="string">'alpha_%.2g'</span> % alpha_lasso[i] <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">10</span>)]</span><br><span class="line">coef_matrix_lasso = pd.DataFrame(index=ind, columns=col)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Define the models to plot</span></span><br><span class="line">models_to_plot = &#123;</span><br><span class="line">    <span class="number">1e-10</span>: <span class="number">231</span>,</span><br><span class="line">    <span class="number">1e-5</span>: <span class="number">232</span>,</span><br><span class="line">    <span class="number">1e-4</span>: <span class="number">233</span>,</span><br><span class="line">    <span class="number">1e-3</span>: <span class="number">234</span>,</span><br><span class="line">    <span class="number">1e-2</span>: <span class="number">235</span>,</span><br><span class="line">    <span class="number">1</span>: <span class="number">236</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#Iterate over the 10 alpha values:</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    coef_matrix_lasso.iloc[i, ] = lasso_regression(</span><br><span class="line">        data, predictors, alpha_lasso[i], models_to_plot)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">predictors = [<span class="string">&#x27;x&#x27;</span>]</span><br><span class="line">predictors.extend([<span class="string">&#x27;x_%d&#x27;</span> % i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="number">16</span>)])</span><br><span class="line"></span><br><span class="line"><span class="comment">#Define the alpha values to test</span></span><br><span class="line">alpha_lasso = [<span class="number">1e-15</span>, <span class="number">1e-10</span>, <span class="number">1e-8</span>, <span class="number">1e-5</span>, <span class="number">1e-4</span>, <span class="number">1e-3</span>, <span class="number">1e-2</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#Initialize the dataframe to store coefficients</span></span><br><span class="line">col = [<span class="string">&#x27;rss&#x27;</span>, <span class="string">&#x27;intercept&#x27;</span>] + [<span class="string">&#x27;coef_x_%d&#x27;</span> % i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">16</span>)]</span><br><span class="line">ind = [<span class="string">&#x27;alpha_%.2g&#x27;</span> % alpha_lasso[i] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">10</span>)]</span><br><span class="line">coef_matrix_lasso = pd.DataFrame(index=ind, columns=col)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Define the models to plot</span></span><br><span class="line">models_to_plot = &#123;</span><br><span class="line">    <span class="number">1e-10</span>: <span class="number">231</span>,</span><br><span class="line">    <span class="number">1e-5</span>: <span class="number">232</span>,</span><br><span class="line">    <span class="number">1e-4</span>: <span class="number">233</span>,</span><br><span class="line">    <span class="number">1e-3</span>: <span class="number">234</span>,</span><br><span class="line">    <span class="number">1e-2</span>: <span class="number">235</span>,</span><br><span class="line">    <span class="number">1</span>: <span class="number">236</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#Iterate over the 10 alpha values:</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    coef_matrix_lasso.iloc[i, ] = lasso_regression(</span><br><span class="line">        data, predictors, alpha_lasso[i], models_to_plot)</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/02/18/5c6a57661c04a.png" alt="png"></p>
 <p><code>In[18]</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svm.LinearSVC(penalty=<span class="string">'l1'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svm.LinearSVC(penalty=<span class="string">&#x27;l1&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p><code>Out[18]</code></p>
 <pre><code>LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
      intercept_scaling=1, loss=&#39;squared_hinge&#39;, max_iter=1000,
@@ -425,7 +465,7 @@ subject \ to \ \sum_{j=1}^N \left \|{\beta_j}\right \| \leqslant t,</script></li
 <p><code>In[20]</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iris = load_iris()</span><br></pre></td></tr></table></figure>
 <p><code>In[21]</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#classifier_pipeline = make_pipeline(preprocessing.StandardScaler(), svm.SVC(C=1))</span></span><br><span class="line">pipeline = Pipeline([(<span class="string">'scaler'</span>, preprocessing.StandardScaler()),</span><br><span class="line">                     (<span class="string">'clf'</span>, LogisticRegression())])</span><br><span class="line">scores = model_selection.cross_val_score(</span><br><span class="line">    pipeline, iris.data, iris.target, cv=<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#classifier_pipeline = make_pipeline(preprocessing.StandardScaler(), svm.SVC(C=1))</span></span><br><span class="line">pipeline = Pipeline([(<span class="string">&#x27;scaler&#x27;</span>, preprocessing.StandardScaler()),</span><br><span class="line">                     (<span class="string">&#x27;clf&#x27;</span>, LogisticRegression())])</span><br><span class="line">scores = model_selection.cross_val_score(</span><br><span class="line">    pipeline, iris.data, iris.target, cv=<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
 <p><code>In[22]</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scores</span><br></pre></td></tr></table></figure>
 <p><code>Out[22]</code></p>
@@ -523,65 +563,45 @@ E(loss) = \int \{E_D[y(x;D)]-h(x)\}^2p(x)dx + \int E_D[\{y(x;D)-E_D[y(x;D)\}^2]p
     
     
     
-        
 
-<div>
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>Post author:  </strong>Gavin
-  </li>
-  <li class="post-copyright-link">
-    <strong>Post link: </strong>
-    <a href="https://marara.xin/archives/34110.html" title="拟合的力道">https://marara.xin/archives/34110.html</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
-  </li>
-</ul>
+    <footer class="post-footer">
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://twitter.com/rp_Wang">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+
+          <span class="label">Twitter</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://t.me/ContactGavin_bot">
+          <span class="icon">
+            <i class="fab fa-telegram-plane"></i>
+          </span>
+
+          <span class="label">Telegram</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
 </div>
 
-        
-
-  <div class="followme">
-    <p>Welcome to my other publishing channels</p>
-
-    <div class="social-list">
-
-        <div class="social-item">
-          <a target="_blank" class="social-link" href="https://twitter.com/rp_Wang">
-            <span class="icon">
-              <i class="fab fa-twitter"></i>
-            </span>
-
-            <span class="label">Twitter</span>
-          </a>
-        </div>
-
-        <div class="social-item">
-          <a target="_blank" class="social-link" href="https://t.me/ContactGavin_bot">
-            <span class="icon">
-              <i class="fab fa-telegram-plane"></i>
-            </span>
-
-            <span class="label">Telegram</span>
-          </a>
-        </div>
-
-        <div class="social-item">
-          <a target="_blank" class="social-link" href="/atom.xml">
-            <span class="icon">
-              <i class="fa fa-rss"></i>
-            </span>
-
-            <span class="label">RSS</span>
-          </a>
-        </div>
-    </div>
-  </div>
-
-
-      <footer class="post-footer">
-          
           <div class="post-tags">
               <a href="/tags/Statistics/" rel="tag"><i class="fa fa-tag"></i> Statistics</a>
               <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
@@ -589,149 +609,37 @@ E(loss) = \int \{E_D[y(x;D)]-h(x)\}^2p(x)dx + \int E_D[\{y(x;D)-E_D[y(x;D)\}^2]p
 
         
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/archives/27785.html" rel="prev" title="逻辑回归与代价函数">
-      <i class="fa fa-chevron-left"></i> 逻辑回归与代价函数
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/archives/46687.html" rel="next" title="推荐系统中的NDCG">
-      推荐系统中的NDCG <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/archives/27785.html" rel="prev" title="逻辑回归与代价函数">
+                  <i class="fa fa-chevron-left"></i> 逻辑回归与代价函数
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/archives/46687.html" rel="next" title="推荐系统中的NDCG">
+                  推荐系统中的NDCG <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
           </div>
-          
-    <div class="comments" id="gitalk-container"></div>
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8B%9F%E5%90%88"><span class="nav-text">模型的拟合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%8B%9F%E5%90%88%E4%B8%8E%E8%BF%87%E6%8B%9F%E5%90%88"><span class="nav-text">1. 拟合与过拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E6%8B%9F%E5%90%88%EF%BC%9A"><span class="nav-text">1.1 拟合：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E6%AC%A0%E6%8B%9F%E5%90%88%EF%BC%9A"><span class="nav-text">1.2. 欠拟合：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E8%BF%87%E6%8B%9F%E5%90%88%EF%BC%9A"><span class="nav-text">1.3. 过拟合：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%AF%B9%E6%8A%97%E8%BF%87%E6%8B%9F%E5%90%88"><span class="nav-text">2. 对抗过拟合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-python%E5%AE%9E%E7%8E%B0"><span class="nav-text">3. python实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E5%AF%B9%E6%AF%94%E4%B8%8D%E5%90%8C%E6%A8%A1%E5%9E%8B%E7%9A%84cross-validation%E7%BB%93%E6%9E%9C"><span class="nav-text">3.1. 对比不同模型的cross-validation结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E6%AD%A3%E5%88%99%E5%8C%96regularization"><span class="nav-text">3.2. 正则化regularization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-Ridge"><span class="nav-text">3.3. Ridge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-Lasso"><span class="nav-text">3.4. Lasso</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-pipeline"><span class="nav-text">4. pipeline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%96%B9%E5%B7%AE%E7%9A%84%E5%88%86%E8%A7%A3"><span class="nav-text">5. 方差的分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-bias%E4%B8%8Evariance%E7%9A%84%E5%88%86%E8%A7%A3"><span class="nav-text">6. bias与variance的分解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bias%E4%B8%8EVariance%E7%9A%84%E4%B8%A4%E9%9A%BE%E4%B9%8B%E9%97%B4"><span class="nav-text">Bias与Variance的两难之间</span></a></li></ol></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Gavin"
-      src="/images/IMG_5946.png">
-  <p class="site-author-name" itemprop="name">Gavin</p>
-  <div class="site-description" itemprop="description">Make it, Fake it.</div>
+    </footer>
+  </article>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">26</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">19</span>
-        <span class="site-state-item-name">tags</span></a>
-      </div>
-  </nav>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
 </div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/Wanguy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Wanguy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:w020283852@gmail.com" title="E-Mail → mailto:w020283852@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://twitter.com/rp_Wang" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;rp_Wang" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://instagram.com/rpgavin" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;rpgavin" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://t.me/ContactGavin_bot/" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;ContactGavin_bot&#x2F;" rel="noopener" target="_blank"><i class="fab fa-telegram-plane fa-fw"></i>Telegram</a>
-      </span>
-  </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
 
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
 
 <div class="copyright">
-  
-  &copy; 2015 – 
+  &copy; 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fas fa-bug"></i>
@@ -739,184 +647,38 @@ E(loss) = \int \{E_D[y(x;D)]-h(x)\}^2p(x)dx + \int E_D[\{y(x;D)-E_D[y(x;D)\}^2]p
   <span class="author" itemprop="copyrightHolder">Gavin</span>
 </div>
 
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   
   <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
 
-<script src="/js/utils.js"></script>
+  
+<script src="/js/third-party/search/local-search.js"></script>
 
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.5/pdfobject.min.js","integrity":"sha256-YuNlP9i6s/WH7EaU2kErloo9Vc85C3WVqhoMDgsEVpY="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
 
 
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
-
-
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-<script>
-document.querySelectorAll('.pdfobject-container').forEach(element => {
-  let url = element.dataset.target;
-  let pdfOpenParams = {
-    navpanes : 0,
-    toolbar  : 0,
-    statusbar: 0,
-    pagemode : 'thumbs',
-    view     : 'FitH'
-  };
-  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
-  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
-
-  if (NexT.utils.supportsPDFs()) {
-    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
-  } else {
-    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
-  }
-});
-</script>
 
 
 
 
   
 
-  
-      
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-          load: ['[tex]/mhchem'],
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-          packages: {'[+]': ['mhchem']},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
-
-  
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '85ce279610ff27b07d1c',
-      clientSecret: '9c42386ae5260c368961a8b4481eb48d72e5448e',
-      repo        : 'Wanguy.github.io',
-      owner       : 'Wanguy',
-      admin       : ['Wanguy'],
-      id          : '7331db312f7921aa1a1ceb1a2d4e16b3',
-        language: '',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Wanguy","repo":"Wanguy.github.io","client_id":"85ce279610ff27b07d1c","client_secret":"9c42386ae5260c368961a8b4481eb48d72e5448e","admin_user":"Wanguy","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"},"path_md5":"7331db312f7921aa1a1ceb1a2d4e16b3"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

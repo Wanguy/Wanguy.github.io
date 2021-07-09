@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.4.0">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/180.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/16.png">
@@ -13,18 +15,16 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
+
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"marara.xin","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
-
-  <meta name="description" content="Git 是一个分布式版本管理系统，即每个终端都有一套完整的项目代码（包括历史文件）。为了使用 Git，先要安装 Git。可以在 Command Line 或者 Terminal 中输入git命令检查是否已经安装。">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"iotop.top","root":"/","images":"/images","scheme":"Muse","version":"8.6.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Git 是一个分布式版本管理系统，即每个终端都有一套完整的项目代码（包括历史文件）。为了使用 Git，先要安装 Git。可以在 Command Line 或者 Terminal 中输入git命令检查是否已经安装。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git 快速开始简明教程">
-<meta property="og:url" content="https://marara.xin/archives/45240.html">
+<meta property="og:url" content="https://iotop.top/archives/45240.html">
 <meta property="og:site_name" content="Gavin&#39;s Blog">
 <meta property="og:description" content="Git 是一个分布式版本管理系统，即每个终端都有一套完整的项目代码（包括历史文件）。为了使用 Git，先要安装 Git。可以在 Command Line 或者 Terminal 中输入git命令检查是否已经安装。">
 <meta property="og:locale" content="en_US">
@@ -35,73 +35,46 @@
 <meta property="article:tag" content="Terminal">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://marara.xin/archives/45240.html">
+
+<link rel="canonical" href="https://iotop.top/archives/45240.html">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'en'
-  };
-</script>
 
-  <title>Git 快速开始简明教程 | Gavin's Blog</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://iotop.top/archives/45240.html","path":"archives/45240.html","title":"Git 快速开始简明教程"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Git 快速开始简明教程 | Gavin's Blog</title>
   
 
 
 
 
-
-
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 <link rel="alternate" href="/atom.xml" title="Gavin's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
 
+  <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
+      <i class="logo-line"></i>
       <h1 class="site-title">Gavin's Blog</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">愿你继续成长</p>
   </div>
@@ -115,34 +88,13 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">26</span></a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">19</span></a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">2</span></a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
-
-  </li>
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">19</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">2</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">26</span></a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
@@ -153,23 +105,22 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="Searching..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
@@ -177,257 +128,18 @@
   </div>
 
 </div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-  <a href="https://github.com/Wanguy" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
-    
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://marara.xin/archives/45240.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/IMG_5946.png">
-      <meta itemprop="name" content="Gavin">
-      <meta itemprop="description" content="Make it, Fake it.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gavin's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Git 快速开始简明教程
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 03-19-2017 20:18:00" itemprop="dateCreated datePublished" datetime="2017-03-19T20:18:00+08:00">03-19-2017</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 03-25-2020 23:32:59" itemprop="dateModified" datetime="2020-03-25T23:32:59+08:00">03-25-2020</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tutorial/" itemprop="url" rel="index"><span itemprop="name">Tutorial</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <p>Git 是一个分布式版本管理系统，即每个终端都有一套完整的项目代码（包括历史文件）。为了使用 Git，先要安装 Git。可以在 Command Line 或者 Terminal 中输入<code>git</code>命令检查是否已经安装。</p>
-<a id="more"></a>
-<blockquote>
-<h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2></blockquote>
-<h3 id="创建本地工作目录"><a href="#创建本地工作目录" class="headerlink" title="创建本地工作目录"></a>创建本地工作目录</h3><p>先要创建一个文件夹来保存项目代码。例如我使用如下目录：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/renfei/Sites/project</span><br></pre></td></tr></table></figure>
-<p>命令行中<code>cd</code>到这个目录，然后执行<code>git init</code> 命令来初始化：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bogon:~ renfei$ cd /Users/renfei/Sites/project </span><br><span class="line">bogon:project renfei$ git init</span><br><span class="line">Initialized empty Git repository in /Users/renfei/Sites/project/.git/</span><br></pre></td></tr></table></figure>
-<h3 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h3><p>使用<code>git remote add</code>命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bogon:buaa-weixin renfei$ git remote add proj https://renfeisong@bitbucket.org/developers/proj.git</span><br></pre></td></tr></table></figure>
-<p>上面的 proj 是一个本地别名，可以起得短一些，以便以后使用。后面的地址则是远程仓库得地址。添加之后，可以使用<code>git remote</code>命令查看当前已有的远程仓库。</p>
-<h3 id="从远程仓库得到数据"><a href="#从远程仓库得到数据" class="headerlink" title="从远程仓库得到数据"></a>从远程仓库得到数据</h3><p>使用 <code>git fetch</code> 命令。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">bogon:project renfei$ git fetch proj</span><br><span class="line">remote: Counting objects: 39, done.</span><br><span class="line">remote: Compressing objects: 100% (34/34), done.</span><br><span class="line">remote: Total 39 (delta 5), reused 0 (delta 0)</span><br><span class="line">Unpacking objects: 100% (39/39), done.</span><br><span class="line">From https://bitbucket.org/renfeisong/project</span><br><span class="line"> * [new branch]      develop    -&gt; proj/develop</span><br><span class="line"> * [new branch]      master     -&gt; proj/master</span><br></pre></td></tr></table></figure>
-<p>会看到得到了服务器上的文件，以及两个分支，develop 和 master。这里得到得分支数目取决于远程仓库的内容。虽然得到了这些东西，但是现在这些文件还没有出现在你的工作目录中。</p>
-<p>这是因为，我们需要利用<code>git checkout</code>命令「检出」（实际就是把工作目录切换到某个分支），才可以看到对应分支下的那些文件。</p>
-<h3 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h3><p>使用 <code>checkout</code> 命令。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bogon:project renfei$ git checkout develop</span><br><span class="line">Branch develop set up to track remote branch develop from proj.</span><br><span class="line">Switched to a new branch 'develop'</span><br></pre></td></tr></table></figure>
-<p>例子中我们切换到了 develop 分支，其中对应的文件就都出现了（如果有的话）。</p>
-<h2 id="再说分支"><a href="#再说分支" class="headerlink" title="再说分支"></a>再说分支</h2><p>分支是 Git 的一个很重要的功能，因此有必要解释一下。如果把随着时间的推移，代码的变化想象成前进的路线，那么分支就是从路线上的某一点衍生出来的一条支线，在这条支线上的开发不会对原先路线的代码造成任何影响。例如，现在我们有一个 master 分支和一个 develop 分支，master 分支发布稳定版本的应用，而 develop 分支则进行日常开发。一旦达到某个进度节点，develop 分支上的代码足够稳定可以发布，就把 develop 分支合并（merge）到 master 分支，同时继续 develop 分支的开发。</p>
-<p>再如，develop 分支开发的过程中出现了某个 bug，一个开发人员想解决这个 bug，那么为了不影响其他人的工作，他可以从 develop 分支再创建一个新的分支 hotfix，然后在这个分支下修改，完成后把它合并回 develop 分支，并删除 hotfix 分支（它的历史使命已经完成）。</p>
-<p>可以看出，每个分支都有一套代码。每个开发人员本地都保存了全部分支的全部代码（这些代码连同其他信息被 git 有序地组织在了工作目录下 .git 目录中，这个目录应当是隐藏的），当通过<code>checkout branch_name</code>切换分支时，工作目录下可见的文件也会被切换成当前分支下的文件。而其他分支的文件也并没有丢失，所以非常方便，你可以根据需要切换分支进行不同的工作。</p>
-<blockquote>
-<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2></blockquote>
-<h3 id="添加新文件"><a href="#添加新文件" class="headerlink" title="添加新文件"></a>添加新文件</h3><p>在工作目录中创建的新文件处于 untracked 状态，即没有被 git 跟踪。新文件不会自动被 git 跟踪，因为许多临时文件、日志文件不需要保存到仓库中。如果要往仓库中添加文件，使用 <code>git add</code> 命令。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bogon:project renfei$ git add *</span><br></pre></td></tr></table></figure>
-<p>上述做法添加所有文件。如果包含文件夹，则会递归地添加里面的文件。也可以添加单独的文件或者在文件名中使用通配符。</p>
-<p>要查看当前状态（哪些文件 untracked，哪些文件处于其他状态等）可以使用 <code>git status</code> 命令。</p>
-<p>执行 <code>git add</code> 后，新添加的文件状态（可通过<code>git status</code>查看）变为 change to be committed，或者称为 staged，暂存。意思就是，只要把它 commit 上去就可以了。</p>
-<h3 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h3><p>如果修改了某个已跟踪的文件，那么这个文件会变为 modified，not staged，未暂存。此时必须再次 <code>git add</code> 这个文件使它变成 staged 状态，才能够被 commit 上去。</p>
-<h3 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h3><p>当有文件状态为暂存的（staged）时，就可以执行 <code>git commit</code> 命令。这个命令会提交暂存的文件。git 要求为每次提交添加一个说明，因此一般使用一个<code>-m</code>选项来添加说明。例如：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">bogon:project renfei$ git commit -m "background admin site (backend) added"</span><br><span class="line">[develop 7d17136] background admin site (backend) added</span><br><span class="line"> 16 files changed, 10372 insertions(+)</span><br><span class="line"> create mode 100644 bootstrap/v2/css/bootstrap-responsive.css</span><br><span class="line"> create mode 100644 bootstrap/v2/css/bootstrap-responsive.min.css</span><br><span class="line"> create mode 100644 bootstrap/v2/css/bootstrap.css</span><br><span class="line"> create mode 100644 bootstrap/v2/css/bootstrap.min.css</span><br><span class="line"> create mode 100644 bootstrap/v2/img/glyphicons-halflings-white.png</span><br><span class="line"> create mode 100644 bootstrap/v2/img/glyphicons-halflings.png</span><br><span class="line"> create mode 100644 bootstrap/v2/js/bootstrap.js</span><br><span class="line"> create mode 100644 bootstrap/v2/js/bootstrap.min.js</span><br><span class="line"> create mode 100644 define.php</span><br><span class="line"> create mode 100644 index.php</span><br><span class="line"> create mode 100644 jquery/jquery-1.10.2.min.js</span><br><span class="line"> create mode 100644 login.php</span><br><span class="line"> create mode 100644 logout.php</span><br><span class="line"> create mode 100644 pref.php</span><br><span class="line"> create mode 100644 signup.php</span><br><span class="line"> create mode 100644 util.php</span><br></pre></td></tr></table></figure>
-<p>这个操作完成后，代码就被提交到了本地仓库。每次进行 commit 后都会对整个项目做一个快照，以后可以随时回滚到某个快照中。</p>
-<p>如果希望省略 add 过程而直接提交所有跟踪的文件，可以给 <code>commit</code> 命令加上<code>-a</code>选项。如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bogon:project renfei$ git commit -a -m "background admin site (backend) added"</span><br></pre></td></tr></table></figure>
-<h3 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h3><p><code>commit</code>仅仅把更改提交到了本地仓库。如果想推送到远程仓库，需要使用 <code>git push</code> 命令。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">bogon:project renfei$ git push proj develop</span><br><span class="line">Counting objects: 25, done.</span><br><span class="line">Delta compression using up to 8 threads.</span><br><span class="line">Compressing objects: 100% (22/22), done.</span><br><span class="line">Writing objects: 100% (24/24), 122.16 KiB | 0 bytes/s, done.</span><br><span class="line">Total 24 (delta 1), reused 0 (delta 0)</span><br><span class="line">To https://renfeisong@bitbucket.org/renfeisong/project.git</span><br><span class="line">   d4eeb86..7d17136  develop -&gt; develop</span><br></pre></td></tr></table></figure>
-<p>其中 <code>proj</code> 是之前设定的代号，而 <code>develop</code> 表示推送本地仓库的 <code>develop</code> 分支。</p>
-<h3 id="更新本地仓库"><a href="#更新本地仓库" class="headerlink" title="更新本地仓库"></a>更新本地仓库</h3><p>此时，可以随时使用 <code>git pull</code> 命令来从远程仓库拉取更新。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bogon:project renfei$ git pull</span><br><span class="line">Already up-to-date.</span><br></pre></td></tr></table></figure>
-<p>如果没有更新，就会显示 <code>Already up-to-date</code>.</p>
-<blockquote>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2></blockquote>
-<p>Git 还有很多很多功能，比如从仓库移除文件、重命名、比较等。可以参考 Pro Git 这本书，是基于 CC 协议发布的。地址：<a href="http://git-scm.com/book/zh" target="_blank" rel="noopener">http://git-scm.com/book/zh</a></p>
-
-    </div>
-
-    
-    
-    
         
-
-<div>
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>Post author:  </strong>Gavin
-  </li>
-  <li class="post-copyright-link">
-    <strong>Post link: </strong>
-    <a href="https://marara.xin/archives/45240.html" title="Git 快速开始简明教程">https://marara.xin/archives/45240.html</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
-  </li>
-</ul>
-</div>
-
-        
-
-  <div class="followme">
-    <p>Welcome to my other publishing channels</p>
-
-    <div class="social-list">
-
-        <div class="social-item">
-          <a target="_blank" class="social-link" href="https://twitter.com/rp_Wang">
-            <span class="icon">
-              <i class="fab fa-twitter"></i>
-            </span>
-
-            <span class="label">Twitter</span>
-          </a>
-        </div>
-
-        <div class="social-item">
-          <a target="_blank" class="social-link" href="https://t.me/ContactGavin_bot">
-            <span class="icon">
-              <i class="fab fa-telegram-plane"></i>
-            </span>
-
-            <span class="label">Telegram</span>
-          </a>
-        </div>
-
-        <div class="social-item">
-          <a target="_blank" class="social-link" href="/atom.xml">
-            <span class="icon">
-              <i class="fa fa-rss"></i>
-            </span>
-
-            <span class="label">RSS</span>
-          </a>
-        </div>
-    </div>
-  </div>
-
-
-      <footer class="post-footer">
-          
-          <div class="post-tags">
-              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
-              <a href="/tags/Terminal/" rel="tag"><i class="fa fa-tag"></i> Terminal</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/archives/13321.html" rel="prev" title="Ubuntu 配置 Apache, MySQL, PHP 以及 phpMyAdmin 过程记录">
-      <i class="fa fa-chevron-left"></i> Ubuntu 配置 Apache, MySQL, PHP 以及 phpMyAdmin 过程记录
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/archives/45978.html" rel="next" title="MySQL修改root用户密码">
-      MySQL修改root用户密码 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
   
-  
-  
-
-
-
-          </div>
-          
-    <div class="comments" id="gitalk-container"></div>
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
   </div>
 
   <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
         </li>
@@ -436,20 +148,22 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8"><span class="nav-text">开始使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95"><span class="nav-text">创建本地工作目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-text">添加远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%BE%97%E5%88%B0%E6%95%B0%E6%8D%AE"><span class="nav-text">从远程仓库得到数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF"><span class="nav-text">切换分支</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%8D%E8%AF%B4%E5%88%86%E6%94%AF"><span class="nav-text">再说分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="nav-text">文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%96%B0%E6%96%87%E4%BB%B6"><span class="nav-text">添加新文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6"><span class="nav-text">修改文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4"><span class="nav-text">提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-text">推送到远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="nav-text">更新本地仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A5%E5%85%85"><span class="nav-text">补充</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8"><span class="nav-text">开始使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95"><span class="nav-text">创建本地工作目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-text">添加远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%BE%97%E5%88%B0%E6%95%B0%E6%8D%AE"><span class="nav-text">从远程仓库得到数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF"><span class="nav-text">切换分支</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%8D%E8%AF%B4%E5%88%86%E6%94%AF"><span class="nav-text">再说分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="nav-text">文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%96%B0%E6%96%87%E4%BB%B6"><span class="nav-text">添加新文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6"><span class="nav-text">修改文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4"><span class="nav-text">提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-text">推送到远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="nav-text">更新本地仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A5%E5%85%85"><span class="nav-text">补充</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Gavin"
       src="/images/IMG_5946.png">
   <p class="site-author-name" itemprop="name">Gavin</p>
   <div class="site-description" itemprop="description">Make it, Fake it.</div>
 </div>
-<div class="site-state-wrap motion-element">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
@@ -472,7 +186,7 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author motion-element">
+  <div class="links-of-author site-overview-item animated">
       <span class="links-of-author-item">
         <a href="https://github.com/Wanguy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Wanguy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
@@ -492,25 +206,219 @@
 
 
 
+          </div>
+        </div>
       </div>
-
     </div>
   </aside>
-  <div id="sidebar-dimmer"></div>
+  <div class="sidebar-dimmer"></div>
 
 
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/Wanguy" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://iotop.top/archives/45240.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/IMG_5946.png">
+      <meta itemprop="name" content="Gavin">
+      <meta itemprop="description" content="Make it, Fake it.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Git 快速开始简明教程
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 03-19-2017 20:18:00" itemprop="dateCreated datePublished" datetime="2017-03-19T20:18:00+08:00">03-19-2017</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 03-25-2020 23:32:59" itemprop="dateModified" datetime="2020-03-25T23:32:59+08:00">03-25-2020</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tutorial/" itemprop="url" rel="index"><span itemprop="name">Tutorial</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Git 是一个分布式版本管理系统，即每个终端都有一套完整的项目代码（包括历史文件）。为了使用 Git，先要安装 Git。可以在 Command Line 或者 Terminal 中输入<code>git</code>命令检查是否已经安装。</p>
+<span id="more"></span>
+<blockquote>
+<h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2></blockquote>
+<h3 id="创建本地工作目录"><a href="#创建本地工作目录" class="headerlink" title="创建本地工作目录"></a>创建本地工作目录</h3><p>先要创建一个文件夹来保存项目代码。例如我使用如下目录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/renfei/Sites/project</span><br></pre></td></tr></table></figure>
+<p>命令行中<code>cd</code>到这个目录，然后执行<code>git init</code> 命令来初始化：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bogon:~ renfei$ cd /Users/renfei/Sites/project </span><br><span class="line">bogon:project renfei$ git init</span><br><span class="line">Initialized empty Git repository in /Users/renfei/Sites/project/.git/</span><br></pre></td></tr></table></figure>
+<h3 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h3><p>使用<code>git remote add</code>命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bogon:buaa-weixin renfei$ git remote add proj https://renfeisong@bitbucket.org/developers/proj.git</span><br></pre></td></tr></table></figure>
+<p>上面的 proj 是一个本地别名，可以起得短一些，以便以后使用。后面的地址则是远程仓库得地址。添加之后，可以使用<code>git remote</code>命令查看当前已有的远程仓库。</p>
+<h3 id="从远程仓库得到数据"><a href="#从远程仓库得到数据" class="headerlink" title="从远程仓库得到数据"></a>从远程仓库得到数据</h3><p>使用 <code>git fetch</code> 命令。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">bogon:project renfei$ git fetch proj</span><br><span class="line">remote: Counting objects: 39, done.</span><br><span class="line">remote: Compressing objects: 100% (34/34), done.</span><br><span class="line">remote: Total 39 (delta 5), reused 0 (delta 0)</span><br><span class="line">Unpacking objects: 100% (39/39), done.</span><br><span class="line">From https://bitbucket.org/renfeisong/project</span><br><span class="line"> * [new branch]      develop    -&gt; proj/develop</span><br><span class="line"> * [new branch]      master     -&gt; proj/master</span><br></pre></td></tr></table></figure>
+<p>会看到得到了服务器上的文件，以及两个分支，develop 和 master。这里得到得分支数目取决于远程仓库的内容。虽然得到了这些东西，但是现在这些文件还没有出现在你的工作目录中。</p>
+<p>这是因为，我们需要利用<code>git checkout</code>命令「检出」（实际就是把工作目录切换到某个分支），才可以看到对应分支下的那些文件。</p>
+<h3 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h3><p>使用 <code>checkout</code> 命令。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bogon:project renfei$ git checkout develop</span><br><span class="line">Branch develop set up to track remote branch develop from proj.</span><br><span class="line">Switched to a new branch &#x27;develop&#x27;</span><br></pre></td></tr></table></figure>
+<p>例子中我们切换到了 develop 分支，其中对应的文件就都出现了（如果有的话）。</p>
+<h2 id="再说分支"><a href="#再说分支" class="headerlink" title="再说分支"></a>再说分支</h2><p>分支是 Git 的一个很重要的功能，因此有必要解释一下。如果把随着时间的推移，代码的变化想象成前进的路线，那么分支就是从路线上的某一点衍生出来的一条支线，在这条支线上的开发不会对原先路线的代码造成任何影响。例如，现在我们有一个 master 分支和一个 develop 分支，master 分支发布稳定版本的应用，而 develop 分支则进行日常开发。一旦达到某个进度节点，develop 分支上的代码足够稳定可以发布，就把 develop 分支合并（merge）到 master 分支，同时继续 develop 分支的开发。</p>
+<p>再如，develop 分支开发的过程中出现了某个 bug，一个开发人员想解决这个 bug，那么为了不影响其他人的工作，他可以从 develop 分支再创建一个新的分支 hotfix，然后在这个分支下修改，完成后把它合并回 develop 分支，并删除 hotfix 分支（它的历史使命已经完成）。</p>
+<p>可以看出，每个分支都有一套代码。每个开发人员本地都保存了全部分支的全部代码（这些代码连同其他信息被 git 有序地组织在了工作目录下 .git 目录中，这个目录应当是隐藏的），当通过<code>checkout branch_name</code>切换分支时，工作目录下可见的文件也会被切换成当前分支下的文件。而其他分支的文件也并没有丢失，所以非常方便，你可以根据需要切换分支进行不同的工作。</p>
+<blockquote>
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2></blockquote>
+<h3 id="添加新文件"><a href="#添加新文件" class="headerlink" title="添加新文件"></a>添加新文件</h3><p>在工作目录中创建的新文件处于 untracked 状态，即没有被 git 跟踪。新文件不会自动被 git 跟踪，因为许多临时文件、日志文件不需要保存到仓库中。如果要往仓库中添加文件，使用 <code>git add</code> 命令。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bogon:project renfei$ git add *</span><br></pre></td></tr></table></figure>
+<p>上述做法添加所有文件。如果包含文件夹，则会递归地添加里面的文件。也可以添加单独的文件或者在文件名中使用通配符。</p>
+<p>要查看当前状态（哪些文件 untracked，哪些文件处于其他状态等）可以使用 <code>git status</code> 命令。</p>
+<p>执行 <code>git add</code> 后，新添加的文件状态（可通过<code>git status</code>查看）变为 change to be committed，或者称为 staged，暂存。意思就是，只要把它 commit 上去就可以了。</p>
+<h3 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h3><p>如果修改了某个已跟踪的文件，那么这个文件会变为 modified，not staged，未暂存。此时必须再次 <code>git add</code> 这个文件使它变成 staged 状态，才能够被 commit 上去。</p>
+<h3 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h3><p>当有文件状态为暂存的（staged）时，就可以执行 <code>git commit</code> 命令。这个命令会提交暂存的文件。git 要求为每次提交添加一个说明，因此一般使用一个<code>-m</code>选项来添加说明。例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">bogon:project renfei$ git commit -m &quot;background admin site (backend) added&quot;</span><br><span class="line">[develop 7d17136] background admin site (backend) added</span><br><span class="line"> 16 files changed, 10372 insertions(+)</span><br><span class="line"> create mode 100644 bootstrap/v2/css/bootstrap-responsive.css</span><br><span class="line"> create mode 100644 bootstrap/v2/css/bootstrap-responsive.min.css</span><br><span class="line"> create mode 100644 bootstrap/v2/css/bootstrap.css</span><br><span class="line"> create mode 100644 bootstrap/v2/css/bootstrap.min.css</span><br><span class="line"> create mode 100644 bootstrap/v2/img/glyphicons-halflings-white.png</span><br><span class="line"> create mode 100644 bootstrap/v2/img/glyphicons-halflings.png</span><br><span class="line"> create mode 100644 bootstrap/v2/js/bootstrap.js</span><br><span class="line"> create mode 100644 bootstrap/v2/js/bootstrap.min.js</span><br><span class="line"> create mode 100644 define.php</span><br><span class="line"> create mode 100644 index.php</span><br><span class="line"> create mode 100644 jquery/jquery-1.10.2.min.js</span><br><span class="line"> create mode 100644 login.php</span><br><span class="line"> create mode 100644 logout.php</span><br><span class="line"> create mode 100644 pref.php</span><br><span class="line"> create mode 100644 signup.php</span><br><span class="line"> create mode 100644 util.php</span><br></pre></td></tr></table></figure>
+<p>这个操作完成后，代码就被提交到了本地仓库。每次进行 commit 后都会对整个项目做一个快照，以后可以随时回滚到某个快照中。</p>
+<p>如果希望省略 add 过程而直接提交所有跟踪的文件，可以给 <code>commit</code> 命令加上<code>-a</code>选项。如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bogon:project renfei$ git commit -a -m &quot;background admin site (backend) added&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h3><p><code>commit</code>仅仅把更改提交到了本地仓库。如果想推送到远程仓库，需要使用 <code>git push</code> 命令。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">bogon:project renfei$ git push proj develop</span><br><span class="line">Counting objects: 25, done.</span><br><span class="line">Delta compression using up to 8 threads.</span><br><span class="line">Compressing objects: 100% (22/22), done.</span><br><span class="line">Writing objects: 100% (24/24), 122.16 KiB | 0 bytes/s, done.</span><br><span class="line">Total 24 (delta 1), reused 0 (delta 0)</span><br><span class="line">To https://renfeisong@bitbucket.org/renfeisong/project.git</span><br><span class="line">   d4eeb86..7d17136  develop -&gt; develop</span><br></pre></td></tr></table></figure>
+<p>其中 <code>proj</code> 是之前设定的代号，而 <code>develop</code> 表示推送本地仓库的 <code>develop</code> 分支。</p>
+<h3 id="更新本地仓库"><a href="#更新本地仓库" class="headerlink" title="更新本地仓库"></a>更新本地仓库</h3><p>此时，可以随时使用 <code>git pull</code> 命令来从远程仓库拉取更新。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bogon:project renfei$ git pull</span><br><span class="line">Already up-to-date.</span><br></pre></td></tr></table></figure>
+<p>如果没有更新，就会显示 <code>Already up-to-date</code>.</p>
+<blockquote>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2></blockquote>
+<p>Git 还有很多很多功能，比如从仓库移除文件、重命名、比较等。可以参考 Pro Git 这本书，是基于 CC 协议发布的。地址：<a target="_blank" rel="noopener" href="http://git-scm.com/book/zh">http://git-scm.com/book/zh</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://twitter.com/rp_Wang">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+
+          <span class="label">Twitter</span>
+        </a>
       </div>
-    </main>
 
-    <footer class="footer">
-      <div class="footer-inner">
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://t.me/ContactGavin_bot">
+          <span class="icon">
+            <i class="fab fa-telegram-plane"></i>
+          </span>
+
+          <span class="label">Telegram</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
+              <a href="/tags/Terminal/" rel="tag"><i class="fa fa-tag"></i> Terminal</a>
+          </div>
+
         
 
-        
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/archives/13321.html" rel="prev" title="Ubuntu 配置 Apache, MySQL, PHP 以及 phpMyAdmin 过程记录">
+                  <i class="fa fa-chevron-left"></i> Ubuntu 配置 Apache, MySQL, PHP 以及 phpMyAdmin 过程记录
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/archives/45978.html" rel="next" title="MySQL修改root用户密码">
+                  MySQL修改root用户密码 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
 
 <div class="copyright">
-  
-  &copy; 2015 – 
+  &copy; 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fas fa-bug"></i>
@@ -518,129 +426,38 @@
   <span class="author" itemprop="copyrightHolder">Gavin</span>
 </div>
 
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   
   <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
 
-<script src="/js/utils.js"></script>
+  
+<script src="/js/third-party/search/local-search.js"></script>
 
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.5/pdfobject.min.js","integrity":"sha256-YuNlP9i6s/WH7EaU2kErloo9Vc85C3WVqhoMDgsEVpY="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
 
 
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
-
-
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-<script>
-document.querySelectorAll('.pdfobject-container').forEach(element => {
-  let url = element.dataset.target;
-  let pdfOpenParams = {
-    navpanes : 0,
-    toolbar  : 0,
-    statusbar: 0,
-    pagemode : 'thumbs',
-    view     : 'FitH'
-  };
-  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
-  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
-
-  if (NexT.utils.supportsPDFs()) {
-    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
-  } else {
-    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
-  }
-});
-</script>
 
 
 
 
   
 
-  
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
-  
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '85ce279610ff27b07d1c',
-      clientSecret: '9c42386ae5260c368961a8b4481eb48d72e5448e',
-      repo        : 'Wanguy.github.io',
-      owner       : 'Wanguy',
-      admin       : ['Wanguy'],
-      id          : '9a6814cce9d2ab4afc69c7988e28a372',
-        language: '',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Wanguy","repo":"Wanguy.github.io","client_id":"85ce279610ff27b07d1c","client_secret":"9c42386ae5260c368961a8b4481eb48d72e5448e","admin_user":"Wanguy","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"},"path_md5":"9a6814cce9d2ab4afc69c7988e28a372"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>
