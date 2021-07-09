@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/180.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/16.png">
@@ -133,6 +133,11 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">26</span></a>
+
+  </li>
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">19</span></a>
@@ -141,11 +146,6 @@
         <li class="menu-item menu-item-categories">
 
     <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">2</span></a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">26</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -637,7 +637,7 @@ h_\theta (x)=\frac{1}{1+e^{-\left ( \theta_1 x+\theta_2 \right )}}
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑回归与线性回归"><span class="nav-text">逻辑回归与线性回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-从酒店订房说起"><span class="nav-text">1. 从酒店订房说起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何通过信用值等数据来预测恶意订房"><span class="nav-text">2. 如何通过信用值等数据来预测恶意订房</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-寻找最合理的参数-——-Cost-Function"><span class="nav-text">3. 寻找最合理的参数 —— Cost Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-使用sklearn自带函数求解逻辑回归参数"><span class="nav-text">3.1. 使用sklearn自带函数求解逻辑回归参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-使用梯度下降法求解逻辑回归参数"><span class="nav-text">3.2. 使用梯度下降法求解逻辑回归参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-使用牛顿法求解逻辑回归参数"><span class="nav-text">3.3. 使用牛顿法求解逻辑回归参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-从逻辑回归到SoftMax"><span class="nav-text">4. 从逻辑回归到SoftMax</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E4%B8%8E%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="nav-text">逻辑回归与线性回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BB%8E%E9%85%92%E5%BA%97%E8%AE%A2%E6%88%BF%E8%AF%B4%E8%B5%B7"><span class="nav-text">1. 从酒店订房说起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E4%BF%A1%E7%94%A8%E5%80%BC%E7%AD%89%E6%95%B0%E6%8D%AE%E6%9D%A5%E9%A2%84%E6%B5%8B%E6%81%B6%E6%84%8F%E8%AE%A2%E6%88%BF"><span class="nav-text">2. 如何通过信用值等数据来预测恶意订房</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%AF%BB%E6%89%BE%E6%9C%80%E5%90%88%E7%90%86%E7%9A%84%E5%8F%82%E6%95%B0-%E2%80%94%E2%80%94-Cost-Function"><span class="nav-text">3. 寻找最合理的参数 —— Cost Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E4%BD%BF%E7%94%A8sklearn%E8%87%AA%E5%B8%A6%E5%87%BD%E6%95%B0%E6%B1%82%E8%A7%A3%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E5%8F%82%E6%95%B0"><span class="nav-text">3.1. 使用sklearn自带函数求解逻辑回归参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E4%BD%BF%E7%94%A8%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%E6%B1%82%E8%A7%A3%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E5%8F%82%E6%95%B0"><span class="nav-text">3.2. 使用梯度下降法求解逻辑回归参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E4%BD%BF%E7%94%A8%E7%89%9B%E9%A1%BF%E6%B3%95%E6%B1%82%E8%A7%A3%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E5%8F%82%E6%95%B0"><span class="nav-text">3.3. 使用牛顿法求解逻辑回归参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E4%BB%8E%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E5%88%B0SoftMax"><span class="nav-text">4. 从逻辑回归到SoftMax</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -673,19 +673,19 @@ h_\theta (x)=\frac{1}{1+e^{-\left ( \theta_1 x+\theta_2 \right )}}
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/Wanguy" title="GitHub → https://github.com/Wanguy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+        <a href="https://github.com/Wanguy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Wanguy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
         <a href="mailto:w020283852@gmail.com" title="E-Mail → mailto:w020283852@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://twitter.com/rp_Wang" title="Twitter → https://twitter.com/rp_Wang" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+        <a href="https://twitter.com/rp_Wang" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;rp_Wang" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://instagram.com/rpgavin" title="Instagram → https://instagram.com/rpgavin" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+        <a href="https://instagram.com/rpgavin" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;rpgavin" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://t.me/ContactGavin_bot/" title="Telegram → https://t.me/ContactGavin_bot/" rel="noopener" target="_blank"><i class="fab fa-telegram-plane fa-fw"></i>Telegram</a>
+        <a href="https://t.me/ContactGavin_bot/" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;ContactGavin_bot&#x2F;" rel="noopener" target="_blank"><i class="fab fa-telegram-plane fa-fw"></i>Telegram</a>
       </span>
   </div>
 

@@ -4,7 +4,7 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/180.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/16.png">
@@ -130,6 +130,11 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">26</span></a>
+
+  </li>
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">19</span></a>
@@ -138,11 +143,6 @@
         <li class="menu-item menu-item-categories">
 
     <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">2</span></a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">26</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -570,7 +570,7 @@ subject\ to\ e^{T} (\alpha - \alpha^*) =0\\
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#多类别分类"><span class="nav-text">多类别分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#得分和概率"><span class="nav-text">得分和概率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不平衡问题"><span class="nav-text">不平衡问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回归"><span class="nav-text">回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#密度估计与新奇值检测（novelty-detection）"><span class="nav-text">密度估计与新奇值检测（novelty detection）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用建议"><span class="nav-text">应用建议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内核函数"><span class="nav-text">内核函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义核"><span class="nav-text">自定义核</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用Python函数作为核"><span class="nav-text">使用Python函数作为核</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学原理"><span class="nav-text">数学原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SVC"><span class="nav-text">SVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NuSVC"><span class="nav-text">NuSVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVR"><span class="nav-text">SVR</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#底层实现"><span class="nav-text">底层实现</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%B1%BB%E5%88%AB%E5%88%86%E7%B1%BB"><span class="nav-text">多类别分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%97%E5%88%86%E5%92%8C%E6%A6%82%E7%8E%87"><span class="nav-text">得分和概率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%B9%B3%E8%A1%A1%E9%97%AE%E9%A2%98"><span class="nav-text">不平衡问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E5%BD%92"><span class="nav-text">回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%86%E5%BA%A6%E4%BC%B0%E8%AE%A1%E4%B8%8E%E6%96%B0%E5%A5%87%E5%80%BC%E6%A3%80%E6%B5%8B%EF%BC%88novelty-detection%EF%BC%89"><span class="nav-text">密度估计与新奇值检测（novelty detection）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%BB%BA%E8%AE%AE"><span class="nav-text">应用建议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E6%A0%B8%E5%87%BD%E6%95%B0"><span class="nav-text">内核函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B8"><span class="nav-text">自定义核</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8Python%E5%87%BD%E6%95%B0%E4%BD%9C%E4%B8%BA%E6%A0%B8"><span class="nav-text">使用Python函数作为核</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E5%8E%9F%E7%90%86"><span class="nav-text">数学原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SVC"><span class="nav-text">SVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NuSVC"><span class="nav-text">NuSVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVR"><span class="nav-text">SVR</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0"><span class="nav-text">底层实现</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -606,19 +606,19 @@ subject\ to\ e^{T} (\alpha - \alpha^*) =0\\
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/Wanguy" title="GitHub → https://github.com/Wanguy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+        <a href="https://github.com/Wanguy" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Wanguy" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
         <a href="mailto:w020283852@gmail.com" title="E-Mail → mailto:w020283852@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://twitter.com/rp_Wang" title="Twitter → https://twitter.com/rp_Wang" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+        <a href="https://twitter.com/rp_Wang" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;rp_Wang" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://instagram.com/rpgavin" title="Instagram → https://instagram.com/rpgavin" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+        <a href="https://instagram.com/rpgavin" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;rpgavin" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://t.me/ContactGavin_bot/" title="Telegram → https://t.me/ContactGavin_bot/" rel="noopener" target="_blank"><i class="fab fa-telegram-plane fa-fw"></i>Telegram</a>
+        <a href="https://t.me/ContactGavin_bot/" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;ContactGavin_bot&#x2F;" rel="noopener" target="_blank"><i class="fab fa-telegram-plane fa-fw"></i>Telegram</a>
       </span>
   </div>
 
